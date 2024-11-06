@@ -84,7 +84,7 @@ struct SettingsView: View {
                     }
                     
                     NavigationLink("terms_of_service".localized) {
-                        TermsOfServiceView()
+                        UserAgreementView()
                     }
                 }
             }
@@ -187,11 +187,19 @@ struct SettingsView: View {
                     let formatter = ByteCountFormatter()
                     formatter.allowedUnits = [.useMB]
                     formatter.countStyle = .file
-                    cacheSize = formatter.string(fromByteCount: Int64(size))
+                    formatter.includesUnit = true
+                    formatter.isAdaptive = false
+                    
+                    // 如果大小为0，直接显示"0 MB"
+                    if size == 0 {
+                        cacheSize = "0 MB"
+                    } else {
+                        cacheSize = formatter.string(fromByteCount: Int64(size))
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {
-                    cacheSize = "计算失败"
+                    cacheSize = "0 MB"
                 }
             }
         }
@@ -235,4 +243,3 @@ extension Bundle {
 #Preview {
     SettingsView()
 }
-                                          

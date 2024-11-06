@@ -2,10 +2,11 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var searchText = ""
-    @State private var articles: [Article] = []
+    @State private var articles: [ArticleListItem] = []
     @State private var isLoading = false
     @State private var currentPage = 1
     @State private var hasMoreData = true
+    @State private var selectedArticleId: Int? = nil
     @StateObject private var languageManager = LanguageManager.shared
     
     var body: some View {
@@ -28,8 +29,11 @@ struct HomeView: View {
                     ScrollView {
                         LazyVStack(spacing: 16) {
                             ForEach(articles) { article in
-                                ArticleCard(article: article)
+                                ArticleListItemView(article: article)
                                     .padding(.horizontal)
+                                    .onTapGesture {
+                                        selectedArticleId = article.id
+                                    }
                             }
                             
                             if hasMoreData {
@@ -49,11 +53,18 @@ struct HomeView: View {
             }
             .navigationTitle(Text("home".localized))
             .navigationBarTitleDisplayMode(.large)
+            .sheet(item: Binding(
+                get: { selectedArticleId.map { ArticleIdentifier(id: $0) } },
+                set: { selectedArticleId = $0?.id }
+            )) { identifier in
+                NavigationView {
+                    ArticleDetailLoadingView(articleId: identifier.id)
+                }
+            }
         }
         .environment(\.locale, languageManager.locale)
         .supportRTL()
         .onAppear {
-            // 检查是否需要重新加载文章
             if languageManager.languageChanged {
                 print("🔄 [HomeView] Language changed detected, refreshing articles")
                 Task {
@@ -82,7 +93,6 @@ struct HomeView: View {
                 currentPage += 1
             case .failure(let error):
                 print("❌ [HomeView] Error loading articles: \(error)")
-                // TODO: 显示错误提示
             }
         }
     }
@@ -103,25 +113,14 @@ struct HomeView: View {
     }
 }
 
-struct SearchBar: View {
-    @Binding var text: String
-    var onSubmit: () -> Void
-    
-    var body: some View {
-        HStack {
-            TextField("search_placeholder".localized, text: $text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .onSubmit(onSubmit)
-            
-            Button(action: onSubmit) {
-                Image(systemName: "magnifyingglass")
-            }
-        }
-    }
+// 用于 sheet 绑定的辅助结构体
+struct ArticleIdentifier: Identifiable {
+    let id: Int
 }
 
-struct ArticleCard: View {
-    let article: Article
+// 文章列表项视图
+struct ArticleListItemView: View {
+    let article: ArticleListItem
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -167,6 +166,64 @@ struct ArticleCard: View {
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2)
+    }
+}
+
+// 文章详情加载视图
+struct ArticleDetailLoadingView: View {
+    let articleId: Int
+    @State private var article: Article?
+    @State private var isLoading = true
+    @State private var error: Error?
+    @Environment(\.dismiss) private var dismiss
+    
+    var body: some View {
+        Group {
+            if isLoading {
+                ProgressView()
+            } else if let error = error {
+                VStack {
+                    Text("Error loading article")
+                    Text(error.localizedDescription)
+                        .font(.caption)
+                        .foregroundColor(.red)
+                }
+            } else if let article = article {
+                ArticleDetailView(article: article)
+            }
+        }
+        .onAppear {
+            loadArticle()
+        }
+    }
+    
+    private func loadArticle() {
+        APIService.shared.fetchArticle(id: articleId) { result in
+            isLoading = false
+            switch result {
+            case .success(let article):
+                self.article = article
+            case .failure(let error):
+                self.error = error
+            }
+        }
+    }
+}
+
+struct SearchBar: View {
+    @Binding var text: String
+    var onSubmit: () -> Void
+    
+    var body: some View {
+        HStack {
+            TextField("search_placeholder".localized, text: $text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .onSubmit(onSubmit)
+            
+            Button(action: onSubmit) {
+                Image(systemName: "magnifyingglass")
+            }
+        }
     }
 }
 

@@ -32,7 +32,7 @@ class APIService {
         "ms": "Malaysian"
     ]
     
-    func fetchArticles(module: String = "index", page: Int = 1, completion: @escaping (Result<[Article], Error>) -> Void) {
+    func fetchArticles(module: String = "index", page: Int = 1, completion: @escaping (Result<[ArticleListItem], Error>) -> Void) {
         // 获取当前语言代码
         let languageCode = LanguageManager.shared.currentLanguage
         // 将语言代码转换为API需要的参数
@@ -64,7 +64,7 @@ class APIService {
             }
             
             do {
-                let response = try JSONDecoder().decode(APIResponse<PaginatedResponse<Article>>.self, from: data)
+                let response = try JSONDecoder().decode(APIResponse<ArticleListResponse>.self, from: data)
                 print("✅ [API] Successfully fetched \(response.data.list.count) articles")
                 DispatchQueue.main.async {
                     if response.status == 0 {
@@ -75,8 +75,8 @@ class APIService {
                     }
                 }
             } catch {
-                print("❌ [API] Decoding error: \(error)")
-                print("📝 [API] Raw data: \(String(data: data, encoding: .utf8) ?? "")")
+                print("❌ [API] Decoding error:", error)
+                print("📝 [API] Raw data:", String(data: data, encoding: .utf8) ?? "")
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }
@@ -205,6 +205,104 @@ class APIService {
             } catch {
                 print("Decoding error:", error)
                 print("Raw data:", String(data: data, encoding: .utf8) ?? "")
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }.resume()
+    }
+    
+    // 添加新的方法来获取用户协议和隐私政策
+    func fetchAgreement(type: String, completion: @escaping (Result<Article, Error>) -> Void) {
+        // 获取当前语言代码
+        let languageCode = LanguageManager.shared.currentLanguage
+        // 将语言代码转换为API需要的参数
+        let languageParam = languageMapping[languageCode] ?? "English"
+        
+        let url = URL(string: "\(baseURL)/articles/mod/\(type)/\(languageParam)")!
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                }
+                return
+            }
+            
+            do {
+                let response = try JSONDecoder().decode(APIResponse<Article>.self, from: data)
+                if response.status == 0 {
+                    DispatchQueue.main.async {
+                        completion(.success(response.data))
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completion(.failure(NSError(domain: "", code: response.status, userInfo: [NSLocalizedDescriptionKey: response.msg])))
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }.resume()
+    }
+    
+    // 便捷方法
+    func fetchUserAgreement(completion: @escaping (Result<Article, Error>) -> Void) {
+        fetchAgreement(type: "user_agreement", completion: completion)
+    }
+    
+    func fetchPrivacyPolicy(completion: @escaping (Result<Article, Error>) -> Void) {
+        fetchAgreement(type: "privacy_policy", completion: completion)
+    }
+    
+    // 添加获取单篇文章的方法
+    func fetchArticle(id: Int, completion: @escaping (Result<Article, Error>) -> Void) {
+        let url = URL(string: "\(baseURL)/articles/\(id)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        print("🌐 [API] Fetching article with ID: \(id)")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("❌ [API] Network error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let data = data else {
+                print("❌ [API] No data received")
+                DispatchQueue.main.async {
+                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                }
+                return
+            }
+            
+            do {
+                let response = try JSONDecoder().decode(APIResponse<Article>.self, from: data)
+                print("✅ [API] Successfully fetched article")
+                DispatchQueue.main.async {
+                    if response.status == 0 {
+                        completion(.success(response.data))
+                    } else {
+                        print("⚠️ [API] Error status: \(response.status), message: \(response.msg)")
+                        completion(.failure(NSError(domain: "", code: response.status, userInfo: [NSLocalizedDescriptionKey: response.msg])))
+                    }
+                }
+            } catch {
+                print("❌ [API] Decoding error:", error)
+                print("📝 [API] Raw data:", String(data: data, encoding: .utf8) ?? "")
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }

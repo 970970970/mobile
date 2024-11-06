@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5723A07A2CDBB15300C6FED0 /* Down in Frameworks */ = {isa = PBXBuildFile; productRef = 5723A0792CDBB15300C6FED0 /* Down */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		57FCF0D02CD22E760005FB43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5723A07A2CDBB15300C6FED0 /* Down in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,12 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5723A0752CDBB0FD00C6FED0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		57FCF0B42CD22E710005FB43 = {
 			isa = PBXGroup;
 			children = (
 				57FCF0BF2CD22E710005FB43 /* boycott */,
 				57FCF0D22CD22E760005FB43 /* boycottTests */,
 				57FCF0DC2CD22E760005FB43 /* boycottUITests */,
+				5723A0752CDBB0FD00C6FED0 /* Frameworks */,
 				57FCF0BE2CD22E710005FB43 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,6 +138,7 @@
 			);
 			name = boycott;
 			packageProductDependencies = (
+				5723A0792CDBB15300C6FED0 /* Down */,
 			);
 			productName = boycott;
 			productReference = 57FCF0BD2CD22E710005FB43 /* boycott.app */;
@@ -210,9 +224,27 @@
 				hi,
 				ja,
 				ko,
+				fr,
+				ru,
+				pt,
+				ms,
+				nl,
+				de,
+				ur,
+				id,
+				tr,
+				vi,
+				th,
+				es,
+				bn,
+				it,
+				fa,
 			);
 			mainGroup = 57FCF0B42CD22E710005FB43;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5723A0782CDBB14700C6FED0 /* XCRemoteSwiftPackageReference "Down" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 57FCF0BE2CD22E710005FB43 /* Products */;
 			projectDirPath = "";
@@ -576,6 +608,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5723A0782CDBB14700C6FED0 /* XCRemoteSwiftPackageReference "Down" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnxnguyen/Down.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5723A0792CDBB15300C6FED0 /* Down */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5723A0782CDBB14700C6FED0 /* XCRemoteSwiftPackageReference "Down" */;
+			productName = Down;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 57FCF0B52CD22E710005FB43 /* Project object */;
 }
