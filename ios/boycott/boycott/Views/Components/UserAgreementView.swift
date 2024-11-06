@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PrivacyPolicyView: View {
+struct UserAgreementView: View {
     @State private var content: String = ""
     @State private var isLoading = true
     @State private var error: Error?
@@ -11,31 +11,34 @@ struct PrivacyPolicyView: View {
                 ProgressView()
             } else if let error = error {
                 VStack {
-                    Text("Error loading privacy policy")
+                    Text("Error loading user agreement")
                     Text(error.localizedDescription)
                         .font(.caption)
                         .foregroundColor(.red)
                 }
             } else {
-                MarkdownView(markdown: content)
+                ScrollView {
+                    MarkdownView(markdown: content)
+                        .padding()
+                }
             }
         }
-        .navigationTitle("privacy_policy".localized)
+        .navigationTitle("terms_of_service".localized)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            loadPrivacyPolicy()
+            loadUserAgreement()
         }
     }
     
-    private func loadPrivacyPolicy() {
-        APIService.shared.fetchPrivacyPolicy { result in
+    private func loadUserAgreement() {
+        APIService.shared.fetchAgreement(type: "user_agreement") { result in
             isLoading = false
             switch result {
             case .success(let article):
                 print("Received content: \(article.content)")
                 self.content = article.content
             case .failure(let error):
-                print("Error loading policy: \(error)")
+                print("Error loading agreement: \(error)")
                 self.error = error
             }
         }
@@ -44,6 +47,6 @@ struct PrivacyPolicyView: View {
 
 #Preview {
     NavigationView {
-        PrivacyPolicyView()
+        UserAgreementView()
     }
 } 
