@@ -1,0 +1,26 @@
+/* Tiếng Việt */
+"language_settings" = "Cài đặt ngôn ngữ";
+"current_language" = "Ngôn ngữ hiện tại";
+"theme_settings" = "Cài đặt giao diện";
+"dark_mode" = "Chế độ tối";
+"cache_management" = "Quản lý bộ nhớ đệm";
+"clear_cache" = "Xóa bộ nhớ đệm";
+"calculating" = "Đang tính...";
+"version" = "Phiên bản";
+"home" = "Trang chủ";
+"scan" = "Quét";
+"settings" = "Cài đặt";
+"feedback_support" = "Phản hồi & Hỗ trợ";
+"submit_feedback" = "Gửi phản hồi";
+"community_discussion" = "Thảo luận cộng đồng";
+"support_us" = "Hỗ trợ chúng tôi";
+"about" = "Giới thiệu";
+"privacy_policy" = "Chính sách bảo mật";
+"terms_of_service" = "Điều khoản dịch vụ";
+"cancel" = "Hủy";
+"confirm" = "Xác nhận";
+"done" = "Xong";
+"clear_cache_confirm" = "Bạn có chắc chắn muốn xóa tất cả bộ nhớ đệm?";
+"select_language" = "Chọn ngôn ngữ";
+"search_placeholder" = "Tìm kiếm tên công ty";
+"no_articles" = "Không có bài viết"; 

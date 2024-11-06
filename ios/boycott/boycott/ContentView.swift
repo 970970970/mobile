@@ -1,61 +1,50 @@
-//
-//  ContentView.swift
-//  boycott
-//
-//  Created by 马思奇 on 2024/10/30.
-//
-
 import SwiftUI
-import SwiftData
+import Foundation
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    static let languageChangedNotification = Notification.Name("com.boycott.languageChanged")
+    
+    @StateObject private var languageManager = LanguageManager.shared
+    @State private var selectedTab = 0
+    @State private var refreshFlag = false
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
+        TabView(selection: $selectedTab) {
+            HomeView()
+                .tabItem {
+                    Label("home".localized, systemImage: "house.fill")
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                .tag(0)
+            
+            ScanView()
+                .tabItem {
+                    Label("scan".localized, systemImage: "camera.fill")
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                .tag(1)
+            
+            SettingsView()
+                .tabItem {
+                    Label("settings".localized, systemImage: "gearshape.fill")
                 }
-            }
-        } detail: {
-            Text("Select an item")
+                .tag(2)
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+        .id(refreshFlag)
+        .environment(\.locale, languageManager.locale)
+        .supportRTL()
+        .onReceive(NotificationCenter.default.publisher(for: ContentView.languageChangedNotification)) { _ in
+            print("📢 [ContentView] Received language change notification")
+            print("🔄 [ContentView] Current locale: \(languageManager.locale.identifier)")
+            print("🔄 [ContentView] Toggling refresh flag from \(refreshFlag) to \(!refreshFlag)")
+            refreshFlag.toggle()
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+        .onAppear {
+            print("👋 [ContentView] View appeared with locale: \(languageManager.locale.identifier)")
         }
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

@@ -6,27 +6,16 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct boycottApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+    // 使用 AppStorage 来管理主题设置
+    @AppStorage("theme") private var isDarkMode = false
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
-        .modelContainer(sharedModelContainer)
     }
 }

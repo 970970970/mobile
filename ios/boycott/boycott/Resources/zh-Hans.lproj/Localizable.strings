@@ -1,0 +1,38 @@
+/* 通用 */
+"language_settings" = "语言设置";
+"current_language" = "当前语言";
+"theme_settings" = "主题设置";
+"dark_mode" = "深色模式";
+"cache_management" = "缓存管理";
+"clear_cache" = "清除缓存";
+"calculating" = "计算中...";
+"version" = "版本";
+
+/* 标签栏 */
+"home" = "首页";
+"scan" = "扫描";
+"settings" = "设置";
+
+/* 设置页面 */
+"feedback_support" = "反馈与支持";
+"submit_feedback" = "提交反馈";
+"community_discussion" = "社区讨论";
+"support_us" = "支持我们";
+"about" = "关于";
+"privacy_policy" = "隐私政策";
+"terms_of_service" = "用户协议";
+
+/* 操作 */
+"cancel" = "取消";
+"confirm" = "确定";
+"done" = "完成";
+
+/* 提示 */
+"clear_cache_confirm" = "确定要清除所有缓存吗？";
+
+/* 选择语言 */
+"select_language" = "选择语言";
+"search_placeholder" = "搜索公司名称";
+
+/* 首页 */
+"no_articles" = "暂无文章";

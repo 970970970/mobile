@@ -1,0 +1,16 @@
+/* 为每种语言创建对应的 Localizable.strings 文件 */
+
+// en.lproj/Localizable.strings
+"home" = "Home";
+"scan" = "Scan";
+"settings" = "Settings";
+"current_language" = "Current Language";
+"dark_mode" = "Dark Mode";
+"clear_cache" = "Clear Cache";
+// ... 其他字符串
+
+// ar.lproj/Localizable.strings (阿拉伯语)
+"home" = "الرئيسية";
+"scan" = "مسح";
+"settings" = "إعدادات";
+// ... 其他字符串 

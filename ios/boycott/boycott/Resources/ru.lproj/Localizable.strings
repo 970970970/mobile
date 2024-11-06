@@ -1,0 +1,26 @@
+/* Русский */
+"language_settings" = "Настройки языка";
+"current_language" = "Текущий язык";
+"theme_settings" = "Настройки темы";
+"dark_mode" = "Тёмная тема";
+"cache_management" = "Управление кэшем";
+"clear_cache" = "Очистить кэш";
+"calculating" = "Вычисление...";
+"version" = "Версия";
+"home" = "Главная";
+"scan" = "Сканировать";
+"settings" = "Настройки";
+"feedback_support" = "Обратная связь";
+"submit_feedback" = "Отправить отзыв";
+"community_discussion" = "Обсуждение";
+"support_us" = "Поддержать нас";
+"about" = "О приложении";
+"privacy_policy" = "Политика конфиденциальности";
+"terms_of_service" = "Условия использования";
+"cancel" = "Отмена";
+"confirm" = "Подтвердить";
+"done" = "Готово";
+"clear_cache_confirm" = "Вы уверены, что хотите очистить кэш?";
+"select_language" = "Выбор языка";
+"search_placeholder" = "Поиск компании";
+"no_articles" = "Нет статей"; 

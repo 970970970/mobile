@@ -1,0 +1,38 @@
+/* General */
+"language_settings" = "Language Settings";
+"current_language" = "Current Language";
+"theme_settings" = "Theme Settings";
+"dark_mode" = "Dark Mode";
+"cache_management" = "Cache Management";
+"clear_cache" = "Clear Cache";
+"calculating" = "Calculating...";
+"version" = "Version";
+
+/* Tab Bar */
+"home" = "Home";
+"scan" = "Scan";
+"settings" = "Settings";
+
+/* Settings Page */
+"feedback_support" = "Feedback & Support";
+"submit_feedback" = "Submit Feedback";
+"community_discussion" = "Community Discussion";
+"support_us" = "Support Us";
+"about" = "About";
+"privacy_policy" = "Privacy Policy";
+"terms_of_service" = "Terms of Service";
+
+/* Actions */
+"cancel" = "Cancel";
+"confirm" = "Confirm";
+"done" = "Done";
+
+/* Prompts */
+"clear_cache_confirm" = "Are you sure you want to clear all cache?";
+
+/* Language Selection */
+"select_language" = "Select Language";
+"search_placeholder" = "Search company name";
+
+/* Home Page */
+"no_articles" = "No articles";

@@ -1,0 +1,26 @@
+/* Bahasa Melayu */
+"language_settings" = "Tetapan Bahasa";
+"current_language" = "Bahasa Semasa";
+"theme_settings" = "Tetapan Tema";
+"dark_mode" = "Mod Gelap";
+"cache_management" = "Pengurusan Cache";
+"clear_cache" = "Kosongkan Cache";
+"calculating" = "Mengira...";
+"version" = "Versi";
+"home" = "Laman Utama";
+"scan" = "Imbas";
+"settings" = "Tetapan";
+"feedback_support" = "Maklum Balas & Sokongan";
+"submit_feedback" = "Hantar Maklum Balas";
+"community_discussion" = "Perbincangan Komuniti";
+"support_us" = "Sokong Kami";
+"about" = "Mengenai";
+"privacy_policy" = "Dasar Privasi";
+"terms_of_service" = "Syarat Perkhidmatan";
+"cancel" = "Batal";
+"confirm" = "Sahkan";
+"done" = "Selesai";
+"clear_cache_confirm" = "Adakah anda pasti mahu mengosongkan semua cache?";
+"select_language" = "Pilih Bahasa";
+"search_placeholder" = "Cari nama syarikat";
+"no_articles" = "Tiada artikel"; 

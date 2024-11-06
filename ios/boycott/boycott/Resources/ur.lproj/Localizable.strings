@@ -1,0 +1,26 @@
+/* اردو */
+"language_settings" = "زبان کی ترتیبات";
+"current_language" = "موجودہ زبان";
+"theme_settings" = "تھیم کی ترتیبات";
+"dark_mode" = "ڈارک موڈ";
+"cache_management" = "کیشے مینجمنٹ";
+"clear_cache" = "کیشے صاف کریں";
+"calculating" = "حساب کر رہا ہے...";
+"version" = "ورژن";
+"home" = "ہوم";
+"scan" = "اسکین";
+"settings" = "ترتیبات";
+"feedback_support" = "رائے اور مدد";
+"submit_feedback" = "رائے جمع کریں";
+"community_discussion" = "کمیونٹی ڈسکشن";
+"support_us" = "ہماری مدد کریں";
+"about" = "ہمارے بارے میں";
+"privacy_policy" = "رازداری کی پالیسی";
+"terms_of_service" = "سروس کی شرائط";
+"cancel" = "منسوخ کریں";
+"confirm" = "تصدیق کریں";
+"done" = "مکمل";
+"clear_cache_confirm" = "کیا آپ واقعی کیشے صاف کرنا چاہتے ہیں؟";
+"select_language" = "زبان منتخب کریں";
+"search_placeholder" = "کمپنی کا نام تلاش کریں";
+"no_articles" = "کوئی مضامین نہیں"; 

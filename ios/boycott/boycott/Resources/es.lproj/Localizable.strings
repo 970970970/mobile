@@ -1,0 +1,26 @@
+/* Español */
+"language_settings" = "Configuración de idioma";
+"current_language" = "Idioma actual";
+"theme_settings" = "Configuración de tema";
+"dark_mode" = "Modo oscuro";
+"cache_management" = "Gestión de caché";
+"clear_cache" = "Limpiar caché";
+"calculating" = "Calculando...";
+"version" = "Versión";
+"home" = "Inicio";
+"scan" = "Escanear";
+"settings" = "Ajustes";
+"feedback_support" = "Comentarios y soporte";
+"submit_feedback" = "Enviar comentarios";
+"community_discussion" = "Discusión comunitaria";
+"support_us" = "Apóyanos";
+"about" = "Acerca de";
+"privacy_policy" = "Política de privacidad";
+"terms_of_service" = "Términos de servicio";
+"cancel" = "Cancelar";
+"confirm" = "Confirmar";
+"done" = "Listo";
+"clear_cache_confirm" = "¿Está seguro de que desea limpiar toda la caché?";
+"select_language" = "Seleccionar idioma";
+"search_placeholder" = "Buscar nombre de empresa";
+"no_articles" = "No hay artículos"; 

@@ -1,0 +1,26 @@
+/* Nederlands */
+"language_settings" = "Taalinstellingen";
+"current_language" = "Huidige taal";
+"theme_settings" = "Thema-instellingen";
+"dark_mode" = "Donkere modus";
+"cache_management" = "Cachebeheer";
+"clear_cache" = "Cache wissen";
+"calculating" = "Berekenen...";
+"version" = "Versie";
+"home" = "Home";
+"scan" = "Scannen";
+"settings" = "Instellingen";
+"feedback_support" = "Feedback & Ondersteuning";
+"submit_feedback" = "Feedback versturen";
+"community_discussion" = "Community discussie";
+"support_us" = "Steun ons";
+"about" = "Over";
+"privacy_policy" = "Privacybeleid";
+"terms_of_service" = "Servicevoorwaarden";
+"cancel" = "Annuleren";
+"confirm" = "Bevestigen";
+"done" = "Klaar";
+"clear_cache_confirm" = "Weet u zeker dat u de cache wilt wissen?";
+"select_language" = "Taal selecteren";
+"search_placeholder" = "Bedrijfsnaam zoeken";
+"no_articles" = "Geen artikelen"; 

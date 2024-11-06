@@ -1,0 +1,26 @@
+/* Bahasa Indonesia */
+"language_settings" = "Pengaturan Bahasa";
+"current_language" = "Bahasa Saat Ini";
+"theme_settings" = "Pengaturan Tema";
+"dark_mode" = "Mode Gelap";
+"cache_management" = "Manajemen Cache";
+"clear_cache" = "Bersihkan Cache";
+"calculating" = "Menghitung...";
+"version" = "Versi";
+"home" = "Beranda";
+"scan" = "Pindai";
+"settings" = "Pengaturan";
+"feedback_support" = "Umpan Balik & Dukungan";
+"submit_feedback" = "Kirim Umpan Balik";
+"community_discussion" = "Diskusi Komunitas";
+"support_us" = "Dukung Kami";
+"about" = "Tentang";
+"privacy_policy" = "Kebijakan Privasi";
+"terms_of_service" = "Ketentuan Layanan";
+"cancel" = "Batal";
+"confirm" = "Konfirmasi";
+"done" = "Selesai";
+"clear_cache_confirm" = "Apakah Anda yakin ingin membersihkan semua cache?";
+"select_language" = "Pilih Bahasa";
+"search_placeholder" = "Cari nama perusahaan";
+"no_articles" = "Tidak ada artikel"; 

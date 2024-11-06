@@ -1,0 +1,26 @@
+/* Türkçe */
+"language_settings" = "Dil Ayarları";
+"current_language" = "Mevcut Dil";
+"theme_settings" = "Tema Ayarları";
+"dark_mode" = "Karanlık Mod";
+"cache_management" = "Önbellek Yönetimi";
+"clear_cache" = "Önbelleği Temizle";
+"calculating" = "Hesaplanıyor...";
+"version" = "Sürüm";
+"home" = "Ana Sayfa";
+"scan" = "Tara";
+"settings" = "Ayarlar";
+"feedback_support" = "Geri Bildirim ve Destek";
+"submit_feedback" = "Geri Bildirim Gönder";
+"community_discussion" = "Topluluk Tartışması";
+"support_us" = "Bizi Destekle";
+"about" = "Hakkında";
+"privacy_policy" = "Gizlilik Politikası";
+"terms_of_service" = "Kullanım Koşulları";
+"cancel" = "İptal";
+"confirm" = "Onayla";
+"done" = "Tamam";
+"clear_cache_confirm" = "Önbelleği temizlemek istediğinizden emin misiniz?";
+"select_language" = "Dil Seç";
+"search_placeholder" = "Şirket adı ara";
+"no_articles" = "Makale yok"; 

@@ -1,0 +1,31 @@
+// 通用
+"language_settings" = "إعدادات اللغة";
+"current_language" = "اللغة الحالية";
+"theme_settings" = "إعدادات المظهر";
+"dark_mode" = "الوضع الداكن";
+"cache_management" = "إدارة ذاكرة التخزين المؤقت";
+"clear_cache" = "مسح ذاكرة التخزين المؤقت";
+"calculating" = "جاري الحساب...";
+"version" = "الإصدار";
+
+// 标签栏
+"home" = "الرئيسية";
+"scan" = "مسح";
+"settings" = "الإعدادات";
+
+// 设置页面
+"feedback_support" = "الدعم والملاحظات";
+"submit_feedback" = "إرسال ملاحظات";
+"community_discussion" = "مناقشة المجتمع";
+"support_us" = "ادعمنا";
+"about" = "حول";
+"privacy_policy" = "سياسة الخصوصية";
+"terms_of_service" = "شروط الخدمة";
+
+// 操作
+"cancel" = "إلغاء";
+"confirm" = "تأكيد";
+"done" = "تم";
+
+// 提示
+"clear_cache_confirm" = "هل أنت متأكد من أنك تريد مسح جميع ذاكرة التخزين المؤقت؟"; 

@@ -1,0 +1,26 @@
+/* Italiano */
+"language_settings" = "Impostazioni lingua";
+"current_language" = "Lingua corrente";
+"theme_settings" = "Impostazioni tema";
+"dark_mode" = "Modalità scura";
+"cache_management" = "Gestione cache";
+"clear_cache" = "Svuota cache";
+"calculating" = "Calcolo in corso...";
+"version" = "Versione";
+"home" = "Home";
+"scan" = "Scansiona";
+"settings" = "Impostazioni";
+"feedback_support" = "Feedback e supporto";
+"submit_feedback" = "Invia feedback";
+"community_discussion" = "Discussione community";
+"support_us" = "Supportaci";
+"about" = "Info";
+"privacy_policy" = "Privacy policy";
+"terms_of_service" = "Termini di servizio";
+"cancel" = "Annulla";
+"confirm" = "Conferma";
+"done" = "Fatto";
+"clear_cache_confirm" = "Sei sicuro di voler svuotare la cache?";
+"select_language" = "Seleziona lingua";
+"search_placeholder" = "Cerca azienda";
+"no_articles" = "Nessun articolo"; 

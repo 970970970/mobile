@@ -1,0 +1,26 @@
+/* বাংলা */
+"language_settings" = "ভাষা সেটিংস";
+"current_language" = "বর্তমান ভাষা";
+"theme_settings" = "থিম সেটিংস";
+"dark_mode" = "ডার্ক মোড";
+"cache_management" = "ক্যাশে ব্যবস্থাপনা";
+"clear_cache" = "ক্যাশে মুছুন";
+"calculating" = "হিসাব করা হচ্ছে...";
+"version" = "সংস্করণ";
+"home" = "হোম";
+"scan" = "স্ক্যান";
+"settings" = "সেটিংস";
+"feedback_support" = "ফিডব্যাক ও সহায়তা";
+"submit_feedback" = "ফিডব্যাক জমা দিন";
+"community_discussion" = "কমিউনিটি আলোচনা";
+"support_us" = "আমাদের সমর্থন করুন";
+"about" = "সম্পর্কে";
+"privacy_policy" = "গোপনীয়তা নীতি";
+"terms_of_service" = "পরিষেবার শর্তাবলী";
+"cancel" = "বাতিল";
+"confirm" = "নিশ্চিত করুন";
+"done" = "সম্পন্ন";
+"clear_cache_confirm" = "আপনি কি নিশ্চিত যে আপনি ক্যাশে মুছে ফেলতে চান?";
+"select_language" = "ভাষা নির্বাচন করুন";
+"search_placeholder" = "কোম্পানির নাম খুঁজুন";
+"no_articles" = "কোন নিবন্ধ নেই"; 

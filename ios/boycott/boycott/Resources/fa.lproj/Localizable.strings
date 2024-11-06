@@ -1,0 +1,26 @@
+/* فارسی */
+"language_settings" = "تنظیمات زبان";
+"current_language" = "زبان فعلی";
+"theme_settings" = "تنظیمات ظاهری";
+"dark_mode" = "حالت تاریک";
+"cache_management" = "مدیریت حافظه پنهان";
+"clear_cache" = "پاک کردن حافظه پنهان";
+"calculating" = "در حال محاسبه...";
+"version" = "نسخه";
+"home" = "خانه";
+"scan" = "اسکن";
+"settings" = "تنظیمات";
+"feedback_support" = "بازخورد و پشتیبانی";
+"submit_feedback" = "ارسال بازخورد";
+"community_discussion" = "گفتگوی انجمن";
+"support_us" = "حمایت از ما";
+"about" = "درباره";
+"privacy_policy" = "سیاست حفظ حریم خصوصی";
+"terms_of_service" = "شرایط خدمات";
+"cancel" = "لغو";
+"confirm" = "تایید";
+"done" = "انجام شد";
+"clear_cache_confirm" = "آیا مطمئن هستید که می‌خواهید حافظه پنهان را پاک کنید؟";
+"select_language" = "انتخاب زبان";
+"search_placeholder" = "جستجوی نام شرکت";
+"no_articles" = "مقاله‌ای موجود نیست"; 

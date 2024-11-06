@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5723AC802CD6991100752D2A /* Exceptions for "boycott" folder in "boycott" target */ = {
+		575CEE112CD68E2F00DB0DB5 /* Exceptions for "boycott" folder in "boycott" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,7 +43,7 @@
 		57FCF0BF2CD22E710005FB43 /* boycott */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				5723AC802CD6991100752D2A /* Exceptions for "boycott" folder in "boycott" target */,
+				575CEE112CD68E2F00DB0DB5 /* Exceptions for "boycott" folder in "boycott" target */,
 			);
 			path = boycott;
 			sourceTree = "<group>";
@@ -205,11 +205,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"zh-Hans",
-				ar,
-				hi,
-				ja,
-				ko,
 			);
 			mainGroup = 57FCF0B42CD22E710005FB43;
 			minimizedProjectReferenceProxies = 1;
@@ -418,13 +413,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"boycott/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_FILE[sdk=*]" = boycott/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,13 +441,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"boycott/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_FILE[sdk=*]" = boycott/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
