@@ -20,7 +20,7 @@ struct ScanView: View {
                     Color.black
                         .ignoresSafeArea()
                         .overlay(
-                            Text("相机未启用")
+                            Text("camera_not_enabled".localized)
                                 .foregroundColor(.white)
                         )
                 }
@@ -37,7 +37,7 @@ struct ScanView: View {
                                     if status == .authorized {
                                         showingImagePicker = true
                                     } else {
-                                        alertMessage = "请在设置中允许访问相册"
+                                        alertMessage = "photo_library_permission_required".localized
                                         showingAlert = true
                                     }
                                 }
@@ -55,7 +55,7 @@ struct ScanView: View {
                                     scannerViewModel.setupCamera()
                                 } else {
                                     DispatchQueue.main.async {
-                                        alertMessage = "请在设置中允许访问相机"
+                                        alertMessage = "camera_permission_required".localized
                                         showingAlert = true
                                     }
                                 }
@@ -69,13 +69,13 @@ struct ScanView: View {
                     .padding(.bottom, 50)
                 }
             }
-            .navigationTitle("扫描")
+            .navigationTitle("scan".localized)
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showingImagePicker) {
                 ImagePicker(image: $selectedImage)
             }
-            .alert("提示", isPresented: $showingAlert) {
-                Button("确定", role: .cancel) { }
+            .alert("alert".localized, isPresented: $showingAlert) {
+                Button("ok".localized, role: .cancel) { }
             } message: {
                 Text(alertMessage)
             }

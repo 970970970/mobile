@@ -22,5 +22,16 @@
 "done" = "Listo";
 "clear_cache_confirm" = "¿Está seguro de que desea limpiar toda la caché?";
 "select_language" = "Seleccionar idioma";
-"search_placeholder" = "Buscar nombre de empresa";
-"no_articles" = "No hay artículos"; 
+"search_placeholder" = "Buscar empresa";
+"no_articles" = "No hay artículos";
+
+/* Camera */
+"camera_not_enabled" = "Cámara no habilitada";
+"photo_library_permission_required" = "Por favor, permita el acceso a la biblioteca de fotos en Configuración";
+"camera_permission_required" = "Por favor, permita el acceso a la cámara en Configuración";
+"camera_not_available" = "Cámara no disponible";
+"camera_init_failed" = "Error al inicializar la cámara: %@";
+"torch_not_supported" = "El dispositivo no admite flash";
+"torch_control_failed" = "Error en el control del flash";
+"image_recognition_failed" = "Error en el reconocimiento de imagen: %@";
+"barcode_processing_failed" = "Error en el procesamiento del código de barras: %@";

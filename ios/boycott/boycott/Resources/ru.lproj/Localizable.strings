@@ -10,9 +10,9 @@
 "home" = "Главная";
 "scan" = "Сканировать";
 "settings" = "Настройки";
-"feedback_support" = "Обратная связь";
+"feedback_support" = "Обратная связь и поддержка";
 "submit_feedback" = "Отправить отзыв";
-"community_discussion" = "Обсуждение";
+"community_discussion" = "Обсуждение сообщества";
 "support_us" = "Поддержать нас";
 "about" = "О приложении";
 "privacy_policy" = "Политика конфиденциальности";
@@ -20,7 +20,19 @@
 "cancel" = "Отмена";
 "confirm" = "Подтвердить";
 "done" = "Готово";
-"clear_cache_confirm" = "Вы уверены, что хотите очистить кэш?";
-"select_language" = "Выбор языка";
+"clear_cache_confirm" = "Вы уверены, что хотите ��чистить весь кэш?";
+"select_language" = "Выбрать язык";
 "search_placeholder" = "Поиск компании";
-"no_articles" = "Нет статей"; 
+"no_articles" = "Нет статей";
+
+/* Camera */
+"camera_not_enabled" = "Камера не включена";
+"photo_library_permission_required" = "Пожалуйста, разрешите доступ к фотогалерее в настройках";
+"camera_permission_required" = "Пожалуйста, разрешите доступ к камере в настройках";
+"camera_not_available" = "Камера недоступна";
+"camera_init_failed" = "Ошибка инициализации камеры: %@";
+"torch_not_supported" = "Устройство не поддерживает вспышку";
+"torch_control_failed" = "Ошибка управления вспышкой";
+"image_recognition_failed" = "Ошибка распознавания изображения: %@";
+"barcode_processing_failed" = "Ошибка обработки штрих-кода: %@";
+  

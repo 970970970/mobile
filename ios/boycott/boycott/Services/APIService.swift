@@ -3,7 +3,12 @@ import UIKit
 
 class APIService {
     static let shared = APIService()
-    private let baseURL = "http://10.1.0.241:8787/v1"
+    let baseURL = AppConfig.apiHost
+    
+    // 添加一个公共的 getter 方法
+    var apiBaseURL: String {
+        return baseURL
+    }
     
     private init() {}
     

@@ -36,3 +36,22 @@
 
 /* Home Page */
 "no_articles" = "No articles";
+
+/* Camera */
+"camera_not_enabled" = "Camera Not Enabled";
+"photo_library_permission_required" = "Please allow access to Photo Library in Settings";
+"camera_permission_required" = "Please allow access to Camera in Settings";
+"scan" = "Scan";
+"alert" = "Alert";
+"ok" = "OK";
+"camera_not_available" = "Camera Not Available";
+"camera_init_failed" = "Camera initialization failed: %@";
+
+/* Scanning */
+"torch_not_supported" = "Device does not support flash";
+"torch_control_failed" = "Flash control failed";
+"image_recognition_failed" = "Image recognition failed: %@";
+"barcode_processing_failed" = "Barcode processing failed: %@";
+
+/* Brands */
+"brands" = "Brands";

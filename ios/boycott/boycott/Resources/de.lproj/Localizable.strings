@@ -5,7 +5,7 @@
 "dark_mode" = "Dunkelmodus";
 "cache_management" = "Cache-Verwaltung";
 "clear_cache" = "Cache leeren";
-"calculating" = "Berechnung...";
+"calculating" = "Berechne...";
 "version" = "Version";
 "home" = "Startseite";
 "scan" = "Scannen";
@@ -20,7 +20,19 @@
 "cancel" = "Abbrechen";
 "confirm" = "Bestätigen";
 "done" = "Fertig";
-"clear_cache_confirm" = "Möchten Sie wirklich den Cache leeren?";
+"clear_cache_confirm" = "Möchten Sie wirklich den gesamten Cache leeren?";
 "select_language" = "Sprache auswählen";
 "search_placeholder" = "Firmenname suchen";
-"no_articles" = "Keine Artikel"; 
+"no_articles" = "Keine Artikel";
+
+/* Camera */
+"camera_not_enabled" = "Kamera nicht aktiviert";
+"photo_library_permission_required" = "Bitte erlauben Sie den Zugriff auf die Fotobibliothek in den Einstellungen";
+"camera_permission_required" = "Bitte erlauben Sie den Zugriff auf die Kamera in den Einstellungen";
+"camera_not_available" = "Kamera nicht verfügbar";
+"camera_init_failed" = "Kamera-Initialisierung fehlgeschlagen: %@";
+"torch_not_supported" = "Gerät unterstützt keinen Blitz";
+"torch_control_failed" = "Blitzsteuerung fehlgeschlagen";
+"image_recognition_failed" = "Bilderkennung fehlgeschlagen: %@";
+"barcode_processing_failed" = "Barcode-Verarbeitung fehlgeschlagen: %@";
+  

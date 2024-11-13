@@ -20,7 +20,18 @@
 "cancel" = "Cancelar";
 "confirm" = "Confirmar";
 "done" = "Concluído";
-"clear_cache_confirm" = "Tem certeza que deseja limpar o cache?";
+"clear_cache_confirm" = "Tem certeza que deseja limpar todo o cache?";
 "select_language" = "Selecionar idioma";
-"search_placeholder" = "Pesquisar empresa";
-"no_articles" = "Nenhum artigo"; 
+"search_placeholder" = "Buscar empresa";
+"no_articles" = "Nenhum artigo";
+
+/* Camera */
+"camera_not_enabled" = "Câmera não habilitada";
+"photo_library_permission_required" = "Por favor, permita o acesso à biblioteca de fotos nas configurações";
+"camera_permission_required" = "Por favor, permita o acesso à câmera nas configurações";
+"camera_not_available" = "Câmera não disponível";
+"camera_init_failed" = "Falha na inicialização da câmera: %@";
+"torch_not_supported" = "Dispositivo não suporta flash";
+"torch_control_failed" = "Falha no controle do flash";
+"image_recognition_failed" = "Falha no reconhecimento de imagem: %@";
+"barcode_processing_failed" = "Falha no processamento do código de barras: %@";

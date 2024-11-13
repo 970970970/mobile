@@ -10,8 +10,8 @@
 "home" = "হোম";
 "scan" = "স্ক্যান";
 "settings" = "সেটিংস";
-"feedback_support" = "ফিডব্যাক ও সহায়তা";
-"submit_feedback" = "ফিডব্যাক জমা দিন";
+"feedback_support" = "প্রতিক্রিয়া ও সহায়তা";
+"submit_feedback" = "প্রতিক্রিয়া জমা দিন";
 "community_discussion" = "কমিউনিটি আলোচনা";
 "support_us" = "আমাদের সমর্থন করুন";
 "about" = "সম্পর্কে";
@@ -20,7 +20,18 @@
 "cancel" = "বাতিল";
 "confirm" = "নিশ্চিত করুন";
 "done" = "সম্পন্ন";
-"clear_cache_confirm" = "আপনি কি নিশ্চিত যে আপনি ক্যাশে মুছে ফেলতে চান?";
+"clear_cache_confirm" = "আপনি কি নিশ্চিত যে আপনি সমস্ত ক্যাশে মুছে ফেলতে চান?";
 "select_language" = "ভাষা নির্বাচন করুন";
-"search_placeholder" = "কোম্পানির নাম খুঁজুন";
-"no_articles" = "কোন নিবন্ধ নেই"; 
+"search_placeholder" = "কোম্পানি খুঁজুন";
+"no_articles" = "কোন নিবন্ধ নেই";
+
+/* Camera */
+"camera_not_enabled" = "ক্যামেরা সক্রিয় নয়";
+"photo_library_permission_required" = "সেটিংসে ফটো লাইব্রেরি অ্যাক্সেস অনুমতি দিন";
+"camera_permission_required" = "সেটিংসে ক্যামেরা অ্যাক্সেস অনুমতি দিন";
+"camera_not_available" = "ক্যামেরা উপলব্ধ নয়";
+"camera_init_failed" = "ক্যামেরা আরম্ভ ব্যর্থ: %@";
+"torch_not_supported" = "ডিভাইস ফ্ল্যাশ সমর্থন করে না";
+"torch_control_failed" = "ফ্ল্যাশ নিয়ন্ত্রণ ব্যর্থ";
+"image_recognition_failed" = "ছবি শনাক্তকরণ ব্যর্থ: %@";
+"barcode_processing_failed" = "বারকোড প্রক্রিয়াকরণ ব্যর্থ: %@";

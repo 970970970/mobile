@@ -16,17 +16,23 @@ struct ContentView: View {
                 }
                 .tag(0)
             
+            BrandListView()
+                .tabItem {
+                    Label("brands".localized, systemImage: "tag.fill")
+                }
+                .tag(1)
+            
             ScanView()
                 .tabItem {
                     Label("scan".localized, systemImage: "camera.fill")
                 }
-                .tag(1)
+                .tag(2)
             
             SettingsView()
                 .tabItem {
                     Label("settings".localized, systemImage: "gearshape.fill")
                 }
-                .tag(2)
+                .tag(3)
         }
         .id(refreshFlag)
         .environment(\.locale, languageManager.locale)

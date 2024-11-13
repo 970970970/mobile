@@ -1,6 +1,37 @@
-/* 日语本地化 */
+/* 日本語 */
 "language_settings" = "言語設定";
 "current_language" = "現在の言語";
 "theme_settings" = "テーマ設定";
 "dark_mode" = "ダークモード";
-// ... 其他翻译 
+"cache_management" = "キャッシュ管理";
+"clear_cache" = "キャッシュを削除";
+"calculating" = "計算中...";
+"version" = "バージョン";
+"home" = "ホーム";
+"scan" = "スキャン";
+"settings" = "設定";
+"feedback_support" = "フィードバックとサポート";
+"submit_feedback" = "フィードバックを送信";
+"community_discussion" = "コミュニティディスカッション";
+"support_us" = "サポートする";
+"about" = "アプリについて";
+"privacy_policy" = "プライバシーポリシー";
+"terms_of_service" = "利用規約";
+"cancel" = "キャンセル";
+"confirm" = "確認";
+"done" = "完了";
+"clear_cache_confirm" = "本当にすべてのキャッシュを削除しますか？";
+"select_language" = "言語を選択";
+"search_placeholder" = "企業名を検索";
+"no_articles" = "記事がありません";
+
+/* Camera */
+"camera_not_enabled" = "カメラが有効になっていません";
+"photo_library_permission_required" = "設定でフォトライブラリへのアクセスを許可してください";
+"camera_permission_required" = "設定でカメラへのアクセスを許可してください";
+"camera_not_available" = "カメラが利用できません";
+"camera_init_failed" = "カメラの初期化に失敗しました: %@";
+"torch_not_supported" = "デバイスがフラッシュに対応していません";
+"torch_control_failed" = "フラッシュ制御に失敗しました";
+"image_recognition_failed" = "画像認識に失敗しました: %@";
+"barcode_processing_failed" = "バーコード処理に失敗しました: %@";

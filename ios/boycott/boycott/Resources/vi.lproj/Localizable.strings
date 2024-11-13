@@ -22,5 +22,16 @@
 "done" = "Xong";
 "clear_cache_confirm" = "Bạn có chắc chắn muốn xóa tất cả bộ nhớ đệm?";
 "select_language" = "Chọn ngôn ngữ";
-"search_placeholder" = "Tìm kiếm tên công ty";
-"no_articles" = "Không có bài viết"; 
+"search_placeholder" = "Tìm kiếm công ty";
+"no_articles" = "Không có bài viết";
+
+/* Camera */
+"camera_not_enabled" = "Camera chưa được kích hoạt";
+"photo_library_permission_required" = "Vui lòng cho phép truy cập thư viện ảnh trong cài đặt";
+"camera_permission_required" = "Vui lòng cho phép truy cập camera trong cài đặt";
+"camera_not_available" = "Không có camera";
+"camera_init_failed" = "Khởi tạo camera thất bại: %@";
+"torch_not_supported" = "Thiết bị không hỗ trợ đèn flash";
+"torch_control_failed" = "Điều khiển đèn flash thất bại";
+"image_recognition_failed" = "Nhận dạng hình ảnh thất bại: %@";
+"barcode_processing_failed" = "Xử lý mã vạch thất bại: %@";

@@ -3,4 +3,35 @@
 "current_language" = "वर्तमान भाषा";
 "theme_settings" = "थीम सेटिंग्स";
 "dark_mode" = "डार्क मोड";
-// ... 其他翻译 
+"cache_management" = "कैश प्रबंधन";
+"clear_cache" = "कैश साफ़ करें";
+"calculating" = "गणना हो रही है...";
+"version" = "संस्करण";
+"home" = "होम";
+"scan" = "स्कैन";
+"settings" = "सेटिंग्स";
+"feedback_support" = "फीडबैक और सहायता";
+"submit_feedback" = "फीडबैक भेजें";
+"community_discussion" = "समुदाय चर्चा";
+"support_us" = "हमारा समर्थन करें";
+"about" = "हमारे बारे में";
+"privacy_policy" = "गोपनीयता नीति";
+"terms_of_service" = "सेवा की शर्तें";
+"cancel" = "रद्द करें";
+"confirm" = "पुष्टि करें";
+"done" = "हो गया";
+"clear_cache_confirm" = "क्या आप वाकई सभी कैश साफ़ करना चाहते हैं?";
+"select_language" = "भाषा चुनें";
+"search_placeholder" = "कंपनी खोजें";
+"no_articles" = "कोई लेख नहीं";
+
+/* Camera */
+"camera_not_enabled" = "कैमरा सक्षम नहीं है";
+"photo_library_permission_required" = "कृपया सेटिंग्स में फोटो लाइब्रेरी तक पहुंच की अनुमति दें";
+"camera_permission_required" = "कृपया सेटिंग्स में कैमरा तक पहुंच की अनुमति दें";
+"camera_not_available" = "कैमरा उपलब्ध नहीं है";
+"camera_init_failed" = "कैमरा प्रारंभ करने में विफल: %@";
+"torch_not_supported" = "डिवाइस फ्लैश का समर्थन नहीं करता";
+"torch_control_failed" = "फ्लैश नियंत्रण विफल";
+"image_recognition_failed" = "छवि पहचान विफल: %@";
+"barcode_processing_failed" = "बारकोड प्रसंस्करण विफल: %@";

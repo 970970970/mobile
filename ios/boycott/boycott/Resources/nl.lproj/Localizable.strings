@@ -10,7 +10,7 @@
 "home" = "Home";
 "scan" = "Scannen";
 "settings" = "Instellingen";
-"feedback_support" = "Feedback & Ondersteuning";
+"feedback_support" = "Feedback & ondersteuning";
 "submit_feedback" = "Feedback versturen";
 "community_discussion" = "Community discussie";
 "support_us" = "Steun ons";
@@ -20,7 +20,18 @@
 "cancel" = "Annuleren";
 "confirm" = "Bevestigen";
 "done" = "Klaar";
-"clear_cache_confirm" = "Weet u zeker dat u de cache wilt wissen?";
+"clear_cache_confirm" = "Weet u zeker dat u de hele cache wilt wissen?";
 "select_language" = "Taal selecteren";
-"search_placeholder" = "Bedrijfsnaam zoeken";
-"no_articles" = "Geen artikelen"; 
+"search_placeholder" = "Bedrijf zoeken";
+"no_articles" = "Geen artikelen";
+
+/* Camera */
+"camera_not_enabled" = "Camera niet ingeschakeld";
+"photo_library_permission_required" = "Geef toegang tot de fotobibliotheek in instellingen";
+"camera_permission_required" = "Geef toegang tot de camera in instellingen";
+"camera_not_available" = "Camera niet beschikbaar";
+"camera_init_failed" = "Camera initialisatie mislukt: %@";
+"torch_not_supported" = "Apparaat ondersteunt geen flitser";
+"torch_control_failed" = "Flitserbesturing mislukt";
+"image_recognition_failed" = "Beeldherkenning mislukt: %@";
+"barcode_processing_failed" = "Barcodeverwerking mislukt: %@";

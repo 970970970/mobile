@@ -20,7 +20,18 @@
 "cancel" = "İptal";
 "confirm" = "Onayla";
 "done" = "Tamam";
-"clear_cache_confirm" = "Önbelleği temizlemek istediğinizden emin misiniz?";
+"clear_cache_confirm" = "Tüm önbelleği temizlemek istediğinizden emin misiniz?";
 "select_language" = "Dil Seç";
-"search_placeholder" = "Şirket adı ara";
-"no_articles" = "Makale yok"; 
+"search_placeholder" = "Şirket ara";
+"no_articles" = "Makale yok";
+
+/* Camera */
+"camera_not_enabled" = "Kamera etkin değil";
+"photo_library_permission_required" = "Lütfen ayarlardan fotoğraf kitaplığına erişime izin verin";
+"camera_permission_required" = "Lütfen ayarlardan kameraya erişime izin verin";
+"camera_not_available" = "Kamera kullanılamıyor";
+"camera_init_failed" = "Kamera başlatılamadı: %@";
+"torch_not_supported" = "Cihaz flaşı desteklemiyor";
+"torch_control_failed" = "Flaş kontrolü başarısız";
+"image_recognition_failed" = "Görüntü tanıma başarısız: %@";
+"barcode_processing_failed" = "Barkod işleme başarısız: %@";

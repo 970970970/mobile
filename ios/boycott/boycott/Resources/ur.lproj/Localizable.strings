@@ -20,7 +20,18 @@
 "cancel" = "منسوخ کریں";
 "confirm" = "تصدیق کریں";
 "done" = "مکمل";
-"clear_cache_confirm" = "کیا آپ واقعی کیشے صاف کرنا چاہتے ہیں؟";
+"clear_cache_confirm" = "کیا آپ واقعی تمام کیشے صاف کرنا چاہتے ہیں؟";
 "select_language" = "زبان منتخب کریں";
 "search_placeholder" = "کمپنی کا نام تلاش کریں";
-"no_articles" = "کوئی مضامین نہیں"; 
+"no_articles" = "کوئی مضامین نہیں";
+
+/* Camera */
+"camera_not_enabled" = "کیمرہ فعال نہیں ہے";
+"photo_library_permission_required" = "براہ کرم ترتیبات میں فوٹو لائبریری تک رسائی کی اجازت دیں";
+"camera_permission_required" = "براہ کرم ترتیبات میں کیمرہ تک رسائی کی اجازت دیں";
+"camera_not_available" = "کیمرہ دستیاب نہیں ہے";
+"camera_init_failed" = "کیمرہ شروع کرنے میں ناکام: %@";
+"torch_not_supported" = "آلہ فلیش کی حمایت نہیں کرتا";
+"torch_control_failed" = "فلیش کنٹرول ناکام";
+"image_recognition_failed" = "تصویر کی شناخت ناکام: %@";
+"barcode_processing_failed" = "بارکوڈ پروسیسنگ ناکام: %@";

@@ -1,6 +1,37 @@
-/* 韩语本地化 */
+/* 한국어 */
 "language_settings" = "언어 설정";
 "current_language" = "현재 언어";
 "theme_settings" = "테마 설정";
 "dark_mode" = "다크 모드";
-// ... 其他翻译 
+"cache_management" = "캐시 관리";
+"clear_cache" = "캐시 지우기";
+"calculating" = "계산 중...";
+"version" = "버전";
+"home" = "홈";
+"scan" = "스캔";
+"settings" = "설정";
+"feedback_support" = "피드백 및 지원";
+"submit_feedback" = "피드백 제출";
+"community_discussion" = "커뮤니티 토론";
+"support_us" = "지원하기";
+"about" = "정보";
+"privacy_policy" = "개인정보 처리방침";
+"terms_of_service" = "서비스 약관";
+"cancel" = "취소";
+"confirm" = "확인";
+"done" = "완료";
+"clear_cache_confirm" = "모든 캐시를 지우시겠습니까?";
+"select_language" = "언어 선택";
+"search_placeholder" = "회사 검색";
+"no_articles" = "기사 없음";
+
+/* Camera */
+"camera_not_enabled" = "카메라가 활성화되지 않음";
+"photo_library_permission_required" = "설정에서 사진 라이브러리 접근을 허용해 주세요";
+"camera_permission_required" = "설정에서 카메라 접근을 허용해 주세요";
+"camera_not_available" = "카메라를 사용할 수 없음";
+"camera_init_failed" = "카메라 초기화 실패: %@";
+"torch_not_supported" = "기기가 플래시를 지원하지 않음";
+"torch_control_failed" = "플래시 제어 실패";
+"image_recognition_failed" = "이미지 인식 실패: %@";
+"barcode_processing_failed" = "바코드 처리 실패: %@";

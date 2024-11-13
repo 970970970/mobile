@@ -20,7 +20,18 @@
 "cancel" = "Batal";
 "confirm" = "Konfirmasi";
 "done" = "Selesai";
-"clear_cache_confirm" = "Apakah Anda yakin ingin membersihkan semua cache?";
+"clear_cache_confirm" = "Apakah Anda yakin ingin menghapus semua cache?";
 "select_language" = "Pilih Bahasa";
-"search_placeholder" = "Cari nama perusahaan";
-"no_articles" = "Tidak ada artikel"; 
+"search_placeholder" = "Cari perusahaan";
+"no_articles" = "Tidak ada artikel";
+
+/* Camera */
+"camera_not_enabled" = "Kamera tidak diaktifkan";
+"photo_library_permission_required" = "Harap izinkan akses ke Perpustakaan Foto di pengaturan";
+"camera_permission_required" = "Harap izinkan akses ke Kamera di pengaturan";
+"camera_not_available" = "Kamera tidak tersedia";
+"camera_init_failed" = "Gagal menginisialisasi kamera: %@";
+"torch_not_supported" = "Perangkat tidak mendukung flash";
+"torch_control_failed" = "Kontrol flash gagal";
+"image_recognition_failed" = "Pengenalan gambar gagal: %@";
+"barcode_processing_failed" = "Pemrosesan barcode gagal: %@";

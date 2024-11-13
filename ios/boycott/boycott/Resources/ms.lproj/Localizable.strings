@@ -14,7 +14,7 @@
 "submit_feedback" = "Hantar Maklum Balas";
 "community_discussion" = "Perbincangan Komuniti";
 "support_us" = "Sokong Kami";
-"about" = "Mengenai";
+"about" = "Tentang";
 "privacy_policy" = "Dasar Privasi";
 "terms_of_service" = "Syarat Perkhidmatan";
 "cancel" = "Batal";
@@ -22,5 +22,16 @@
 "done" = "Selesai";
 "clear_cache_confirm" = "Adakah anda pasti mahu mengosongkan semua cache?";
 "select_language" = "Pilih Bahasa";
-"search_placeholder" = "Cari nama syarikat";
-"no_articles" = "Tiada artikel"; 
+"search_placeholder" = "Cari syarikat";
+"no_articles" = "Tiada artikel";
+
+/* Camera */
+"camera_not_enabled" = "Kamera tidak diaktifkan";
+"photo_library_permission_required" = "Sila benarkan akses ke Pustaka Foto dalam tetapan";
+"camera_permission_required" = "Sila benarkan akses ke Kamera dalam tetapan";
+"camera_not_available" = "Kamera tidak tersedia";
+"camera_init_failed" = "Gagal memulakan kamera: %@";
+"torch_not_supported" = "Peranti tidak menyokong denyar";
+"torch_control_failed" = "Kawalan denyar gagal";
+"image_recognition_failed" = "Pengenalan imej gagal: %@";
+"barcode_processing_failed" = "Pemprosesan kod bar gagal: %@";

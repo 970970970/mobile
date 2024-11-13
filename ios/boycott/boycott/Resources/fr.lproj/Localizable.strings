@@ -23,4 +23,15 @@
 "clear_cache_confirm" = "Voulez-vous vraiment vider le cache ?";
 "select_language" = "Sélectionner la langue";
 "search_placeholder" = "Rechercher une entreprise";
-"no_articles" = "Aucun article"; 
+"no_articles" = "Aucun article";
+
+/* Camera */
+"camera_not_enabled" = "Caméra non activée";
+"photo_library_permission_required" = "Veuillez autoriser l'accès à la photothèque dans les paramètres";
+"camera_permission_required" = "Veuillez autoriser l'accès à la caméra dans les paramètres";
+"camera_not_available" = "Caméra non disponible";
+"camera_init_failed" = "Échec de l'initialisation de la caméra : %@";
+"torch_not_supported" = "L'appareil ne prend pas en charge le flash";
+"torch_control_failed" = "Échec du contrôle du flash";
+"image_recognition_failed" = "Échec de la reconnaissance d'image : %@";
+"barcode_processing_failed" = "Échec du traitement du code-barres : %@";

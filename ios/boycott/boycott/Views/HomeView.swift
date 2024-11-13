@@ -109,7 +109,11 @@ struct HomeView: View {
     }
     
     private func performSearch() {
-        // TODO: 实现搜索功能
+        print("🔍 [HomeView] Performing search with text: \(searchText)")
+        currentPage = 1
+        articles = []
+        hasMoreData = true
+        loadArticles()
     }
 }
 

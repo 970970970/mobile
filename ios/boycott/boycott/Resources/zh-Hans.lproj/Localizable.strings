@@ -36,3 +36,22 @@
 
 /* 首页 */
 "no_articles" = "暂无文章";
+
+/* 相机 */
+"camera_not_enabled" = "相机未启用";
+"photo_library_permission_required" = "请在设置中允许访问相册";
+"camera_permission_required" = "请在设置中允许访问相机";
+"scan" = "扫描";
+"alert" = "提示";
+"ok" = "确定";
+"camera_not_available" = "相机不可用";
+"camera_init_failed" = "相机初始化失败：%@";
+
+/* 扫描相关 */
+"torch_not_supported" = "设备不支持闪光灯";
+"torch_control_failed" = "闪光灯控制失败";
+"image_recognition_failed" = "图像识别失败: %@";
+"barcode_processing_failed" = "条码处理失败: %@";
+
+/* 品牌 */
+"brands" = "品牌";

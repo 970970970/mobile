@@ -20,7 +20,18 @@
 "cancel" = "لغو";
 "confirm" = "تایید";
 "done" = "انجام شد";
-"clear_cache_confirm" = "آیا مطمئن هستید که می‌خواهید حافظه پنهان را پاک کنید؟";
+"clear_cache_confirm" = "آیا مطمئن هستید که می‌خواهید تمام حافظه پنهان را پاک کنید؟";
 "select_language" = "انتخاب زبان";
-"search_placeholder" = "جستجوی نام شرکت";
-"no_articles" = "مقاله‌ای موجود نیست"; 
+"search_placeholder" = "جستجوی شرکت";
+"no_articles" = "مقاله‌ای موجود نیست";
+
+/* Camera */
+"camera_not_enabled" = "دوربین فعال نیست";
+"photo_library_permission_required" = "لطفاً دسترسی به کتابخانه عکس را در تنظیمات فعال کنید";
+"camera_permission_required" = "لطفاً دسترسی به دوربین را در تنظیمات فعال کنید";
+"camera_not_available" = "دوربین در دسترس نیست";
+"camera_init_failed" = "راه‌اندازی دوربین ناموفق بود: %@";
+"torch_not_supported" = "دستگاه از فلش پشتیبانی نمی‌کند";
+"torch_control_failed" = "کنترل فلش ناموفق بود";
+"image_recognition_failed" = "تشخیص تصویر ناموفق بود: %@";
+"barcode_processing_failed" = "پردازش بارکد ناموفق بود: %@";

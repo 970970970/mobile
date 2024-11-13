@@ -8,31 +8,74 @@ class ScannerViewModel: NSObject, ObservableObject, AVCaptureMetadataOutputObjec
     @Published var isProcessing = false
     @Published var isCameraReady = false
     @Published var errorMessage: String?
+    @Published var isAuthorized = false
     
     private let captureDevice = AVCaptureDevice.default(for: .video)
     
     override init() {
         super.init()
+        checkPermission()
         setupCamera()
+    }
+    
+    func checkPermission() {
+        print("📸 [Camera] Checking camera permission...")
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            print("✅ [Camera] Permission authorized")
+            setupCamera()
+            isAuthorized = true
+        case .notDetermined:
+            print("⏳ [Camera] Permission not determined, requesting...")
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+                if granted {
+                    print("✅ [Camera] Permission granted")
+                    DispatchQueue.main.async {
+                        self?.setupCamera()
+                        self?.isAuthorized = true
+                    }
+                } else {
+                    print("❌ [Camera] Permission denied by user")
+                    DispatchQueue.main.async {
+                        self?.isAuthorized = false
+                    }
+                }
+            }
+        case .denied:
+            print("❌ [Camera] Permission denied")
+            isAuthorized = false
+        case .restricted:
+            print("⚠️ [Camera] Permission restricted")
+            isAuthorized = false
+        @unknown default:
+            print("❓ [Camera] Unknown permission status")
+            isAuthorized = false
+        }
     }
     
     func setupCamera() {
         guard let device = captureDevice else { 
+            print("❌ [Camera] No camera device available")
             DispatchQueue.main.async {
-                self.errorMessage = "无法访问相机"
+                self.errorMessage = "camera_not_available".localized
             }
             return 
         }
+        
+        print("🎥 [Camera] Setting up camera...")
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             
             if self.session.isRunning {
+                print("⚠️ [Camera] Session already running, stopping...")
                 self.session.stopRunning()
             }
             
+            print("⚙️ [Camera] Configuring session...")
             self.session.beginConfiguration()
             
+            // 清理现有配置
             self.session.inputs.forEach { self.session.removeInput($0) }
             self.session.outputs.forEach { self.session.removeOutput($0) }
             
@@ -40,6 +83,9 @@ class ScannerViewModel: NSObject, ObservableObject, AVCaptureMetadataOutputObjec
                 let input = try AVCaptureDeviceInput(device: device)
                 if self.session.canAddInput(input) {
                     self.session.addInput(input)
+                    print("✅ [Camera] Added camera input")
+                } else {
+                    print("❌ [Camera] Cannot add camera input")
                 }
                 
                 let output = AVCaptureMetadataOutput()
@@ -47,21 +93,26 @@ class ScannerViewModel: NSObject, ObservableObject, AVCaptureMetadataOutputObjec
                     self.session.addOutput(output)
                     output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
                     output.metadataObjectTypes = [.qr, .ean13, .ean8, .code128]
+                    print("✅ [Camera] Added metadata output")
+                } else {
+                    print("❌ [Camera] Cannot add metadata output")
                 }
                 
                 self.session.commitConfiguration()
+                print("✅ [Camera] Session configured")
                 
                 DispatchQueue.main.async {
                     self.isCameraReady = true
                     if !self.session.isRunning {
+                        print("▶️ [Camera] Starting session...")
                         self.session.startRunning()
                     }
                 }
             } catch {
-                print("Camera setup error: \(error)")
+                print("❌ [Camera] Setup error: \(error)")
                 DispatchQueue.main.async {
                     self.isCameraReady = false
-                    self.errorMessage = "相机初始化失败: \(error.localizedDescription)"
+                    self.errorMessage = String(format: "camera_init_failed".localized, error.localizedDescription)
                 }
             }
         }
@@ -70,7 +121,7 @@ class ScannerViewModel: NSObject, ObservableObject, AVCaptureMetadataOutputObjec
     func toggleTorch() {
         guard let device = captureDevice, device.hasTorch else { 
             DispatchQueue.main.async {
-                self.errorMessage = "设备不支持闪光灯"
+                self.errorMessage = "torch_not_supported".localized
             }
             return 
         }
@@ -84,7 +135,7 @@ class ScannerViewModel: NSObject, ObservableObject, AVCaptureMetadataOutputObjec
             device.unlockForConfiguration()
         } catch {
             DispatchQueue.main.async {
-                self.errorMessage = "闪光灯控制失败"
+                self.errorMessage = "torch_control_failed".localized
             }
             print("Torch error: \(error)")
         }
@@ -103,7 +154,7 @@ class ScannerViewModel: NSObject, ObservableObject, AVCaptureMetadataOutputObjec
                 case .success(let scanResult):
                     self?.scanResult = scanResult
                 case .failure(let error):
-                    self?.errorMessage = "图像识别失败: \(error.localizedDescription)"
+                    self?.errorMessage = String(format: "image_recognition_failed".localized, error.localizedDescription)
                     print("Image recognition error: \(error)")
                 }
             }
@@ -128,7 +179,7 @@ class ScannerViewModel: NSObject, ObservableObject, AVCaptureMetadataOutputObjec
                 case .success(let scanResult):
                     self?.scanResult = scanResult
                 case .failure(let error):
-                    self?.errorMessage = "条码处理失败: \(error.localizedDescription)"
+                    self?.errorMessage = String(format: "barcode_processing_failed".localized, error.localizedDescription)
                     print("Barcode processing error: \(error)")
                 }
             }

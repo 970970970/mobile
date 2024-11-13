@@ -12,7 +12,7 @@
 "settings" = "ตั้งค่า";
 "feedback_support" = "ข้อเสนอแนะและการสนับสนุน";
 "submit_feedback" = "ส่งข้อเสนอแนะ";
-"community_discussion" = "พูดคุยในชุมชน";
+"community_discussion" = "การสนทนาชุมชน";
 "support_us" = "สนับสนุนเรา";
 "about" = "เกี่ยวกับ";
 "privacy_policy" = "นโยบายความเป็นส่วนตัว";
@@ -22,5 +22,16 @@
 "done" = "เสร็จสิ้น";
 "clear_cache_confirm" = "คุณแน่ใจหรือไม่ที่จะล้างแคชทั้งหมด?";
 "select_language" = "เลือกภาษา";
-"search_placeholder" = "ค้นหาชื่อบริษัท";
-"no_articles" = "ไม่มีบทความ"; 
+"search_placeholder" = "ค้นหาบริษัท";
+"no_articles" = "ไม่มีบทความ";
+
+/* Camera */
+"camera_not_enabled" = "กล้องไม่ได้เปิดใช้งาน";
+"photo_library_permission_required" = "โปรดอนุญาตการเข้าถึงคลังรูปภาพในการตั้งค่า";
+"camera_permission_required" = "โปรดอนุญาตการเข้าถึงกล้องในการตั้งค่า";
+"camera_not_available" = "ไม่มีกล้อง";
+"camera_init_failed" = "การเริ่มต้นกล้องล้มเหลว: %@";
+"torch_not_supported" = "อุปกรณ์ไม่รองรับแฟลช";
+"torch_control_failed" = "การควบคุมแฟลชล้มเหลว";
+"image_recognition_failed" = "การจดจำภาพล้มเหลว: %@";
+"barcode_processing_failed" = "การประมวลผลบาร์โค้ดล้มเหลว: %@";

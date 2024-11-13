@@ -15,12 +15,23 @@
 "community_discussion" = "Discussione community";
 "support_us" = "Supportaci";
 "about" = "Info";
-"privacy_policy" = "Privacy policy";
+"privacy_policy" = "Informativa privacy";
 "terms_of_service" = "Termini di servizio";
 "cancel" = "Annulla";
 "confirm" = "Conferma";
 "done" = "Fatto";
-"clear_cache_confirm" = "Sei sicuro di voler svuotare la cache?";
+"clear_cache_confirm" = "Sei sicuro di voler svuotare tutta la cache?";
 "select_language" = "Seleziona lingua";
 "search_placeholder" = "Cerca azienda";
-"no_articles" = "Nessun articolo"; 
+"no_articles" = "Nessun articolo";
+
+/* Camera */
+"camera_not_enabled" = "Fotocamera non attivata";
+"photo_library_permission_required" = "Consenti l'accesso alla Libreria foto nelle impostazioni";
+"camera_permission_required" = "Consenti l'accesso alla fotocamera nelle impostazioni";
+"camera_not_available" = "Fotocamera non disponibile";
+"camera_init_failed" = "Inizializzazione fotocamera fallita: %@";
+"torch_not_supported" = "Il dispositivo non supporta il flash";
+"torch_control_failed" = "Controllo flash fallito";
+"image_recognition_failed" = "Riconoscimento immagine fallito: %@";
+"barcode_processing_failed" = "Elaborazione codice a barre fallita: %@";

@@ -28,4 +28,15 @@
 "done" = "تم";
 
 // 提示
-"clear_cache_confirm" = "هل أنت متأكد من أنك تريد مسح جميع ذاكرة التخزين المؤقت؟"; 
+"clear_cache_confirm" = "هل أنت متأكد من أنك تريد مسح جميع ذاكرة التخزين المؤقت؟";
+
+/* Camera */
+"camera_not_enabled" = "الكاميرا غير مفعلة";
+"photo_library_permission_required" = "يرجى السماح بالوصول إلى مكتبة الصور في الإعدادات";
+"camera_permission_required" = "يرجى السماح بالوصول إلى الكاميرا في الإعدادات";
+"camera_not_available" = "الكاميرا غير متوفرة";
+"camera_init_failed" = "فشل تهيئة الكاميرا: %@";
+"torch_not_supported" = "الجهاز لا يدعم الفلاش";
+"torch_control_failed" = "فشل التحكم بالفلاش";
+"image_recognition_failed" = "فشل التعرف على الصورة: %@";
+"barcode_processing_failed" = "فشل معالجة الباركود: %@";
