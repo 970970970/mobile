@@ -2,9 +2,9 @@ import SwiftUI
 
 class LanguageManager: ObservableObject {
     static let shared = LanguageManager()
+    static let languageChangedNotification = Notification.Name("com.boycott.languageChanged")
     
     @Published private(set) var currentLanguage: String = {
-        // 从 UserDefaults 读取保存的语言设置，如果没有则使用系统语言
         let savedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage")
         let systemLanguage = Locale.current.language.languageCode?.identifier ?? "en"
         let initialLanguage = savedLanguage ?? systemLanguage
@@ -16,8 +16,10 @@ class LanguageManager: ObservableObject {
             UserDefaults.standard.set(currentLanguage, forKey: "selectedLanguage")
             UserDefaults.standard.synchronize()
             
-            // 发送通知
-            NotificationCenter.default.post(name: ContentView.languageChangedNotification, object: nil)
+            NotificationCenter.default.post(
+                name: LanguageManager.languageChangedNotification,
+                object: nil
+            )
         }
     }
     

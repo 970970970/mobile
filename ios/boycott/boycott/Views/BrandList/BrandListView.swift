@@ -5,22 +5,71 @@ struct BrandListView: View {
     @StateObject private var viewModel = BrandListViewModel()
     @State private var searchText = ""
     @State private var selectedBrand: Brand?
+    @State private var selectedFilter: BrandStatus = .all
     
     var body: some View {
         NavigationView {
-            BrandListContent(
-                viewModel: viewModel,
-                searchText: $searchText,
-                selectedBrand: $selectedBrand
-            )
+            VStack(spacing: 0) {
+                // 状态过滤器
+                BrandStatusFilterView(selectedFilter: $selectedFilter)
+                
+                // 主要内容
+                BrandListContent(
+                    viewModel: viewModel,
+                    searchText: $searchText,
+                    selectedBrand: $selectedBrand,
+                    selectedFilter: selectedFilter
+                )
+            }
             .navigationTitle("品牌列表")
             .sheet(item: $selectedBrand) { brand in
                 BrandDetailView(brand: brand, isPresented: $selectedBrand)
             }
         }
         .onAppear {
-            print("🚀 [BrandListView] View appeared")
             viewModel.loadBrands()
+        }
+    }
+}
+
+struct BrandStatusFilterView: View {
+    @Binding var selectedFilter: BrandStatus
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 12) {
+                ForEach(BrandStatus.allCases) { status in
+                    FilterChip(
+                        title: status.displayName,
+                        isSelected: selectedFilter == status,
+                        color: status.color
+                    ) {
+                        selectedFilter = status
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 8)
+        }
+        .background(Color(UIColor.systemBackground))
+    }
+}
+
+struct FilterChip: View {
+    let title: String
+    let isSelected: Bool
+    let color: Color
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.subheadline)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(isSelected ? color : color.opacity(0.1))
+                .foregroundColor(isSelected ? .white : color)
+                .cornerRadius(20)
         }
     }
 }
@@ -29,96 +78,108 @@ struct BrandListContent: View {
     @ObservedObject var viewModel: BrandListViewModel
     @Binding var searchText: String
     @Binding var selectedBrand: Brand?
+    let selectedFilter: BrandStatus
     
-    var body: some View {
-        VStack {
-            if viewModel.brands.isEmpty && !viewModel.isLoading {
-                Text("暂无数据")
-                    .foregroundColor(.gray)
-            } else {
-                BrandListScrollView(viewModel: viewModel, selectedBrand: $selectedBrand)
-            }
-        }
-        .searchable(text: $searchText)
-        .onChange(of: searchText) { newValue in
-            print("🔍 [BrandListView] Search text changed: \(newValue)")
-            viewModel.search(keyword: newValue)
-        }
-        .refreshable {
-            print("🔄 [BrandListView] Pull to refresh triggered")
-            viewModel.refresh()
+    var filteredBrands: [Brand] {
+        viewModel.brands.filter { brand in
+            let matchesFilter = selectedFilter == .all || brand.status == selectedFilter.rawValue
+            let matchesSearch = searchText.isEmpty || 
+                brand.name.localizedCaseInsensitiveContains(searchText)
+            return matchesFilter && matchesSearch
         }
     }
-}
-
-struct BrandListScrollView: View {
-    @ObservedObject var viewModel: BrandListViewModel
-    @Binding var selectedBrand: Brand?
     
     var body: some View {
         List {
-            ForEach(viewModel.brands, id: \.id) { brand in
-                BrandRowView(brand: brand)
-                    .onTapGesture {
-                        selectedBrand = brand
-                    }
-                    .onAppear {
-                        if brand.id == viewModel.brands.last?.id {
-                            viewModel.loadMoreIfNeeded()
+            if filteredBrands.isEmpty && !viewModel.isLoading {
+                Text("暂无数据")
+                    .foregroundColor(.gray)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .listRowSeparator(.hidden)
+            } else {
+                ForEach(filteredBrands) { brand in
+                    BrandRowView(brand: brand)
+                        .onTapGesture {
+                            selectedBrand = brand
                         }
-                    }
-            }
-            
-            if viewModel.isLoading {
-                ProgressView()
-                    .frame(maxWidth: .infinity)
+                        .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
+                }
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                        .frame(maxWidth: .infinity)
+                        .listRowSeparator(.hidden)
+                }
             }
         }
+        .listStyle(.plain)
+        .refreshable {
+            viewModel.refresh()
+        }
+        .searchable(text: $searchText, prompt: "搜索品牌")
     }
 }
 
 struct BrandDetailView: View {
     let brand: Brand
     @Binding var isPresented: Brand?
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 16) {
-                Text(brand.name)
-                    .font(.largeTitle)
-                    .bold()
-                
-                if let logoPath = brand.logoPath {
-                    AsyncImage(url: URL(string: "\(AppConfig.mediaHost)/\(logoPath)")) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    } placeholder: {
-                        Color.gray
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    // 品牌 Logo
+                    if let logoPath = brand.logoPath {
+                        AsyncImage(url: URL(string: "\(AppConfig.mediaHost)/\(logoPath)")) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .frame(height: 200)
+                        .cornerRadius(12)
                     }
-                    .frame(height: 200)
-                    .cornerRadius(8)
+                    
+                    // 品牌状态
+                    HStack {
+                        Text(brand.status)
+                            .font(.headline)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(statusColor(brand.status))
+                            .foregroundColor(.white)
+                            .cornerRadius(20)
+                        Spacer()
+                    }
+                    
+                    // 品牌描述
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("关于品牌")
+                            .font(.headline)
+                        
+                        MarkdownTextView(markdown: brand.description)
+                            .frame(minHeight: 100)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(colorScheme == .dark ? Color(.systemGray6) : Color(.systemGray6))
+                            )
+                    }
                 }
-                
-                Text("状态: \(brand.status)")
-                    .font(.headline)
-                    .foregroundColor(statusColor(brand.status))
-                
-                Divider()
-                
-                ScrollView {
-                    MarkdownTextView(markdown: brand.description)
-                        .frame(minHeight: 100)
-                        .padding()
+                .padding()
+            }
+            .navigationTitle(brand.name)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { isPresented = nil }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.gray)
+                            .imageScale(.large)
+                    }
                 }
             }
-            .padding()
-            .navigationBarItems(trailing: Button(action: {
-                isPresented = nil
-            }) {
-                Image(systemName: "xmark")
-                    .foregroundColor(.primary)
-            })
         }
     }
     
@@ -130,6 +191,33 @@ struct BrandDetailView: View {
             return .red
         default:
             return .yellow
+        }
+    }
+}
+
+enum BrandStatus: String, CaseIterable, Identifiable {
+    case all = "all"
+    case support = "support"
+    case avoid = "avoid"
+    case neutral = "neutral"
+    
+    var id: String { rawValue }
+    
+    var displayName: String {
+        switch self {
+        case .all: return "全部"
+        case .support: return "支持"
+        case .avoid: return "抵制"
+        case .neutral: return "中立"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .all: return .blue
+        case .support: return .green
+        case .avoid: return .red
+        case .neutral: return .yellow
         }
     }
 }

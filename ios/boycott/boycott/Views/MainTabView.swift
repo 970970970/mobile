@@ -1,27 +1,44 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @State private var selectedTab = 0
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             HomeView()
                 .tabItem {
-                    Label("首页", systemImage: "house")
+                    Image(systemName: "house.fill")
+                    Text("首页")
                 }
+                .tag(0)
             
             BrandListView()
                 .tabItem {
-                    Label("品牌", systemImage: "tag")
+                    Image(systemName: "tag.fill")
+                    Text("品牌")
                 }
+                .tag(1)
             
             ScanView()
                 .tabItem {
-                    Label("扫描", systemImage: "camera")
+                    Image(systemName: "camera.viewfinder")
+                    Text("扫描")
                 }
+                .tag(2)
+            
+            ArticleListView()
+                .tabItem {
+                    Image(systemName: "newspaper.fill")
+                    Text("文章")
+                }
+                .tag(3)
             
             SettingsView()
                 .tabItem {
-                    Label("设置", systemImage: "gear")
+                    Image(systemName: "gearshape.fill")
+                    Text("设置")
                 }
+                .tag(4)
         }
     }
-} 
+}

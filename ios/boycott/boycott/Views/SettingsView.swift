@@ -116,7 +116,7 @@ struct SettingsView: View {
                 Text("clear_cache_confirm".localized)
             }
             .onAppear {
-                updateCacheSize()
+                calculateCacheSize()
                 // 加载可用的语言列表
                 APIService.shared.fetchSupportedLanguages { result in
                     switch result {
@@ -168,65 +168,40 @@ struct SettingsView: View {
         return languageNames[code] ?? code
     }
     
-    private func updateCacheSize() {
-        let fileManager = FileManager.default
-        guard let cacheURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else {
-            cacheSize = "0 MB"
-            return
-        }
-        
-        DispatchQueue.global(qos: .background).async {
+    private func calculateCacheSize() {
+        Task {
             do {
-                let contents = try fileManager.contentsOfDirectory(at: cacheURL, includingPropertiesForKeys: [.fileSizeKey])
-                let size = try contents.reduce(0) { (result, url) in
-                    let resourceValues = try url.resourceValues(forKeys: [.fileSizeKey])
-                    return result + (resourceValues.fileSize ?? 0)
-                }
+                let fileManager = FileManager.default
+                let cacheURL = try fileManager.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                let cacheContents = try fileManager.contentsOfDirectory(at: cacheURL, includingPropertiesForKeys: [.fileSizeKey], options: [])
                 
-                DispatchQueue.main.async {
-                    let formatter = ByteCountFormatter()
-                    formatter.allowedUnits = [.useMB]
-                    formatter.countStyle = .file
-                    formatter.includesUnit = true
-                    formatter.isAdaptive = false
-                    
-                    // 如果大小为0，直接显示"0 MB"
-                    if size == 0 {
-                        cacheSize = "0 MB"
-                    } else {
-                        cacheSize = formatter.string(fromByteCount: Int64(size))
-                    }
+                let size = try cacheContents.reduce(0) { try $0 + ($1.resourceValues(forKeys: [.fileSizeKey]).fileSize ?? 0) }
+                
+                await MainActor.run {
+                    self.cacheSize = ByteCountFormatter.string(fromByteCount: Int64(size), countStyle: .file)
                 }
             } catch {
-                DispatchQueue.main.async {
-                    cacheSize = "0 MB"
-                }
+                print("Error calculating cache size:", error)
             }
         }
     }
     
     private func clearCache() {
-        let fileManager = FileManager.default
-        guard let cacheURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else { return }
-        
-        DispatchQueue.global(qos: .background).async {
+        Task {
             do {
-                let contents = try fileManager.contentsOfDirectory(at: cacheURL, includingPropertiesForKeys: nil)
-                for url in contents {
-                    try fileManager.removeItem(at: url)
+                let fileManager = FileManager.default
+                let cacheURL = try fileManager.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                let cacheContents = try fileManager.contentsOfDirectory(at: cacheURL, includingPropertiesForKeys: nil, options: [])
+                
+                for fileURL in cacheContents {
+                    try? fileManager.removeItem(at: fileURL)
                 }
                 
-                // 清除内存缓存
-                CacheService.shared.clearAll()
-                
-                // 清除 URLCache
-                URLCache.shared.removeAllCachedResponses()
-                
-                DispatchQueue.main.async {
-                    updateCacheSize()
+                await MainActor.run {
+                    self.cacheSize = "0 B"
                 }
             } catch {
-                print("清除缓存失败: \(error)")
+                print("Error clearing cache:", error)
             }
         }
     }
