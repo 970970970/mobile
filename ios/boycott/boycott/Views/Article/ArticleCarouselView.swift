@@ -3,14 +3,52 @@ import SwiftUI
 struct ArticleCarouselView: View {
     let articles: [ArticleListItem]
     @State private var currentIndex = 0
+    @StateObject private var viewModel = ArticleCarouselViewModel()
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     
     var body: some View {
         TabView(selection: $currentIndex) {
-            ForEach(articles.indices, id: \.self) { index in
-                ArticleCard(article: articles[index])
+            ForEach(Array(articles.enumerated()), id: \.element.id) { index, article in
+                NavigationLink {
+                    if let detailArticle = viewModel.articleDetails[article.id] {
+                        ArticleDetailView(article: detailArticle)
+                    } else {
+                        ProgressView()
+                            .onAppear {
+                                viewModel.loadArticleDetail(id: article.id)
+                            }
+                    }
+                } label: {
+                    ArticleCard(article: article)
+                        .tag(index)
+                }
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+        .onReceive(timer) { _ in
+            withAnimation {
+                currentIndex = (currentIndex + 1) % articles.count
+            }
+        }
+    }
+}
+
+class ArticleCarouselViewModel: ObservableObject {
+    @Published var articleDetails: [Int: Article] = [:]
+    
+    func loadArticleDetail(id: Int) {
+        guard articleDetails[id] == nil else { return }
+        
+        APIService.shared.fetchArticle(id: id) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let article):
+                    self?.articleDetails[id] = article
+                case .failure(let error):
+                    print("Error loading article detail:", error)
+                }
+            }
+        }
     }
 }
 

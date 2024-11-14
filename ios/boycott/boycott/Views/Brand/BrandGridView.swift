@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BrandGridView: View {
     let brands: [Brand]
+    @State private var selectedBrand: Brand?
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -11,7 +12,13 @@ struct BrandGridView: View {
         LazyVGrid(columns: columns, spacing: 16) {
             ForEach(brands) { brand in
                 BrandGridItem(brand: brand)
+                    .onTapGesture {
+                        selectedBrand = brand
+                    }
             }
+        }
+        .sheet(item: $selectedBrand) { brand in
+            BrandDetailView(brand: brand, isPresented: $selectedBrand)
         }
     }
 }
@@ -21,40 +28,66 @@ struct BrandGridItem: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if let logoPath = brand.logoPath {
-                AsyncImage(url: URL(string: "\(AppConfig.mediaHost)/\(logoPath)")) { image in
-                    image
+            ZStack(alignment: .topTrailing) {
+                // Logo 底层
+                if let logoPath = brand.logoPath {
+                    AsyncImage(url: URL(string: "\(AppConfig.mediaHost)/\(logoPath)")) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(height: 120)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+                } else {
+                    Color.gray
+                        .frame(height: 120)
+                        .cornerRadius(8)
+                }
+                
+                // 状态图标覆盖层
+                if brand.status == "avoid" {
+                    Image("avoid-overlay")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                } placeholder: {
-                    Color.gray
+                        .frame(width: 60)
+                        .padding(8)
+                        .zIndex(1)
                 }
-                .frame(height: 100)
-                .cornerRadius(8)
             }
             
             Text(brand.name)
                 .font(.subheadline)
                 .lineLimit(1)
-            
-            Text(brand.status)
-                .font(.caption)
-                .foregroundColor(statusColor(brand.status))
+                .foregroundColor(.primary)
         }
         .padding(8)
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(radius: 2)
     }
+}
+
+struct StatusIcon: View {
+    let status: String
     
-    private func statusColor(_ status: String) -> Color {
-        switch status {
-        case "support":
-            return .green
-        case "avoid":
-            return .red
-        default:
-            return .yellow
+    var body: some View {
+        Group {
+            switch status {
+            case "support":
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
+            case "avoid":
+                Image(systemName: "xmark.circle.fill")
+                    .foregroundColor(.red)
+            default:
+                Image(systemName: "minus.circle.fill")
+                    .foregroundColor(.yellow)
+            }
         }
+        .font(.title2)
     }
 } 

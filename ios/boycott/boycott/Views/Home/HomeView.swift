@@ -30,7 +30,9 @@ struct HomeView: View {
                             Text("热门品牌")
                                 .font(.headline)
                             Spacer()
-                            NavigationLink(destination: BrandListView()) {
+                            Button(action: {
+                                NotificationCenter.default.post(name: .switchToTab, object: 1)
+                            }) {
                                 Text("查看更多")
                                     .foregroundColor(.blue)
                             }
@@ -40,6 +42,44 @@ struct HomeView: View {
                         // 品牌网格
                         BrandGridView(brands: viewModel.brands)
                             .padding(.horizontal)
+                    }
+                    
+                    // 加载更多指示器
+                    if viewModel.isLoadingMore {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                                .padding()
+                            Spacer()
+                        }
+                    } else if viewModel.hasReachedEnd {
+                        Text("已经到底啦")
+                            .foregroundColor(.gray)
+                            .padding()
+                    }
+                }
+            }
+            .coordinateSpace(name: "scroll")
+            .background(
+                GeometryReader { proxy in
+                    Color.clear.preference(
+                        key: ScrollOffsetPreferenceKey.self,
+                        value: ScrollData(
+                            contentHeight: proxy.frame(in: .named("scroll")).height,
+                            scrollOffset: proxy.frame(in: .named("scroll")).minY
+                        )
+                    )
+                }
+            )
+            .onPreferenceChange(ScrollOffsetPreferenceKey.self) { data in
+                let threshold: CGFloat = 100
+                let position = -data.scrollOffset + UIScreen.main.bounds.height
+                let target = data.contentHeight - threshold
+                
+                if position > target && !viewModel.isLoadingMore && !viewModel.hasReachedEnd {
+                    print("🔄 Triggering load more...")
+                    Task {
+                        await viewModel.loadMoreBrands()
                     }
                 }
             }
@@ -53,6 +93,22 @@ struct HomeView: View {
                 viewModel.loadInitialData()
             }
         }
+    }
+}
+
+struct ScrollData: Equatable {
+    let contentHeight: CGFloat
+    let scrollOffset: CGFloat
+    
+    static func == (lhs: ScrollData, rhs: ScrollData) -> Bool {
+        return lhs.contentHeight == rhs.contentHeight && lhs.scrollOffset == rhs.scrollOffset
+    }
+}
+
+struct ScrollOffsetPreferenceKey: PreferenceKey {
+    static var defaultValue = ScrollData(contentHeight: 0, scrollOffset: 0)
+    static func reduce(value: inout ScrollData, nextValue: () -> ScrollData) {
+        value = nextValue()
     }
 }
 
