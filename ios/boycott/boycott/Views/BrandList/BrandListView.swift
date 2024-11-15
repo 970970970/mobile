@@ -143,15 +143,17 @@ struct BrandDetailView: View {
                     }
                     
                     // 品牌状态
-                    HStack {
-                        Text(brand.status)
-                            .font(.headline)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .background(statusColor(brand.status))
-                            .foregroundColor(.white)
-                            .cornerRadius(20)
-                        Spacer()
+                    if let status = brand.status {
+                        HStack {
+                            Text(status)
+                                .font(.headline)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(statusColor(status))
+                                .foregroundColor(.white)
+                                .cornerRadius(20)
+                            Spacer()
+                        }
                     }
                     
                     // 品牌描述
@@ -159,12 +161,14 @@ struct BrandDetailView: View {
                         Text("关于品牌")
                             .font(.headline)
                         
-                        MarkdownTextView(markdown: brand.description)
-                            .frame(minHeight: 100)
-                            .background(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .fill(colorScheme == .dark ? Color(.systemGray6) : Color(.systemGray6))
-                            )
+                        if let description = brand.description {
+                            MarkdownTextView(markdown: description)
+                                .frame(minHeight: 100)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .fill(colorScheme == .dark ? Color(.systemGray6) : Color(.systemGray6))
+                                )
+                        }
                     }
                 }
                 .padding()
@@ -184,7 +188,7 @@ struct BrandDetailView: View {
     }
     
     private func statusColor(_ status: String) -> Color {
-        switch status {
+        switch status.lowercased() {
         case "support":
             return .green
         case "avoid":
@@ -251,9 +255,43 @@ struct BrandRowView: View {
     let brand: Brand
     
     var body: some View {
-        HStack {
-            BrandLogoView(logoPath: brand.logoPath)
-            BrandInfoView(name: brand.name, status: brand.status)
+        HStack(spacing: 12) {
+            // Logo
+            if let logoPath = brand.logoPath {
+                AsyncImage(url: URL(string: "\(AppConfig.mediaHost)/\(logoPath)")) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } placeholder: {
+                    Color.gray
+                }
+                .frame(width: 60, height: 60)
+                .cornerRadius(8)
+            } else {
+                Color.gray
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(8)
+            }
+            
+            // 品牌信息
+            VStack(alignment: .leading, spacing: 4) {
+                Text(brand.name)
+                    .font(.headline)
+                
+                if let description = brand.description {
+                    Text(description)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .lineLimit(2)
+                }
+            }
+            
+            Spacer()
+            
+            // 状态标签
+            if let status = brand.status {
+                BrandStatusBadge(status: status)
+            }
         }
     }
 }
@@ -296,6 +334,32 @@ struct BrandInfoView: View {
     
     private var statusColor: Color {
         switch status {
+        case "support":
+            return .green
+        case "avoid":
+            return .red
+        default:
+            return .yellow
+        }
+    }
+}
+
+// 添加状态标签组件
+struct BrandStatusBadge: View {
+    let status: String
+    
+    var body: some View {
+        Text(status)
+            .font(.caption)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(statusColor)
+            .foregroundColor(.white)
+            .cornerRadius(12)
+    }
+    
+    private var statusColor: Color {
+        switch status.lowercased() {
         case "support":
             return .green
         case "avoid":

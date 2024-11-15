@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 class HomeViewModel: ObservableObject {
     @Published var articles: [ArticleListItem] = []
     @Published var brands: [Brand] = []
@@ -7,52 +8,37 @@ class HomeViewModel: ObservableObject {
     @Published var hasReachedEnd = false
     
     private var currentPage = 1
-    private let pageSize = 10
+    private let pageSize = 20
     
     func loadInitialData() {
         loadArticles()
         loadBrands()
     }
     
-    func refresh() async {
-        await MainActor.run {
-            currentPage = 1
-            hasReachedEnd = false
-            brands = []
-        }
-        loadInitialData()
-    }
-    
     func loadMoreBrands() async {
-        guard !isLoadingMore && !hasReachedEnd else {
-            print("⚠️ Skip loading more: isLoadingMore=\(isLoadingMore), hasReachedEnd=\(hasReachedEnd)")
-            return
-        }
+        guard !isLoadingMore && !hasReachedEnd else { return }
         
-        await MainActor.run {
-            isLoadingMore = true
-        }
+        isLoadingMore = true
+        print("📥 Loading more brands, page: \(currentPage)")
         
-        print("📱 Loading more brands, page: \(currentPage + 1)")
-        
-        BrandService.shared.fetchBrands(page: currentPage + 1, pageSize: pageSize) { [weak self] result in
-            guard let self = self else { return }
-            
+        BrandService.shared.fetchBrands(page: currentPage, pageSize: pageSize) { [weak self] result in
             Task { @MainActor in
+                guard let self = self else { return }
+                self.isLoadingMore = false
+                
                 switch result {
                 case .success(let response):
-                    print("✅ Loaded \(response.data.items.count) more brands")
-                    if response.data.items.isEmpty {
+                    print("✅ Loaded \(response.items.count) more brands")
+                    if response.items.isEmpty {
                         print("🏁 Reached the end")
                         self.hasReachedEnd = true
                     } else {
                         self.currentPage += 1
-                        self.brands.append(contentsOf: response.data.items)
+                        self.brands.append(contentsOf: response.items)
                     }
                 case .failure(let error):
                     print("❌ Error loading more brands:", error)
                 }
-                self.isLoadingMore = false
             }
         }
     }
@@ -75,7 +61,7 @@ class HomeViewModel: ObservableObject {
             Task { @MainActor in
                 switch result {
                 case .success(let response):
-                    self?.brands = response.data.items
+                    self?.brands = response.items
                 case .failure(let error):
                     print("Error loading brands:", error)
                 }

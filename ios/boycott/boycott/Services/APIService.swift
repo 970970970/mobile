@@ -314,6 +314,73 @@ class APIService {
             }
         }.resume()
     }
+    
+    func fetchHotSearches(completion: @escaping (Result<[String], Error>) -> Void) {
+        let endpoint = "\(baseURL)/brands/hot-searches"
+        
+        URLSession.shared.dataTask(with: URL(string: endpoint)!) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                return
+            }
+            
+            do {
+                let response = try JSONDecoder().decode(APIResponse<[String]>.self, from: data)
+                DispatchQueue.main.async {
+                    if response.status == 0 {
+                        completion(.success(response.data))
+                    } else {
+                        completion(.failure(NSError(domain: "", code: response.status, userInfo: [NSLocalizedDescriptionKey: response.msg])))
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }.resume()
+    }
+    
+    func searchBrands(keyword: String, completion: @escaping (Result<BrandListResponse, Error>) -> Void) {
+        let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let endpoint = "\(baseURL)/brands/list?keywords=\(encodedKeyword)&limit=20&offset=0"
+        
+        URLSession.shared.dataTask(with: URL(string: endpoint)!) { data, response, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                }
+                return
+            }
+            
+            do {
+                let response = try JSONDecoder().decode(APIResponse<BrandListResponse>.self, from: data)
+                DispatchQueue.main.async {
+                    if response.status == 0 {
+                        completion(.success(response.data))
+                    } else {
+                        completion(.failure(NSError(domain: "", code: response.status, userInfo: [NSLocalizedDescriptionKey: response.msg])))
+                    }
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }.resume()
+    }
 }
 
 // API 响应的通用结构

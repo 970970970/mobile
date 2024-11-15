@@ -29,14 +29,11 @@ class BrandService {
             }
             
             do {
-                let response = try JSONDecoder().decode(APIResponse<BrandListData>.self, from: data)
-                print("✅ [BrandService] Successfully fetched \(response.data.items.count) brands")
+                let response = try JSONDecoder().decode(APIResponse<BrandListResponse>.self, from: data)
                 DispatchQueue.main.async {
                     if response.status == 0 {
-                        let brandListResponse = BrandListResponse(status: response.status, msg: response.msg, data: response.data)
-                        completion(.success(brandListResponse))
+                        completion(.success(response.data))
                     } else {
-                        print("⚠️ [BrandService] Error status: \(response.status), message: \(response.msg)")
                         completion(.failure(NSError(domain: "", code: response.status, userInfo: [NSLocalizedDescriptionKey: response.msg])))
                     }
                 }

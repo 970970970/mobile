@@ -1,11 +1,8 @@
 import SwiftUI
 
-extension Notification.Name {
-    static let switchToTab = Notification.Name("switchToTab")
-}
-
 struct MainTabView: View {
     @State private var selectedTab = 0
+    @State private var selectedBrand: Brand?
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -65,9 +62,17 @@ struct MainTabView: View {
             .offset(y: -10)
             .padding(.bottom, 2)
         }
+        .sheet(item: $selectedBrand) { brand in
+            BrandDetailView(brand: brand, isPresented: $selectedBrand)
+        }
         .onReceive(NotificationCenter.default.publisher(for: .switchToTab)) { notification in
             if let tab = notification.object as? Int {
                 selectedTab = tab
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .showBrandDetail)) { notification in
+            if let brand = notification.object as? Brand {
+                selectedBrand = brand
             }
         }
     }

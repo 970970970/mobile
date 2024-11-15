@@ -11,6 +11,25 @@ class BrandListViewModel: ObservableObject {
     private var lastSearchKeyword = ""
     private let pageSize = 20
     
+    init() {
+        setupNotifications()
+    }
+    
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleSearch),
+            name: .performSearch,
+            object: nil
+        )
+    }
+    
+    @objc private func handleSearch(_ notification: Notification) {
+        if let keyword = notification.object as? String {
+            search(keyword: keyword)
+        }
+    }
+    
     func loadBrands() {
         guard !isLoading else { return }
         isLoading = true
@@ -28,14 +47,14 @@ class BrandListViewModel: ObservableObject {
             
             switch result {
             case .success(let response):
-                print("✅ [BrandListViewModel] Loaded \(response.data.items.count) brands")
+                print("✅ [BrandListViewModel] Loaded \(response.items.count) brands")
                 if self.currentPage == 1 {
-                    self.brands = response.data.items
+                    self.brands = response.items
                 } else {
-                    self.brands.append(contentsOf: response.data.items)
+                    self.brands.append(contentsOf: response.items)
                 }
                 
-                self.hasMorePages = response.data.items.count == self.pageSize
+                self.hasMorePages = response.items.count == self.pageSize
                 self.currentPage += 1
                 
             case .failure(let error):
