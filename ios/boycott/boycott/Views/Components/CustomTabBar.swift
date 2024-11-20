@@ -25,9 +25,9 @@ struct CustomTabBar: View {
             }
             .frame(maxWidth: .infinity)
             
-            // 中间的空隙，为凸起的扫描按钮留出空间
+            // 中间的扫描按钮占位
             Color.clear
-                .frame(width: 60)  // 减小空隙宽度
+                .frame(width: 80)
             
             // 文章
             TabBarButton(
@@ -49,7 +49,7 @@ struct CustomTabBar: View {
             }
             .frame(maxWidth: .infinity)
         }
-        .padding(.horizontal, 16)  // 减小水平边距
+        .padding(.horizontal)
         .padding(.vertical, 8)
         .background(
             Color(.systemBackground)
@@ -60,12 +60,13 @@ struct CustomTabBar: View {
             ScanButton {
                 selectedTab = 2
             }
-            .offset(y: -24),  // 减小凸出高度
+            .offset(y: -32),
             alignment: .center
         )
     }
 }
 
+// 普通标签按钮组件
 struct TabBarButton: View {
     let image: String
     let text: String
@@ -85,6 +86,7 @@ struct TabBarButton: View {
     }
 }
 
+// 扫描按钮组件
 struct ScanButton: View {
     let action: () -> Void
     
@@ -93,12 +95,12 @@ struct ScanButton: View {
             ZStack {
                 Circle()
                     .fill(Color.blue)
-                    .frame(width: 56, height: 56)  // 减小按钮尺寸
+                    .frame(width: 64, height: 64)
                     .shadow(radius: 4)
                 
                 VStack(spacing: 2) {
                     Image(systemName: "camera.viewfinder")
-                        .font(.system(size: 24))  // 减小图标尺寸
+                        .font(.system(size: 28))
                     Text("扫描")
                         .font(.caption)
                 }

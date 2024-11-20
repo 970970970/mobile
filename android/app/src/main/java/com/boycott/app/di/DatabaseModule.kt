@@ -2,8 +2,8 @@ package com.boycott.app.di
 
 import android.content.Context
 import androidx.room.Room
-import com.boycott.app.data.local.AppDatabase
-import com.boycott.app.data.local.dao.SearchHistoryDao
+import com.boycott.app.data.db.BrandDatabase
+import com.boycott.app.data.db.BrandDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,18 +16,20 @@ import javax.inject.Singleton
 object DatabaseModule {
     @Provides
     @Singleton
-    fun provideAppDatabase(
+    fun provideDatabase(
         @ApplicationContext context: Context
-    ): AppDatabase {
+    ): BrandDatabase {
         return Room.databaseBuilder(
             context,
-            AppDatabase::class.java,
-            "boycott.db"
-        ).build()
+            BrandDatabase::class.java,
+            BrandDatabase.DATABASE_NAME
+        ).fallbackToDestructiveMigration()
+        .build()
     }
-    
+
     @Provides
-    fun provideSearchHistoryDao(database: AppDatabase): SearchHistoryDao {
-        return database.searchHistoryDao()
+    @Singleton
+    fun provideBrandDao(database: BrandDatabase): BrandDao {
+        return database.brandDao()
     }
 } 

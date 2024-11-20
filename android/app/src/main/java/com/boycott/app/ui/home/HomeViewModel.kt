@@ -6,69 +6,51 @@ import com.boycott.app.data.model.Article
 import com.boycott.app.data.model.Brand
 import com.boycott.app.data.repository.ArticleRepository
 import com.boycott.app.data.repository.BrandRepository
-import com.boycott.app.data.repository.SearchHistoryRepository
+import com.boycott.app.utils.LanguageManager
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val brandRepository: BrandRepository,
     private val articleRepository: ArticleRepository,
-    private val searchRepository: SearchHistoryRepository
+    private val brandRepository: BrandRepository,
+    private val languageManager: LanguageManager
 ) : ViewModel() {
-    
-    private val _uiState = MutableStateFlow(HomeUiState())
-    val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
-    
-    private var currentPage = 1
-    
-    init {
-        loadInitialData()
-    }
-    
-    private fun loadInitialData() {
-        viewModelScope.launch {
-            // 加载文章
-            articleRepository.getArticles("index", 1)
-                .collect { resource ->
-                    _uiState.update { state ->
-                        state.copy(articles = resource.getOrDefault(emptyList()))
-                    }
-                }
-            
-            // 加载品牌
-            loadBrands()
-        }
-    }
-    
-    fun loadMoreBrands() {
-        viewModelScope.launch {
-            _uiState.update { it.copy(isLoadingMore = true) }
-            
-            brandRepository.getBrands(currentPage)
-                .collect { resource ->
-                    _uiState.update { state ->
-                        val brands = resource.getOrNull()?.items ?: emptyList()
-                        state.copy(
-                            brands = state.brands + brands,
-                            isLoadingMore = false,
-                            hasReachedEnd = brands.isEmpty(),
-                        )
-                    }
-                    if (resource.isSuccess) {
-                        currentPage++
-                    }
-                }
-        }
-    }
-}
+    private val _articles = MutableStateFlow<List<Article>>(emptyList())
+    val articles = _articles.asStateFlow()
 
-data class HomeUiState(
-    val articles: List<Article> = emptyList(),
-    val brands: List<Brand> = emptyList(),
-    val isLoadingMore: Boolean = false,
-    val hasReachedEnd: Boolean = false,
-    val currentSuggestion: String = ""
-) 
+    private val _brands = MutableStateFlow<List<Brand>>(emptyList())
+    val brands = _brands.asStateFlow()
+
+    init {
+        loadArticles()
+        loadBrands()
+    }
+
+    private fun loadArticles() {
+        viewModelScope.launch {
+            try {
+                val currentLanguage = languageManager.getCurrentLanguageCode()
+                val articles = articleRepository.getArticles(currentLanguage, 1)
+                _articles.value = articles
+            } catch (e: Exception) {
+                // 处理错误
+            }
+        }
+    }
+
+    private fun loadBrands() {
+        viewModelScope.launch {
+            try {
+                val currentLanguage = languageManager.getCurrentLanguageCode()
+                val result = brandRepository.getBrands(20, 0, currentLanguage)
+                _brands.value = result
+            } catch (e: Exception) {
+                // 处理错误
+            }
+        }
+    }
+} 

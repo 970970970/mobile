@@ -3,41 +3,46 @@
     <string name="app_name">Boycott</string>
     
     <!-- 底部导航 -->
-    <string name="nav_home">Home</string>
-    <string name="nav_brands">Brands</string>
-    <string name="nav_scan">Scan</string>
-    <string name="nav_articles">Articles</string>
-    <string name="nav_settings">Settings</string>
+    <string name="nav_home">首页</string>
+    <string name="nav_brands">品牌</string>
+    <string name="nav_scan">扫描</string>
+    <string name="nav_articles">文章</string>
+    <string name="nav_settings">设置</string>
+    
+    <!-- 设置页面 -->
+    <string name="settings_language">语言设置</string>
+    <string name="settings_dark_mode">深色模式</string>
+    <string name="settings_cache">清除缓存</string>
+    <string name="settings_feedback_support">反馈与支持</string>
+    <string name="settings_submit_feedback">提交反馈</string>
+    <string name="settings_community">社区讨论</string>
+    <string name="settings_donate">支持我们</string>
+    <string name="settings_about">关于</string>
+    <string name="settings_version">版本</string>
+    <string name="settings_privacy">隐私政策</string>
+    <string name="settings_agreement">用户协议</string>
+    
+    <!-- 设置页面分类 -->
+    <string name="settings_basic">基本设置</string>
+    <string name="settings_legal">法律条款</string>
+    
+    <!-- 反馈对话框 -->
+    <string name="feedback_title">提交反馈</string>
+    <string name="feedback_type">反馈类型</string>
+    <string name="feedback_content">反馈内容</string>
+    <string name="feedback_contact">联系方式（选填）</string>
+    <string name="feedback_submit">提交</string>
+    <string name="feedback_cancel">取消</string>
     
     <!-- 搜索 -->
-    <string name="search_hint">Search brands</string>
-    <string name="search_history">Recent Searches</string>
-    <string name="clear_history">Clear History</string>
-    <string name="no_history">No search history</string>
+    <string name="search_hint">搜索品牌</string>
+    <string name="search_scan">扫条码</string>
+    <string name="search_camera">拍照</string>
+    <string name="search_button">搜索</string>
     
-    <!-- 品牌列表 -->
-    <string name="brand_status_all">All</string>
-    <string name="brand_status_support">Support</string>
-    <string name="brand_status_avoid">Avoid</string>
-    <string name="brand_status_neutral">Neutral</string>
-    <string name="no_brands">No brands found</string>
-    <string name="load_more">Loading more…</string>
-    <string name="end_of_list">End of list</string>
-    
-    <!-- 品牌详情 -->
-    <string name="about_brand">About Brand</string>
-    <string name="reasons">Reasons</string>
-    <string name="countries">Countries</string>
-    <string name="alternatives">Alternatives</string>
-    
-    <!-- 错误提示 -->
-    <string name="error_network">网络连接失败，请检查网络设置</string>
-    <string name="error_timeout">请求超时，请稍后重试</string>
-    <string name="error_server">服务器错误，请稍后重试</string>
-    <string name="error_not_found">未找到相关内容</string>
-    <string name="error_connection">连接失败，请检查网络</string>
-    <string name="error_unknown">发生未知错误，请稍后重试</string>
-    <string name="error_loading_articles">加载文章失败</string>
-    <string name="error_loading_brands">加载品牌失败</string>
-    <string name="error_loading_policy">加载内容失败</string>
-</resources> 
+    <!-- 反馈类型 -->
+    <string name="feedback_type_issue">问题反馈</string>
+    <string name="feedback_type_feature">功能建议</string>
+    <string name="feedback_type_data">数据纠错</string>
+    <string name="feedback_type_other">其他</string>
+</resources>
