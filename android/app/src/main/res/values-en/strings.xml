@@ -45,4 +45,9 @@
     <!-- Settings Categories -->
     <string name="settings_basic">Basic Settings</string>
     <string name="settings_legal">Legal</string>
+    
+    <!-- 搜索相关 -->
+    <string name="search_history">Search History</string>
+    <string name="clear_history">Clear History</string>
+    <string name="search_results">Search Results</string>
 </resources> 
