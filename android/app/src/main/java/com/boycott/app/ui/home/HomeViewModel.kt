@@ -57,9 +57,8 @@ class HomeViewModel @Inject constructor(
     private fun loadBrands() {
         viewModelScope.launch {
             try {
-                val currentLanguage = languageManager.getCurrentLanguageCode()
-                val result = brandRepository.getBrands(20, 0, currentLanguage)
-                _brands.value = result
+                val result = brandRepository.getBrands(20, 0)
+                _brands.value = result.items
             } catch (e: Exception) {
                 // 处理错误
             }

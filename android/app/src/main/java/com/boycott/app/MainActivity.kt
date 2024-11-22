@@ -32,6 +32,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.boycott.app.ui.articles.ArticleDetailView
 import com.boycott.app.ui.articles.ArticleListView
+import com.boycott.app.ui.brands.BrandsView
 import com.boycott.app.ui.home.HomeView
 import com.boycott.app.ui.settings.PrivacyPolicyView
 import com.boycott.app.ui.settings.SettingsView
@@ -198,7 +199,13 @@ class MainActivity : ComponentActivity() {
                                             }
                                         )
                                     }
-                                    composable("brands") { Text("品牌列表") }
+                                    composable("brands") { 
+                                        BrandsView(
+                                            onNavigateToSearchHistory = {
+                                                navController.navigate("search_history")
+                                            }
+                                        )
+                                    }
                                     composable("scan") { Text("扫描") }
                                     composable("articles") { 
                                         ArticleListView(

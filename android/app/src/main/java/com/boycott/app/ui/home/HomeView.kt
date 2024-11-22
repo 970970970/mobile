@@ -24,103 +24,63 @@ import com.boycott.app.ui.components.ArticleCarousel
 import com.boycott.app.ui.components.BrandGridItem
 import androidx.compose.material.icons.filled.FitScreen
 import com.boycott.app.R
+import com.boycott.app.ui.components.SearchBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeView(
-    viewModel: HomeViewModel = hiltViewModel(),
     onBrandClick: (String) -> Unit,
-    onNavigateToSearchHistory: () -> Unit
+    onNavigateToSearchHistory: () -> Unit,
+    viewModel: HomeViewModel = hiltViewModel()
 ) {
-    val articles by viewModel.articles.collectAsState()
     val brands by viewModel.brands.collectAsState()
+    val articles by viewModel.articles.collectAsState()
     val currentHotSearch by viewModel.currentHotSearch.collectAsState()
-    var searchQuery by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.fillMaxSize()) {
-        // 搜索框
-        Surface(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            shape = MaterialTheme.shapes.medium,
-            color = MaterialTheme.colorScheme.surfaceVariant
-        ) {
-            Row(
-                modifier = Modifier
-                    .clickable { onNavigateToSearchHistory() }
-                    .padding(4.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                // 扫码图标
-                IconButton(onClick = { /* TODO */ }) {
-                    Icon(Icons.Filled.QrCode2, contentDescription = stringResource(R.string.search_scan))
-                }
-                
-                // 分隔线
-                Divider(
+        // 使用搜索框组件
+        SearchBar(
+            hotSearchText = currentHotSearch,
+            onSearchClick = onNavigateToSearchHistory
+        )
+
+        // 文章轮播
+        articles?.let { articleList ->  // 使用安全调用
+            if (articleList.isNotEmpty()) {  // 检查非空列表
+                ArticleCarousel(
+                    articles = articleList,
                     modifier = Modifier
-                        .height(24.dp)
-                        .width(1.dp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
+                        .fillMaxWidth()
+                        .height(200.dp)
+                        .padding(horizontal = 16.dp)
                 )
-                
-                // 搜索提示文本
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(horizontal = 8.dp)
-                ) {
-                    Text(
-                        text = currentHotSearch,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
-                        modifier = Modifier.padding(vertical = 8.dp)
-                    )
-                }
-                
-                // 相机图标
-                IconButton(onClick = { /* TODO */ }) {
-                    Icon(Icons.Filled.PhotoCamera, contentDescription = stringResource(R.string.search_camera))
-                }
-                
-                // 分隔线
-                Divider(
-                    modifier = Modifier
-                        .height(24.dp)
-                        .width(1.dp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
-                )
-                
-                // 搜索按钮
-                TextButton(onClick = { /* TODO */ }) {
-                    Text(stringResource(R.string.search_button))
-                }
             }
         }
 
-        // 文章轮播
-        if (articles.isNotEmpty()) {
-            ArticleCarousel(
-                articles = articles,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-                    .padding(horizontal = 16.dp)
-            )
-        }
-
         // 品牌列表
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            contentPadding = PaddingValues(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            items(brands) { brand ->
-                BrandGridItem(
-                    brand = brand,
-                    onClick = { onBrandClick(brand.id) }
-                )
+        brands?.let { brandList ->  // 使用安全调用
+            if (brandList.isNotEmpty()) {  // 检查非空列表
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(2),
+                    contentPadding = PaddingValues(16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    items(brandList) { brand ->
+                        BrandGridItem(
+                            brand = brand,
+                            onClick = { onBrandClick(brand.id.toString()) }
+                        )
+                    }
+                }
+            }
+        } ?: run {
+            // 显示加载状态
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
             }
         }
     }

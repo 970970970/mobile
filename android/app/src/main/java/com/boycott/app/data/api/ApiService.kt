@@ -18,12 +18,11 @@ interface ApiService {
         @Query("page") page: Int
     ): ApiResponse<ArticleListResponse>
 
-    @GET("v1/brands/list")
+    @GET("brands/list")
     suspend fun getBrands(
         @Query("limit") limit: Int,
-        @Query("offset") offset: Int,
-        @Query("language") language: String
-    ): List<Brand>
+        @Query("offset") offset: Int
+    ): ApiResponse<BrandsListResponse>
 
     @GET("v1/languages")
     suspend fun getLanguages(@Query("limit") limit: Int = 100): ApiResponse<LanguageResponse>

@@ -48,4 +48,5 @@
     <string name="feedback_type_feature">功能建议</string>
     <string name="feedback_type_data">数据纠错</string>
     <string name="feedback_type_other">其他</string>
+    <string name="no_more_results">没有更多内容</string>
 </resources>
