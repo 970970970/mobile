@@ -3,6 +3,7 @@ package com.boycott.app.data.api
 import com.boycott.app.data.model.Article
 import com.boycott.app.data.model.ArticleListResponse
 import com.boycott.app.data.model.Brand
+import com.boycott.app.data.model.BrandsListResponse
 import com.boycott.app.data.model.Language
 import com.boycott.app.data.model.LanguageResponse
 import com.boycott.app.data.model.ApiResponse
@@ -35,4 +36,14 @@ interface ApiService {
 
     @GET("v1/articles/{id}")
     suspend fun getArticle(@Path("id") id: Int): ApiResponse<Article>
+
+    @GET("v1/brands/hot-searches")
+    suspend fun getHotSearches(): ApiResponse<List<String>>
+
+    @GET("v1/brands/list")
+    suspend fun searchBrands(
+        @Query("keywords") keywords: String,
+        @Query("limit") limit: Int = 20,
+        @Query("offset") offset: Int = 0
+    ): ApiResponse<BrandsListResponse>
 } 

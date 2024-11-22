@@ -39,6 +39,9 @@
     <string name="search_scan">扫条码</string>
     <string name="search_camera">拍照</string>
     <string name="search_button">搜索</string>
+    <string name="search_history">搜索历史</string>
+    <string name="search_results">搜索结果</string>
+    <string name="clear_history">清除历史</string>
     
     <!-- 反馈类型 -->
     <string name="feedback_type_issue">问题反馈</string>

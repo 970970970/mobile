@@ -1,9 +1,12 @@
 package com.boycott.app.ui.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -12,6 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -24,10 +29,12 @@ import com.boycott.app.R
 @Composable
 fun HomeView(
     viewModel: HomeViewModel = hiltViewModel(),
-    onBrandClick: (String) -> Unit
+    onBrandClick: (String) -> Unit,
+    onNavigateToSearchHistory: () -> Unit
 ) {
     val articles by viewModel.articles.collectAsState()
     val brands by viewModel.brands.collectAsState()
+    val currentHotSearch by viewModel.currentHotSearch.collectAsState()
     var searchQuery by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -40,7 +47,9 @@ fun HomeView(
             color = MaterialTheme.colorScheme.surfaceVariant
         ) {
             Row(
-                modifier = Modifier.padding(4.dp),
+                modifier = Modifier
+                    .clickable { onNavigateToSearchHistory() }
+                    .padding(4.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 // 扫码图标
@@ -56,25 +65,18 @@ fun HomeView(
                     color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
                 )
                 
-                // 搜索框
-                OutlinedTextField(
-                    value = searchQuery,
-                    onValueChange = { searchQuery = it },
+                // 搜索提示文本
+                Box(
                     modifier = Modifier
                         .weight(1f)
-                        .padding(horizontal = 8.dp),
-                    placeholder = {
-                        Text(
-                            stringResource(R.string.search_hint),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
-                        )
-                    },
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Color.Transparent,
-                        unfocusedBorderColor = Color.Transparent
-                    ),
-                    singleLine = true
-                )
+                        .padding(horizontal = 8.dp)
+                ) {
+                    Text(
+                        text = currentHotSearch,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+                        modifier = Modifier.padding(vertical = 8.dp)
+                    )
+                }
                 
                 // 相机图标
                 IconButton(onClick = { /* TODO */ }) {
@@ -129,7 +131,8 @@ fun HomeView(
 fun HomeViewPreview() {
     MaterialTheme {
         HomeView(
-            onBrandClick = {}
+            onBrandClick = {},
+            onNavigateToSearchHistory = {}
         )
     }
 }
