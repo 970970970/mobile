@@ -12,7 +12,7 @@ import retrofit2.http.Query
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("v1/articles/list/index/{language}")
+    @GET("articles/list/index/{language}")
     suspend fun getArticles(
         @Path("language") language: String,
         @Query("page") page: Int
@@ -24,22 +24,22 @@ interface ApiService {
         @Query("offset") offset: Int
     ): ApiResponse<BrandsListResponse>
 
-    @GET("v1/languages")
+    @GET("languages")
     suspend fun getLanguages(@Query("limit") limit: Int = 100): ApiResponse<LanguageResponse>
 
-    @GET("v1/articles/mod/privacy_policy/{language}")
+    @GET("articles/mod/privacy_policy/{language}")
     suspend fun getPrivacyPolicy(@Path("language") language: String): ApiResponse<Article>
 
-    @GET("v1/articles/mod/user_agreement/{language}")
+    @GET("articles/mod/user_agreement/{language}")
     suspend fun getUserAgreement(@Path("language") language: String): ApiResponse<Article>
 
-    @GET("v1/articles/{id}")
+    @GET("articles/{id}")
     suspend fun getArticle(@Path("id") id: Int): ApiResponse<Article>
 
-    @GET("v1/brands/hot-searches")
+    @GET("brands/hot-searches")
     suspend fun getHotSearches(): ApiResponse<List<String>>
 
-    @GET("v1/brands/list")
+    @GET("brands/list")
     suspend fun searchBrands(
         @Query("keywords") keywords: String,
         @Query("limit") limit: Int = 20,

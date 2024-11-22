@@ -1,14 +1,10 @@
 package com.boycott.app.data.model
 
 data class Brand(
-    val id: String,
+    val id: Int,
     val name: String,
     val description: String?,
     val status: String?,
-    val logoMediaId: Int?,
-    val logoPath: String?,
-    val reasons: List<String>?,
-    val countries: List<String>?,
-    val categories: List<String>?,
-    val alternatives: List<String>?
+    val logo_media_id: Int?,
+    val logo_path: String?
 ) 

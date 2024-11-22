@@ -4,7 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.PhotoCamera
@@ -21,6 +21,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.boycott.app.R
 import com.boycott.app.data.model.Brand
+import com.boycott.app.utils.AppConfig
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -47,7 +48,7 @@ fun SearchResultsView(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(brands) { brand ->
-                BrandListItem(
+                BrandSearchItem(
                     brand = brand,
                     onClick = { onBrandClick(brand.id.toString()) }
                 )
@@ -57,10 +58,7 @@ fun SearchResultsView(
 }
 
 @Composable
-private fun BrandListItem(
-    brand: Brand,
-    onClick: () -> Unit
-) {
+private fun BrandSearchItem(brand: Brand, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -75,32 +73,26 @@ private fun BrandListItem(
         ) {
             Box(
                 modifier = Modifier
-                    .size(48.dp)
-                    .clip(CircleShape)
+                    .size(60.dp)
+                    .clip(RoundedCornerShape(4.dp)),
+                contentAlignment = Alignment.Center
             ) {
-                if (!brand.logoPath.isNullOrEmpty()) {
+                if (brand.logo_path != null) {
                     AsyncImage(
-                        model = brand.logoPath,
+                        model = "${AppConfig.MEDIA_HOST}${brand.logo_path}",
                         contentDescription = brand.name,
                         modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Crop
+                        contentScale = ContentScale.Fit
                     )
                 } else {
-                    // 显示默认图片或占位符
-                    Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.surfaceVariant
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.PhotoCamera,
-                            contentDescription = null,
-                            modifier = Modifier.padding(8.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
+                    Text(
+                        text = brand.name.firstOrNull()?.toString() ?: "",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 }
             }
-            
+
             Spacer(modifier = Modifier.width(16.dp))
             
             Column(modifier = Modifier.weight(1f)) {

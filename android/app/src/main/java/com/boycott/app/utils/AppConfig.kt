@@ -1,11 +1,7 @@
 package com.boycott.app.utils
 
 object AppConfig {
-    private const val DEV_HOST = "http://10.1.0.241:8787"
-    private const val PROD_HOST = "https://api.example.com" // 正式环境域名
-
-    private val IS_DEBUG = true // 可以根据 BuildConfig.DEBUG 来判断
-
-    val API_HOST = if (IS_DEBUG) "$DEV_HOST/" else "$PROD_HOST/"
-    val MEDIA_HOST = if (IS_DEBUG) "$DEV_HOST/media" else "$PROD_HOST/media"
+    const val API_HOST = "http://10.1.0.241:8787/v1/"
+    const val MEDIA_HOST = "http://10.1.0.241:8787/v1/media/local/"  // 开发环境的媒体资源路径
+    // const val MEDIA_HOST = "https://cdn.970970970.xyz/"  // 生产环境的媒体资源路径
 } 
