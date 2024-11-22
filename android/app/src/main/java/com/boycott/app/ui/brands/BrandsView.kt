@@ -63,7 +63,7 @@ private fun BrandItem(brand: Brand) {
             ) {
                 if (brand.logo_path != null) {
                     AsyncImage(
-                        model = "http://10.1.0.241:8787/v1/media/local/${brand.logo_path}",
+                        model = "${AppConfig.MEDIA_HOST}${brand.logo_path}",
                         contentDescription = brand.name,
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Fit
