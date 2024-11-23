@@ -94,7 +94,7 @@ fun HomeView(
                                 Text(
                                     text = article.title,
                                     style = MaterialTheme.typography.titleMedium,
-                                    maxLines = 2,
+                                    maxLines = 1,
                                     overflow = TextOverflow.Ellipsis,
                                     modifier = Modifier.padding(8.dp)
                                 )
