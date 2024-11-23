@@ -78,6 +78,21 @@ class MainActivity : ComponentActivity() {
                     key(forceUpdate) {
                         var selectedTab by remember { mutableStateOf(0) }
                         
+                        // 监听导航变化
+                        LaunchedEffect(navController) {
+                            navController.currentBackStackEntryFlow.collect { backStackEntry ->
+                                // 根据当前路由更新选中的标签
+                                selectedTab = when(backStackEntry.destination.route) {
+                                    "home" -> 0
+                                    "brands" -> 1
+                                    "scan" -> 2
+                                    "articles" -> 3
+                                    "settings" -> 4
+                                    else -> selectedTab  // 保持当前选中状态
+                                }
+                            }
+                        }
+                        
                         Scaffold(
                             bottomBar = {
                                 Box(
