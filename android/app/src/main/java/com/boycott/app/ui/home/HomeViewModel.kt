@@ -42,14 +42,24 @@ class HomeViewModel @Inject constructor(
         startHotSearchRotation()
     }
 
+    private fun getLanguageName(code: String): String {
+        return when (code) {
+            "zh-CN" -> "Chinese"
+            "en-US" -> "English"
+            else -> "English"
+        }
+    }
+
     private fun loadArticles() {
         viewModelScope.launch {
             try {
-                val currentLanguage = languageManager.getCurrentLanguageCode()
-                val articles = articleRepository.getArticles(currentLanguage, 1)
-                _articles.value = articles
+                val currentLanguageCode = languageManager.getCurrentLanguageCode()
+                val languageName = getLanguageName(currentLanguageCode)
+                val response = articleRepository.getArticles(languageName, 1)
+                _articles.value = response.data.list
             } catch (e: Exception) {
                 // 处理错误
+                _articles.value = emptyList()
             }
         }
     }

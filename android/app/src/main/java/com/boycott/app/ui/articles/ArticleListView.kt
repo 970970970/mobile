@@ -37,9 +37,14 @@ fun ArticleListView(
             lastVisibleItemIndex > (totalItemsNumber - 3)
         }.distinctUntilChanged().collect { shouldLoad ->
             if (shouldLoad) {
-                viewModel.loadArticles(refresh = false)
+                viewModel.loadNextPage()
             }
         }
+    }
+
+    // 初始加载
+    LaunchedEffect(Unit) {
+        viewModel.loadNextPage()
     }
 
     LazyColumn(

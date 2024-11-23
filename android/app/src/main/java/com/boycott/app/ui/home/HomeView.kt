@@ -1,161 +1,145 @@
 package com.boycott.app.ui.home
 
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.boycott.app.ui.components.ArticleCarousel
+import coil.compose.AsyncImage
 import com.boycott.app.ui.components.BrandGridItem
-import androidx.compose.material.icons.filled.FitScreen
-import com.boycott.app.R
 import com.boycott.app.ui.components.SearchBar
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeView(
     onBrandClick: (String) -> Unit,
+    onArticleClick: (Int) -> Unit,  // 添加文章点击回调
     onNavigateToSearchHistory: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val brands by viewModel.brands.collectAsState()
     val articles by viewModel.articles.collectAsState()
     val currentHotSearch by viewModel.currentHotSearch.collectAsState()
+    val coroutineScope = rememberCoroutineScope()
 
     Column(modifier = Modifier.fillMaxSize()) {
-        // 使用搜索框组件
         SearchBar(
             hotSearchText = currentHotSearch,
             onSearchClick = onNavigateToSearchHistory
         )
 
         // 文章轮播
-        articles?.let { articleList ->  // 使用安全调用
-            if (articleList.isNotEmpty()) {  // 检查非空列表
-                ArticleCarousel(
-                    articles = articleList,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
-                        .padding(horizontal = 16.dp)
-                )
+        if (!articles.isEmpty()) {
+            val pagerState = rememberPagerState(pageCount = { articles.size })
+            
+            // 自动轮播
+            LaunchedEffect(articles) {
+                while (true) {
+                    delay(5000) // 5秒切换一次
+                    val nextPage = (pagerState.currentPage + 1) % articles.size
+                    pagerState.animateScrollToPage(nextPage)
+                }
             }
-        }
 
-        // 品牌列表
-        brands?.let { brandList ->  // 使用安全调用
-            if (brandList.isNotEmpty()) {  // 检查非空列表
-                LazyVerticalGrid(
-                    columns = GridCells.Fixed(2),
-                    contentPadding = PaddingValues(16.dp),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+                    .padding(16.dp)
+            ) {
+                HorizontalPager(
+                    state = pagerState,
+                    modifier = Modifier.fillMaxSize()
+                ) { page ->
+                    val article = articles[page]
+                    Card(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .clickable { onArticleClick(article.id) },
+                        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+                    ) {
+                        Box(modifier = Modifier.fillMaxSize()) {
+                            // 文章图片
+                            article.image?.let { imageUrl ->
+                                AsyncImage(
+                                    model = imageUrl,
+                                    contentDescription = article.title,
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentScale = ContentScale.Crop
+                                )
+                            }
+                            
+                            // 文章标题（半透明背景）
+                            Surface(
+                                modifier = Modifier
+                                    .align(Alignment.BottomCenter)
+                                    .fillMaxWidth(),
+                                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f)
+                            ) {
+                                Text(
+                                    text = article.title,
+                                    style = MaterialTheme.typography.titleMedium,
+                                    maxLines = 2,
+                                    overflow = TextOverflow.Ellipsis,
+                                    modifier = Modifier.padding(8.dp)
+                                )
+                            }
+                        }
+                    }
+                }
+
+                // 页面指示器
+                Row(
+                    Modifier
+                        .align(Alignment.BottomCenter)
+                        .padding(bottom = 8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    items(brandList) { brand ->
-                        BrandGridItem(
-                            brand = brand,
-                            onClick = { onBrandClick(brand.id.toString()) }
+                    repeat(articles.size) { iteration ->
+                        val color = if (pagerState.currentPage == iteration) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.surfaceVariant
+                        }
+                        Box(
+                            modifier = Modifier
+                                .size(8.dp)
+                                .clip(MaterialTheme.shapes.small)
+                                .background(color)
                         )
                     }
                 }
             }
-        } ?: run {
-            // 显示加载状态
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator()
-            }
         }
-    }
-}
 
-@Preview(showBackground = true)
-@Composable
-fun HomeViewPreview() {
-    MaterialTheme {
-        HomeView(
-            onBrandClick = {},
-            onNavigateToSearchHistory = {}
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun SearchBarPreview() {
-    MaterialTheme {
-        Surface(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            shape = MaterialTheme.shapes.medium,
-            color = MaterialTheme.colorScheme.surfaceVariant
+        // 品牌网格列表
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            contentPadding = PaddingValues(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            modifier = Modifier.weight(1f)
         ) {
-            Row(
-                modifier = Modifier.padding(4.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                IconButton(onClick = {}) {
-                    Icon(Icons.Filled.FitScreen, contentDescription = "扫条码")
-                }
-                
-                Divider(
-                    modifier = Modifier
-                        .height(24.dp)
-                        .width(1.dp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
+            items(brands) { brand ->
+                BrandGridItem(
+                    brand = brand,
+                    onClick = { onBrandClick(brand.id.toString()) }
                 )
-                
-                OutlinedTextField(
-                    value = "",
-                    onValueChange = {},
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(horizontal = 8.dp),
-                    placeholder = {
-                        Text(
-                            "搜索品牌",
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
-                        )
-                    },
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Color.Transparent,
-                        unfocusedBorderColor = Color.Transparent
-                    ),
-                    singleLine = true
-                )
-                
-                IconButton(onClick = {}) {
-                    Icon(Icons.Filled.PhotoCamera, contentDescription = "拍照")
-                }
-                
-                Divider(
-                    modifier = Modifier
-                        .height(24.dp)
-                        .width(1.dp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
-                )
-                
-                TextButton(onClick = {}) {
-                    Text("搜索")
-                }
             }
         }
     }

@@ -194,6 +194,9 @@ class MainActivity : ComponentActivity() {
                                             onBrandClick = { brandId -> 
                                                 navController.navigate("brand/$brandId")
                                             },
+                                            onArticleClick = { articleId ->
+                                                navController.navigate("article_detail/$articleId")
+                                            },
                                             onNavigateToSearchHistory = {
                                                 navController.navigate("search_history")
                                             }
