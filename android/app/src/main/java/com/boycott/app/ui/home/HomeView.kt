@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.*
@@ -23,18 +24,38 @@ import com.boycott.app.ui.components.BrandGridItem
 import com.boycott.app.ui.components.SearchBar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.distinctUntilChanged
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeView(
     onBrandClick: (String) -> Unit,
-    onArticleClick: (Int) -> Unit,  // 添加文章点击回调
+    onArticleClick: (Int) -> Unit,
     onNavigateToSearchHistory: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val brands by viewModel.brands.collectAsState()
     val articles by viewModel.articles.collectAsState()
     val currentHotSearch by viewModel.currentHotSearch.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
+    val hasMoreData by viewModel.hasMoreData.collectAsState()
+    val gridState = rememberLazyGridState()
+
+    // 检测是否需要加载更多
+    LaunchedEffect(gridState) {
+        snapshotFlow {
+            val layoutInfo = gridState.layoutInfo
+            val totalItemsNumber = layoutInfo.totalItemsCount
+            val lastVisibleItemIndex = (layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0) + 1
+            
+            lastVisibleItemIndex > (totalItemsNumber - 4)  // 当剩余不到4个项时加载更多
+        }.distinctUntilChanged().collect { shouldLoad ->
+            if (shouldLoad) {
+                viewModel.loadNextPage()
+            }
+        }
+    }
 
     Column(modifier = Modifier.fillMaxSize()) {
         SearchBar(
@@ -43,7 +64,7 @@ fun HomeView(
         )
 
         // 文章轮播
-        if (!articles.isEmpty()) {
+        if (articles.isNotEmpty()) {
             val pagerState = rememberPagerState(pageCount = { articles.size })
             
             // 自动轮播
@@ -129,6 +150,7 @@ fun HomeView(
         // 品牌网格列表
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
+            state = gridState,
             contentPadding = PaddingValues(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -139,6 +161,32 @@ fun HomeView(
                     brand = brand,
                     onClick = { onBrandClick(brand.id.toString()) }
                 )
+            }
+
+            // 加载状态或没有更多数据的提示
+            item(span = { GridItemSpan(maxLineSpan) }) {
+                if (isLoading) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                } else if (!hasMoreData) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "没有更多内容",
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
             }
         }
     }
