@@ -94,7 +94,7 @@ class HomeViewModel @Inject constructor(
             while (true) {
                 delay(5000) // 5秒延迟
                 val currentList = _hotSearches.value
-                if (currentList != null && currentList.isNotEmpty()) {
+                if (currentList.isNotEmpty()) {
                     val currentIndex = currentList.indexOf(_currentHotSearch.value)
                     val nextIndex = (currentIndex + 1) % currentList.size
                     _currentHotSearch.value = currentList[nextIndex]

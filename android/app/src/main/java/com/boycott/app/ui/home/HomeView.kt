@@ -35,7 +35,6 @@ fun HomeView(
     val brands by viewModel.brands.collectAsState()
     val articles by viewModel.articles.collectAsState()
     val currentHotSearch by viewModel.currentHotSearch.collectAsState()
-    val coroutineScope = rememberCoroutineScope()
 
     Column(modifier = Modifier.fillMaxSize()) {
         SearchBar(

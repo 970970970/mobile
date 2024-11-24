@@ -32,7 +32,6 @@ fun BrandGridItem(
     val coroutineScope = rememberCoroutineScope()
     val textWidth = remember { mutableStateOf(0) }
     val containerWidth = remember { mutableStateOf(0) }
-    val density = LocalDensity.current
 
     Card(
         modifier = Modifier

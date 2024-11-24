@@ -29,6 +29,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.boycott.app.ui.articles.ArticleDetailView
 import com.boycott.app.ui.articles.ArticleListView
@@ -41,6 +42,7 @@ import com.boycott.app.ui.search.SearchHistoryView
 import com.boycott.app.ui.search.SearchResultsView
 import com.boycott.app.utils.LocaleEvent
 import com.boycott.app.utils.ThemeEvent
+import com.boycott.app.ui.brand.BrandDetailView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Locale
@@ -51,7 +53,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             var forceUpdate by remember { mutableStateOf(0) }
-            val scope = rememberCoroutineScope()
             val navController = rememberNavController()
             
             // 获取深色模式状态
@@ -80,15 +81,14 @@ class MainActivity : ComponentActivity() {
                         
                         // 监听导航变化
                         LaunchedEffect(navController) {
-                            navController.currentBackStackEntryFlow.collect { backStackEntry ->
-                                // 根据当前路由更新选中的标签
-                                selectedTab = when(backStackEntry.destination.route) {
+                            navController.currentBackStackEntryFlow.collect { _ ->
+                                selectedTab = when(navController.currentDestination?.route) {
                                     "home" -> 0
                                     "brands" -> 1
                                     "scan" -> 2
                                     "articles" -> 3
                                     "settings" -> 4
-                                    else -> selectedTab  // 保持当前选中状态
+                                    else -> selectedTab
                                 }
                             }
                         }
@@ -247,7 +247,7 @@ class MainActivity : ComponentActivity() {
                                     composable(
                                         "article_detail/{articleId}",
                                         arguments = listOf(navArgument("articleId") { type = NavType.IntType })
-                                    ) { backStackEntry ->
+                                    ) { _ ->
                                         ArticleDetailView(
                                             onBack = { navController.popBackStack() }
                                         )
@@ -272,15 +272,22 @@ class MainActivity : ComponentActivity() {
                                     composable(
                                         "search_results/{query}",
                                         arguments = listOf(navArgument("query") { type = NavType.StringType })
-                                    ) { backStackEntry ->
-                                        val query = backStackEntry.arguments?.getString("query") ?: ""
+                                    ) { _ ->
                                         SearchResultsView(
-                                            onBack = {
-                                                navController.popBackStack()
-                                            },
-                                            onBrandClick = { brandId: String ->
-                                                navController.navigate("brand/$brandId")
-                                            }
+                                            onBack = { navController.popBackStack() },
+                                            onBrandClick = { brandId -> navController.navigate("brand/$brandId") }
+                                        )
+                                    }
+
+                                    // 添加品牌详情页的路由
+                                    composable(
+                                        "brand/{brandId}",
+                                        arguments = listOf(navArgument("brandId") { type = NavType.StringType })
+                                    ) { backStackEntry ->
+                                        val brandId = backStackEntry.arguments?.getString("brandId") ?: return@composable
+                                        BrandDetailView(
+                                            brandId = brandId,
+                                            onBack = { navController.popBackStack() }
                                         )
                                     }
                                 }

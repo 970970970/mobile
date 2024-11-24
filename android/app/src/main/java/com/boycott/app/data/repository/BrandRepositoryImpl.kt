@@ -18,4 +18,9 @@ class BrandRepositoryImpl @Inject constructor(
         val response = apiService.getHotSearches()
         return response.data
     }
+
+    override suspend fun getBrandDetail(id: String): Brand {
+        val response = apiService.getBrandDetail(id)
+        return response.data
+    }
 } 

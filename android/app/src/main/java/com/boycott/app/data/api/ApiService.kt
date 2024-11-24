@@ -45,4 +45,7 @@ interface ApiService {
         @Query("limit") limit: Int = 20,
         @Query("offset") offset: Int = 0
     ): ApiResponse<BrandsListResponse>
+
+    @GET("brands/{id}")
+    suspend fun getBrandDetail(@Path("id") id: String): ApiResponse<Brand>
 } 
