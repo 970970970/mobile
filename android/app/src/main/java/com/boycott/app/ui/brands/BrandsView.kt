@@ -1,5 +1,6 @@
 package com.boycott.app.ui.brands
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -20,6 +21,7 @@ import com.boycott.app.data.model.Brand
 @Composable
 fun BrandsView(
     onNavigateToSearchHistory: () -> Unit,
+    onBrandClick: (String) -> Unit,
     viewModel: BrandsViewModel = hiltViewModel()
 ) {
     val currentHotSearch by viewModel.currentHotSearch.collectAsState()
@@ -37,16 +39,24 @@ fun BrandsView(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(brands) { brand ->
-                BrandItem(brand = brand)
+                BrandItem(
+                    brand = brand,
+                    onClick = { onBrandClick(brand.id.toString()) }
+                )
             }
         }
     }
 }
 
 @Composable
-private fun BrandItem(brand: Brand) {
+private fun BrandItem(
+    brand: Brand,
+    onClick: () -> Unit
+) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
