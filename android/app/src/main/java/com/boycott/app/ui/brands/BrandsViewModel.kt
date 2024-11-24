@@ -8,6 +8,7 @@ import com.boycott.app.data.repository.SearchRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,11 +22,20 @@ class BrandsViewModel @Inject constructor(
     val currentHotSearch: StateFlow<String> = _currentHotSearch
 
     private val _brands = MutableStateFlow<List<Brand>>(emptyList())
-    val brands: StateFlow<List<Brand>> = _brands
+    val brands = _brands.asStateFlow()
+
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading: StateFlow<Boolean> = _isLoading
+
+    private val _hasMoreData = MutableStateFlow(true)
+    val hasMoreData: StateFlow<Boolean> = _hasMoreData
+
+    private var currentPage = 0
+    private val pageSize = 20
 
     init {
         loadHotSearches()
-        loadBrands()
+        loadNextPage()
     }
 
     private fun loadHotSearches() {
@@ -41,13 +51,33 @@ class BrandsViewModel @Inject constructor(
         }
     }
 
-    private fun loadBrands() {
+    fun loadNextPage() {
+        if (_isLoading.value || !_hasMoreData.value) return
+
         viewModelScope.launch {
             try {
-                val response = brandRepository.getBrands(20, 0)
-                _brands.value = response.items
+                _isLoading.value = true
+                val response = brandRepository.getBrands(
+                    limit = pageSize,
+                    offset = currentPage * pageSize
+                )
+                
+                // 更新品牌列表
+                val newBrands = response.items
+                if (currentPage == 0) {
+                    _brands.value = newBrands
+                } else {
+                    _brands.value = _brands.value + newBrands
+                }
+
+                // 更新分页状态
+                _hasMoreData.value = newBrands.size == pageSize
+                if (_hasMoreData.value) currentPage++
+                
             } catch (e: Exception) {
                 e.printStackTrace()
+            } finally {
+                _isLoading.value = false
             }
         }
     }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -17,6 +18,7 @@ import coil.compose.AsyncImage
 import com.boycott.app.utils.AppConfig
 import com.boycott.app.ui.components.SearchBar
 import com.boycott.app.data.model.Brand
+import kotlinx.coroutines.flow.distinctUntilChanged
 
 @Composable
 fun BrandsView(
@@ -26,6 +28,24 @@ fun BrandsView(
 ) {
     val currentHotSearch by viewModel.currentHotSearch.collectAsState()
     val brands by viewModel.brands.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
+    val hasMoreData by viewModel.hasMoreData.collectAsState()
+    val listState = rememberLazyListState()
+
+    // 检测是否需要加载更多
+    LaunchedEffect(listState) {
+        snapshotFlow {
+            val layoutInfo = listState.layoutInfo
+            val totalItemsNumber = layoutInfo.totalItemsCount
+            val lastVisibleItemIndex = (layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0) + 1
+            
+            lastVisibleItemIndex > (totalItemsNumber - 3)  // 当剩余不到3个项时加载更多
+        }.distinctUntilChanged().collect { shouldLoad ->
+            if (shouldLoad) {
+                viewModel.loadNextPage()
+            }
+        }
+    }
 
     Column(modifier = Modifier.fillMaxSize()) {
         SearchBar(
@@ -34,6 +54,7 @@ fun BrandsView(
         )
 
         LazyColumn(
+            state = listState,
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -43,6 +64,32 @@ fun BrandsView(
                     brand = brand,
                     onClick = { onBrandClick(brand.id.toString()) }
                 )
+            }
+
+            // 加载状态或没有更多数据的提示
+            item {
+                if (isLoading) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                } else if (!hasMoreData) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "没有更多内容",
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
             }
         }
     }
