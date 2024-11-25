@@ -283,8 +283,10 @@ class MainActivity : ComponentActivity() {
                                     composable(
                                         "search_results/{query}",
                                         arguments = listOf(navArgument("query") { type = NavType.StringType })
-                                    ) { _ ->
+                                    ) { backStackEntry ->
+                                        val query = backStackEntry.arguments?.getString("query") ?: return@composable
                                         SearchResultsView(
+                                            query = query,
                                             onBack = { navController.popBackStack() },
                                             onBrandClick = { brandId -> navController.navigate("brand/$brandId") }
                                         )

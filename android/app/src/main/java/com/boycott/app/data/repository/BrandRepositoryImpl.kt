@@ -9,8 +9,12 @@ class BrandRepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : BrandRepository {
     
-    override suspend fun getBrands(limit: Int, offset: Int): BrandsListResponse {
-        val response = apiService.getBrands(limit, offset)
+    override suspend fun getBrands(
+        limit: Int,
+        offset: Int,
+        keywords: String
+    ): BrandsListResponse {
+        val response = apiService.searchBrands(keywords, limit, offset)
         return response.data
     }
 

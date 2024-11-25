@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchHistoryViewModel @Inject constructor(
     private val searchHistoryRepository: SearchHistoryRepository,
-    private val searchRepository: SearchRepository
+    private val brandRepository: BrandRepository
 ) : ViewModel() {
     
     private val _searchHistory = MutableStateFlow<List<String>>(emptyList())
@@ -26,47 +26,39 @@ class SearchHistoryViewModel @Inject constructor(
     val searchResults: StateFlow<List<Brand>> = _searchResults
 
     init {
-        Log.d("SearchDebug", "SearchHistoryViewModel initialized")
         loadSearchHistory()
     }
 
     private fun loadSearchHistory() {
-        val history = searchHistoryRepository.getSearchHistory()
-        Log.d("SearchDebug", "Loading search history: $history")
-        _searchHistory.value = history
+        _searchHistory.value = searchHistoryRepository.getSearchHistory()
     }
 
     fun searchBrands(keyword: String) {
-        Log.d("SearchDebug", "Searching brands with keyword: $keyword")
         viewModelScope.launch {
             try {
-                val response = searchRepository.searchBrands(
+                val response = brandRepository.getBrands(
                     keywords = keyword,
                     limit = 20,
                     offset = 0
                 )
                 _searchResults.value = response.items
-                Log.d("SearchDebug", "Search results count: ${response.items.size}")
             } catch (e: Exception) {
-                Log.e("SearchDebug", "Error searching brands", e)
+                e.printStackTrace()
             }
         }
     }
 
     fun addToHistory(query: String) {
-        Log.d("SearchDebug", "Adding to history: $query")
         searchHistoryRepository.addSearchHistory(query)
         loadSearchHistory()
     }
 
     fun removeFromHistory(query: String) {
-        Log.d("SearchDebug", "Removing from history: $query")
         searchHistoryRepository.removeFromHistory(query)
         loadSearchHistory()
     }
 
     fun clearHistory() {
-        Log.d("SearchDebug", "Clearing all history")
         searchHistoryRepository.clearSearchHistory()
         loadSearchHistory()
     }

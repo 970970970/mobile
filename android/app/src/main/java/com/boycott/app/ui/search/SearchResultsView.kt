@@ -26,88 +26,109 @@ import com.boycott.app.utils.AppConfig
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchResultsView(
-    viewModel: SearchResultsViewModel = hiltViewModel(),
+    query: String,
     onBack: () -> Unit,
-    onBrandClick: (String) -> Unit
+    onBrandClick: (String) -> Unit,
+    viewModel: SearchResultsViewModel = hiltViewModel()
 ) {
-    val brands by viewModel.searchResults.collectAsState()
+    val searchResults by viewModel.searchResults.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
 
-    Column(modifier = Modifier.fillMaxSize()) {
-        TopAppBar(
-            title = { Text("搜索结果") },
-            navigationIcon = {
-                IconButton(onClick = onBack) {
-                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
-                }
-            }
-        )
-
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            items(brands) { brand ->
-                BrandSearchItem(
-                    brand = brand,
-                    onClick = { onBrandClick(brand.id.toString()) }
-                )
-            }
-        }
+    LaunchedEffect(query) {
+        viewModel.searchBrands(query)
     }
-}
 
-@Composable
-private fun BrandSearchItem(brand: Brand, onClick: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("搜索结果") },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                    }
+                }
+            )
+        }
+    ) { padding ->
+        if (isLoading) {
             Box(
                 modifier = Modifier
-                    .size(60.dp)
-                    .clip(RoundedCornerShape(4.dp)),
+                    .fillMaxSize()
+                    .padding(padding),
                 contentAlignment = Alignment.Center
             ) {
-                if (brand.logo_path != null) {
-                    AsyncImage(
-                        model = "${AppConfig.MEDIA_HOST}${brand.logo_path}",
-                        contentDescription = brand.name,
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Fit
-                    )
-                } else {
-                    Text(
-                        text = brand.name.firstOrNull()?.toString() ?: "",
-                        style = MaterialTheme.typography.titleLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
+                CircularProgressIndicator()
             }
+        } else {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                contentPadding = PaddingValues(16.dp)
+            ) {
+                items(searchResults) { brand ->
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onBrandClick(brand.id.toString()) }
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(60.dp)
+                                    .clip(RoundedCornerShape(4.dp)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                if (brand.logo_path != null) {
+                                    AsyncImage(
+                                        model = "${AppConfig.MEDIA_HOST}${brand.logo_path}",
+                                        contentDescription = brand.name,
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Fit
+                                    )
+                                } else {
+                                    Text(
+                                        text = brand.name.firstOrNull()?.toString() ?: "",
+                                        style = MaterialTheme.typography.titleLarge,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                            }
 
-            Spacer(modifier = Modifier.width(16.dp))
-            
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = brand.name,
-                    style = MaterialTheme.typography.titleMedium
-                )
-                Text(
-                    text = brand.status ?: "",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = when (brand.status) {
-                        "avoid" -> Color.Red
-                        else -> MaterialTheme.colorScheme.onSurfaceVariant
+                            Spacer(modifier = Modifier.width(16.dp))
+
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = brand.name,
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                
+                                brand.status?.let { status ->
+                                    Text(
+                                        text = when(status) {
+                                            "avoid" -> "抵制"
+                                            "support" -> "支持"
+                                            "neutral" -> "中立"
+                                            else -> status
+                                        },
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = when(status) {
+                                            "avoid" -> MaterialTheme.colorScheme.error
+                                            "support" -> MaterialTheme.colorScheme.primary
+                                            else -> MaterialTheme.colorScheme.onSurfaceVariant
+                                        }
+                                    )
+                                }
+                            }
+                        }
                     }
-                )
+                }
             }
         }
     }
