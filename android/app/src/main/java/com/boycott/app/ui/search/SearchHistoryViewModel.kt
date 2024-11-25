@@ -25,6 +25,9 @@ class SearchHistoryViewModel @Inject constructor(
     private val _searchResults = MutableStateFlow<List<Brand>>(emptyList())
     val searchResults: StateFlow<List<Brand>> = _searchResults
 
+    private val _noResults = MutableStateFlow(false)
+    val noResults: StateFlow<Boolean> = _noResults
+
     private var onSingleBrandFound: ((String) -> Unit)? = null
 
     init {
@@ -40,10 +43,15 @@ class SearchHistoryViewModel @Inject constructor(
         _searchHistory.value = searchHistoryRepository.getSearchHistory()
     }
 
+    fun resetNoResults() {
+        _noResults.value = false
+    }
+
     fun searchBrands(keyword: String) {
         Log.d("SearchDebug", "Searching brands with keyword: $keyword")
         viewModelScope.launch {
             try {
+                _noResults.value = false
                 val response = brandRepository.getBrands(
                     keywords = keyword,
                     limit = 20,
@@ -55,6 +63,7 @@ class SearchHistoryViewModel @Inject constructor(
                     response.items.isEmpty() -> {
                         Log.d("SearchDebug", "No results found")
                         _searchResults.value = emptyList()
+                        _noResults.value = true
                     }
                     response.items.size == 1 -> {
                         val brandId = response.items[0].id.toString()
@@ -68,6 +77,7 @@ class SearchHistoryViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
                 Log.e("SearchDebug", "Error searching brands", e)
+                _noResults.value = true
             }
         }
     }
