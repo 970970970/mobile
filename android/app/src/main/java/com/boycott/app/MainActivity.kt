@@ -262,20 +262,19 @@ class MainActivity : ComponentActivity() {
                                     // 添加搜索相关的路由
                                     composable("search_history") { 
                                         val parentEntry = remember { navController.getBackStackEntry("home") }
-                                        val parentHomeViewModel = hiltViewModel<HomeViewModel>(parentEntry)  // 使用首页的 ViewModel
+                                        val parentHomeViewModel = hiltViewModel<HomeViewModel>(parentEntry)
                                         val searchText = parentHomeViewModel.searchText.collectAsState().value
-                                        
-                                        Log.d("SearchDebug", "Navigating to search history with search text: $searchText")
                                         
                                         SearchHistoryView(
                                             initialQuery = searchText,
                                             onSearch = { query ->
-                                                Log.d("SearchDebug", "User searched for: $query")
                                                 navController.navigate("search_results/$query")
                                             },
                                             onBack = {
-                                                Log.d("SearchDebug", "User pressed back button")
                                                 navController.popBackStack()
+                                            },
+                                            onBrandClick = { brandId -> 
+                                                navController.navigate("brand/$brandId")
                                             }
                                         )
                                     }

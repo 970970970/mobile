@@ -76,15 +76,12 @@ fun SearchHistoryView(
     initialQuery: String,
     onSearch: (String) -> Unit,
     onBack: () -> Unit,
+    onBrandClick: (String) -> Unit,
     viewModel: SearchHistoryViewModel = hiltViewModel()
 ) {
     var searchText by remember { mutableStateOf(initialQuery) }
     val searchHistory by viewModel.searchHistory.collectAsState()
     val searchResults by viewModel.searchResults.collectAsState()
-
-    Log.d("SearchDebug", "Composing SearchHistoryView with history: $searchHistory")
-    Log.d("SearchDebug", "Current searchText: '$searchText'")
-    Log.d("SearchDebug", "Has history items: ${searchHistory.isNotEmpty()}")
 
     Scaffold(
         topBar = {
@@ -114,7 +111,6 @@ fun SearchHistoryView(
                     value = searchText,
                     onValueChange = { 
                         searchText = it
-                        Log.d("SearchDebug", "Search text changed to: '$it'")
                         if (it.isNotEmpty()) {
                             viewModel.searchBrands(it)
                         }
@@ -124,23 +120,12 @@ fun SearchHistoryView(
                     leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                     trailingIcon = {
                         if (searchText.isNotEmpty()) {
-                            IconButton(
-                                onClick = { 
-                                    searchText = ""
-                                    Log.d("SearchDebug", "Search text cleared")
-                                }
-                            ) {
+                            IconButton(onClick = { searchText = "" }) {
                                 Icon(Icons.Default.Clear, contentDescription = "清除")
                             }
                         }
                     },
-                    singleLine = true,
-                    keyboardActions = KeyboardActions(onSearch = {
-                        if (searchText.isNotEmpty()) {
-                            viewModel.addToHistory(searchText)
-                            onSearch(searchText)
-                        }
-                    })
+                    singleLine = true
                 )
 
                 Spacer(modifier = Modifier.width(8.dp))
@@ -158,13 +143,40 @@ fun SearchHistoryView(
 
             // 搜索结果（如果有）
             if (searchText.isNotEmpty() && searchResults.isNotEmpty()) {
-                // 显示搜索结果
+                LazyColumn(
+                    modifier = Modifier.weight(1f),
+                    contentPadding = PaddingValues(horizontal = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    items(searchResults) { brand ->
+                        ListItem(
+                            headlineContent = { Text(brand.name) },
+                            supportingContent = { 
+                                Text(
+                                    text = when(brand.status) {
+                                        "avoid" -> "抵制"
+                                        "support" -> "支持"
+                                        "neutral" -> "中立"
+                                        else -> brand.status ?: ""
+                                    },
+                                    color = when(brand.status) {
+                                        "avoid" -> MaterialTheme.colorScheme.error
+                                        "support" -> MaterialTheme.colorScheme.primary
+                                        else -> MaterialTheme.colorScheme.onSurfaceVariant
+                                    }
+                                )
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { onBrandClick(brand.id.toString()) }
+                        )
+                    }
+                }
             }
 
-            // 搜索历史显示（移除 searchText.isEmpty() 的判断）
+            // 搜索历史显示
             if (searchHistory.isNotEmpty()) {
                 Log.d("SearchDebug", "History is not empty, showing history section")
-                // 标题和清空按钮
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -188,57 +200,37 @@ fun SearchHistoryView(
                 }
 
                 LazyVerticalGrid(
-                    columns = GridCells.Adaptive(minSize = 100.dp),  // 增加最小宽度
+                    columns = GridCells.Adaptive(minSize = 100.dp),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 12.dp),
-                    horizontalArrangement = Arrangement.Start,  // 从左开始排列
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                    content = {
-                        items(searchHistory) { historyItem ->
-                            Box(
-                                modifier = Modifier.wrapContentWidth()  // 使用 wrapContentWidth 而不是 IntrinsicSize.Min
-                            ) {
-                                SuggestionChip(
-                                    onClick = {
-                                        searchText = historyItem
-                                        viewModel.addToHistory(historyItem)
-                                        onSearch(historyItem)
-                                    },
-                                    label = { 
-                                        Text(
-                                            text = historyItem,
-                                            maxLines = 1,
-                                            overflow = TextOverflow.Ellipsis,
-                                            modifier = Modifier.padding(end = 16.dp)  // 为删除按钮留出空间
-                                        )
-                                    },
-                                    modifier = Modifier.wrapContentWidth()
-                                )
-
-                                // 删除按钮
-                                Surface(
-                                    color = MaterialTheme.colorScheme.error,
-                                    shape = CircleShape,
-                                    modifier = Modifier
-                                        .size(16.dp)
-                                        .offset(x = (-4).dp, y = 4.dp)
-                                        .align(Alignment.TopEnd)
-                                        .clickable { viewModel.removeFromHistory(historyItem) }
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    items(searchHistory) { historyItem ->
+                        InputChip(
+                            selected = false,
+                            onClick = {
+                                searchText = historyItem
+                                viewModel.addToHistory(historyItem)
+                                onSearch(historyItem)
+                            },
+                            label = { Text(historyItem) },
+                            trailingIcon = {
+                                IconButton(
+                                    onClick = { viewModel.removeFromHistory(historyItem) },
+                                    modifier = Modifier.size(18.dp)
                                 ) {
                                     Icon(
                                         Icons.Default.Clear,
                                         contentDescription = "删除",
-                                        modifier = Modifier
-                                            .padding(2.dp)
-                                            .size(12.dp),
-                                        tint = Color.White
+                                        modifier = Modifier.size(16.dp)
                                     )
                                 }
                             }
-                        }
+                        )
                     }
-                )
+                }
             }
         }
     }
