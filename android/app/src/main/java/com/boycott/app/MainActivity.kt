@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -47,11 +48,22 @@ import com.boycott.app.ui.brand.BrandDetailView
 import com.boycott.app.ui.home.HomeViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.Locale
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.ui.res.painterResource
+import androidx.lifecycle.lifecycleScope
+import androidx.compose.ui.layout.ContentScale
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private var showSplash by mutableStateOf(true)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -66,8 +78,6 @@ class MainActivity : ComponentActivity() {
                 )
             }
             
-            // ... LocaleEvent 和 ThemeEvent 监听保持不变 ...
-            
             MaterialTheme(
                 colorScheme = if (isDarkMode) {
                     darkColorScheme()
@@ -75,245 +85,275 @@ class MainActivity : ComponentActivity() {
                     lightColorScheme()
                 }
             ) {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    key(forceUpdate) {
-                        var selectedTab by remember { mutableStateOf(0) }
-                        
-                        // 监听导航变化
-                        LaunchedEffect(navController) {
-                            navController.currentBackStackEntryFlow.collect { _ ->
-                                selectedTab = when(navController.currentDestination?.route) {
-                                    "home" -> 0
-                                    "brands" -> 1
-                                    "scan" -> 2
-                                    "articles" -> 3
-                                    "settings" -> 4
-                                    else -> selectedTab
+                Box(modifier = Modifier.fillMaxSize()) {
+                    // 原有的主界面内容
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+                        key(forceUpdate) {
+                            var selectedTab by remember { mutableStateOf(0) }
+                            
+                            // 监听导航变化
+                            LaunchedEffect(navController) {
+                                navController.currentBackStackEntryFlow.collect { _ ->
+                                    selectedTab = when(navController.currentDestination?.route) {
+                                        "home" -> 0
+                                        "brands" -> 1
+                                        "scan" -> 2
+                                        "articles" -> 3
+                                        "settings" -> 4
+                                        else -> selectedTab
+                                    }
                                 }
                             }
-                        }
-                        
-                        Scaffold(
-                            bottomBar = {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(80.dp)
-                                ) {
-                                    // 底部导航栏背景
-                                    Surface(
-                                        modifier = Modifier.fillMaxSize(),
-                                        shadowElevation = 8.dp
-                                    ) {
-                                        Row(
-                                            modifier = Modifier.fillMaxSize(),
-                                            horizontalArrangement = Arrangement.SpaceAround,
-                                            verticalAlignment = Alignment.CenterVertically
-                                        ) {
-                                            // 首页
-                                            TabItem(
-                                                icon = Icons.Filled.Home,
-                                                label = stringResource(R.string.nav_home),
-                                                selected = selectedTab == 0,
-                                                onClick = { 
-                                                    selectedTab = 0
-                                                    navController.navigate("home") {
-                                                        popUpTo("home") { inclusive = true }
-                                                    }
-                                                }
-                                            )
-                                            
-                                            // 品牌
-                                            TabItem(
-                                                icon = Icons.AutoMirrored.Filled.List,
-                                                label = stringResource(R.string.nav_brands),
-                                                selected = selectedTab == 1,
-                                                onClick = { 
-                                                    selectedTab = 1
-                                                    navController.navigate("brands") {
-                                                        popUpTo("home")
-                                                    }
-                                                }
-                                            )
-                                            
-                                            // 扫描按钮占位
-                                            Spacer(modifier = Modifier.width(80.dp))
-                                            
-                                            // 文章
-                                            TabItem(
-                                                icon = Icons.AutoMirrored.Filled.MenuBook,
-                                                label = stringResource(R.string.nav_articles),
-                                                selected = selectedTab == 3,
-                                                onClick = { 
-                                                    selectedTab = 3
-                                                    navController.navigate("articles") {
-                                                        popUpTo("home")
-                                                    }
-                                                }
-                                            )
-                                            
-                                            // 设置
-                                            TabItem(
-                                                icon = Icons.Filled.Settings,
-                                                label = stringResource(R.string.nav_settings),
-                                                selected = selectedTab == 4,
-                                                onClick = { 
-                                                    selectedTab = 4
-                                                    navController.navigate("settings") {
-                                                        popUpTo("home")
-                                                    }
-                                                }
-                                            )
-                                        }
-                                    }
-                                    
-                                    // 凸起的扫描按钮
-                                    FloatingActionButton(
-                                        onClick = { 
-                                            selectedTab = 2
-                                            navController.navigate("scan") {
-                                                popUpTo("home")
-                                            }
-                                        },
+                            
+                            Scaffold(
+                                bottomBar = {
+                                    Box(
                                         modifier = Modifier
-                                            .size(64.dp)
-                                            .align(Alignment.TopCenter)
-                                            .offset(y = (-20).dp),
-                                        containerColor = MaterialTheme.colorScheme.primary,
-                                        shape = CircleShape
+                                            .fillMaxWidth()
+                                            .height(80.dp)
                                     ) {
-                                        Column(
-                                            horizontalAlignment = Alignment.CenterHorizontally,
-                                            verticalArrangement = Arrangement.Center
+                                        // 底部导航栏背景
+                                        Surface(
+                                            modifier = Modifier.fillMaxSize(),
+                                            shadowElevation = 8.dp
                                         ) {
-                                            Icon(
-                                                imageVector = Icons.Filled.PhotoCamera,
-                                                contentDescription = stringResource(R.string.nav_scan),
-                                                tint = Color.White,
-                                                modifier = Modifier.size(28.dp)
-                                            )
-                                            Text(
-                                                stringResource(R.string.nav_scan),
-                                                color = Color.White,
-                                                fontSize = 12.sp
-                                            )
+                                            Row(
+                                                modifier = Modifier.fillMaxSize(),
+                                                horizontalArrangement = Arrangement.SpaceAround,
+                                                verticalAlignment = Alignment.CenterVertically
+                                            ) {
+                                                // 首页
+                                                TabItem(
+                                                    icon = Icons.Filled.Home,
+                                                    label = stringResource(R.string.nav_home),
+                                                    selected = selectedTab == 0,
+                                                    onClick = { 
+                                                        selectedTab = 0
+                                                        navController.navigate("home") {
+                                                            popUpTo("home") { inclusive = true }
+                                                        }
+                                                    }
+                                                )
+                                                
+                                                // 品
+                                                TabItem(
+                                                    icon = Icons.AutoMirrored.Filled.List,
+                                                    label = stringResource(R.string.nav_brands),
+                                                    selected = selectedTab == 1,
+                                                    onClick = { 
+                                                        selectedTab = 1
+                                                        navController.navigate("brands") {
+                                                            popUpTo("home")
+                                                        }
+                                                    }
+                                                )
+                                                
+                                                // 扫描按钮占位
+                                                Spacer(modifier = Modifier.width(80.dp))
+                                                
+                                                // 文章
+                                                TabItem(
+                                                    icon = Icons.AutoMirrored.Filled.MenuBook,
+                                                    label = stringResource(R.string.nav_articles),
+                                                    selected = selectedTab == 3,
+                                                    onClick = { 
+                                                        selectedTab = 3
+                                                        navController.navigate("articles") {
+                                                            popUpTo("home")
+                                                        }
+                                                    }
+                                                )
+                                                
+                                                // 设置
+                                                TabItem(
+                                                    icon = Icons.Filled.Settings,
+                                                    label = stringResource(R.string.nav_settings),
+                                                    selected = selectedTab == 4,
+                                                    onClick = { 
+                                                        selectedTab = 4
+                                                        navController.navigate("settings") {
+                                                            popUpTo("home")
+                                                        }
+                                                    }
+                                                )
+                                            }
+                                        }
+                                        
+                                        // 凸起的扫描按钮
+                                        FloatingActionButton(
+                                            onClick = { 
+                                                selectedTab = 2
+                                                navController.navigate("scan") {
+                                                    popUpTo("home")
+                                                }
+                                            },
+                                            modifier = Modifier
+                                                .size(64.dp)
+                                                .align(Alignment.TopCenter)
+                                                .offset(y = (-20).dp),
+                                            containerColor = MaterialTheme.colorScheme.primary,
+                                            shape = CircleShape
+                                        ) {
+                                            Column(
+                                                horizontalAlignment = Alignment.CenterHorizontally,
+                                                verticalArrangement = Arrangement.Center
+                                            ) {
+                                                Icon(
+                                                    imageVector = Icons.Filled.PhotoCamera,
+                                                    contentDescription = stringResource(R.string.nav_scan),
+                                                    tint = Color.White,
+                                                    modifier = Modifier.size(28.dp)
+                                                )
+                                                Text(
+                                                    stringResource(R.string.nav_scan),
+                                                    color = Color.White,
+                                                    fontSize = 12.sp
+                                                )
+                                            }
                                         }
                                     }
                                 }
-                            }
-                        ) { paddingValues ->
-                            Box(modifier = Modifier.padding(paddingValues)) {
-                                NavHost(navController = navController, startDestination = "home") {
-                                    composable("home") { 
-                                        HomeView(
-                                            onBrandClick = { brandId -> 
-                                                navController.navigate("brand/$brandId")
-                                            },
-                                            onArticleClick = { articleId ->
-                                                navController.navigate("article_detail/$articleId")
-                                            },
-                                            onNavigateToSearchHistory = {
-                                                navController.navigate("search_history")
-                                            },
-                                            onNavigateToSearchResults = { query -> 
-                                                navController.navigate("search_results/$query")
-                                            }
-                                        )
-                                    }
-                                    composable("brands") { 
-                                        BrandsView(
-                                            onNavigateToSearchHistory = {
-                                                navController.navigate("search_history")
-                                            },
-                                            onBrandClick = { brandId -> 
-                                                navController.navigate("brand/$brandId")
-                                            },
-                                            onNavigateToSearchResults = { query -> 
-                                                navController.navigate("search_results/$query")
-                                            }
-                                        )
-                                    }
-                                    composable("scan") { Text("扫描") }
-                                    composable("articles") { 
-                                        ArticleListView(
-                                            onArticleClick = { articleId ->
-                                                navController.navigate("article_detail/$articleId")
-                                            }
-                                        )
-                                    }
-                                    composable("settings") { 
-                                        SettingsView(
-                                            onNavigateToPrivacyPolicy = { navController.navigate("privacy_policy") },
-                                            onNavigateToUserAgreement = { navController.navigate("user_agreement") }
-                                        )
-                                    }
-                                    composable("privacy_policy") { 
-                                        PrivacyPolicyView(onBack = { navController.popBackStack() })
-                                    }
-                                    composable("user_agreement") { 
-                                        UserAgreementView(onBack = { navController.popBackStack() })
-                                    }
-                                    composable(
-                                        "article_detail/{articleId}",
-                                        arguments = listOf(navArgument("articleId") { type = NavType.IntType })
-                                    ) { _ ->
-                                        ArticleDetailView(
-                                            onBack = { navController.popBackStack() }
-                                        )
-                                    }
+                            ) { paddingValues ->
+                                Box(modifier = Modifier.padding(paddingValues)) {
+                                    NavHost(navController = navController, startDestination = "home") {
+                                        composable("home") { 
+                                            HomeView(
+                                                onBrandClick = { brandId -> 
+                                                    navController.navigate("brand/$brandId")
+                                                },
+                                                onArticleClick = { articleId ->
+                                                    navController.navigate("article_detail/$articleId")
+                                                },
+                                                onNavigateToSearchHistory = {
+                                                    navController.navigate("search_history")
+                                                },
+                                                onNavigateToSearchResults = { query -> 
+                                                    navController.navigate("search_results/$query")
+                                                }
+                                            )
+                                        }
+                                        composable("brands") { 
+                                            BrandsView(
+                                                onNavigateToSearchHistory = {
+                                                    navController.navigate("search_history")
+                                                },
+                                                onBrandClick = { brandId -> 
+                                                    navController.navigate("brand/$brandId")
+                                                },
+                                                onNavigateToSearchResults = { query -> 
+                                                    navController.navigate("search_results/$query")
+                                                }
+                                            )
+                                        }
+                                        composable("scan") { Text("扫描") }
+                                        composable("articles") { 
+                                            ArticleListView(
+                                                onArticleClick = { articleId ->
+                                                    navController.navigate("article_detail/$articleId")
+                                                }
+                                            )
+                                        }
+                                        composable("settings") { 
+                                            SettingsView(
+                                                onNavigateToPrivacyPolicy = { navController.navigate("privacy_policy") },
+                                                onNavigateToUserAgreement = { navController.navigate("user_agreement") }
+                                            )
+                                        }
+                                        composable("privacy_policy") { 
+                                            PrivacyPolicyView(onBack = { navController.popBackStack() })
+                                        }
+                                        composable("user_agreement") { 
+                                            UserAgreementView(onBack = { navController.popBackStack() })
+                                        }
+                                        composable(
+                                            "article_detail/{articleId}",
+                                            arguments = listOf(navArgument("articleId") { type = NavType.IntType })
+                                        ) { _ ->
+                                            ArticleDetailView(
+                                                onBack = { navController.popBackStack() }
+                                            )
+                                        }
 
-                                    // 添加搜索相关的路由
-                                    composable("search_history") { 
-                                        val parentEntry = remember { navController.getBackStackEntry("home") }
-                                        val parentHomeViewModel = hiltViewModel<HomeViewModel>(parentEntry)
-                                        val searchText = parentHomeViewModel.searchText.collectAsState().value
+                                        // 添加搜索相关的路由
+                                        composable("search_history") { 
+                                            val parentEntry = remember { navController.getBackStackEntry("home") }
+                                            val parentHomeViewModel = hiltViewModel<HomeViewModel>(parentEntry)
+                                            val searchText = parentHomeViewModel.searchText.collectAsState().value
+                                            
+                                            SearchHistoryView(
+                                                initialQuery = searchText,
+                                                onSearch = { query ->
+                                                    navController.navigate("search_results/$query")
+                                                },
+                                                onBack = {
+                                                    navController.popBackStack()
+                                                },
+                                                onBrandClick = { brandId -> 
+                                                    navController.navigate("brand/$brandId")
+                                                }
+                                            )
+                                        }
                                         
-                                        SearchHistoryView(
-                                            initialQuery = searchText,
-                                            onSearch = { query ->
-                                                navController.navigate("search_results/$query")
-                                            },
-                                            onBack = {
-                                                navController.popBackStack()
-                                            },
-                                            onBrandClick = { brandId -> 
-                                                navController.navigate("brand/$brandId")
-                                            }
-                                        )
-                                    }
-                                    
-                                    composable(
-                                        "search_results/{query}",
-                                        arguments = listOf(navArgument("query") { type = NavType.StringType })
-                                    ) { backStackEntry ->
-                                        val query = backStackEntry.arguments?.getString("query") ?: return@composable
-                                        SearchResultsView(
-                                            query = query,
-                                            onBack = { navController.popBackStack() },
-                                            onBrandClick = { brandId -> navController.navigate("brand/$brandId") }
-                                        )
-                                    }
+                                        composable(
+                                            "search_results/{query}",
+                                            arguments = listOf(navArgument("query") { type = NavType.StringType })
+                                        ) { backStackEntry ->
+                                            val query = backStackEntry.arguments?.getString("query") ?: return@composable
+                                            SearchResultsView(
+                                                query = query,
+                                                onBack = { navController.popBackStack() },
+                                                onBrandClick = { brandId -> navController.navigate("brand/$brandId") }
+                                            )
+                                        }
 
-                                    // 添加品牌详情页的路由
-                                    composable(
-                                        "brand/{brandId}",
-                                        arguments = listOf(navArgument("brandId") { type = NavType.StringType })
-                                    ) { backStackEntry ->
-                                        val brandId = backStackEntry.arguments?.getString("brandId") ?: return@composable
-                                        BrandDetailView(
-                                            brandId = brandId,
-                                            onBack = { navController.popBackStack() }
-                                        )
+                                        // 添加品牌详情页的路由
+                                        composable(
+                                            "brand/{brandId}",
+                                            arguments = listOf(navArgument("brandId") { type = NavType.StringType })
+                                        ) { backStackEntry ->
+                                            val brandId = backStackEntry.arguments?.getString("brandId") ?: return@composable
+                                            BrandDetailView(
+                                                brandId = brandId,
+                                                onBack = { navController.popBackStack() }
+                                            )
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+
+                    // 启动页层
+                    AnimatedVisibility(
+                        visible = showSplash,
+                        enter = fadeIn(),
+                        exit = fadeOut()
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(MaterialTheme.colorScheme.background),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.splash_icon),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+                            )
+                        }
+                    }
                 }
             }
+        }
+
+        // 延迟关闭启动页
+        lifecycleScope.launch {
+            delay(2000)
+            showSplash = false
         }
     }
 }
