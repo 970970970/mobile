@@ -142,12 +142,12 @@ fun SearchHistoryView(
                 Button(
                     onClick = {
                         if (searchText.isNotEmpty()) {
-                            Log.d("SearchDebug", "Search button clicked with text: $searchText")
                             viewModel.addToHistory(searchText)
-                            viewModel.searchBrands(searchText)
-                            if (searchResults.size > 1) {
-                                onSearch(searchText)
-                            }
+                            viewModel.searchAndNavigate(
+                                keyword = searchText,
+                                onBrandClick = onBrandClick,
+                                onSearch = { onSearch(searchText) }
+                            )
                         }
                     }
                 ) {
@@ -213,7 +213,7 @@ fun SearchHistoryView(
                 }
 
                 LazyVerticalGrid(
-                    columns = GridCells.Adaptive(minSize = 100.dp),  // 增加最小宽度
+                    columns = GridCells.Adaptive(minSize = 100.dp),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 12.dp),
@@ -227,7 +227,11 @@ fun SearchHistoryView(
                             onClick = {
                                 searchText = historyItem
                                 viewModel.addToHistory(historyItem)
-                                onSearch(historyItem)
+                                viewModel.searchAndNavigate(
+                                    keyword = historyItem,
+                                    onBrandClick = onBrandClick,
+                                    onSearch = { onSearch(historyItem) }
+                                )
                             }
                         )
                     }

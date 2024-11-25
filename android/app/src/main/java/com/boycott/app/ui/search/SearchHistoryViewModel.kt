@@ -48,36 +48,45 @@ class SearchHistoryViewModel @Inject constructor(
     }
 
     fun searchBrands(keyword: String) {
-        Log.d("SearchDebug", "Searching brands with keyword: $keyword")
         viewModelScope.launch {
             try {
-                _noResults.value = false
+                val response = brandRepository.getBrands(
+                    keywords = keyword,
+                    limit = 20,
+                    offset = 0
+                )
+                _searchResults.value = response.items
+            } catch (e: Exception) {
+                Log.e("SearchDebug", "Error searching brands", e)
+            }
+        }
+    }
+
+    fun searchAndNavigate(keyword: String, onBrandClick: (String) -> Unit, onSearch: () -> Unit) {
+        viewModelScope.launch {
+            try {
                 val response = brandRepository.getBrands(
                     keywords = keyword,
                     limit = 20,
                     offset = 0
                 )
                 
-                Log.d("SearchDebug", "Search results size: ${response.items.size}")
                 when {
                     response.items.isEmpty() -> {
-                        Log.d("SearchDebug", "No results found")
                         _searchResults.value = emptyList()
-                        _noResults.value = true
+                        onSearch()
                     }
                     response.items.size == 1 -> {
-                        val brandId = response.items[0].id.toString()
-                        Log.d("SearchDebug", "Single brand found with ID: $brandId")
-                        onSingleBrandFound?.invoke(brandId)
+                        onBrandClick(response.items[0].id.toString())
                     }
                     else -> {
-                        Log.d("SearchDebug", "Multiple results found: ${response.items.size}")
                         _searchResults.value = response.items
+                        onSearch()
                     }
                 }
             } catch (e: Exception) {
                 Log.e("SearchDebug", "Error searching brands", e)
-                _noResults.value = true
+                onSearch()
             }
         }
     }
