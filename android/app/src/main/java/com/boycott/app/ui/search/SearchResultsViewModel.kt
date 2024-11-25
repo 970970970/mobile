@@ -1,5 +1,6 @@
 package com.boycott.app.ui.search
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.boycott.app.data.api.ApiService
@@ -21,21 +22,57 @@ class SearchResultsViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
 
-    fun searchBrands(query: String) {
+    private val _hasMoreData = MutableStateFlow(true)
+    val hasMoreData: StateFlow<Boolean> = _hasMoreData
+
+    private var currentPage = 0
+    private val pageSize = 20
+    private var currentKeyword = ""
+    private var totalItems = 0
+
+    fun searchBrands(keyword: String, isNewSearch: Boolean = false) {
+        if (_isLoading.value) return
+        if (isNewSearch) {
+            currentPage = 0
+            _searchResults.value = emptyList()
+            _hasMoreData.value = true
+            currentKeyword = keyword
+        }
+
+        if (!_hasMoreData.value) return
+
         viewModelScope.launch {
             try {
                 _isLoading.value = true
                 val response = brandRepository.getBrands(
-                    limit = 20,
-                    offset = 0,
-                    keywords = query
+                    keywords = currentKeyword,
+                    limit = pageSize,
+                    offset = currentPage * pageSize
                 )
-                _searchResults.value = response.items
+                
+                totalItems = response.total
+                val newBrands = response.items
+                
+                _searchResults.value = if (currentPage == 0) {
+                    newBrands
+                } else {
+                    _searchResults.value + newBrands
+                }
+
+                _hasMoreData.value = _searchResults.value.size < totalItems
+                if (_hasMoreData.value) currentPage++
+                
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.e("SearchDebug", "Error loading more brands", e)
             } finally {
                 _isLoading.value = false
             }
+        }
+    }
+
+    fun loadNextPage() {
+        if (currentKeyword.isNotEmpty()) {
+            searchBrands(currentKeyword, false)
         }
     }
 } 
