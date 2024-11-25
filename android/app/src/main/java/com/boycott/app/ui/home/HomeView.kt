@@ -1,5 +1,6 @@
 package com.boycott.app.ui.home
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -33,6 +34,7 @@ fun HomeView(
     onBrandClick: (String) -> Unit,
     onArticleClick: (Int) -> Unit,
     onNavigateToSearchHistory: () -> Unit,
+    onNavigateToSearchResults: (String) -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val brands by viewModel.brands.collectAsState()
@@ -41,6 +43,8 @@ fun HomeView(
     val isLoading by viewModel.isLoading.collectAsState()
     val hasMoreData by viewModel.hasMoreData.collectAsState()
     val gridState = rememberLazyGridState()
+
+    Log.d("SearchDebug", "HomeView: Current hot search text: $currentHotSearch")
 
     // 检测是否需要加载更多
     LaunchedEffect(gridState) {
@@ -61,8 +65,19 @@ fun HomeView(
         SearchBar(
             hotSearchText = currentHotSearch,
             onSearchClick = {
-                viewModel.updateSearchText(currentHotSearch)  // 在点击搜索框时保存当前热搜词
+                Log.d("SearchDebug", "HomeView: Search bar clicked")
+                viewModel.updateSearchText(currentHotSearch)
                 onNavigateToSearchHistory()
+            },
+            onSearchButtonClick = {
+                Log.d("SearchDebug", "HomeView: Search button clicked with text: $currentHotSearch")
+                if (currentHotSearch.isNotEmpty()) {
+                    viewModel.searchAndNavigate(
+                        keyword = currentHotSearch,
+                        onBrandClick = onBrandClick,
+                        onSearch = { onNavigateToSearchResults(currentHotSearch) }
+                    )
+                }
             }
         )
 

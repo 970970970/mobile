@@ -217,6 +217,9 @@ class MainActivity : ComponentActivity() {
                                             },
                                             onNavigateToSearchHistory = {
                                                 navController.navigate("search_history")
+                                            },
+                                            onNavigateToSearchResults = { query -> 
+                                                navController.navigate("search_results/$query")
                                             }
                                         )
                                     }

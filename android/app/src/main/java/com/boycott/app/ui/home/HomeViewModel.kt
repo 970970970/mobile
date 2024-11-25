@@ -1,5 +1,6 @@
 package com.boycott.app.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.boycott.app.data.api.ApiService
@@ -137,6 +138,39 @@ class HomeViewModel @Inject constructor(
     }
 
     fun updateSearchText(text: String) {
+        Log.d("SearchDebug", "HomeViewModel: Updating search text to: $text")
         searchTextRepository.updateSearchText(text)
+    }
+
+    fun searchAndNavigate(
+        keyword: String,
+        onBrandClick: (String) -> Unit,
+        onSearch: () -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                val response = brandRepository.getBrands(
+                    keywords = keyword,
+                    limit = 20,
+                    offset = 0
+                )
+                
+                Log.d("SearchDebug", "HomeViewModel: Search results size: ${response.items.size}")
+                when {
+                    response.items.isEmpty() -> {
+                        onSearch()  // 无结果时导航到搜索结果页
+                    }
+                    response.items.size == 1 -> {
+                        onBrandClick(response.items[0].id.toString())  // 单个结果直接导航到详情页
+                    }
+                    else -> {
+                        onSearch()  // 多个结果导航到搜索结果页
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("SearchDebug", "HomeViewModel: Error searching brands", e)
+                onSearch()  // 出错时导航到搜索结果页
+            }
+        }
     }
 } 

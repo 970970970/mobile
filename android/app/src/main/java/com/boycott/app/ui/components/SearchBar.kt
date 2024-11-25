@@ -1,5 +1,6 @@
 package com.boycott.app.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -72,7 +73,12 @@ fun SearchBar(
                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.3f)
             )
             
-            TextButton(onClick = onSearchButtonClick) {
+            TextButton(
+                onClick = {
+                    Log.d("SearchDebug", "SearchBar: Search button clicked")
+                    onSearchButtonClick()
+                }
+            ) {
                 Text(stringResource(R.string.search_button))
             }
         }
