@@ -32,20 +32,19 @@ private fun SearchHistoryChip(
     onDelete: () -> Unit,
     onClick: () -> Unit
 ) {
-    Box {
-        // 主要的 Chip
+    Box(
+        modifier = Modifier.wrapContentWidth()
+    ) {
         SuggestionChip(
             onClick = onClick,
             label = { 
                 Text(
                     text = text,
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(end = 8.dp, start = 8.dp)
                 )
-            },
-            modifier = Modifier
-                .widthIn(min = 40.dp)  // 最小宽度
-                .padding(end = 8.dp, top = 8.dp)  // 为删除按钮留出空间
+            }
         )
 
         // 删除按钮
@@ -54,7 +53,7 @@ private fun SearchHistoryChip(
             shape = CircleShape,
             modifier = Modifier
                 .size(16.dp)
-                .offset(x = (-4).dp, y = 4.dp)
+                .offset(x = 4.dp, y = (-4).dp)
                 .align(Alignment.TopEnd)
                 .clickable(onClick = onDelete)
         ) {
@@ -176,7 +175,6 @@ fun SearchHistoryView(
 
             // 搜索历史显示
             if (searchHistory.isNotEmpty()) {
-                Log.d("SearchDebug", "History is not empty, showing history section")
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -200,7 +198,7 @@ fun SearchHistoryView(
                 }
 
                 LazyVerticalGrid(
-                    columns = GridCells.Adaptive(minSize = 100.dp),
+                    columns = GridCells.Adaptive(minSize = 100.dp),  // 增加最小宽度
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 12.dp),
@@ -208,25 +206,13 @@ fun SearchHistoryView(
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     items(searchHistory) { historyItem ->
-                        InputChip(
-                            selected = false,
+                        SearchHistoryChip(
+                            text = historyItem,
+                            onDelete = { viewModel.removeFromHistory(historyItem) },
                             onClick = {
                                 searchText = historyItem
                                 viewModel.addToHistory(historyItem)
                                 onSearch(historyItem)
-                            },
-                            label = { Text(historyItem) },
-                            trailingIcon = {
-                                IconButton(
-                                    onClick = { viewModel.removeFromHistory(historyItem) },
-                                    modifier = Modifier.size(18.dp)
-                                ) {
-                                    Icon(
-                                        Icons.Default.Clear,
-                                        contentDescription = "删除",
-                                        modifier = Modifier.size(16.dp)
-                                    )
-                                }
                             }
                         )
                     }
