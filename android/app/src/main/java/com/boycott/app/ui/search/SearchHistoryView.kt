@@ -74,10 +74,21 @@ private fun SearchHistoryChip(
 fun SearchHistoryView(
     initialQuery: String,
     onSearch: (String) -> Unit,
-    onBack: () -> Unit,
     onBrandClick: (String) -> Unit,
+    onBack: () -> Unit,
     viewModel: SearchHistoryViewModel = hiltViewModel()
 ) {
+    Log.d("SearchDebug", "SearchHistoryView recomposed")
+    
+    // 设置回调
+    LaunchedEffect(Unit) {
+        Log.d("SearchDebug", "Setting up single brand callback in LaunchedEffect")
+        viewModel.setOnSingleBrandFoundCallback { brandId ->
+            Log.d("SearchDebug", "Callback triggered for brand ID: $brandId")
+            onBrandClick(brandId)
+        }
+    }
+
     var searchText by remember { mutableStateOf(initialQuery) }
     val searchHistory by viewModel.searchHistory.collectAsState()
     val searchResults by viewModel.searchResults.collectAsState()
@@ -131,8 +142,12 @@ fun SearchHistoryView(
                 Button(
                     onClick = {
                         if (searchText.isNotEmpty()) {
+                            Log.d("SearchDebug", "Search button clicked with text: $searchText")
                             viewModel.addToHistory(searchText)
-                            onSearch(searchText)
+                            viewModel.searchBrands(searchText)
+                            if (searchResults.size > 1) {
+                                onSearch(searchText)
+                            }
                         }
                     }
                 ) {
@@ -140,7 +155,7 @@ fun SearchHistoryView(
                 }
             }
 
-            // 搜索结果（如果有）
+            // 搜索结果显示（只在有多个结果时显示）
             if (searchText.isNotEmpty() && searchResults.isNotEmpty()) {
                 LazyColumn(
                     modifier = Modifier.weight(1f),

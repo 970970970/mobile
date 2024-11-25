@@ -25,8 +25,15 @@ class SearchHistoryViewModel @Inject constructor(
     private val _searchResults = MutableStateFlow<List<Brand>>(emptyList())
     val searchResults: StateFlow<List<Brand>> = _searchResults
 
+    private var onSingleBrandFound: ((String) -> Unit)? = null
+
     init {
         loadSearchHistory()
+    }
+
+    fun setOnSingleBrandFoundCallback(callback: (String) -> Unit) {
+        Log.d("SearchDebug", "Setting single brand callback")
+        onSingleBrandFound = callback
     }
 
     private fun loadSearchHistory() {
@@ -34,6 +41,7 @@ class SearchHistoryViewModel @Inject constructor(
     }
 
     fun searchBrands(keyword: String) {
+        Log.d("SearchDebug", "Searching brands with keyword: $keyword")
         viewModelScope.launch {
             try {
                 val response = brandRepository.getBrands(
@@ -41,9 +49,25 @@ class SearchHistoryViewModel @Inject constructor(
                     limit = 20,
                     offset = 0
                 )
-                _searchResults.value = response.items
+                
+                Log.d("SearchDebug", "Search results size: ${response.items.size}")
+                when {
+                    response.items.isEmpty() -> {
+                        Log.d("SearchDebug", "No results found")
+                        _searchResults.value = emptyList()
+                    }
+                    response.items.size == 1 -> {
+                        val brandId = response.items[0].id.toString()
+                        Log.d("SearchDebug", "Single brand found with ID: $brandId")
+                        onSingleBrandFound?.invoke(brandId)
+                    }
+                    else -> {
+                        Log.d("SearchDebug", "Multiple results found: ${response.items.size}")
+                        _searchResults.value = response.items
+                    }
+                }
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.e("SearchDebug", "Error searching brands", e)
             }
         }
     }
