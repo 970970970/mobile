@@ -19,6 +19,9 @@ import com.boycott.app.utils.AppConfig
 import com.boycott.app.ui.components.SearchBar
 import com.boycott.app.data.model.Brand
 import kotlinx.coroutines.flow.distinctUntilChanged
+import com.boycott.app.ui.home.HomeViewModel
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun BrandsView(
@@ -26,7 +29,7 @@ fun BrandsView(
     onBrandClick: (String) -> Unit,
     viewModel: BrandsViewModel = hiltViewModel()
 ) {
-    val currentHotSearch by viewModel.currentHotSearch.collectAsState()
+    val searchText by viewModel.searchText.collectAsState()
     val brands by viewModel.brands.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val hasMoreData by viewModel.hasMoreData.collectAsState()
@@ -39,7 +42,7 @@ fun BrandsView(
             val totalItemsNumber = layoutInfo.totalItemsCount
             val lastVisibleItemIndex = (layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0) + 1
             
-            lastVisibleItemIndex > (totalItemsNumber - 3)  // 当剩余不到3个项时加载更多
+            lastVisibleItemIndex > (totalItemsNumber - 4)
         }.distinctUntilChanged().collect { shouldLoad ->
             if (shouldLoad) {
                 viewModel.loadNextPage()
@@ -49,8 +52,11 @@ fun BrandsView(
 
     Column(modifier = Modifier.fillMaxSize()) {
         SearchBar(
-            hotSearchText = currentHotSearch,
-            onSearchClick = onNavigateToSearchHistory
+            hotSearchText = searchText,
+            onSearchClick = {
+                viewModel.updateSearchText(searchText)
+                onNavigateToSearchHistory()
+            }
         )
 
         LazyColumn(

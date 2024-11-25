@@ -3,6 +3,7 @@ package com.boycott.app
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -43,6 +44,8 @@ import com.boycott.app.ui.search.SearchResultsView
 import com.boycott.app.utils.LocaleEvent
 import com.boycott.app.utils.ThemeEvent
 import com.boycott.app.ui.brand.BrandDetailView
+import com.boycott.app.ui.home.HomeViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Locale
@@ -257,17 +260,22 @@ class MainActivity : ComponentActivity() {
                                     }
 
                                     // 添加搜索相关的路由
-                                    composable("search_history") {
+                                    composable("search_history") { 
+                                        val parentEntry = remember { navController.getBackStackEntry("home") }
+                                        val parentHomeViewModel = hiltViewModel<HomeViewModel>(parentEntry)  // 使用首页的 ViewModel
+                                        val searchText = parentHomeViewModel.searchText.collectAsState().value
+                                        
+                                        Log.d("SearchDebug", "Navigating to search history with search text: $searchText")
+                                        
                                         SearchHistoryView(
-                                            searchHistory = emptyList(),
+                                            initialQuery = searchText,
                                             onSearch = { query ->
+                                                Log.d("SearchDebug", "User searched for: $query")
                                                 navController.navigate("search_results/$query")
                                             },
                                             onBack = {
+                                                Log.d("SearchDebug", "User pressed back button")
                                                 navController.popBackStack()
-                                            },
-                                            onClearHistory = {
-                                                // TODO: 实现清除历史
                                             }
                                         )
                                     }

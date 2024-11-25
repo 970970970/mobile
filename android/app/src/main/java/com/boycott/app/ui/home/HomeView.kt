@@ -60,7 +60,10 @@ fun HomeView(
     Column(modifier = Modifier.fillMaxSize()) {
         SearchBar(
             hotSearchText = currentHotSearch,
-            onSearchClick = onNavigateToSearchHistory
+            onSearchClick = {
+                viewModel.updateSearchText(currentHotSearch)  // 在点击搜索框时保存当前热搜词
+                onNavigateToSearchHistory()
+            }
         )
 
         // 文章轮播

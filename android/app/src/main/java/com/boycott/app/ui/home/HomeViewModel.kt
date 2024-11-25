@@ -7,6 +7,7 @@ import com.boycott.app.data.model.Article
 import com.boycott.app.data.model.Brand
 import com.boycott.app.data.repository.ArticleRepository
 import com.boycott.app.data.repository.BrandRepository
+import com.boycott.app.data.repository.SearchTextRepository
 import com.boycott.app.utils.LanguageManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -21,7 +22,8 @@ class HomeViewModel @Inject constructor(
     private val articleRepository: ArticleRepository,
     private val brandRepository: BrandRepository,
     private val languageManager: LanguageManager,
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val searchTextRepository: SearchTextRepository
 ) : ViewModel() {
     private val _articles = MutableStateFlow<List<Article>>(emptyList())
     val articles = _articles.asStateFlow()
@@ -43,6 +45,8 @@ class HomeViewModel @Inject constructor(
 
     private var currentPage = 0
     private val pageSize = 20
+
+    val searchText = searchTextRepository.searchText
 
     init {
         loadArticles()
@@ -130,5 +134,9 @@ class HomeViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun updateSearchText(text: String) {
+        searchTextRepository.updateSearchText(text)
     }
 } 

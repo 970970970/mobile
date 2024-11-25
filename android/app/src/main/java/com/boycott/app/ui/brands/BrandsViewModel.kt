@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.boycott.app.data.model.Brand
 import com.boycott.app.data.repository.BrandRepository
 import com.boycott.app.data.repository.SearchRepository
+import com.boycott.app.data.repository.SearchTextRepository
+import com.boycott.app.ui.home.HomeViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,15 +16,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BrandsViewModel @Inject constructor(
+    private val brandRepository: BrandRepository,
     private val searchRepository: SearchRepository,
-    private val brandRepository: BrandRepository
+    private val searchTextRepository: SearchTextRepository
 ) : ViewModel() {
     
-    private val _currentHotSearch = MutableStateFlow("")
-    val currentHotSearch: StateFlow<String> = _currentHotSearch
+    val searchText = searchTextRepository.searchText
 
     private val _brands = MutableStateFlow<List<Brand>>(emptyList())
-    val brands = _brands.asStateFlow()
+    val brands: StateFlow<List<Brand>> = _brands
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
@@ -34,21 +36,8 @@ class BrandsViewModel @Inject constructor(
     private val pageSize = 20
 
     init {
-        loadHotSearches()
         loadNextPage()
-    }
-
-    private fun loadHotSearches() {
-        viewModelScope.launch {
-            try {
-                val hotSearches = searchRepository.getHotSearches()
-                if (hotSearches.isNotEmpty()) {
-                    _currentHotSearch.value = hotSearches[0]
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
+        loadHotSearches()
     }
 
     fun loadNextPage() {
@@ -57,12 +46,8 @@ class BrandsViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                val response = brandRepository.getBrands(
-                    limit = pageSize,
-                    offset = currentPage * pageSize
-                )
+                val response = brandRepository.getBrands(pageSize, currentPage * pageSize)
                 
-                // 更新品牌列表
                 val newBrands = response.items
                 if (currentPage == 0) {
                     _brands.value = newBrands
@@ -70,7 +55,6 @@ class BrandsViewModel @Inject constructor(
                     _brands.value = _brands.value + newBrands
                 }
 
-                // 更新分页状态
                 _hasMoreData.value = newBrands.size == pageSize
                 if (_hasMoreData.value) currentPage++
                 
@@ -80,5 +64,22 @@ class BrandsViewModel @Inject constructor(
                 _isLoading.value = false
             }
         }
+    }
+
+    private fun loadHotSearches() {
+        viewModelScope.launch {
+            try {
+                val hotSearches = searchRepository.getHotSearches()
+                if (hotSearches.isNotEmpty()) {
+                    searchTextRepository.updateSearchText(hotSearches[0])
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    fun updateSearchText(text: String) {
+        searchTextRepository.updateSearchText(text)
     }
 } 
