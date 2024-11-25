@@ -1,5 +1,6 @@
 package com.boycott.app.ui.brands
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -27,9 +28,10 @@ import androidx.navigation.compose.rememberNavController
 fun BrandsView(
     onNavigateToSearchHistory: () -> Unit,
     onBrandClick: (String) -> Unit,
+    onNavigateToSearchResults: (String) -> Unit,
     viewModel: BrandsViewModel = hiltViewModel()
 ) {
-    val searchText by viewModel.searchText.collectAsState()
+    val currentHotSearch by viewModel.currentHotSearch.collectAsState()
     val brands by viewModel.brands.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val hasMoreData by viewModel.hasMoreData.collectAsState()
@@ -52,10 +54,21 @@ fun BrandsView(
 
     Column(modifier = Modifier.fillMaxSize()) {
         SearchBar(
-            hotSearchText = searchText,
+            hotSearchText = currentHotSearch,
             onSearchClick = {
-                viewModel.updateSearchText(searchText)
+                Log.d("SearchDebug", "BrandsView: Search bar clicked")
+                viewModel.updateSearchText(currentHotSearch)
                 onNavigateToSearchHistory()
+            },
+            onSearchButtonClick = {
+                Log.d("SearchDebug", "BrandsView: Search button clicked with text: $currentHotSearch")
+                if (currentHotSearch.isNotEmpty()) {
+                    viewModel.searchAndNavigate(
+                        keyword = currentHotSearch,
+                        onBrandClick = onBrandClick,
+                        onSearch = { onNavigateToSearchResults(currentHotSearch) }
+                    )
+                }
             }
         )
 

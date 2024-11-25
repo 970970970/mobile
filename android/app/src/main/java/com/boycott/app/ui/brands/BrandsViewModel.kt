@@ -1,5 +1,6 @@
 package com.boycott.app.ui.brands
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.boycott.app.data.model.Brand
@@ -17,14 +18,17 @@ import javax.inject.Inject
 @HiltViewModel
 class BrandsViewModel @Inject constructor(
     private val brandRepository: BrandRepository,
-    private val searchRepository: SearchRepository,
-    private val searchTextRepository: SearchTextRepository
+    private val searchRepository: SearchRepository
 ) : ViewModel() {
     
-    val searchText = searchTextRepository.searchText
-
     private val _brands = MutableStateFlow<List<Brand>>(emptyList())
-    val brands: StateFlow<List<Brand>> = _brands
+    val brands = _brands.asStateFlow()
+
+    private val _currentHotSearch = MutableStateFlow("")
+    val currentHotSearch: StateFlow<String> = _currentHotSearch
+
+    private val _searchText = MutableStateFlow("")
+    val searchText: StateFlow<String> = _searchText
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
@@ -46,7 +50,10 @@ class BrandsViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                val response = brandRepository.getBrands(pageSize, currentPage * pageSize)
+                val response = brandRepository.getBrands(
+                    limit = pageSize,
+                    offset = currentPage * pageSize
+                )
                 
                 val newBrands = response.items
                 if (currentPage == 0) {
@@ -71,7 +78,7 @@ class BrandsViewModel @Inject constructor(
             try {
                 val hotSearches = searchRepository.getHotSearches()
                 if (hotSearches.isNotEmpty()) {
-                    searchTextRepository.updateSearchText(hotSearches[0])
+                    _currentHotSearch.value = hotSearches[0]
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -79,7 +86,40 @@ class BrandsViewModel @Inject constructor(
         }
     }
 
+    fun searchAndNavigate(
+        keyword: String,
+        onBrandClick: (String) -> Unit,
+        onSearch: () -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                val response = brandRepository.getBrands(
+                    keywords = keyword,
+                    limit = 20,
+                    offset = 0
+                )
+                
+                Log.d("SearchDebug", "BrandsViewModel: Search results size: ${response.items.size}")
+                when {
+                    response.items.isEmpty() -> {
+                        onSearch()  // 无结果时导航到搜索结果页
+                    }
+                    response.items.size == 1 -> {
+                        onBrandClick(response.items[0].id.toString())  // 单个结果直接导航到详情页
+                    }
+                    else -> {
+                        onSearch()  // 多个结果导航到搜索结果页
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("SearchDebug", "BrandsViewModel: Error searching brands", e)
+                onSearch()  // 出错时导航到搜索结果页
+            }
+        }
+    }
+
     fun updateSearchText(text: String) {
-        searchTextRepository.updateSearchText(text)
+        Log.d("SearchDebug", "BrandsViewModel: Updating search text to: $text")
+        _searchText.value = text
     }
 } 

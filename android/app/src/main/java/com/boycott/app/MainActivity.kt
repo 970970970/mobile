@@ -230,6 +230,9 @@ class MainActivity : ComponentActivity() {
                                             },
                                             onBrandClick = { brandId -> 
                                                 navController.navigate("brand/$brandId")
+                                            },
+                                            onNavigateToSearchResults = { query -> 
+                                                navController.navigate("search_results/$query")
                                             }
                                         )
                                     }
