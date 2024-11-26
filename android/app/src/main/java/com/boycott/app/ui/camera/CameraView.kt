@@ -55,6 +55,7 @@ fun CameraView(
             onFlashToggle = viewModel::toggleFlash,
             onCameraToggle = viewModel::toggleCamera,
             onBackClick = onNavigateBack,
+            isFrontCamera = isFrontCamera,
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .statusBarsPadding()
@@ -79,6 +80,7 @@ private fun TopControls(
     onFlashToggle: () -> Unit,
     onCameraToggle: () -> Unit,
     onBackClick: () -> Unit,
+    isFrontCamera: Boolean,
     modifier: Modifier = Modifier
 ) {
     Surface(
@@ -101,12 +103,14 @@ private fun TopControls(
             }
             
             Row {
-                IconButton(onClick = onFlashToggle) {
-                    Icon(
-                        if (flashEnabled) Icons.Default.FlashOn else Icons.Default.FlashOff,
-                        contentDescription = "闪光灯",
-                        tint = Color.White
-                    )
+                if (!isFrontCamera) {
+                    IconButton(onClick = onFlashToggle) {
+                        Icon(
+                            if (flashEnabled) Icons.Default.FlashOn else Icons.Default.FlashOff,
+                            contentDescription = "闪光灯",
+                            tint = Color.White
+                        )
+                    }
                 }
                 
                 IconButton(onClick = onCameraToggle) {
