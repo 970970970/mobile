@@ -59,6 +59,7 @@ import androidx.compose.foundation.background
 import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.lifecycleScope
 import androidx.compose.ui.layout.ContentScale
+import com.boycott.app.ui.camera.CameraView
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -107,109 +108,107 @@ class MainActivity : ComponentActivity() {
                             }
                             
                             Scaffold(
-                                bottomBar = {
-                                    Box(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .height(80.dp)
-                                    ) {
-                                        // 底部导航栏背景
-                                        Surface(
-                                            modifier = Modifier.fillMaxSize(),
-                                            shadowElevation = 8.dp
-                                        ) {
-                                            Row(
-                                                modifier = Modifier.fillMaxSize(),
-                                                horizontalArrangement = Arrangement.SpaceAround,
-                                                verticalAlignment = Alignment.CenterVertically
-                                            ) {
-                                                // 首页
-                                                TabItem(
-                                                    icon = Icons.Filled.Home,
-                                                    label = stringResource(R.string.nav_home),
-                                                    selected = selectedTab == 0,
-                                                    onClick = { 
-                                                        selectedTab = 0
-                                                        navController.navigate("home") {
-                                                            popUpTo("home") { inclusive = true }
-                                                        }
-                                                    }
-                                                )
-                                                
-                                                // 品
-                                                TabItem(
-                                                    icon = Icons.AutoMirrored.Filled.List,
-                                                    label = stringResource(R.string.nav_brands),
-                                                    selected = selectedTab == 1,
-                                                    onClick = { 
-                                                        selectedTab = 1
-                                                        navController.navigate("brands") {
-                                                            popUpTo("home")
-                                                        }
-                                                    }
-                                                )
-                                                
-                                                // 扫描按钮占位
-                                                Spacer(modifier = Modifier.width(80.dp))
-                                                
-                                                // 文章
-                                                TabItem(
-                                                    icon = Icons.AutoMirrored.Filled.MenuBook,
-                                                    label = stringResource(R.string.nav_articles),
-                                                    selected = selectedTab == 3,
-                                                    onClick = { 
-                                                        selectedTab = 3
-                                                        navController.navigate("articles") {
-                                                            popUpTo("home")
-                                                        }
-                                                    }
-                                                )
-                                                
-                                                // 设置
-                                                TabItem(
-                                                    icon = Icons.Filled.Settings,
-                                                    label = stringResource(R.string.nav_settings),
-                                                    selected = selectedTab == 4,
-                                                    onClick = { 
-                                                        selectedTab = 4
-                                                        navController.navigate("settings") {
-                                                            popUpTo("home")
-                                                        }
-                                                    }
-                                                )
+                                floatingActionButton = {
+                                    FloatingActionButton(
+                                        onClick = { 
+                                            selectedTab = 2
+                                            navController.navigate("scan") {
+                                                popUpTo("home")
                                             }
-                                        }
-                                        
-                                        // 凸起的扫描按钮
-                                        FloatingActionButton(
-                                            onClick = { 
-                                                selectedTab = 2
-                                                navController.navigate("scan") {
-                                                    popUpTo("home")
-                                                }
-                                            },
-                                            modifier = Modifier
-                                                .size(64.dp)
-                                                .align(Alignment.TopCenter)
-                                                .offset(y = (-20).dp),
-                                            containerColor = MaterialTheme.colorScheme.primary,
-                                            shape = CircleShape
+                                        },
+                                        modifier = Modifier
+                                            .size(64.dp)
+                                            .offset(y = (56.dp)),
+                                        containerColor = MaterialTheme.colorScheme.primary,
+                                        shape = CircleShape
+                                    ) {
+                                        Column(
+                                            horizontalAlignment = Alignment.CenterHorizontally,
+                                            verticalArrangement = Arrangement.Center
                                         ) {
-                                            Column(
-                                                horizontalAlignment = Alignment.CenterHorizontally,
-                                                verticalArrangement = Arrangement.Center
+                                            Icon(
+                                                imageVector = Icons.Filled.PhotoCamera,
+                                                contentDescription = stringResource(R.string.nav_scan),
+                                                tint = Color.White,
+                                                modifier = Modifier.size(28.dp)
+                                            )
+                                            Text(
+                                                stringResource(R.string.nav_scan),
+                                                color = Color.White,
+                                                fontSize = 12.sp
+                                            )
+                                        }
+                                    }
+                                },
+                                floatingActionButtonPosition = FabPosition.Center,
+                                bottomBar = {
+                                    NavigationBar {
+                                        Box(modifier = Modifier.fillMaxSize()) {
+                                            // 底部导航栏背景
+                                            Surface(
+                                                modifier = Modifier.fillMaxSize(),
+                                                shadowElevation = 8.dp
                                             ) {
-                                                Icon(
-                                                    imageVector = Icons.Filled.PhotoCamera,
-                                                    contentDescription = stringResource(R.string.nav_scan),
-                                                    tint = Color.White,
-                                                    modifier = Modifier.size(28.dp)
-                                                )
-                                                Text(
-                                                    stringResource(R.string.nav_scan),
-                                                    color = Color.White,
-                                                    fontSize = 12.sp
-                                                )
+                                                Row(
+                                                    modifier = Modifier.fillMaxSize(),
+                                                    horizontalArrangement = Arrangement.SpaceAround,
+                                                    verticalAlignment = Alignment.CenterVertically
+                                                ) {
+                                                    // 首页
+                                                    TabItem(
+                                                        icon = Icons.Filled.Home,
+                                                        label = stringResource(R.string.nav_home),
+                                                        selected = selectedTab == 0,
+                                                        onClick = { 
+                                                            selectedTab = 0
+                                                            navController.navigate("home") {
+                                                                popUpTo("home") { inclusive = true }
+                                                            }
+                                                        }
+                                                    )
+                                                    
+                                                    // 品
+                                                    TabItem(
+                                                        icon = Icons.AutoMirrored.Filled.List,
+                                                        label = stringResource(R.string.nav_brands),
+                                                        selected = selectedTab == 1,
+                                                        onClick = { 
+                                                            selectedTab = 1
+                                                            navController.navigate("brands") {
+                                                                popUpTo("home")
+                                                            }
+                                                        }
+                                                    )
+                                                    
+                                                    // 扫描按钮占位
+                                                    Spacer(modifier = Modifier.width(80.dp))
+                                                    
+                                                    // 文章
+                                                    TabItem(
+                                                        icon = Icons.AutoMirrored.Filled.MenuBook,
+                                                        label = stringResource(R.string.nav_articles),
+                                                        selected = selectedTab == 3,
+                                                        onClick = { 
+                                                            selectedTab = 3
+                                                            navController.navigate("articles") {
+                                                                popUpTo("home")
+                                                            }
+                                                        }
+                                                    )
+                                                    
+                                                    // 设置
+                                                    TabItem(
+                                                        icon = Icons.Filled.Settings,
+                                                        label = stringResource(R.string.nav_settings),
+                                                        selected = selectedTab == 4,
+                                                        onClick = { 
+                                                            selectedTab = 4
+                                                            navController.navigate("settings") {
+                                                                popUpTo("home")
+                                                            }
+                                                        }
+                                                    )
+                                                }
                                             }
                                         }
                                     }
@@ -246,7 +245,13 @@ class MainActivity : ComponentActivity() {
                                                 }
                                             )
                                         }
-                                        composable("scan") { Text("扫描") }
+                                        composable("scan") {
+                                            CameraView(
+                                                onNavigateBack = {
+                                                    navController.navigateUp()
+                                                }
+                                            )
+                                        }
                                         composable("articles") { 
                                             ArticleListView(
                                                 onArticleClick = { articleId ->
