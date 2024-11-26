@@ -62,8 +62,6 @@ import androidx.compose.ui.layout.ContentScale
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private var showSplash by mutableStateOf(true)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -325,35 +323,8 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     }
-
-                    // 启动页层
-                    AnimatedVisibility(
-                        visible = showSplash,
-                        enter = fadeIn(),
-                        exit = fadeOut()
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .background(MaterialTheme.colorScheme.background),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.splash_icon),
-                                contentDescription = null,
-                                modifier = Modifier.fillMaxSize(),
-                                contentScale = ContentScale.Crop
-                            )
-                        }
-                    }
                 }
             }
-        }
-
-        // 延迟关闭启动页
-        lifecycleScope.launch {
-            delay(2000)
-            showSplash = false
         }
     }
 }
