@@ -37,10 +37,22 @@ fun CameraView(
     LaunchedEffect(Unit) {
         try {
             val detector = YoloDetector()
-            detector.init()  // 这里会触发 JNI 调用
+            // 测试初始化
+            val initResult = detector.init()
+            Log.d("CameraView", "Init result: $initResult")
+            
+            // 测试版本获取
+            val version = detector.getVersion()
+            Log.d("CameraView", "NCNN version: $version")
+            
+            // 测试计算功能
+            val computeResult = detector.testCompute(5)
+            Log.d("CameraView", "5 * 5 = $computeResult")
+            
         } catch (e: Exception) {
             Log.e("CameraView", "Failed to initialize YoloDetector", e)
         }
+        
         if (!cameraPermissionState.status.isGranted) {
             cameraPermissionState.launchPermissionRequest()
         }
