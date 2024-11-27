@@ -1,5 +1,6 @@
 package com.boycott.app.ui.camera
 
+import android.util.Log
 import android.Manifest
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -17,6 +18,7 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
+import com.boycott.app.ml.YoloDetector
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -33,6 +35,12 @@ fun CameraView(
     val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
     
     LaunchedEffect(Unit) {
+        try {
+            val detector = YoloDetector()
+            detector.init()  // 这里会触发 JNI 调用
+        } catch (e: Exception) {
+            Log.e("CameraView", "Failed to initialize YoloDetector", e)
+        }
         if (!cameraPermissionState.status.isGranted) {
             cameraPermissionState.launchPermissionRequest()
         }
