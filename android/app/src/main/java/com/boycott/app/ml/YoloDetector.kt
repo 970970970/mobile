@@ -1,5 +1,7 @@
 package com.boycott.app.ml
 
+import android.content.res.AssetManager
+
 class YoloDetector {
     // 基础初始化方法
     external fun init(): Int
@@ -11,7 +13,7 @@ class YoloDetector {
     external fun testCompute(number: Int): Int
 
     // 加载模型文件
-    external fun loadModel(paramPath: String, binPath: String): Int
+    external fun loadModel(assetManager: AssetManager, paramPath: String, binPath: String): Int
 
     // 释放模型资源
     external fun releaseModel()

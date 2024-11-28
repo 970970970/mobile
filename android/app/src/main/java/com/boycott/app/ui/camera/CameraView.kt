@@ -49,6 +49,14 @@ fun CameraView(
             val computeResult = detector.testCompute(5)
             Log.d("CameraView", "5 * 5 = $computeResult")
             
+            // 测试模型加载
+            val modelResult = detector.loadModel(
+                context.assets,
+                "model.ncnn.param",
+                "model.ncnn.bin"
+            )
+            Log.d("CameraView", "Model load result: $modelResult")
+            
         } catch (e: Exception) {
             Log.e("CameraView", "Failed to initialize YoloDetector", e)
         }

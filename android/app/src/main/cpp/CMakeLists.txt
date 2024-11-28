@@ -9,6 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ncnn
+    ${ANDROID_NDK}/sources/cxx-stl/llvm-libc++/include
+    ${ANDROID_NDK}/sources/android/native_app_glue
+    ${ANDROID_NDK}/platforms/android-24/arch-arm/usr/include
 )
 
 # 添加 native 库

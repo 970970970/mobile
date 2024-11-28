@@ -2,6 +2,8 @@
 #include <android/log.h>
 #include <string>
 #include <net.h>  // NCNN 头文件
+#include <android/asset_manager_jni.h>
+#include <android/asset_manager.h>
 
 #define TAG "YoloNcnn"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, TAG, __VA_ARGS__)
@@ -31,31 +33,80 @@ extern "C" {
     }
     
     JNIEXPORT jint JNICALL
-    Java_com_boycott_app_ml_YoloDetector_loadModel(JNIEnv* env, jobject thiz, jstring paramPath, jstring binPath) {
-        const char* param = env->GetStringUTFChars(paramPath, nullptr);
-        const char* bin = env->GetStringUTFChars(binPath, nullptr);
+    Java_com_boycott_app_ml_YoloDetector_loadModel(JNIEnv* env, jobject thiz, jobject assetManager,
+                                                  jstring paramPath, jstring binPath) {
+        LOGD("Start loading model...");
         
+        // 1. 检查 AssetManager
+        AAssetManager* mgr = AAssetManager_fromJava(env, assetManager);
+        if (!mgr) {
+            LOGD("Failed to get asset manager");
+            return -3;
+        }
+        LOGD("AssetManager obtained successfully");
+
+        // 2. 获取文件路径
+        const char* paramPathStr = env->GetStringUTFChars(paramPath, nullptr);
+        const char* binPathStr = env->GetStringUTFChars(binPath, nullptr);
+        std::string fullParamPath = std::string("models/") + paramPathStr;
+        std::string fullBinPath = std::string("models/") + binPathStr;
+        LOGD("Trying to load param file: %s", fullParamPath.c_str());
+        LOGD("Trying to load model file: %s", fullBinPath.c_str());
+
+        // 3. 检查文件是否存在
+        AAsset* paramAsset = AAssetManager_open(mgr, fullParamPath.c_str(), AASSET_MODE_BUFFER);
+        if (!paramAsset) {
+            LOGD("Failed to open param file: %s", fullParamPath.c_str());
+            env->ReleaseStringUTFChars(paramPath, paramPathStr);
+            env->ReleaseStringUTFChars(binPath, binPathStr);
+            return -4;
+        }
+        AAsset_close(paramAsset);
+        LOGD("Param file exists");
+
+        AAsset* binAsset = AAssetManager_open(mgr, fullBinPath.c_str(), AASSET_MODE_BUFFER);
+        if (!binAsset) {
+            LOGD("Failed to open model file: %s", fullBinPath.c_str());
+            env->ReleaseStringUTFChars(paramPath, paramPathStr);
+            env->ReleaseStringUTFChars(binPath, binPathStr);
+            return -5;
+        }
+        AAsset_close(binAsset);
+        LOGD("Model file exists");
+
+        // 4. 创建或重置 NCNN 网络
         if (net == nullptr) {
             net = new ncnn::Net();
+            LOGD("Created new NCNN network");
+        } else {
+            LOGD("Using existing NCNN network");
         }
-        
-        // 加载模型
-        int ret = net->load_param(param);
+
+        // 5. 加载参数文件
+        int ret = net->load_param(mgr, fullParamPath.c_str());
         if (ret != 0) {
-            LOGD("Failed to load param file");
+            LOGD("Failed to load param file, error code: %d", ret);
+            env->ReleaseStringUTFChars(paramPath, paramPathStr);
+            env->ReleaseStringUTFChars(binPath, binPathStr);
             return -1;
         }
-        
-        ret = net->load_model(bin);
+        LOGD("Param file loaded successfully");
+
+        // 6. 加载模型文件
+        ret = net->load_model(mgr, fullBinPath.c_str());
         if (ret != 0) {
-            LOGD("Failed to load model file");
+            LOGD("Failed to load model file, error code: %d", ret);
+            env->ReleaseStringUTFChars(paramPath, paramPathStr);
+            env->ReleaseStringUTFChars(binPath, binPathStr);
             return -2;
         }
-        
-        env->ReleaseStringUTFChars(paramPath, param);
-        env->ReleaseStringUTFChars(binPath, bin);
-        
-        LOGD("Model loaded successfully");
+        LOGD("Model file loaded successfully");
+
+        // 7. 清理资源
+        env->ReleaseStringUTFChars(paramPath, paramPathStr);
+        env->ReleaseStringUTFChars(binPath, binPathStr);
+
+        LOGD("Model loading completed successfully");
         return 0;
     }
     
