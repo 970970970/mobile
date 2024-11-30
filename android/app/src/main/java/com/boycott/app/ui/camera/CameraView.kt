@@ -50,6 +50,7 @@ import android.graphics.BitmapFactory
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
 import java.util.concurrent.Executor
+import android.graphics.Matrix
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -112,6 +113,25 @@ fun CameraView(
                 
                 // 绘制检测框
                 results.forEach { result ->
+                    // 绘制半透明背景
+                    paint.apply {
+                        style = Paint.Style.FILL
+                        color = AndroidColor.parseColor("#33FF0000")  // 红色带透明度
+                    }
+                    canvas.drawRect(
+                        result.x,
+                        result.y,
+                        result.x + result.width,
+                        result.y + result.height,
+                        paint
+                    )
+                    
+                    // 绘制边框
+                    paint.apply {
+                        style = Paint.Style.STROKE
+                        color = AndroidColor.RED
+                        strokeWidth = 4f
+                    }
                     canvas.drawRect(
                         result.x,
                         result.y,
@@ -121,9 +141,12 @@ fun CameraView(
                     )
                     
                     // 绘制置信度文本
+                    paint.apply {
+                        style = Paint.Style.FILL
+                        color = AndroidColor.WHITE  // 白色文字
+                        textSize = 40f
+                    }
                     val text = String.format("%.2f%%", result.score * 100)
-                    paint.style = Paint.Style.FILL
-                    paint.textSize = 40f
                     canvas.drawText(
                         text,
                         result.x,
@@ -430,6 +453,13 @@ fun DetectionResultView(
     }
 }
 
+// 添加图片旋转工具函数
+private fun Bitmap.rotateImage(degrees: Float): Bitmap {
+    val matrix = Matrix()
+    matrix.postRotate(degrees)
+    return Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
+}
+
 @Composable
 fun CameraPreview(
     isFrontCamera: Boolean,
@@ -507,15 +537,16 @@ fun CameraPreview(
                 object : ImageCapture.OnImageCapturedCallback() {
                     override fun onCaptureSuccess(image: ImageProxy) {
                         try {
-                            // 将 ImageProxy 转换为 Bitmap
                             val buffer = image.planes[0].buffer
                             val bytes = ByteArray(buffer.remaining())
                             buffer.get(bytes)
                             
-                            val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                            var bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
                                 ?.copy(Bitmap.Config.ARGB_8888, true)
                             
+                            // 根据图片方向旋转
                             if (bitmap != null) {
+                                bitmap = bitmap.rotateImage(image.imageInfo.rotationDegrees.toFloat())
                                 onImageCaptured(bitmap)
                             }
                         } catch (e: Exception) {
