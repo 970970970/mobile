@@ -46,6 +46,10 @@ import androidx.camera.view.PreviewView
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.runtime.DisposableEffect
 import androidx.core.content.ContextCompat
+import android.graphics.BitmapFactory
+import androidx.camera.core.ImageCaptureException
+import androidx.camera.core.ImageProxy
+import java.util.concurrent.Executor
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -68,6 +72,9 @@ fun CameraView(
     
     // 添加一个状态来存储检测结果图片
     var detectionResultBitmap by remember { mutableStateOf<Bitmap?>(null) }
+    
+    // 添加一个状态来存储拍照函数
+    var onTakePhoto by remember { mutableStateOf<(() -> Unit)?>(null) }
     
     // 添加一个公共函数来处理图片检测
     suspend fun processImageDetection(
@@ -254,6 +261,9 @@ fun CameraView(
                             )
                         }
                     },
+                    onCaptureReady = { takePhoto ->  // 添加这个回调
+                        onTakePhoto = takePhoto
+                    },
                     modifier = Modifier.fillMaxSize()
                 )
             }
@@ -275,7 +285,7 @@ fun CameraView(
         BottomControls(
             cameraMode = cameraMode,
             onModeToggle = viewModel::toggleCameraMode,
-            onCapture = { /* TODO */ },
+            onCapture = { onTakePhoto?.invoke() },  // 使用存储的拍照函数
             onGalleryClick = { pickImage.launch("image/*") },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -426,6 +436,7 @@ fun CameraPreview(
     flashEnabled: Boolean,
     onBarcodeDetected: (String) -> Unit,
     onImageCaptured: (Bitmap) -> Unit,
+    onCaptureReady: (() -> Unit) -> Unit,  // 添加这个参数
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
@@ -486,5 +497,44 @@ fun CameraPreview(
                 Log.e("CameraPreview", "Failed to unbind camera", e)
             }
         }
+    }
+
+    // 修改拍照功能的实现
+    val capturePhoto = remember {
+        {
+            imageCapture.takePicture(
+                ContextCompat.getMainExecutor(context),
+                object : ImageCapture.OnImageCapturedCallback() {
+                    override fun onCaptureSuccess(image: ImageProxy) {
+                        try {
+                            // 将 ImageProxy 转换为 Bitmap
+                            val buffer = image.planes[0].buffer
+                            val bytes = ByteArray(buffer.remaining())
+                            buffer.get(bytes)
+                            
+                            val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                                ?.copy(Bitmap.Config.ARGB_8888, true)
+                            
+                            if (bitmap != null) {
+                                onImageCaptured(bitmap)
+                            }
+                        } catch (e: Exception) {
+                            Log.e("CameraPreview", "Failed to process captured image", e)
+                        } finally {
+                            image.close()
+                        }
+                    }
+
+                    override fun onError(exception: ImageCaptureException) {
+                        Log.e("CameraPreview", "Photo capture failed", exception)
+                    }
+                }
+            )
+        }
+    }
+
+    // 通知外部拍照函数已准备好
+    LaunchedEffect(capturePhoto) {
+        onCaptureReady(capturePhoto)
     }
 } 
