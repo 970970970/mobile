@@ -19,6 +19,17 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
 import com.boycott.app.ml.YoloDetector
+import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.CircleShape
+import android.graphics.ImageDecoder
+import android.os.Build
+import android.provider.MediaStore
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import kotlinx.coroutines.launch
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.CoroutineScope
+import android.graphics.Bitmap
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -27,6 +38,7 @@ fun CameraView(
     onNavigateBack: () -> Unit
 ) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     val lifecycleOwner = LocalLifecycleOwner.current
     val cameraMode by viewModel.cameraMode.collectAsState()
     val flashEnabled by viewModel.flashEnabled.collectAsState()
@@ -34,31 +46,116 @@ fun CameraView(
     
     val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
     
+    // 添加状态
+    var showError by remember { mutableStateOf(false) }
+    var errorMessage by remember { mutableStateOf("") }
+    
+    // 添加开关状态
+    var enableRealTimeDetection by remember { mutableStateOf(false) }
+    
+    // 修改图片选择器的处理
+    val pickImage = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri ->
+        uri?.let { selectedUri ->
+            scope.launch {
+                var bitmap: Bitmap? = null
+                var options: Bitmap? = null
+                
+                try {
+                    Log.d("CameraView", "Selected image URI: $selectedUri")
+                    
+                    // 创建选项来处理大图片
+                    options = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        val source = ImageDecoder.createSource(context.contentResolver, selectedUri)
+                        Log.d("CameraView", "Created ImageDecoder source")
+                        
+                        ImageDecoder.decodeBitmap(source) { decoder, _, _ ->
+                            decoder.allocator = ImageDecoder.ALLOCATOR_SOFTWARE
+                            decoder.isMutableRequired = true
+                        }
+                    } else {
+                        MediaStore.Images.Media.getBitmap(context.contentResolver, selectedUri)
+                    }
+                    
+                    if (options == null) {
+                        throw IllegalStateException("Failed to decode bitmap")
+                    }
+                    
+                    Log.d("CameraView", "Decoded bitmap: ${options.width}x${options.height}")
+                    
+                    // 创建副本以确保图片是可变的
+                    bitmap = options.copy(Bitmap.Config.ARGB_8888, true)
+                    Log.d("CameraView", "Created mutable bitmap copy")
+                    
+                    val detector = YoloDetector()
+                    detector.init()
+                    detector.loadModel(context.assets, "model.ncnn.param", "model.ncnn.bin")
+                    val results = detector.detect(bitmap)
+                    
+                    Log.d("CameraView", "Detection results: ${results.size} objects found")
+                    results.forEach { result ->
+                        Log.d("CameraView", "Object: ${result.label}, confidence: ${result.score}")
+                    }
+                    
+                } catch (e: Exception) {
+                    Log.e("CameraView", "Failed to process image", e)
+                    errorMessage = e.message ?: "Failed to process image"
+                    showError = true
+                } finally {
+                    // 在 finally 块中清理资源
+                    try {
+                        bitmap?.recycle()
+                        options?.recycle()
+                    } catch (e: Exception) {
+                        Log.e("CameraView", "Error recycling bitmaps", e)
+                    }
+                }
+            }
+        }
+    }
+    
+    // 添加错误提示
+    if (showError) {
+        AlertDialog(
+            onDismissRequest = { showError = false },
+            title = { Text("Error") },
+            text = { Text(errorMessage) },
+            confirmButton = {
+                TextButton(onClick = { showError = false }) {
+                    Text("OK")
+                }
+            }
+        )
+    }
+    
     LaunchedEffect(Unit) {
-        try {
-            val detector = YoloDetector()
-            // 测试初始化
-            val initResult = detector.init()
-            Log.d("CameraView", "Init result: $initResult")
-            
-            // 测试版本获取
-            val version = detector.getVersion()
-            Log.d("CameraView", "NCNN version: $version")
-            
-            // 测试计算功能
-            val computeResult = detector.testCompute(5)
-            Log.d("CameraView", "5 * 5 = $computeResult")
-            
-            // 测试模型加载
-            val modelResult = detector.loadModel(
-                context.assets,
-                "model.ncnn.param",
-                "model.ncnn.bin"
-            )
-            Log.d("CameraView", "Model load result: $modelResult")
-            
-        } catch (e: Exception) {
-            Log.e("CameraView", "Failed to initialize YoloDetector", e)
+        if (enableRealTimeDetection) {  // 添加条件检查
+            try {
+                val detector = YoloDetector()
+                // 测试初始化
+                val initResult = detector.init()
+                Log.d("CameraView", "Init result: $initResult")
+                
+                // 测试版本获取
+                val version = detector.getVersion()
+                Log.d("CameraView", "NCNN version: $version")
+                
+                // 测试计算功能
+                val computeResult = detector.testCompute(5)
+                Log.d("CameraView", "5 * 5 = $computeResult")
+                
+                // 测试模型加载
+                val modelResult = detector.loadModel(
+                    context.assets,
+                    "model.ncnn.param",
+                    "model.ncnn.bin"
+                )
+                Log.d("CameraView", "Model load result: $modelResult")
+                
+            } catch (e: Exception) {
+                Log.e("CameraView", "Failed to initialize YoloDetector", e)
+            }
         }
         
         if (!cameraPermissionState.status.isGranted) {
@@ -73,6 +170,7 @@ fun CameraView(
                 isFrontCamera = isFrontCamera,
                 flashEnabled = flashEnabled,
                 onBarcodeDetected = { /* TODO */ },
+                enableDetection = enableRealTimeDetection,
                 modifier = Modifier.fillMaxSize()
             )
         }
@@ -94,11 +192,27 @@ fun CameraView(
             cameraMode = cameraMode,
             onModeToggle = viewModel::toggleCameraMode,
             onCapture = { /* TODO */ },
-            onGalleryClick = { /* TODO */ },
+            onGalleryClick = { pickImage.launch("image/*") },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .navigationBarsPadding()
         )
+        
+        // 添加开关按钮
+        IconButton(
+            onClick = { enableRealTimeDetection = !enableRealTimeDetection },
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(16.dp)
+                .size(48.dp)
+                .background(Color.Black.copy(alpha = 0.5f), CircleShape)
+        ) {
+            Icon(
+                imageVector = if (enableRealTimeDetection) Icons.Default.Visibility else Icons.Default.VisibilityOff,
+                contentDescription = "Toggle Detection",
+                tint = Color.White
+            )
+        }
     }
 }
 

@@ -60,9 +60,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.lifecycleScope
 import androidx.compose.ui.layout.ContentScale
 import com.boycott.app.ui.camera.CameraView
+import androidx.compose.material.icons.filled.Image
+import androidx.activity.result.contract.ActivityResultContracts
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    // 添加图片选择器
+    private val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        uri?.let {
+            // 暂时只打印日志
+            Log.d("MainActivity", "Selected image: $it")
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -247,9 +257,7 @@ class MainActivity : ComponentActivity() {
                                         }
                                         composable("scan") {
                                             CameraView(
-                                                onNavigateBack = {
-                                                    navController.navigateUp()
-                                                }
+                                                onNavigateBack = { navController.navigateUp() }
                                             )
                                         }
                                         composable("articles") { 
