@@ -254,13 +254,15 @@ fun CameraView(
     }
     
     Box(modifier = Modifier.fillMaxSize()) {
-        // 相机预览 - 填满整个屏幕
         if (cameraPermissionState.status.isGranted) {
             if (detectionResultBitmap != null) {
                 DetectionResultView(
                     bitmap = detectionResultBitmap!!,
                     onClose = {
-                        detectionResultBitmap = null  // 关闭结果显示
+                        detectionResultBitmap = null
+                    },
+                    onRetake = {
+                        detectionResultBitmap = null
                     }
                 )
             } else {
@@ -289,31 +291,29 @@ fun CameraView(
                     },
                     modifier = Modifier.fillMaxSize()
                 )
+                
+                TopControls(
+                    flashEnabled = flashEnabled,
+                    onFlashToggle = viewModel::toggleFlash,
+                    onCameraToggle = viewModel::toggleCamera,
+                    onBackClick = onNavigateBack,
+                    isFrontCamera = isFrontCamera,
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .statusBarsPadding()
+                )
+                
+                BottomControls(
+                    cameraMode = cameraMode,
+                    onModeToggle = viewModel::toggleCameraMode,
+                    onCapture = { onTakePhoto?.invoke() },
+                    onGalleryClick = { pickImage.launch("image/*") },
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .navigationBarsPadding()
+                )
             }
         }
-        
-        // 顶部控制栏
-        TopControls(
-            flashEnabled = flashEnabled,
-            onFlashToggle = viewModel::toggleFlash,
-            onCameraToggle = viewModel::toggleCamera,
-            onBackClick = onNavigateBack,
-            isFrontCamera = isFrontCamera,
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .statusBarsPadding()
-        )
-        
-        // 底部控制栏
-        BottomControls(
-            cameraMode = cameraMode,
-            onModeToggle = viewModel::toggleCameraMode,
-            onCapture = { onTakePhoto?.invoke() },  // 使用存储的拍照函数
-            onGalleryClick = { pickImage.launch("image/*") },
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .navigationBarsPadding()
-        )
     }
 }
 
@@ -398,10 +398,12 @@ private fun BottomControls(
             
             IconButton(
                 onClick = onCapture,
-                modifier = Modifier.size(72.dp)
+                modifier = Modifier
+                    .size(72.dp)
+                    .background(Color.White.copy(alpha = 0.2f), CircleShape)
             ) {
                 Icon(
-                    if (cameraMode == CameraMode.PHOTO) Icons.Default.Camera else Icons.Default.QrCode,
+                    Icons.Default.Camera,  // 始终使用相机图标
                     contentDescription = "拍照",
                     tint = Color.White,
                     modifier = Modifier.size(48.dp)
@@ -420,11 +422,12 @@ private fun BottomControls(
     }
 }
 
-// 添加结果显示界面
+// 修改 DetectionResultView 组件
 @Composable
 fun DetectionResultView(
     bitmap: Bitmap,
-    onClose: () -> Unit
+    onClose: () -> Unit,
+    onRetake: () -> Unit
 ) {
     Box(
         modifier = Modifier.fillMaxSize()
@@ -437,7 +440,7 @@ fun DetectionResultView(
             contentScale = ContentScale.Fit
         )
         
-        // 添加关闭按钮
+        // 添加顶部关闭按钮
         IconButton(
             onClick = onClose,
             modifier = Modifier
@@ -449,6 +452,29 @@ fun DetectionResultView(
                 contentDescription = "Close",
                 tint = Color.White
             )
+        }
+        
+        // 调整再拍一张按钮的位置
+        Button(
+            onClick = onRetake,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 80.dp),  // 增加底部间距
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.White.copy(alpha = 0.8f),
+                contentColor = Color.Black
+            )
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Camera,
+                    contentDescription = null
+                )
+                Text("再拍一张")
+            }
         }
     }
 }
@@ -466,7 +492,7 @@ fun CameraPreview(
     flashEnabled: Boolean,
     onBarcodeDetected: (String) -> Unit,
     onImageCaptured: (Bitmap) -> Unit,
-    onCaptureReady: (() -> Unit) -> Unit,  // 添加这个参数
+    onCaptureReady: (() -> Unit) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
@@ -493,43 +519,7 @@ fun CameraPreview(
         }
     }
 
-    AndroidView(
-        factory = { previewView },
-        modifier = modifier
-    )
-
-    // 使用 LaunchedEffect 来管理相机生命周期
-    LaunchedEffect(isFrontCamera, flashEnabled) {
-        try {
-            val cameraProvider = cameraProviderFuture.get()
-            
-            cameraProvider.unbindAll()
-            cameraProvider.bindToLifecycle(
-                lifecycleOwner,
-                cameraSelector,
-                preview,
-                imageCapture
-            )
-            
-            preview.setSurfaceProvider(previewView.surfaceProvider)
-        } catch (e: Exception) {
-            Log.e("CameraPreview", "Use case binding failed", e)
-        }
-    }
-    
-    // 清理相机资源
-    DisposableEffect(Unit) {
-        onDispose {
-            try {
-                val cameraProvider = cameraProviderFuture.get()
-                cameraProvider.unbindAll()
-            } catch (e: Exception) {
-                Log.e("CameraPreview", "Failed to unbind camera", e)
-            }
-        }
-    }
-
-    // 修改拍照功能的实现
+    // 修改拍照功能的实现 - 移到前面
     val capturePhoto = remember {
         {
             imageCapture.takePicture(
@@ -561,6 +551,45 @@ fun CameraPreview(
                     }
                 }
             )
+        }
+    }
+
+    AndroidView(
+        factory = { previewView },
+        modifier = modifier
+    )
+
+    // 使用 LaunchedEffect 来管理相机生命周期
+    LaunchedEffect(isFrontCamera, flashEnabled) {
+        try {
+            val cameraProvider = cameraProviderFuture.get()
+            val camera = cameraProvider.bindToLifecycle(
+                lifecycleOwner,
+                cameraSelector,
+                preview,
+                imageCapture
+            )
+            
+            preview.setSurfaceProvider(previewView.surfaceProvider)
+            
+            // 确保相机已经绑定
+            if (camera != null) {
+                onCaptureReady(capturePhoto)
+            }
+        } catch (e: Exception) {
+            Log.e("CameraPreview", "Use case binding failed", e)
+        }
+    }
+    
+    // 清理相机资源
+    DisposableEffect(Unit) {
+        onDispose {
+            try {
+                val cameraProvider = cameraProviderFuture.get()
+                cameraProvider.unbindAll()
+            } catch (e: Exception) {
+                Log.e("CameraPreview", "Failed to unbind camera", e)
+            }
         }
     }
 
