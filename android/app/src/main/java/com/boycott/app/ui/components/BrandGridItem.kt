@@ -22,6 +22,9 @@ import com.boycott.app.utils.AppConfig
 import com.boycott.app.data.model.Brand
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import com.boycott.app.R
 
 @Composable
 fun BrandGridItem(
@@ -56,14 +59,28 @@ fun BrandGridItem(
                 contentAlignment = Alignment.Center
             ) {
                 if (brand.logo_path != null) {
-                    AsyncImage(
-                        model = "${AppConfig.MEDIA_HOST}${brand.logo_path}",
-                        contentDescription = brand.name,
-                        modifier = Modifier
-                            .fillMaxSize(0.8f)
-                            .clip(RoundedCornerShape(4.dp)),
-                        contentScale = ContentScale.Fit
-                    )
+                    Box {  // 添加一个 Box 来包装 Logo 和抵制图标
+                        AsyncImage(
+                            model = "${AppConfig.MEDIA_HOST}${brand.logo_path}",
+                            contentDescription = brand.name,
+                            modifier = Modifier
+                                .fillMaxSize(0.8f)
+                                .clip(RoundedCornerShape(4.dp)),
+                            contentScale = ContentScale.Fit
+                        )
+                        
+                        // 抵制图标
+                        if (brand.status == "avoid") {
+                            Image(
+                                painter = painterResource(id = R.drawable.ic_boycott),
+                                contentDescription = "抵制",
+                                modifier = Modifier
+                                    .size(48.dp)
+                                    .align(Alignment.TopEnd)
+                                    .offset(x = (-8).dp, y = 8.dp)
+                            )
+                        }
+                    }
                 } else {
                     Text(
                         text = brand.name.firstOrNull()?.toString() ?: "",
@@ -73,7 +90,7 @@ fun BrandGridItem(
                 }
             }
 
-            // 品牌名称（带自动滚动效果）
+            // 品牌名称
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
