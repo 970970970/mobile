@@ -159,7 +159,10 @@ dependencies {
 
     // ML Kit dependencies
     implementation 'com.google.mlkit:barcode-scanning:17.2.0'
-    implementation 'com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0'
+
+    // 移除 ZXing 相关依赖
+    // implementation 'com.google.zxing:core:3.5.2'
+    // implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
 }
 
 kapt {

@@ -84,7 +84,10 @@ fun CameraView(
     
     // 添加条码扫描器
     val barcodeScanner = remember {
-        BarcodeScanning.getClient()
+        val options = BarcodeScannerOptions.Builder()
+            .setBarcodeFormats(Barcode.FORMAT_ALL_FORMATS)
+            .build()
+        BarcodeScanning.getClient(options)
     }
     
     // 添加扫描结果状态
@@ -307,12 +310,7 @@ fun CameraView(
                                 .addOnSuccessListener { barcodes ->
                                     if (barcodes.isNotEmpty()) {
                                         val barcode = barcodes[0]
-                                        barcodeResult = when (barcode.valueType) {
-                                            Barcode.TYPE_URL -> "URL: ${barcode.url?.url}"
-                                            Barcode.TYPE_PRODUCT -> "商品: ${barcode.rawValue}"
-                                            Barcode.TYPE_TEXT -> "文本: ${barcode.rawValue}"
-                                            else -> "条码: ${barcode.rawValue}"
-                                        }
+                                        barcodeResult = "条码: ${barcode.rawValue}"  // 只获取原始值
                                     }
                                 }
                                 .addOnFailureListener { e ->
