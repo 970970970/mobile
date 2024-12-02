@@ -27,6 +27,7 @@ import com.boycott.app.ui.camera.CameraMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.Image
 import com.boycott.app.R
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun BrandsView(
@@ -180,9 +181,9 @@ private fun BrandItem(
                 brand.status?.let { status ->
                     Text(
                         text = when(status) {
-                            "avoid" -> "抵制"
-                            "support" -> "支持"
-                            "neutral" -> "中立"
+                            "avoid" -> stringResource(R.string.status_avoid)
+                            "support" -> stringResource(R.string.status_support)
+                            "neutral" -> stringResource(R.string.status_neutral)
                             else -> status
                         },
                         style = MaterialTheme.typography.bodyMedium,

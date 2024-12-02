@@ -13,13 +13,13 @@ import com.boycott.app.R
 
 object NotificationUtils {
     private const val CHANNEL_ID = "boycott_channel"
-    private const val CHANNEL_NAME = "Boycott"
+    private fun getChannelName(context: Context) = context.getString(R.string.notification_channel_name)
     
     fun createNotificationChannel(context: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
-                CHANNEL_NAME,
+                getChannelName(context),
                 NotificationManager.IMPORTANCE_DEFAULT
             ).apply {
                 description = "Boycott app notifications"

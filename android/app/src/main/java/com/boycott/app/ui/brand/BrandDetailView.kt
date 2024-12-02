@@ -21,6 +21,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import com.boycott.app.R
+import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +43,7 @@ fun BrandDetailView(
                 title = { Text(brand?.name ?: "") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.action_back))
                     }
                 }
             )
@@ -85,7 +86,7 @@ fun BrandDetailView(
                             if (brandData.status == "avoid") {
                                 Image(
                                     painter = painterResource(id = R.drawable.ic_boycott),
-                                    contentDescription = "抵制",
+                                    contentDescription = stringResource(R.string.status_avoid),
                                     modifier = Modifier
                                         .size(72.dp)
                                         .align(Alignment.TopEnd)
@@ -99,9 +100,9 @@ fun BrandDetailView(
                     brandData.status?.let { status ->
                         Text(
                             text = when(status) {
-                                "avoid" -> "抵制"
-                                "support" -> "支持"
-                                "neutral" -> "中立"
+                                "avoid" -> stringResource(R.string.status_avoid)
+                                "support" -> stringResource(R.string.status_support)
+                                "neutral" -> stringResource(R.string.status_neutral)
                                 else -> status
                             },
                             style = MaterialTheme.typography.titleLarge,

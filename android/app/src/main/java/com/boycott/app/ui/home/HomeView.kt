@@ -28,6 +28,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.distinctUntilChanged
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import com.boycott.app.ui.camera.CameraMode
+import androidx.compose.ui.res.stringResource
+import com.boycott.app.R
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -205,7 +207,7 @@ fun HomeView(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = "没有更多内容",
+                            text = stringResource(R.string.no_more_results),
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }

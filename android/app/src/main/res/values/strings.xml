@@ -48,5 +48,18 @@
     <string name="feedback_type_feature">功能建议</string>
     <string name="feedback_type_data">数据纠错</string>
     <string name="feedback_type_other">其他</string>
+    
+    <!-- 状态文本 -->
+    <string name="status_avoid">抵制</string>
+    <string name="status_support">支持</string>
+    <string name="status_neutral">中立</string>
+    
+    <!-- 操作文本 -->
+    <string name="action_back">返回</string>
+    
+    <!-- 提示文本 -->
     <string name="no_more_results">没有更多内容</string>
+    
+    <!-- 通知 -->
+    <string name="notification_channel_name">Boycott</string>
 </resources>
