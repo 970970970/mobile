@@ -17,6 +17,10 @@ import coil.compose.AsyncImage
 import com.boycott.app.utils.AppConfig
 import com.boycott.app.data.model.Brand
 import dev.jeziellago.compose.markdowntext.MarkdownText
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import com.boycott.app.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,22 +63,35 @@ fun BrandDetailView(
                         .padding(padding)
                         .verticalScroll(rememberScrollState())
                 ) {
-                    // Logo
-                    brandData.logo_path?.let { logoPath ->
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
+                    // Logo 区域
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp)
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Box {
                             AsyncImage(
-                                model = "${AppConfig.MEDIA_HOST}${logoPath}",
+                                model = "${AppConfig.MEDIA_HOST}${brandData.logo_path}",
                                 contentDescription = brandData.name,
                                 modifier = Modifier
-                                    .size(120.dp)
-                                    .clip(MaterialTheme.shapes.medium),
+                                    .fillMaxSize()
+                                    .clip(RoundedCornerShape(8.dp)),
                                 contentScale = ContentScale.Fit
                             )
+                            
+                            // 抵制图标
+                            if (brandData.status == "avoid") {
+                                Image(
+                                    painter = painterResource(id = R.drawable.ic_boycott),
+                                    contentDescription = "抵制",
+                                    modifier = Modifier
+                                        .size(72.dp)
+                                        .align(Alignment.TopEnd)
+                                        .offset(x = (-12).dp, y = 12.dp)
+                                )
+                            }
                         }
                     }
 
