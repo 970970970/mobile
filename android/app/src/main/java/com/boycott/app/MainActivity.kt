@@ -111,8 +111,19 @@ class MainActivity : ComponentActivity() {
                             
                             // 监听导航变化
                             LaunchedEffect(navController) {
-                                navController.currentBackStackEntryFlow.collect { _ ->
-                                    selectedTab = when(navController.currentDestination?.route) {
+                                navController.currentBackStackEntryFlow.collect { entry ->
+                                    // 获取当前路由和参数
+                                    val currentRoute = entry.destination.route
+                                    val isFromSearch = entry.arguments?.getString("mode") != null
+
+                                    // 如果是从搜索框进入扫描页面，不更新选中状态
+                                    if (currentRoute == "scan" && isFromSearch) {
+                                        // 不更新 selectedTab，保持之前的状态
+                                        return@collect
+                                    }
+
+                                    // 其他情况正常更新选中状态
+                                    selectedTab = when(currentRoute) {
                                         "home" -> 0
                                         "brands" -> 1
                                         "scan" -> 2
@@ -128,7 +139,7 @@ class MainActivity : ComponentActivity() {
                                     FloatingActionButton(
                                         onClick = { 
                                             selectedTab = 2
-                                            navController.navigate("scan?mode=PHOTO") {
+                                            navController.navigate("scan") {  // 不带 mode 参数
                                                 popUpTo("home")
                                             }
                                         },
@@ -247,9 +258,11 @@ class MainActivity : ComponentActivity() {
                                                     navController.navigate("search_results/$query")
                                                 },
                                                 onNavigateToScan = {
+                                                    selectedTab = 2
                                                     navController.navigate("scan?mode=SCAN")
                                                 },
                                                 onNavigateToCamera = {
+                                                    selectedTab = 2
                                                     navController.navigate("scan?mode=PHOTO")
                                                 }
                                             )
@@ -266,9 +279,11 @@ class MainActivity : ComponentActivity() {
                                                     navController.navigate("search_results/$query")
                                                 },
                                                 onNavigateToScan = {
+                                                    selectedTab = 2
                                                     navController.navigate("scan?mode=SCAN")
                                                 },
                                                 onNavigateToCamera = {
+                                                    selectedTab = 2
                                                     navController.navigate("scan?mode=PHOTO")
                                                 }
                                             )
