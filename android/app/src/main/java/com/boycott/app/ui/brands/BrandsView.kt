@@ -23,12 +23,15 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import com.boycott.app.ui.home.HomeViewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.boycott.app.ui.camera.CameraMode
 
 @Composable
 fun BrandsView(
     onNavigateToSearchHistory: () -> Unit,
     onBrandClick: (String) -> Unit,
     onNavigateToSearchResults: (String) -> Unit,
+    onNavigateToScan: () -> Unit,
+    onNavigateToCamera: () -> Unit,
     viewModel: BrandsViewModel = hiltViewModel()
 ) {
     val currentHotSearch by viewModel.currentHotSearch.collectAsState()
@@ -56,20 +59,16 @@ fun BrandsView(
         SearchBar(
             hotSearchText = currentHotSearch,
             onSearchClick = {
-                Log.d("SearchDebug", "BrandsView: Search bar clicked")
                 viewModel.updateSearchText(currentHotSearch)
                 onNavigateToSearchHistory()
             },
             onSearchButtonClick = {
-                Log.d("SearchDebug", "BrandsView: Search button clicked with text: $currentHotSearch")
                 if (currentHotSearch.isNotEmpty()) {
-                    viewModel.searchAndNavigate(
-                        keyword = currentHotSearch,
-                        onBrandClick = onBrandClick,
-                        onSearch = { onNavigateToSearchResults(currentHotSearch) }
-                    )
+                    onNavigateToSearchResults(currentHotSearch)
                 }
-            }
+            },
+            onScanClick = onNavigateToScan,
+            onCameraClick = onNavigateToCamera
         )
 
         LazyColumn(

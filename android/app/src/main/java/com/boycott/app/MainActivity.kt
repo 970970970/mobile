@@ -245,6 +245,12 @@ class MainActivity : ComponentActivity() {
                                                 },
                                                 onNavigateToSearchResults = { query -> 
                                                     navController.navigate("search_results/$query")
+                                                },
+                                                onNavigateToScan = {
+                                                    navController.navigate("scan?mode=SCAN")
+                                                },
+                                                onNavigateToCamera = {
+                                                    navController.navigate("scan?mode=PHOTO")
                                                 }
                                             )
                                         }
@@ -258,6 +264,12 @@ class MainActivity : ComponentActivity() {
                                                 },
                                                 onNavigateToSearchResults = { query -> 
                                                     navController.navigate("search_results/$query")
+                                                },
+                                                onNavigateToScan = {
+                                                    navController.navigate("scan?mode=SCAN")
+                                                },
+                                                onNavigateToCamera = {
+                                                    navController.navigate("scan?mode=PHOTO")
                                                 }
                                             )
                                         }

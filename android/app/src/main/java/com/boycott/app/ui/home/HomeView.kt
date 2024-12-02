@@ -27,6 +27,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.distinctUntilChanged
 import androidx.compose.foundation.lazy.grid.GridItemSpan
+import com.boycott.app.ui.camera.CameraMode
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -35,6 +36,8 @@ fun HomeView(
     onArticleClick: (Int) -> Unit,
     onNavigateToSearchHistory: () -> Unit,
     onNavigateToSearchResults: (String) -> Unit,
+    onNavigateToScan: () -> Unit,
+    onNavigateToCamera: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val brands by viewModel.brands.collectAsState()
@@ -78,7 +81,9 @@ fun HomeView(
                         onSearch = { onNavigateToSearchResults(currentHotSearch) }
                     )
                 }
-            }
+            },
+            onScanClick = { onNavigateToScan() },
+            onCameraClick = { onNavigateToCamera() }
         )
 
         // 文章轮播
