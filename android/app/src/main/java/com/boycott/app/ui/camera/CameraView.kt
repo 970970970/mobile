@@ -51,6 +51,11 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
 import java.util.concurrent.Executor
 import android.graphics.Matrix
+import com.google.mlkit.vision.barcode.BarcodeScanner
+import com.google.mlkit.vision.barcode.BarcodeScannerOptions
+import com.google.mlkit.vision.barcode.BarcodeScanning
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.common.InputImage
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -76,6 +81,28 @@ fun CameraView(
     
     // 添加一个状态来存储拍照函数
     var onTakePhoto by remember { mutableStateOf<(() -> Unit)?>(null) }
+    
+    // 添加条码扫描器
+    val barcodeScanner = remember {
+        BarcodeScanning.getClient()
+    }
+    
+    // 添加扫描结果状态
+    var barcodeResult by remember { mutableStateOf<String?>(null) }
+    
+    // 处理扫描结果的对话框
+    if (barcodeResult != null) {
+        AlertDialog(
+            onDismissRequest = { barcodeResult = null },
+            title = { Text("扫描结果") },
+            text = { Text(barcodeResult!!) },
+            confirmButton = {
+                TextButton(onClick = { barcodeResult = null }) {
+                    Text("确定")
+                }
+            }
+        )
+    }
     
     // 添加一个公共函数来处理图片检测
     suspend fun processImageDetection(
@@ -269,21 +296,46 @@ fun CameraView(
                 CameraPreview(
                     isFrontCamera = isFrontCamera,
                     flashEnabled = flashEnabled,
-                    onBarcodeDetected = { /* TODO */ },
-                    onImageCaptured = { bitmap ->  // 添加拍照回调
-                        scope.launch {  // 在协程中调用 suspend 函数
-                            processImageDetection(
-                                context = context,
-                                bitmap = bitmap,
-                                scope = scope,
-                                onResult = { resultBitmap ->
-                                    detectionResultBitmap = resultBitmap
-                                },
-                                onError = { error ->
-                                    errorMessage = error
+                    onBarcodeDetected = { result -> 
+                        barcodeResult = result
+                    },
+                    onImageCaptured = { bitmap ->
+                        // 如果是扫码模式，则进行条码识别
+                        if (cameraMode == CameraMode.SCAN) {
+                            val image = InputImage.fromBitmap(bitmap, 0)
+                            barcodeScanner.process(image)
+                                .addOnSuccessListener { barcodes ->
+                                    if (barcodes.isNotEmpty()) {
+                                        val barcode = barcodes[0]
+                                        barcodeResult = when (barcode.valueType) {
+                                            Barcode.TYPE_URL -> "URL: ${barcode.url?.url}"
+                                            Barcode.TYPE_PRODUCT -> "商品: ${barcode.rawValue}"
+                                            Barcode.TYPE_TEXT -> "文本: ${barcode.rawValue}"
+                                            else -> "条码: ${barcode.rawValue}"
+                                        }
+                                    }
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.e("CameraView", "Barcode scanning failed", e)
+                                    errorMessage = "条码扫描失败"
                                     showError = true
                                 }
-                            )
+                        } else {
+                            // 如果是拍照模式，则进行图片检测
+                            scope.launch {
+                                processImageDetection(
+                                    context = context,
+                                    bitmap = bitmap,
+                                    scope = scope,
+                                    onResult = { resultBitmap ->
+                                        detectionResultBitmap = resultBitmap
+                                    },
+                                    onError = { error ->
+                                        errorMessage = error
+                                        showError = true
+                                    }
+                                )
+                            }
                         }
                     },
                     onCaptureReady = { takePhoto ->  // 添加这个回调
