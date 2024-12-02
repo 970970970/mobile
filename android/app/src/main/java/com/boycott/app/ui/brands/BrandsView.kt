@@ -24,6 +24,9 @@ import com.boycott.app.ui.home.HomeViewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.boycott.app.ui.camera.CameraMode
+import androidx.compose.ui.res.painterResource
+import androidx.compose.foundation.Image
+import com.boycott.app.R
 
 @Composable
 fun BrandsView(
@@ -137,12 +140,26 @@ private fun BrandItem(
                 contentAlignment = Alignment.Center
             ) {
                 if (brand.logo_path != null) {
-                    AsyncImage(
-                        model = "${AppConfig.MEDIA_HOST}${brand.logo_path}",
-                        contentDescription = brand.name,
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Fit
-                    )
+                    Box {  // 添加一个 Box 来包装 Logo 和抵制图标
+                        AsyncImage(
+                            model = "${AppConfig.MEDIA_HOST}${brand.logo_path}",
+                            contentDescription = brand.name,
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Fit
+                        )
+                        
+                        // 抵制图标
+                        if (brand.status == "avoid") {
+                            Image(
+                                painter = painterResource(id = R.drawable.ic_boycott),
+                                contentDescription = "抵制",
+                                modifier = Modifier
+                                    .size(24.dp)  // 这里用小一点的尺寸，因为列表项整体比较小
+                                    .align(Alignment.TopEnd)
+                                    .offset(x = (-2).dp, y = 2.dp)
+                            )
+                        }
+                    }
                 } else {
                     Text(
                         text = brand.name.firstOrNull()?.toString() ?: "",
