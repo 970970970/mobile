@@ -56,6 +56,9 @@ import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
+import androidx.compose.ui.draw.alpha
+import kotlinx.coroutines.delay
+import androidx.compose.ui.zIndex
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -92,6 +95,41 @@ fun CameraView(
     
     // 添加扫描结果状态
     var barcodeResult by remember { mutableStateOf<String?>(null) }
+    
+    // 添加提示状态
+    var showModeHint by remember { mutableStateOf(false) }
+    var lastChangeTime by remember { mutableStateOf(0L) }
+    
+    // 处理模式切换提示
+    if (showModeHint) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .zIndex(2f),
+            contentAlignment = Alignment.Center
+        ) {
+            Surface(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .alpha(0.9f),
+                color = Color.Black.copy(alpha = 0.7f),
+                shape = MaterialTheme.shapes.medium
+            ) {
+                Text(
+                    text = if (cameraMode == CameraMode.PHOTO) "切换到LOGO检测模式" else "切换到条码扫描模式",
+                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp),
+                    color = Color.White,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
+        }
+        
+        // 3秒后自动关闭提示
+        LaunchedEffect(lastChangeTime) {
+            delay(2000)
+            showModeHint = false
+        }
+    }
     
     // 处理扫描结果的对话框
     if (barcodeResult != null) {
@@ -194,7 +232,7 @@ fun CameraView(
         }
     }
     
-    // 修改相册处理代码
+    // 修改相册处理码
     val pickImage = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
     ) { uri ->
@@ -355,7 +393,11 @@ fun CameraView(
                 
                 BottomControls(
                     cameraMode = cameraMode,
-                    onModeToggle = viewModel::toggleCameraMode,
+                    onModeToggle = {
+                        viewModel.toggleCameraMode()
+                        showModeHint = true
+                        lastChangeTime = System.currentTimeMillis()
+                    },
                     onCapture = { onTakePhoto?.invoke() },
                     onGalleryClick = { pickImage.launch("image/*") },
                     modifier = Modifier
@@ -430,43 +472,65 @@ private fun BottomControls(
         modifier = modifier.fillMaxWidth(),
         color = Color.Black.copy(alpha = 0.3f)
     ) {
-        Row(
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp, vertical = 20.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically
+                .padding(vertical = 20.dp)
         ) {
-            IconButton(onClick = onGalleryClick) {
-                Icon(
-                    Icons.Default.PhotoLibrary,
-                    contentDescription = "相册",
-                    tint = Color.White,
-                    modifier = Modifier.size(32.dp)
-                )
-            }
-            
+            // 中间的拍照按钮
             IconButton(
                 onClick = onCapture,
                 modifier = Modifier
                     .size(72.dp)
+                    .align(Alignment.Center)
                     .background(Color.White.copy(alpha = 0.2f), CircleShape)
             ) {
                 Icon(
-                    Icons.Default.Camera,  // 始终使用相机图标
-                    contentDescription = "拍照",
+                    if (cameraMode == CameraMode.PHOTO) Icons.Default.Camera else Icons.Default.QrCodeScanner,
+                    contentDescription = if (cameraMode == CameraMode.PHOTO) "拍照" else "扫描",
                     tint = Color.White,
                     modifier = Modifier.size(48.dp)
                 )
             }
             
-            IconButton(onClick = onModeToggle) {
-                Icon(
-                    if (cameraMode == CameraMode.PHOTO) Icons.Default.QrCode else Icons.Default.Camera,
-                    contentDescription = "切换模式",
-                    tint = Color.White,
-                    modifier = Modifier.size(32.dp)
-                )
+            // 左右按钮容器
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(72.dp)
+                    .padding(horizontal = 24.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // 相册按钮
+                IconButton(
+                    onClick = onGalleryClick,
+                    modifier = Modifier.size(48.dp)
+                ) {
+                    Icon(
+                        Icons.Default.PhotoLibrary,
+                        contentDescription = if (cameraMode == CameraMode.PHOTO) "从相册选择图片" else "从相册扫描",
+                        tint = Color.White,
+                        modifier = Modifier.size(32.dp)
+                    )
+                }
+                
+                // 模式切换开关
+                Box(
+                    modifier = Modifier.size(48.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Switch(
+                        checked = cameraMode == CameraMode.SCAN,
+                        onCheckedChange = { onModeToggle() },
+                        colors = SwitchDefaults.colors(
+                            checkedThumbColor = MaterialTheme.colorScheme.primary,
+                            checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
+                            uncheckedThumbColor = Color.White,
+                            uncheckedTrackColor = Color.White.copy(alpha = 0.3f)
+                        )
+                    )
+                }
             }
         }
     }
