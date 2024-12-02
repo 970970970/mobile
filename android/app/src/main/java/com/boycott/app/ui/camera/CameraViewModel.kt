@@ -34,6 +34,10 @@ class CameraViewModel @Inject constructor() : ViewModel() {
     fun toggleCamera() {
         _isFrontCamera.value = !_isFrontCamera.value
     }
+    
+    fun initCameraMode(mode: CameraMode) {
+        _cameraMode.value = mode
+    }
 }
 
 enum class CameraMode {

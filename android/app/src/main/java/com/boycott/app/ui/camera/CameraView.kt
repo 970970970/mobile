@@ -63,8 +63,9 @@ import androidx.compose.ui.zIndex
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun CameraView(
-    viewModel: CameraViewModel = hiltViewModel(),
-    onNavigateBack: () -> Unit
+    initialMode: CameraMode,
+    onNavigateBack: () -> Unit,
+    viewModel: CameraViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -319,6 +320,11 @@ fun CameraView(
         if (!cameraPermissionState.status.isGranted) {
             cameraPermissionState.launchPermissionRequest()
         }
+    }
+    
+    // 设置初始模式
+    LaunchedEffect(initialMode) {
+        viewModel.initCameraMode(initialMode)
     }
     
     Box(modifier = Modifier.fillMaxSize()) {

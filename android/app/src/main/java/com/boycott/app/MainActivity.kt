@@ -62,9 +62,15 @@ import androidx.compose.ui.layout.ContentScale
 import com.boycott.app.ui.camera.CameraView
 import androidx.compose.material.icons.filled.Image
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import com.boycott.app.ui.camera.CameraViewModel
+import com.boycott.app.ui.camera.CameraMode
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    // 添加 ViewModel
+    private val cameraViewModel: CameraViewModel by viewModels()
+    
     // 添加图片选择器
     private val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         uri?.let {
@@ -122,7 +128,7 @@ class MainActivity : ComponentActivity() {
                                     FloatingActionButton(
                                         onClick = { 
                                             selectedTab = 2
-                                            navController.navigate("scan") {
+                                            navController.navigate("scan?mode=PHOTO") {
                                                 popUpTo("home")
                                             }
                                         },
@@ -255,8 +261,18 @@ class MainActivity : ComponentActivity() {
                                                 }
                                             )
                                         }
-                                        composable("scan") {
+                                        composable(
+                                            route = "scan?mode={mode}",
+                                            arguments = listOf(
+                                                navArgument("mode") {
+                                                    type = NavType.StringType
+                                                    defaultValue = "PHOTO"
+                                                }
+                                            )
+                                        ) { backStackEntry ->
+                                            val mode = backStackEntry.arguments?.getString("mode")
                                             CameraView(
+                                                initialMode = CameraMode.valueOf(mode ?: "PHOTO"),
                                                 onNavigateBack = { navController.navigateUp() }
                                             )
                                         }
