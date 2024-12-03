@@ -148,11 +148,6 @@ class MainActivity : ComponentActivity() {
             LaunchedEffect(Unit) {
                 ThemeEvent.themeChanged.collect { isDark ->
                     isDarkMode = isDark
-                    getSharedPreferences("settings", Context.MODE_PRIVATE)
-                        .edit()
-                        .putBoolean("dark_mode", isDark)
-                        .apply()
-                    forceUpdate++
                 }
             }
             

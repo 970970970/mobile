@@ -10,6 +10,7 @@ import com.boycott.app.utils.CacheManager
 import com.boycott.app.utils.Language
 import com.boycott.app.utils.LanguageManager
 import com.boycott.app.utils.LocaleEvent
+import com.boycott.app.utils.ThemeEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
