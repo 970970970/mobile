@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- Gezinme -->
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_brands">Markalar</string>
+    <string name="nav_scan">Tara</string>
+    <string name="nav_articles">Makaleler</string>
+    <string name="nav_settings">Ayarlar</string>
+    
+    <!-- Ayarlar Sayfası -->
+    <string name="settings_language">Dil</string>
+    <string name="settings_dark_mode">Karanlık Mod</string>
+    <string name="settings_cache">Önbelleği Temizle</string>
+    <string name="settings_feedback_support">Geri Bildirim ve Destek</string>
+    <string name="settings_submit_feedback">Geri Bildirim Gönder</string>
+    <string name="settings_community">Topluluk</string>
+    <string name="settings_donate">Bizi Destekle</string>
+    <string name="settings_about">Hakkında</string>
+    <string name="settings_version">Sürüm</string>
+    <string name="settings_privacy">Gizlilik Politikası</string>
+    <string name="settings_agreement">Kullanıcı Sözleşmesi</string>
+    
+    <!-- Ayarlar Kategorileri -->
+    <string name="settings_basic">Temel Ayarlar</string>
+    <string name="settings_legal">Yasal</string>
+    <string name="settings_privacy_policy">Gizlilik Politikası</string>
+    <string name="settings_user_agreement">Kullanıcı Sözleşmesi</string>
+    <string name="settings_unknown_version">Bilinmeyen Sürüm</string>
+    <string name="settings_select_language">Dil Seç</string>
+    <string name="settings_close">Kapat</string>
+    <string name="settings_loading">Yükleniyor...</string>
+    <string name="settings_error">Yükleme Hatası</string>
+    
+    <!-- Geri Bildirim İletişim Kutusu -->
+    <string name="feedback_title">Geri Bildirim Gönder</string>
+    <string name="feedback_type">Geri Bildirim Türü</string>
+    <string name="feedback_content">İçerik</string>
+    <string name="feedback_contact">İletişim (İsteğe Bağlı)</string>
+    <string name="feedback_submit">Gönder</string>
+    <string name="feedback_cancel">İptal</string>
+    
+    <!-- Geri Bildirim Türleri -->
+    <string name="feedback_type_issue">Sorun Bildir</string>
+    <string name="feedback_type_feature">Özellik İsteği</string>
+    <string name="feedback_type_data">Veri Düzeltme</string>
+    <string name="feedback_type_other">Diğer</string>
+    
+    <!-- Arama -->
+    <string name="search_title">Ara</string>
+    <string name="search_hint">Marka ara</string>
+    <string name="search_scan">Kod tara</string>
+    <string name="search_camera">Kamera</string>
+    <string name="search_button">Ara</string>
+    <string name="search_history">Arama Geçmişi</string>
+    <string name="search_results">Arama Sonuçları</string>
+    <string name="clear_history">Geçmişi Temizle</string>
+    
+    <!-- Durum -->
+    <string name="status_avoid">Boykot</string>
+    <string name="status_support">Destekle</string>
+    <string name="status_neutral">Tarafsız</string>
+    
+    <!-- Eylemler -->
+    <string name="action_back">Geri</string>
+    <string name="action_feedback">Geri Bildirim</string>
+    <string name="action_share">Paylaş</string>
+    <string name="action_share_article">Makaleyi Paylaş</string>
+    <string name="action_clear">Temizle</string>
+    <string name="action_delete">Sil</string>
+    
+    <!-- Makale -->
+    <string name="article_detail_title">Makale Detayları</string>
+    <string name="article_publish_time">Yayınlanma: </string>
+    <string name="article_summary">Özet</string>
+    <string name="article_image_desc">Makale resmi: %1$s</string>
+    <string name="article_loading">Yükleniyor...</string>
+    <string name="article_error">Yükleme Hatası</string>
+    
+    <!-- Çeviri Uyarıları -->
+    <string name="translation_warning_zh">Bu makale yapay zeka tarafından çevrilmiştir ve hatalar içerebilir</string>
+    <string name="translation_warning_en">Bu makale yapay zeka tarafından çevrilmiştir ve hatalar içerebilir</string>
+    <string name="translation_warning_hi">Bu makale yapay zeka tarafından çevrilmiştir ve hatalar içerebilir</string>
+    <string name="translation_warning_es">Bu makale yapay zeka tarafından çevrilmiştir ve hatalar içerebilir</string>
+    
+    <!-- Mesajlar -->
+    <string name="no_more_results">Başka sonuç yok</string>
+    
+    <!-- Bildirimler -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Boycott bildirimleri</string>
+    
+    <!-- Diller -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- Kamera -->
+    <string name="back_button">Geri</string>
+    <string name="flash_on">Flaşı Kapat</string>
+    <string name="flash_off">Flaşı Aç</string>
+    <string name="switch_to_back_camera">Arka Kameraya Geç</string>
+    <string name="switch_to_front_camera">Ön Kameraya Geç</string>
+    <string name="camera_switch_to_logo">Logo Algılama Moduna Geç</string>
+    <string name="camera_switch_to_barcode">Barkod Tarama Moduna Geç</string>
+    <string name="camera_scan_result">Tarama Sonucu</string>
+    <string name="camera_confirm">Onayla</string>
+    <string name="camera_barcode_result">Kod: %1$s</string>
+    <string name="camera_barcode_error">Tarama Başarısız</string>
+    <string name="camera_back">Geri</string>
+    <string name="camera_flash">Flaş</string>
+    <string name="camera_switch">Kamera Değiştir</string>
+    <string name="camera_take_photo">Fotoğraf Çek</string>
+    <string name="camera_scan">Tara</string>
+    <string name="camera_pick_gallery">Galeriden Seç</string>
+    <string name="camera_scan_gallery">Galeriden Tara</string>
+    <string name="camera_retake">Yeniden Çek</string>
+    <string name="gallery_button">Galeriden Seç</string>
+    <string name="scan_gallery_button">Galeriden Tara</string>
+    <string name="camera_error">Hata</string>
+    <string name="camera_close">Kapat</string>
+    <string name="camera_detection_result">Algılama Sonucu</string>
+    
+    <!-- Marka -->
+    <string name="brand_detail_title">Marka Detayları</string>
+    <string name="brand_boycott">Boykot</string>
+    <string name="brand_support">Destekle</string>
+    <string name="brand_neutral">Tarafsız</string>
+    <string name="brand_search_query">Arama: %1$s</string>
+    <string name="brand_not_found">Marka bulunamadı</string>
+    <string name="brand_search_results">Arama Sonuçları</string>
+</resources>

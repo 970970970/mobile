@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- ניווט -->
+    <string name="nav_home">דף הבית</string>
+    <string name="nav_brands">מותגים</string>
+    <string name="nav_scan">סריקה</string>
+    <string name="nav_articles">מאמרים</string>
+    <string name="nav_settings">הגדרות</string>
+    
+    <!-- דף הגדרות -->
+    <string name="settings_language">שפה</string>
+    <string name="settings_dark_mode">מצב כהה</string>
+    <string name="settings_cache">נקה מטמון</string>
+    <string name="settings_feedback_support">משוב ותמיכה</string>
+    <string name="settings_submit_feedback">שלח משוב</string>
+    <string name="settings_community">קהילה</string>
+    <string name="settings_donate">תמוך בנו</string>
+    <string name="settings_about">אודות</string>
+    <string name="settings_version">גרסה</string>
+    <string name="settings_privacy">מדיניות פרטיות</string>
+    <string name="settings_agreement">הסכם משתמש</string>
+    
+    <!-- קטגוריות הגדרות -->
+    <string name="settings_basic">הגדרות בסיסיות</string>
+    <string name="settings_legal">משפטי</string>
+    <string name="settings_privacy_policy">מדיניות פרטיות</string>
+    <string name="settings_user_agreement">הסכם משתמש</string>
+    <string name="settings_unknown_version">גרסה לא ידועה</string>
+    <string name="settings_select_language">בחר שפה</string>
+    <string name="settings_close">סגור</string>
+    <string name="settings_loading">טוען...</string>
+    <string name="settings_error">שגיאה בטעינה</string>
+    
+    <!-- תיבת דו-שיח משוב -->
+    <string name="feedback_title">שלח משוב</string>
+    <string name="feedback_type">סוג המשוב</string>
+    <string name="feedback_content">תוכן</string>
+    <string name="feedback_contact">יצירת קשר (אופציונלי)</string>
+    <string name="feedback_submit">שלח</string>
+    <string name="feedback_cancel">בטל</string>
+    
+    <!-- סוגי משוב -->
+    <string name="feedback_type_issue">דווח על בעיה</string>
+    <string name="feedback_type_feature">בקשת תכונה</string>
+    <string name="feedback_type_data">תיקון נתונים</string>
+    <string name="feedback_type_other">אחר</string>
+    
+    <!-- חיפוש -->
+    <string name="search_title">חיפוש</string>
+    <string name="search_hint">חפש מותג</string>
+    <string name="search_scan">סרוק קוד</string>
+    <string name="search_camera">מצלמה</string>
+    <string name="search_button">חפש</string>
+    <string name="search_history">היסטוריית חיפוש</string>
+    <string name="search_results">תוצאות חיפוש</string>
+    <string name="clear_history">נקה היסטוריה</string>
+    
+    <!-- סטטוס -->
+    <string name="status_avoid">חרם</string>
+    <string name="status_support">תמיכה</string>
+    <string name="status_neutral">ניטרלי</string>
+    
+    <!-- פעולות -->
+    <string name="action_back">חזור</string>
+    <string name="action_feedback">משוב</string>
+    <string name="action_share">שתף</string>
+    <string name="action_share_article">שתף מאמר</string>
+    <string name="action_clear">נקה</string>
+    <string name="action_delete">מחק</string>
+    
+    <!-- מאמר -->
+    <string name="article_detail_title">פרטי המאמר</string>
+    <string name="article_publish_time">פורסם: </string>
+    <string name="article_summary">תקציר</string>
+    <string name="article_image_desc">תמונת מאמר: %1$s</string>
+    <string name="article_loading">טוען...</string>
+    <string name="article_error">שגיאה בטעינה</string>
+    
+    <!-- אזהרות תרגום -->
+    <string name="translation_warning_zh">מאמר זה תורגם על ידי בינה מלאכותית ועשוי להכיל אי-דיוקים</string>
+    <string name="translation_warning_en">מאמר זה תורגם על ידי בינה מלאכותית ועשוי להכיל אי-דיוקים</string>
+    <string name="translation_warning_hi">מאמר זה תורגם על ידי בינה מלאכותית ועשוי להכיל אי-דיוקים</string>
+    <string name="translation_warning_es">מאמר זה תורגם על ידי בינה מלאכותית ועשוי להכיל אי-דיוקים</string>
+    
+    <!-- הודעות -->
+    <string name="no_more_results">אין תוצאות נוספות</string>
+    
+    <!-- התראות -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">התראות Boycott</string>
+    
+    <!-- שפות -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- מצלמה -->
+    <string name="back_button">חזור</string>
+    <string name="flash_on">כבה פלאש</string>
+    <string name="flash_off">הפעל פלאש</string>
+    <string name="switch_to_back_camera">עבור למצלמה האחורית</string>
+    <string name="switch_to_front_camera">עבור למצלמה הקדמית</string>
+    <string name="camera_switch_to_logo">עבור למצב זיהוי לוגו</string>
+    <string name="camera_switch_to_barcode">עבור למצב סריקת ברקוד</string>
+    <string name="camera_scan_result">תוצאת סריקה</string>
+    <string name="camera_confirm">אשר</string>
+    <string name="camera_barcode_result">קוד: %1$s</string>
+    <string name="camera_barcode_error">הסריקה נכשלה</string>
+    <string name="camera_back">חזור</string>
+    <string name="camera_flash">פלאש</string>
+    <string name="camera_switch">החלף מצלמה</string>
+    <string name="camera_take_photo">צלם תמונה</string>
+    <string name="camera_scan">סרוק</string>
+    <string name="camera_pick_gallery">בחר מהגלריה</string>
+    <string name="camera_scan_gallery">סרוק מהגלריה</string>
+    <string name="camera_retake">צלם שוב</string>
+    <string name="gallery_button">בחר מהגלריה</string>
+    <string name="scan_gallery_button">סרוק מהגלריה</string>
+    <string name="camera_error">שגיאה</string>
+    <string name="camera_close">סגור</string>
+    <string name="camera_detection_result">תוצאת זיהוי</string>
+    
+    <!-- מותג -->
+    <string name="brand_detail_title">פרטי מותג</string>
+    <string name="brand_boycott">חרם</string>
+    <string name="brand_support">תמיכה</string>
+    <string name="brand_neutral">ניטרלי</string>
+    <string name="brand_search_query">חיפוש: %1$s</string>
+    <string name="brand_not_found">לא נמצא מותג</string>
+    <string name="brand_search_results">תוצאות חיפוש</string>
+</resources>

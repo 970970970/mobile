@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_brands">Marques</string>
+    <string name="nav_scan">Scanner</string>
+    <string name="nav_articles">Articles</string>
+    <string name="nav_settings">Paramètres</string>
+    
+    <!-- Page Paramètres -->
+    <string name="settings_language">Langue</string>
+    <string name="settings_dark_mode">Mode Sombre</string>
+    <string name="settings_cache">Vider le Cache</string>
+    <string name="settings_feedback_support">Retour et Support</string>
+    <string name="settings_submit_feedback">Envoyer un Retour</string>
+    <string name="settings_community">Communauté</string>
+    <string name="settings_donate">Nous Soutenir</string>
+    <string name="settings_about">À Propos</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_privacy">Politique de Confidentialité</string>
+    <string name="settings_agreement">Accord Utilisateur</string>
+    
+    <!-- Catégories Paramètres -->
+    <string name="settings_basic">Paramètres de Base</string>
+    <string name="settings_legal">Mentions Légales</string>
+    <string name="settings_privacy_policy">Politique de Confidentialité</string>
+    <string name="settings_user_agreement">Accord Utilisateur</string>
+    <string name="settings_unknown_version">Version Inconnue</string>
+    <string name="settings_select_language">Sélectionner la Langue</string>
+    <string name="settings_close">Fermer</string>
+    <string name="settings_loading">Chargement...</string>
+    <string name="settings_error">Erreur de Chargement</string>
+    
+    <!-- Dialogue Retour -->
+    <string name="feedback_title">Envoyer un Retour</string>
+    <string name="feedback_type">Type de Retour</string>
+    <string name="feedback_content">Contenu</string>
+    <string name="feedback_contact">Contact (Optionnel)</string>
+    <string name="feedback_submit">Envoyer</string>
+    <string name="feedback_cancel">Annuler</string>
+    
+    <!-- Types de Retour -->
+    <string name="feedback_type_issue">Signalement de Problème</string>
+    <string name="feedback_type_feature">Demande de Fonctionnalité</string>
+    <string name="feedback_type_data">Correction de Données</string>
+    <string name="feedback_type_other">Autre</string>
+    
+    <!-- Recherche -->
+    <string name="search_title">Rechercher</string>
+    <string name="search_hint">Rechercher des marques</string>
+    <string name="search_scan">Scanner le code</string>
+    <string name="search_camera">Appareil Photo</string>
+    <string name="search_button">Rechercher</string>
+    <string name="search_history">Historique de Recherche</string>
+    <string name="search_results">Résultats de Recherche</string>
+    <string name="clear_history">Effacer l\'Historique</string>
+    
+    <!-- Statut -->
+    <string name="status_avoid">Boycotter</string>
+    <string name="status_support">Soutenir</string>
+    <string name="status_neutral">Neutre</string>
+    
+    <!-- Actions -->
+    <string name="action_back">Retour</string>
+    <string name="action_feedback">Retour</string>
+    <string name="action_share">Partager</string>
+    <string name="action_share_article">Partager l\'Article</string>
+    <string name="action_clear">Effacer</string>
+    <string name="action_delete">Supprimer</string>
+    
+    <!-- Article -->
+    <string name="article_detail_title">Détails de l\'Article</string>
+    <string name="article_publish_time">Publié le : </string>
+    <string name="article_summary">Résumé</string>
+    <string name="article_image_desc">Image de l\'article : %1$s</string>
+    <string name="article_loading">Chargement...</string>
+    <string name="article_error">Erreur de Chargement</string>
+    
+    <!-- Avertissements de Traduction -->
+    <string name="translation_warning_zh">Cet article est traduit par IA et peut contenir des inexactitudes</string>
+    <string name="translation_warning_en">Cet article est traduit par IA et peut contenir des inexactitudes</string>
+    <string name="translation_warning_hi">Cet article est traduit par IA et peut contenir des inexactitudes</string>
+    <string name="translation_warning_es">Cet article est traduit par IA et peut contenir des inexactitudes</string>
+    
+    <!-- Messages -->
+    <string name="no_more_results">Plus de Résultats</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Notifications Boycott</string>
+    
+    <!-- Langues -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- Appareil Photo -->
+    <string name="back_button">Retour</string>
+    <string name="flash_on">Désactiver le Flash</string>
+    <string name="flash_off">Activer le Flash</string>
+    <string name="switch_to_back_camera">Passer à la Caméra Arrière</string>
+    <string name="switch_to_front_camera">Passer à la Caméra Avant</string>
+    <string name="camera_switch_to_logo">Passer au Mode Détection de Logo</string>
+    <string name="camera_switch_to_barcode">Passer au Mode Scanner</string>
+    <string name="camera_scan_result">Résultat du Scan</string>
+    <string name="camera_confirm">Confirmer</string>
+    <string name="camera_barcode_result">Code : %1$s</string>
+    <string name="camera_barcode_error">Échec du Scan</string>
+    <string name="camera_back">Retour</string>
+    <string name="camera_flash">Flash</string>
+    <string name="camera_switch">Changer de Caméra</string>
+    <string name="camera_take_photo">Prendre une Photo</string>
+    <string name="camera_scan">Scanner</string>
+    <string name="camera_pick_gallery">Choisir dans la Galerie</string>
+    <string name="camera_scan_gallery">Scanner depuis la Galerie</string>
+    <string name="camera_retake">Reprendre</string>
+    <string name="gallery_button">Choisir dans la Galerie</string>
+    <string name="scan_gallery_button">Scanner depuis la Galerie</string>
+    <string name="camera_error">Erreur</string>
+    <string name="camera_close">Fermer</string>
+    <string name="camera_detection_result">Résultat de Détection</string>
+    
+    <!-- Marque -->
+    <string name="brand_detail_title">Détails de la Marque</string>
+    <string name="brand_boycott">Boycotter</string>
+    <string name="brand_support">Soutenir</string>
+    <string name="brand_neutral">Neutre</string>
+    <string name="brand_search_query">Recherche : %1$s</string>
+    <string name="brand_not_found">Aucune marque trouvée</string>
+    <string name="brand_search_results">Résultats de Recherche</string>
+</resources>

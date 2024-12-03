@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- การนำทาง -->
+    <string name="nav_home">หน้าแรก</string>
+    <string name="nav_brands">แบรนด์</string>
+    <string name="nav_scan">สแกน</string>
+    <string name="nav_articles">บทความ</string>
+    <string name="nav_settings">การตั้งค่า</string>
+    
+    <!-- หน้าการตั้งค่า -->
+    <string name="settings_language">ภาษา</string>
+    <string name="settings_dark_mode">โหมดมืด</string>
+    <string name="settings_cache">ล้างแคช</string>
+    <string name="settings_feedback_support">ข้อเสนอแนะและการสนับสนุน</string>
+    <string name="settings_submit_feedback">ส่งข้อเสนอแนะ</string>
+    <string name="settings_community">ชุมชน</string>
+    <string name="settings_donate">สนับสนุนเรา</string>
+    <string name="settings_about">เกี่ยวกับ</string>
+    <string name="settings_version">เวอร์ชัน</string>
+    <string name="settings_privacy">นโยบายความเป็นส่วนตัว</string>
+    <string name="settings_agreement">ข้อตกลงผู้ใช้</string>
+    
+    <!-- หมวดหมู่การตั้งค่า -->
+    <string name="settings_basic">การตั้งค่าพื้นฐาน</string>
+    <string name="settings_legal">กฎหมาย</string>
+    <string name="settings_privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="settings_user_agreement">ข้อตกลงผู้ใช้</string>
+    <string name="settings_unknown_version">ไม่ทราบเวอร์ชัน</string>
+    <string name="settings_select_language">เลือกภาษา</string>
+    <string name="settings_close">ปิด</string>
+    <string name="settings_loading">กำลังโหลด...</string>
+    <string name="settings_error">การโหลดล้มเหลว</string>
+    
+    <!-- กล่องข้อความแสดงความคิดเห็น -->
+    <string name="feedback_title">ส่งข้อเสนอแนะ</string>
+    <string name="feedback_type">ประเภทข้อเสนอแนะ</string>
+    <string name="feedback_content">เนื้อหา</string>
+    <string name="feedback_contact">ติดต่อ (ไม่บังคับ)</string>
+    <string name="feedback_submit">ส่ง</string>
+    <string name="feedback_cancel">ยกเลิก</string>
+    
+    <!-- ประเภทข้อเสนอแนะ -->
+    <string name="feedback_type_issue">รายงานปัญหา</string>
+    <string name="feedback_type_feature">ขอฟีเจอร์</string>
+    <string name="feedback_type_data">แก้ไขข้อมูล</string>
+    <string name="feedback_type_other">อื่นๆ</string>
+    
+    <!-- การค้นหา -->
+    <string name="search_title">ค้นหา</string>
+    <string name="search_hint">ค้นหาแบรนด์</string>
+    <string name="search_scan">สแกนโค้ด</string>
+    <string name="search_camera">กล้อง</string>
+    <string name="search_button">ค้นหา</string>
+    <string name="search_history">ประวัติการค้นหา</string>
+    <string name="search_results">ผลการค้นหา</string>
+    <string name="clear_history">ล้างประวัติ</string>
+    
+    <!-- สถานะ -->
+    <string name="status_avoid">คว่ำบาตร</string>
+    <string name="status_support">สนับสนุน</string>
+    <string name="status_neutral">เป็นกลาง</string>
+    
+    <!-- การกระทำ -->
+    <string name="action_back">กลับ</string>
+    <string name="action_feedback">ข้อเสนอแนะ</string>
+    <string name="action_share">แชร์</string>
+    <string name="action_share_article">แชร์บทความ</string>
+    <string name="action_clear">ล้าง</string>
+    <string name="action_delete">ลบ</string>
+    
+    <!-- บทความ -->
+    <string name="article_detail_title">รายละเอียดบทความ</string>
+    <string name="article_publish_time">เผยแพร่: </string>
+    <string name="article_summary">สรุป</string>
+    <string name="article_image_desc">ภาพบทความ: %1$s</string>
+    <string name="article_loading">กำลังโหลด...</string>
+    <string name="article_error">การโหลดล้มเหลว</string>
+    
+    <!-- คำเตือนการแปล -->
+    <string name="translation_warning_zh">บทความนี้แปลโดย AI และอาจมีข้อผิดพลาด</string>
+    <string name="translation_warning_en">บทความนี้แปลโดย AI และอาจมีข้อผิดพลาด</string>
+    <string name="translation_warning_hi">บทความนี้แปลโดย AI และอาจมีข้อผิดพลาด</string>
+    <string name="translation_warning_es">บทความนี้แปลโดย AI และอาจมีข้อผิดพลาด</string>
+    
+    <!-- ข้อความ -->
+    <string name="no_more_results">ไม่มีผลลัพธ์เพิ่มเติม</string>
+    
+    <!-- การแจ้งเตือน -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">การแจ้งเตือน Boycott</string>
+    
+    <!-- ภาษา -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- กล้อง -->
+    <string name="back_button">กลับ</string>
+    <string name="flash_on">ปิดแฟลช</string>
+    <string name="flash_off">เปิดแฟลช</string>
+    <string name="switch_to_back_camera">สลับไปกล้องหลัง</string>
+    <string name="switch_to_front_camera">สลับไปกล้องหน้า</string>
+    <string name="camera_switch_to_logo">สลับเป็นโหมดตรวจจับโลโก้</string>
+    <string name="camera_switch_to_barcode">สลับเป็นโหมดสแกนบาร์โค้ด</string>
+    <string name="camera_scan_result">ผลการสแกน</string>
+    <string name="camera_confirm">ยืนยัน</string>
+    <string name="camera_barcode_result">รหัส: %1$s</string>
+    <string name="camera_barcode_error">การสแกนล้มเหลว</string>
+    <string name="camera_back">กลับ</string>
+    <string name="camera_flash">แฟลช</string>
+    <string name="camera_switch">สลับกล้อง</string>
+    <string name="camera_take_photo">ถ่ายภาพ</string>
+    <string name="camera_scan">สแกน</string>
+    <string name="camera_pick_gallery">เลือกจากแกลเลอรี</string>
+    <string name="camera_scan_gallery">สแกนจากแกลเลอรี</string>
+    <string name="camera_retake">ถ่ายใหม่</string>
+    <string name="gallery_button">เลือกจากแกลเลอรี</string>
+    <string name="scan_gallery_button">สแกนจากแกลเลอรี</string>
+    <string name="camera_error">ข้อผิดพลาด</string>
+    <string name="camera_close">ปิด</string>
+    <string name="camera_detection_result">ผลการตรวจจับ</string>
+    
+    <!-- แบรนด์ -->
+    <string name="brand_detail_title">รายละเอียดแบรนด์</string>
+    <string name="brand_boycott">คว่ำบาตร</string>
+    <string name="brand_support">สนับสนุน</string>
+    <string name="brand_neutral">เป็นกลาง</string>
+    <string name="brand_search_query">ค้นหา: %1$s</string>
+    <string name="brand_not_found">ไม่พบแบรนด์</string>
+    <string name="brand_search_results">ผลการค้นหา</string>
+</resources>

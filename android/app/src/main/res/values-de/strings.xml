@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Startseite</string>
+    <string name="nav_brands">Marken</string>
+    <string name="nav_scan">Scannen</string>
+    <string name="nav_articles">Artikel</string>
+    <string name="nav_settings">Einstellungen</string>
+    
+    <!-- Einstellungen Seite -->
+    <string name="settings_language">Sprache</string>
+    <string name="settings_dark_mode">Dunkelmodus</string>
+    <string name="settings_cache">Cache leeren</string>
+    <string name="settings_feedback_support">Feedback und Support</string>
+    <string name="settings_submit_feedback">Feedback senden</string>
+    <string name="settings_community">Community</string>
+    <string name="settings_donate">Uns unterstützen</string>
+    <string name="settings_about">Über</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_privacy">Datenschutzrichtlinie</string>
+    <string name="settings_agreement">Nutzungsvereinbarung</string>
+    
+    <!-- Einstellungen Kategorien -->
+    <string name="settings_basic">Grundeinstellungen</string>
+    <string name="settings_legal">Rechtliches</string>
+    <string name="settings_privacy_policy">Datenschutzrichtlinie</string>
+    <string name="settings_user_agreement">Nutzungsvereinbarung</string>
+    <string name="settings_unknown_version">Unbekannte Version</string>
+    <string name="settings_select_language">Sprache auswählen</string>
+    <string name="settings_close">Schließen</string>
+    <string name="settings_loading">Lädt...</string>
+    <string name="settings_error">Ladefehler</string>
+    
+    <!-- Feedback Dialog -->
+    <string name="feedback_title">Feedback senden</string>
+    <string name="feedback_type">Feedback-Typ</string>
+    <string name="feedback_content">Inhalt</string>
+    <string name="feedback_contact">Kontakt (Optional)</string>
+    <string name="feedback_submit">Senden</string>
+    <string name="feedback_cancel">Abbrechen</string>
+    
+    <!-- Feedback Typen -->
+    <string name="feedback_type_issue">Problembericht</string>
+    <string name="feedback_type_feature">Funktionswunsch</string>
+    <string name="feedback_type_data">Datenkorrektur</string>
+    <string name="feedback_type_other">Sonstiges</string>
+    
+    <!-- Suche -->
+    <string name="search_title">Suchen</string>
+    <string name="search_hint">Marken suchen</string>
+    <string name="search_scan">Code scannen</string>
+    <string name="search_camera">Kamera</string>
+    <string name="search_button">Suchen</string>
+    <string name="search_history">Suchverlauf</string>
+    <string name="search_results">Suchergebnisse</string>
+    <string name="clear_history">Verlauf löschen</string>
+    
+    <!-- Status -->
+    <string name="status_avoid">Boykottieren</string>
+    <string name="status_support">Unterstützen</string>
+    <string name="status_neutral">Neutral</string>
+    
+    <!-- Aktionen -->
+    <string name="action_back">Zurück</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_share">Teilen</string>
+    <string name="action_share_article">Artikel teilen</string>
+    <string name="action_clear">Löschen</string>
+    <string name="action_delete">Entfernen</string>
+    
+    <!-- Artikel -->
+    <string name="article_detail_title">Artikeldetails</string>
+    <string name="article_publish_time">Veröffentlicht: </string>
+    <string name="article_summary">Zusammenfassung</string>
+    <string name="article_image_desc">Artikelbild: %1$s</string>
+    <string name="article_loading">Lädt...</string>
+    <string name="article_error">Ladefehler</string>
+    
+    <!-- Übersetzungshinweise -->
+    <string name="translation_warning_zh">Dieser Artikel wurde von KI übersetzt und könnte Ungenauigkeiten enthalten</string>
+    <string name="translation_warning_en">Dieser Artikel wurde von KI übersetzt und könnte Ungenauigkeiten enthalten</string>
+    <string name="translation_warning_hi">Dieser Artikel wurde von KI übersetzt und könnte Ungenauigkeiten enthalten</string>
+    <string name="translation_warning_es">Dieser Artikel wurde von KI übersetzt und könnte Ungenauigkeiten enthalten</string>
+    
+    <!-- Nachrichten -->
+    <string name="no_more_results">Keine weiteren Ergebnisse</string>
+    
+    <!-- Benachrichtigungen -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Boycott Benachrichtigungen</string>
+    
+    <!-- Sprachen -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- Kamera -->
+    <string name="back_button">Zurück</string>
+    <string name="flash_on">Blitz ausschalten</string>
+    <string name="flash_off">Blitz einschalten</string>
+    <string name="switch_to_back_camera">Zur Rückkamera wechseln</string>
+    <string name="switch_to_front_camera">Zur Frontkamera wechseln</string>
+    <string name="camera_switch_to_logo">Zum Logo-Erkennungsmodus wechseln</string>
+    <string name="camera_switch_to_barcode">Zum Barcode-Scanmodus wechseln</string>
+    <string name="camera_scan_result">Scan-Ergebnis</string>
+    <string name="camera_confirm">Bestätigen</string>
+    <string name="camera_barcode_result">Code: %1$s</string>
+    <string name="camera_barcode_error">Scan fehlgeschlagen</string>
+    <string name="camera_back">Zurück</string>
+    <string name="camera_flash">Blitz</string>
+    <string name="camera_switch">Kamera wechseln</string>
+    <string name="camera_take_photo">Foto aufnehmen</string>
+    <string name="camera_scan">Scannen</string>
+    <string name="camera_pick_gallery">Aus Galerie wählen</string>
+    <string name="camera_scan_gallery">Aus Galerie scannen</string>
+    <string name="camera_retake">Neu aufnehmen</string>
+    <string name="gallery_button">Aus Galerie wählen</string>
+    <string name="scan_gallery_button">Aus Galerie scannen</string>
+    <string name="camera_error">Fehler</string>
+    <string name="camera_close">Schließen</string>
+    <string name="camera_detection_result">Erkennungsergebnis</string>
+    
+    <!-- Marke -->
+    <string name="brand_detail_title">Markendetails</string>
+    <string name="brand_boycott">Boykottieren</string>
+    <string name="brand_support">Unterstützen</string>
+    <string name="brand_neutral">Neutral</string>
+    <string name="brand_search_query">Suche: %1$s</string>
+    <string name="brand_not_found">Keine Marken gefunden</string>
+    <string name="brand_search_results">Suchergebnisse</string>
+</resources>

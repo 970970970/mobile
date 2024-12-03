@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- Πλοήγηση -->
+    <string name="nav_home">Αρχική</string>
+    <string name="nav_brands">Μάρκες</string>
+    <string name="nav_scan">Σάρωση</string>
+    <string name="nav_articles">Άρθρα</string>
+    <string name="nav_settings">Ρυθμίσεις</string>
+    
+    <!-- Σελίδα Ρυθμίσεων -->
+    <string name="settings_language">Γλώσσα</string>
+    <string name="settings_dark_mode">Σκοτεινό Θέμα</string>
+    <string name="settings_cache">Εκκαθάριση Cache</string>
+    <string name="settings_feedback_support">Σχόλια και Υποστήριξη</string>
+    <string name="settings_submit_feedback">Υποβολή Σχολίων</string>
+    <string name="settings_community">Κοινότητα</string>
+    <string name="settings_donate">Υποστηρίξτε μας</string>
+    <string name="settings_about">Σχετικά</string>
+    <string name="settings_version">Έκδοση</string>
+    <string name="settings_privacy">Πολιτική Απορρήτου</string>
+    <string name="settings_agreement">Συμφωνία Χρήστη</string>
+    
+    <!-- Κατηγορίες Ρυθμίσεων -->
+    <string name="settings_basic">Βασικές Ρυθμίσεις</string>
+    <string name="settings_legal">Νομικά</string>
+    <string name="settings_privacy_policy">Πολιτική Απορρήτου</string>
+    <string name="settings_user_agreement">Συμφωνία Χρήστη</string>
+    <string name="settings_unknown_version">Άγνωστη Έκδοση</string>
+    <string name="settings_select_language">Επιλογή Γλώσσας</string>
+    <string name="settings_close">Κλείσιμο</string>
+    <string name="settings_loading">Φόρτωση...</string>
+    <string name="settings_error">Σφάλμα Φόρτωσης</string>
+    
+    <!-- Διάλογος Σχολίων -->
+    <string name="feedback_title">Υποβολή Σχολίων</string>
+    <string name="feedback_type">Τύπος Σχολίων</string>
+    <string name="feedback_content">Περιεχόμενο</string>
+    <string name="feedback_contact">Επικοινωνία (Προαιρετικό)</string>
+    <string name="feedback_submit">Υποβολή</string>
+    <string name="feedback_cancel">Ακύρωση</string>
+    
+    <!-- Τύποι Σχολίων -->
+    <string name="feedback_type_issue">Αναφορά Προβλήματος</string>
+    <string name="feedback_type_feature">Αίτημα Λειτουργίας</string>
+    <string name="feedback_type_data">Διόρθωση Δεδομένων</string>
+    <string name="feedback_type_other">Άλλο</string>
+    
+    <!-- Αναζήτηση -->
+    <string name="search_title">Αναζήτηση</string>
+    <string name="search_hint">Αναζήτηση μάρκας</string>
+    <string name="search_scan">Σάρωση κωδικού</string>
+    <string name="search_camera">Κάμερα</string>
+    <string name="search_button">Αναζήτηση</string>
+    <string name="search_history">Ιστορικό Αναζήτησης</string>
+    <string name="search_results">Αποτελέσματα Αναζήτησης</string>
+    <string name="clear_history">Εκκαθάριση Ιστορικού</string>
+    
+    <!-- Κατάσταση -->
+    <string name="status_avoid">Μποϊκοτάζ</string>
+    <string name="status_support">Υποστήριξη</string>
+    <string name="status_neutral">Ουδέτερο</string>
+    
+    <!-- Ενέργειες -->
+    <string name="action_back">Πίσω</string>
+    <string name="action_feedback">Σχόλια</string>
+    <string name="action_share">Κοινοποίηση</string>
+    <string name="action_share_article">Κοινοποίηση Άρθρου</string>
+    <string name="action_clear">Εκκαθάριση</string>
+    <string name="action_delete">Διαγραφή</string>
+    
+    <!-- Άρθρο -->
+    <string name="article_detail_title">Λεπτομέρειες Άρθρου</string>
+    <string name="article_publish_time">Δημοσιεύτηκε: </string>
+    <string name="article_summary">Περίληψη</string>
+    <string name="article_image_desc">Εικόνα άρθρου: %1$s</string>
+    <string name="article_loading">Φόρτωση...</string>
+    <string name="article_error">Σφάλμα Φόρτωσης</string>
+    
+    <!-- Προειδοποιήσεις Μετάφρασης -->
+    <string name="translation_warning_zh">Αυτό το άρθρο έχει μεταφραστεί από AI και μπορεί να περιέχει ανακρίβειες</string>
+    <string name="translation_warning_en">Αυτό το άρθρο έχει μεταφραστεί από AI και μπορεί να περιέχει ανακρίβειες</string>
+    <string name="translation_warning_hi">Αυτό το άρθρο έχει μεταφραστεί από AI και μπορεί να περιέχει ανακρίβειες</string>
+    <string name="translation_warning_es">Αυτό το άρθρο έχει μεταφραστεί από AI και μπορεί να περιέχει ανακρίβειες</string>
+    
+    <!-- Μηνύματα -->
+    <string name="no_more_results">Δεν υπάρχουν άλλα αποτελέσματα</string>
+    
+    <!-- Ειδοποιήσεις -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Ειδοποιήσεις Boycott</string>
+    
+    <!-- Γλώσσες -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- Κάμερα -->
+    <string name="back_button">Πίσω</string>
+    <string name="flash_on">Απενεργοποίηση Φλας</string>
+    <string name="flash_off">Ενεργοποίηση Φλας</string>
+    <string name="switch_to_back_camera">Εναλλαγή σε Πίσω Κάμερα</string>
+    <string name="switch_to_front_camera">Εναλλαγή σε Μπροστινή Κάμερα</string>
+    <string name="camera_switch_to_logo">Εναλλαγή σε Λειτουργία Ανίχνευσης Λογότυπου</string>
+    <string name="camera_switch_to_barcode">Εναλλαγή σε Λειτουργία Σάρωσης Barcode</string>
+    <string name="camera_scan_result">Αποτέλεσμα Σάρωσης</string>
+    <string name="camera_confirm">Επιβεβαίωση</string>
+    <string name="camera_barcode_result">Κωδικός: %1$s</string>
+    <string name="camera_barcode_error">Αποτυχία Σάρωσης</string>
+    <string name="camera_back">Πίσω</string>
+    <string name="camera_flash">Φλας</string>
+    <string name="camera_switch">Εναλλαγή Κάμερας</string>
+    <string name="camera_take_photo">Λήψη Φωτογραφίας</string>
+    <string name="camera_scan">Σάρωση</string>
+    <string name="camera_pick_gallery">Επιλογή από Συλλογή</string>
+    <string name="camera_scan_gallery">Σάρωση από Συλλογή</string>
+    <string name="camera_retake">Επανάληψη Λήψης</string>
+    <string name="gallery_button">Επιλογή από Συλλογή</string>
+    <string name="scan_gallery_button">Σάρωση από Συλλογή</string>
+    <string name="camera_error">Σφάλμα</string>
+    <string name="camera_close">Κλείσιμο</string>
+    <string name="camera_detection_result">Αποτέλεσμα Ανίχνευσης</string>
+    
+    <!-- Μάρκα -->
+    <string name="brand_detail_title">Λεπτομέρειες Μάρκας</string>
+    <string name="brand_boycott">Μποϊκοτάζ</string>
+    <string name="brand_support">Υποστήριξη</string>
+    <string name="brand_neutral">Ουδέτερο</string>
+    <string name="brand_search_query">Αναζήτηση: %1$s</string>
+    <string name="brand_not_found">Δεν βρέθηκε μάρκα</string>
+    <string name="brand_search_results">Αποτελέσματα Αναζήτησης</string>
+</resources>

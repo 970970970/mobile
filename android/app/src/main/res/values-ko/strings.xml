@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- 내비게이션 -->
+    <string name="nav_home">홈</string>
+    <string name="nav_brands">브랜드</string>
+    <string name="nav_scan">스캔</string>
+    <string name="nav_articles">기사</string>
+    <string name="nav_settings">설정</string>
+    
+    <!-- 설정 페이지 -->
+    <string name="settings_language">언어</string>
+    <string name="settings_dark_mode">다크 모드</string>
+    <string name="settings_cache">캐시 지우기</string>
+    <string name="settings_feedback_support">피드백 및 지원</string>
+    <string name="settings_submit_feedback">피드백 보내기</string>
+    <string name="settings_community">커뮤니티</string>
+    <string name="settings_donate">후원하기</string>
+    <string name="settings_about">정보</string>
+    <string name="settings_version">버전</string>
+    <string name="settings_privacy">개인정보 처리방침</string>
+    <string name="settings_agreement">이용약관</string>
+    
+    <!-- 설정 카테고리 -->
+    <string name="settings_basic">기본 설정</string>
+    <string name="settings_legal">법적 고지</string>
+    <string name="settings_privacy_policy">개인정보 처리방침</string>
+    <string name="settings_user_agreement">이용약관</string>
+    <string name="settings_unknown_version">알 수 없는 버전</string>
+    <string name="settings_select_language">언어 선택</string>
+    <string name="settings_close">닫기</string>
+    <string name="settings_loading">로딩 중...</string>
+    <string name="settings_error">로딩 오류</string>
+    
+    <!-- 피드백 대화상자 -->
+    <string name="feedback_title">피드백 보내기</string>
+    <string name="feedback_type">피드백 유형</string>
+    <string name="feedback_content">내용</string>
+    <string name="feedback_contact">연락처 (선택사항)</string>
+    <string name="feedback_submit">보내기</string>
+    <string name="feedback_cancel">취소</string>
+    
+    <!-- 피드백 유형 -->
+    <string name="feedback_type_issue">문제 보고</string>
+    <string name="feedback_type_feature">기능 요청</string>
+    <string name="feedback_type_data">데이터 수정</string>
+    <string name="feedback_type_other">기타</string>
+    
+    <!-- 검색 -->
+    <string name="search_title">검색</string>
+    <string name="search_hint">브랜드 검색</string>
+    <string name="search_scan">코드 스캔</string>
+    <string name="search_camera">카메라</string>
+    <string name="search_button">검색</string>
+    <string name="search_history">검색 기록</string>
+    <string name="search_results">검색 결과</string>
+    <string name="clear_history">기록 지우기</string>
+    
+    <!-- 상태 -->
+    <string name="status_avoid">불매</string>
+    <string name="status_support">지지</string>
+    <string name="status_neutral">중립</string>
+    
+    <!-- 작업 -->
+    <string name="action_back">뒤로</string>
+    <string name="action_feedback">피드백</string>
+    <string name="action_share">공유</string>
+    <string name="action_share_article">기사 공유</string>
+    <string name="action_clear">지우기</string>
+    <string name="action_delete">삭제</string>
+    
+    <!-- 기사 -->
+    <string name="article_detail_title">기사 상세</string>
+    <string name="article_publish_time">게시일: </string>
+    <string name="article_summary">요약</string>
+    <string name="article_image_desc">기사 이미지: %1$s</string>
+    <string name="article_loading">로딩 중...</string>
+    <string name="article_error">로딩 오류</string>
+    
+    <!-- 번역 경고 -->
+    <string name="translation_warning_zh">이 기사는 AI로 번역되었으며 부정확할 수 있습니다</string>
+    <string name="translation_warning_en">이 기사는 AI로 번역되었으며 부정확할 수 있습니다</string>
+    <string name="translation_warning_hi">이 기사는 AI로 번역되었으며 부정확할 수 있습니다</string>
+    <string name="translation_warning_es">이 기사는 AI로 번역되었으며 부정확할 수 있습니다</string>
+    
+    <!-- 메시지 -->
+    <string name="no_more_results">더 이상 결과가 없습니다</string>
+    
+    <!-- 알림 -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Boycott 앱 알림</string>
+    
+    <!-- 언어 -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- 카메라 -->
+    <string name="back_button">뒤로</string>
+    <string name="flash_on">플래시 끄기</string>
+    <string name="flash_off">플래시 켜기</string>
+    <string name="switch_to_back_camera">후면 카메라로 전환</string>
+    <string name="switch_to_front_camera">전면 카메라로 전환</string>
+    <string name="camera_switch_to_logo">로고 감지 모드로 전환</string>
+    <string name="camera_switch_to_barcode">바코드 스캔 모드로 전환</string>
+    <string name="camera_scan_result">스캔 결과</string>
+    <string name="camera_confirm">확인</string>
+    <string name="camera_barcode_result">코드: %1$s</string>
+    <string name="camera_barcode_error">스캔 실패</string>
+    <string name="camera_back">뒤로</string>
+    <string name="camera_flash">플래시</string>
+    <string name="camera_switch">카메라 전환</string>
+    <string name="camera_take_photo">사진 촬영</string>
+    <string name="camera_scan">스캔</string>
+    <string name="camera_pick_gallery">갤러리에서 선택</string>
+    <string name="camera_scan_gallery">갤러리에서 스캔</string>
+    <string name="camera_retake">다시 촬영</string>
+    <string name="gallery_button">갤러리에서 선택</string>
+    <string name="scan_gallery_button">갤러리에서 스캔</string>
+    <string name="camera_error">오류</string>
+    <string name="camera_close">닫기</string>
+    <string name="camera_detection_result">감지 결과</string>
+    
+    <!-- 브랜드 -->
+    <string name="brand_detail_title">브랜드 상세</string>
+    <string name="brand_boycott">불매</string>
+    <string name="brand_support">지지</string>
+    <string name="brand_neutral">중립</string>
+    <string name="brand_search_query">검색: %1$s</string>
+    <string name="brand_not_found">브랜드를 찾을 수 없습니다</string>
+    <string name="brand_search_results">검색 결과</string>
+</resources>

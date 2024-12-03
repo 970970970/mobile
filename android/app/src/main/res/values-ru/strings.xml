@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- Навигация -->
+    <string name="nav_home">Главная</string>
+    <string name="nav_brands">Бренды</string>
+    <string name="nav_scan">Сканировать</string>
+    <string name="nav_articles">Статьи</string>
+    <string name="nav_settings">Настройки</string>
+    
+    <!-- Страница настроек -->
+    <string name="settings_language">Язык</string>
+    <string name="settings_dark_mode">Тёмная тема</string>
+    <string name="settings_cache">Очистить кэш</string>
+    <string name="settings_feedback_support">Обратная связь и поддержка</string>
+    <string name="settings_submit_feedback">Отправить отзыв</string>
+    <string name="settings_community">Сообщество</string>
+    <string name="settings_donate">Поддержать нас</string>
+    <string name="settings_about">О приложении</string>
+    <string name="settings_version">Версия</string>
+    <string name="settings_privacy">Политика конфиденциальности</string>
+    <string name="settings_agreement">Пользовательское соглашение</string>
+    
+    <!-- Категории настроек -->
+    <string name="settings_basic">Основные настройки</string>
+    <string name="settings_legal">Правовая информация</string>
+    <string name="settings_privacy_policy">Политика конфиденциальности</string>
+    <string name="settings_user_agreement">Пользовательское соглашение</string>
+    <string name="settings_unknown_version">Неизвестная версия</string>
+    <string name="settings_select_language">Выбрать язык</string>
+    <string name="settings_close">Закрыть</string>
+    <string name="settings_loading">Загрузка...</string>
+    <string name="settings_error">Ошибка загрузки</string>
+    
+    <!-- Диалог обратной связи -->
+    <string name="feedback_title">Отправить отзыв</string>
+    <string name="feedback_type">Тип отзыва</string>
+    <string name="feedback_content">Содержание</string>
+    <string name="feedback_contact">Контакт (необязательно)</string>
+    <string name="feedback_submit">Отправить</string>
+    <string name="feedback_cancel">Отмена</string>
+    
+    <!-- Типы отзывов -->
+    <string name="feedback_type_issue">Сообщение о проблеме</string>
+    <string name="feedback_type_feature">Запрос функции</string>
+    <string name="feedback_type_data">Исправление данных</string>
+    <string name="feedback_type_other">Другое</string>
+    
+    <!-- Поиск -->
+    <string name="search_title">Поиск</string>
+    <string name="search_hint">Поиск брендов</string>
+    <string name="search_scan">Сканировать код</string>
+    <string name="search_camera">Камера</string>
+    <string name="search_button">Поиск</string>
+    <string name="search_history">История поиска</string>
+    <string name="search_results">Результаты поиска</string>
+    <string name="clear_history">Очистить историю</string>
+    
+    <!-- Статус -->
+    <string name="status_avoid">Бойкот</string>
+    <string name="status_support">Поддержка</string>
+    <string name="status_neutral">Нейтрально</string>
+    
+    <!-- Действия -->
+    <string name="action_back">Назад</string>
+    <string name="action_feedback">Отзыв</string>
+    <string name="action_share">Поделиться</string>
+    <string name="action_share_article">Поделиться статьёй</string>
+    <string name="action_clear">Очистить</string>
+    <string name="action_delete">Удалить</string>
+    
+    <!-- Статья -->
+    <string name="article_detail_title">Детали статьи</string>
+    <string name="article_publish_time">Опубликовано: </string>
+    <string name="article_summary">Краткое содержание</string>
+    <string name="article_image_desc">Изображение статьи: %1$s</string>
+    <string name="article_loading">Загрузка...</string>
+    <string name="article_error">Ошибка загрузки</string>
+    
+    <!-- Предупреждения о переводе -->
+    <string name="translation_warning_zh">Эта статья переведена ИИ и может содержать неточности</string>
+    <string name="translation_warning_en">Эта статья переведена ИИ и может содержать неточности</string>
+    <string name="translation_warning_hi">Эта статья переведена ИИ и может содержать неточности</string>
+    <string name="translation_warning_es">Эта статья переведена ИИ и может содержать неточности</string>
+    
+    <!-- Сообщения -->
+    <string name="no_more_results">Больше результатов нет</string>
+    
+    <!-- Уведомления -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Уведомления Boycott</string>
+    
+    <!-- Языки -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- Камера -->
+    <string name="back_button">Назад</string>
+    <string name="flash_on">Выключить вспышку</string>
+    <string name="flash_off">Включить вспышку</string>
+    <string name="switch_to_back_camera">Переключить на заднюю камеру</string>
+    <string name="switch_to_front_camera">Переключить на переднюю камеру</string>
+    <string name="camera_switch_to_logo">Переключить на режим обнаружения логотипа</string>
+    <string name="camera_switch_to_barcode">Переключить на режим сканирования штрих-кода</string>
+    <string name="camera_scan_result">Результат сканирования</string>
+    <string name="camera_confirm">Подтвердить</string>
+    <string name="camera_barcode_result">Код: %1$s</string>
+    <string name="camera_barcode_error">Ошибка сканирования</string>
+    <string name="camera_back">Назад</string>
+    <string name="camera_flash">Вспышка</string>
+    <string name="camera_switch">Переключить камеру</string>
+    <string name="camera_take_photo">Сделать фото</string>
+    <string name="camera_scan">Сканировать</string>
+    <string name="camera_pick_gallery">Выбрать из галереи</string>
+    <string name="camera_scan_gallery">Сканировать из галереи</string>
+    <string name="camera_retake">Переснять</string>
+    <string name="gallery_button">Выбрать из галереи</string>
+    <string name="scan_gallery_button">Сканировать из галереи</string>
+    <string name="camera_error">Ошибка</string>
+    <string name="camera_close">Закрыть</string>
+    <string name="camera_detection_result">Результат обнаружения</string>
+    
+    <!-- Бренд -->
+    <string name="brand_detail_title">Детали бренда</string>
+    <string name="brand_boycott">Бойкот</string>
+    <string name="brand_support">Поддержка</string>
+    <string name="brand_neutral">Нейтрально</string>
+    <string name="brand_search_query">Поиск: %1$s</string>
+    <string name="brand_not_found">Бренды не найдены</string>
+    <string name="brand_search_results">Результаты поиска</string>
+</resources>

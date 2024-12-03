@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- ناوبری -->
+    <string name="nav_home">خانه</string>
+    <string name="nav_brands">برندها</string>
+    <string name="nav_scan">اسکن</string>
+    <string name="nav_articles">مقالات</string>
+    <string name="nav_settings">تنظیمات</string>
+    
+    <!-- صفحه تنظیمات -->
+    <string name="settings_language">زبان</string>
+    <string name="settings_dark_mode">حالت تاریک</string>
+    <string name="settings_cache">پاک کردن حافظه پنهان</string>
+    <string name="settings_feedback_support">بازخورد و پشتیبانی</string>
+    <string name="settings_submit_feedback">ارسال بازخورد</string>
+    <string name="settings_community">انجمن</string>
+    <string name="settings_donate">حمایت از ما</string>
+    <string name="settings_about">درباره</string>
+    <string name="settings_version">نسخه</string>
+    <string name="settings_privacy">سیاست حفظ حریم خصوصی</string>
+    <string name="settings_agreement">توافقنامه کاربر</string>
+    
+    <!-- دسته‌های تنظیمات -->
+    <string name="settings_basic">تنظیمات پایه</string>
+    <string name="settings_legal">قانونی</string>
+    <string name="settings_privacy_policy">سیاست حفظ حریم خصوصی</string>
+    <string name="settings_user_agreement">توافقنامه کاربر</string>
+    <string name="settings_unknown_version">نسخه نامشخص</string>
+    <string name="settings_select_language">انتخاب زبان</string>
+    <string name="settings_close">بستن</string>
+    <string name="settings_loading">در حال بارگذاری...</string>
+    <string name="settings_error">خطا در بارگذاری</string>
+    
+    <!-- دیالوگ بازخورد -->
+    <string name="feedback_title">ارسال بازخورد</string>
+    <string name="feedback_type">نوع بازخورد</string>
+    <string name="feedback_content">محتوا</string>
+    <string name="feedback_contact">تماس (اختیاری)</string>
+    <string name="feedback_submit">ارسال</string>
+    <string name="feedback_cancel">لغو</string>
+    
+    <!-- انواع بازخورد -->
+    <string name="feedback_type_issue">گزارش مشکل</string>
+    <string name="feedback_type_feature">درخواست ویژگی</string>
+    <string name="feedback_type_data">اصلاح داده</string>
+    <string name="feedback_type_other">سایر</string>
+    
+    <!-- جستجو -->
+    <string name="search_title">جستجو</string>
+    <string name="search_hint">جستجوی برند</string>
+    <string name="search_scan">اسکن کد</string>
+    <string name="search_camera">دوربین</string>
+    <string name="search_button">جستجو</string>
+    <string name="search_history">تاریخچه جستجو</string>
+    <string name="search_results">نتایج جستجو</string>
+    <string name="clear_history">پاک کردن تاریخچه</string>
+    
+    <!-- وضعیت -->
+    <string name="status_avoid">تحریم</string>
+    <string name="status_support">حمایت</string>
+    <string name="status_neutral">خنثی</string>
+    
+    <!-- اقدامات -->
+    <string name="action_back">بازگشت</string>
+    <string name="action_feedback">بازخورد</string>
+    <string name="action_share">اشتراک‌گذاری</string>
+    <string name="action_share_article">اشتراک‌گذاری مقاله</string>
+    <string name="action_clear">پاک کردن</string>
+    <string name="action_delete">حذف</string>
+    
+    <!-- مقاله -->
+    <string name="article_detail_title">جزئیات مقاله</string>
+    <string name="article_publish_time">منتشر شده: </string>
+    <string name="article_summary">خلاصه</string>
+    <string name="article_image_desc">تصویر مقاله: %1$s</string>
+    <string name="article_loading">در حال بارگذاری...</string>
+    <string name="article_error">خطا در بارگذاری</string>
+    
+    <!-- هشدارهای ترجمه -->
+    <string name="translation_warning_zh">این مقاله توسط هوش مصنوعی ترجمه شده و ممکن است حاوی نادقیق‌هایی باشد</string>
+    <string name="translation_warning_en">این مقاله توسط هوش مصنوعی ترجمه شده و ممکن است حاوی نادقیق‌هایی باشد</string>
+    <string name="translation_warning_hi">این مقاله توسط هوش مصنوعی ترجمه شده و ممکن است حاوی نادقیق‌هایی باشد</string>
+    <string name="translation_warning_es">این مقاله توسط هوش مصنوعی ترجمه شده و ممکن است حاوی نادقیق‌هایی باشد</string>
+    
+    <!-- پیام‌ها -->
+    <string name="no_more_results">نتیجه بیشتری وجود ندارد</string>
+    
+    <!-- اعلان‌ها -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">اعلان‌های Boycott</string>
+    
+    <!-- زبان‌ها -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- دوربین -->
+    <string name="back_button">بازگشت</string>
+    <string name="flash_on">خاموش کردن فلاش</string>
+    <string name="flash_off">روشن کردن فلاش</string>
+    <string name="switch_to_back_camera">تغییر به دوربین عقب</string>
+    <string name="switch_to_front_camera">تغییر به دوربین جلو</string>
+    <string name="camera_switch_to_logo">تغییر به حالت تشخیص لوگو</string>
+    <string name="camera_switch_to_barcode">تغییر به حالت اسکن بارکد</string>
+    <string name="camera_scan_result">نتیجه اسکن</string>
+    <string name="camera_confirm">تأیید</string>
+    <string name="camera_barcode_result">کد: %1$s</string>
+    <string name="camera_barcode_error">اسکن ناموفق</string>
+    <string name="camera_back">بازگشت</string>
+    <string name="camera_flash">فلاش</string>
+    <string name="camera_switch">تغییر دوربین</string>
+    <string name="camera_take_photo">گرفتن عکس</string>
+    <string name="camera_scan">اسکن</string>
+    <string name="camera_pick_gallery">انتخاب از گالری</string>
+    <string name="camera_scan_gallery">اسکن از گالری</string>
+    <string name="camera_retake">عکس مجدد</string>
+    <string name="gallery_button">انتخاب از گالری</string>
+    <string name="scan_gallery_button">اسکن از گالری</string>
+    <string name="camera_error">خطا</string>
+    <string name="camera_close">بستن</string>
+    <string name="camera_detection_result">نتیجه تشخیص</string>
+    
+    <!-- برند -->
+    <string name="brand_detail_title">جزئیات برند</string>
+    <string name="brand_boycott">تحریم</string>
+    <string name="brand_support">حمایت</string>
+    <string name="brand_neutral">خنثی</string>
+    <string name="brand_search_query">جستجو: %1$s</string>
+    <string name="brand_not_found">برندی یافت نشد</string>
+    <string name="brand_search_results">نتایج جستجو</string>
+</resources>

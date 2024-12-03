@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- Navigatie -->
+    <string name="nav_home">Startpagina</string>
+    <string name="nav_brands">Merken</string>
+    <string name="nav_scan">Scannen</string>
+    <string name="nav_articles">Artikelen</string>
+    <string name="nav_settings">Instellingen</string>
+    
+    <!-- Instellingenpagina -->
+    <string name="settings_language">Taal</string>
+    <string name="settings_dark_mode">Donkere Modus</string>
+    <string name="settings_cache">Cache Wissen</string>
+    <string name="settings_feedback_support">Feedback en Ondersteuning</string>
+    <string name="settings_submit_feedback">Feedback Versturen</string>
+    <string name="settings_community">Community</string>
+    <string name="settings_donate">Steun Ons</string>
+    <string name="settings_about">Over</string>
+    <string name="settings_version">Versie</string>
+    <string name="settings_privacy">Privacybeleid</string>
+    <string name="settings_agreement">Gebruikersovereenkomst</string>
+    
+    <!-- Instellingencategorieën -->
+    <string name="settings_basic">Basisinstellingen</string>
+    <string name="settings_legal">Juridisch</string>
+    <string name="settings_privacy_policy">Privacybeleid</string>
+    <string name="settings_user_agreement">Gebruikersovereenkomst</string>
+    <string name="settings_unknown_version">Onbekende Versie</string>
+    <string name="settings_select_language">Taal Selecteren</string>
+    <string name="settings_close">Sluiten</string>
+    <string name="settings_loading">Laden...</string>
+    <string name="settings_error">Laden Mislukt</string>
+    
+    <!-- Feedback Dialoog -->
+    <string name="feedback_title">Feedback Versturen</string>
+    <string name="feedback_type">Soort Feedback</string>
+    <string name="feedback_content">Inhoud</string>
+    <string name="feedback_contact">Contact (Optioneel)</string>
+    <string name="feedback_submit">Versturen</string>
+    <string name="feedback_cancel">Annuleren</string>
+    
+    <!-- Feedback Types -->
+    <string name="feedback_type_issue">Probleem Melden</string>
+    <string name="feedback_type_feature">Functie Aanvragen</string>
+    <string name="feedback_type_data">Datacorrectie</string>
+    <string name="feedback_type_other">Overig</string>
+    
+    <!-- Zoeken -->
+    <string name="search_title">Zoeken</string>
+    <string name="search_hint">Zoek merk</string>
+    <string name="search_scan">Code scannen</string>
+    <string name="search_camera">Camera</string>
+    <string name="search_button">Zoeken</string>
+    <string name="search_history">Zoekgeschiedenis</string>
+    <string name="search_results">Zoekresultaten</string>
+    <string name="clear_history">Geschiedenis Wissen</string>
+    
+    <!-- Status -->
+    <string name="status_avoid">Boycot</string>
+    <string name="status_support">Steun</string>
+    <string name="status_neutral">Neutraal</string>
+    
+    <!-- Acties -->
+    <string name="action_back">Terug</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_share">Delen</string>
+    <string name="action_share_article">Artikel Delen</string>
+    <string name="action_clear">Wissen</string>
+    <string name="action_delete">Verwijderen</string>
+    
+    <!-- Artikel -->
+    <string name="article_detail_title">Artikeldetails</string>
+    <string name="article_publish_time">Gepubliceerd: </string>
+    <string name="article_summary">Samenvatting</string>
+    <string name="article_image_desc">Artikelafbeelding: %1$s</string>
+    <string name="article_loading">Laden...</string>
+    <string name="article_error">Laden Mislukt</string>
+    
+    <!-- Vertaalwaarschuwingen -->
+    <string name="translation_warning_zh">Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten</string>
+    <string name="translation_warning_en">Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten</string>
+    <string name="translation_warning_hi">Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten</string>
+    <string name="translation_warning_es">Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten</string>
+    
+    <!-- Berichten -->
+    <string name="no_more_results">Geen resultaten meer</string>
+    
+    <!-- Meldingen -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Boycott meldingen</string>
+    
+    <!-- Talen -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- Camera -->
+    <string name="back_button">Terug</string>
+    <string name="flash_on">Flits Uitschakelen</string>
+    <string name="flash_off">Flits Inschakelen</string>
+    <string name="switch_to_back_camera">Schakel naar Achtercamera</string>
+    <string name="switch_to_front_camera">Schakel naar Frontcamera</string>
+    <string name="camera_switch_to_logo">Schakel naar Logo Detectie Modus</string>
+    <string name="camera_switch_to_barcode">Schakel naar Barcode Scan Modus</string>
+    <string name="camera_scan_result">Scanresultaat</string>
+    <string name="camera_confirm">Bevestigen</string>
+    <string name="camera_barcode_result">Code: %1$s</string>
+    <string name="camera_barcode_error">Scannen Mislukt</string>
+    <string name="camera_back">Terug</string>
+    <string name="camera_flash">Flits</string>
+    <string name="camera_switch">Camera Wisselen</string>
+    <string name="camera_take_photo">Foto Maken</string>
+    <string name="camera_scan">Scannen</string>
+    <string name="camera_pick_gallery">Kies uit Galerij</string>
+    <string name="camera_scan_gallery">Scan uit Galerij</string>
+    <string name="camera_retake">Opnieuw Maken</string>
+    <string name="gallery_button">Kies uit Galerij</string>
+    <string name="scan_gallery_button">Scan uit Galerij</string>
+    <string name="camera_error">Fout</string>
+    <string name="camera_close">Sluiten</string>
+    <string name="camera_detection_result">Detectieresultaat</string>
+    
+    <!-- Merk -->
+    <string name="brand_detail_title">Merkdetails</string>
+    <string name="brand_boycott">Boycot</string>
+    <string name="brand_support">Steun</string>
+    <string name="brand_neutral">Neutraal</string>
+    <string name="brand_search_query">Zoeken: %1$s</string>
+    <string name="brand_not_found">Geen merk gevonden</string>
+    <string name="brand_search_results">Zoekresultaten</string>
+</resources>

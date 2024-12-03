@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- التنقل -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_brands">العلامات التجارية</string>
+    <string name="nav_scan">مسح</string>
+    <string name="nav_articles">المقالات</string>
+    <string name="nav_settings">الإعدادات</string>
+    
+    <!-- صفحة الإعدادات -->
+    <string name="settings_language">اللغة</string>
+    <string name="settings_dark_mode">الوضع الداكن</string>
+    <string name="settings_cache">مسح ذاكرة التخزين المؤقت</string>
+    <string name="settings_feedback_support">التعليقات والدعم</string>
+    <string name="settings_submit_feedback">إرسال تعليق</string>
+    <string name="settings_community">المجتمع</string>
+    <string name="settings_donate">ادعمنا</string>
+    <string name="settings_about">حول</string>
+    <string name="settings_version">الإصدار</string>
+    <string name="settings_privacy">سياسة الخصوصية</string>
+    <string name="settings_agreement">اتفاقية المستخدم</string>
+    
+    <!-- فئات الإعدادات -->
+    <string name="settings_basic">الإعدادات الأساسية</string>
+    <string name="settings_legal">القانونية</string>
+    <string name="settings_privacy_policy">سياسة الخصوصية</string>
+    <string name="settings_user_agreement">اتفاقية المستخدم</string>
+    <string name="settings_unknown_version">إصدار غير معروف</string>
+    <string name="settings_select_language">اختيار اللغة</string>
+    <string name="settings_close">إغلاق</string>
+    <string name="settings_loading">جارٍ التحميل...</string>
+    <string name="settings_error">خطأ في التحميل</string>
+    
+    <!-- مربع حوار التعليقات -->
+    <string name="feedback_title">إرسال تعليق</string>
+    <string name="feedback_type">نوع التعليق</string>
+    <string name="feedback_content">المحتوى</string>
+    <string name="feedback_contact">الاتصال (اختياري)</string>
+    <string name="feedback_submit">إرسال</string>
+    <string name="feedback_cancel">إلغاء</string>
+    
+    <!-- أنواع التعليقات -->
+    <string name="feedback_type_issue">الإبلاغ عن مشكلة</string>
+    <string name="feedback_type_feature">طلب ميزة</string>
+    <string name="feedback_type_data">تصحيح البيانات</string>
+    <string name="feedback_type_other">أخرى</string>
+    
+    <!-- البحث -->
+    <string name="search_title">بحث</string>
+    <string name="search_hint">البحث عن العلامات التجارية</string>
+    <string name="search_scan">مسح الرمز</string>
+    <string name="search_camera">الكاميرا</string>
+    <string name="search_button">بحث</string>
+    <string name="search_history">سجل البحث</string>
+    <string name="search_results">نتائج البحث</string>
+    <string name="clear_history">مسح السجل</string>
+    
+    <!-- الحالة -->
+    <string name="status_avoid">مقاطعة</string>
+    <string name="status_support">دعم</string>
+    <string name="status_neutral">محايد</string>
+    
+    <!-- الإجراءات -->
+    <string name="action_back">رجوع</string>
+    <string name="action_feedback">تعليق</string>
+    <string name="action_share">مشاركة</string>
+    <string name="action_share_article">مشاركة المقال</string>
+    <string name="action_clear">مسح</string>
+    <string name="action_delete">حذف</string>
+    
+    <!-- المقال -->
+    <string name="article_detail_title">تفاصيل المقال</string>
+    <string name="article_publish_time">نُشر في: </string>
+    <string name="article_summary">ملخص</string>
+    <string name="article_image_desc">صورة المقال: %1$s</string>
+    <string name="article_loading">جارٍ التحميل...</string>
+    <string name="article_error">خطأ في التحميل</string>
+    
+    <!-- تحذيرات الترجمة -->
+    <string name="translation_warning_zh">تمت ترجمة هذا المقال بواسطة الذكاء الاصطناعي وقد يحتوي على عدم دقة</string>
+    <string name="translation_warning_en">تمت ترجمة هذا المقال بواسطة الذكاء الاصطناعي وقد يحتوي على عدم دقة</string>
+    <string name="translation_warning_hi">تمت ترجمة هذا المقال بواسطة الذكاء الاصطناعي وقد يحتوي على عدم دقة</string>
+    <string name="translation_warning_es">تمت ترجمة هذا المقال بواسطة الذكاء الاصطناعي وقد يحتوي على عدم دقة</string>
+    
+    <!-- الرسائل -->
+    <string name="no_more_results">لا توجد نتائج أخرى</string>
+    
+    <!-- الإشعارات -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">إشعارات Boycott</string>
+    
+    <!-- اللغات -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- الكاميرا -->
+    <string name="back_button">رجوع</string>
+    <string name="flash_on">إيقاف الفلاش</string>
+    <string name="flash_off">تشغيل الفلاش</string>
+    <string name="switch_to_back_camera">التبديل إلى الكاميرا الخلفية</string>
+    <string name="switch_to_front_camera">التبديل إلى الكاميرا الأمامية</string>
+    <string name="camera_switch_to_logo">التبديل إلى وضع اكتشاف الشعار</string>
+    <string name="camera_switch_to_barcode">التبديل إلى وضع مسح الرمز</string>
+    <string name="camera_scan_result">نتيجة المسح</string>
+    <string name="camera_confirm">تأكيد</string>
+    <string name="camera_barcode_result">الرمز: %1$s</string>
+    <string name="camera_barcode_error">فشل المسح</string>
+    <string name="camera_back">رجوع</string>
+    <string name="camera_flash">فلاش</string>
+    <string name="camera_switch">تبديل الكاميرا</string>
+    <string name="camera_take_photo">التقاط صورة</string>
+    <string name="camera_scan">مسح</string>
+    <string name="camera_pick_gallery">اختيار من المعرض</string>
+    <string name="camera_scan_gallery">مسح من المعرض</string>
+    <string name="camera_retake">إعادة التقاط</string>
+    <string name="gallery_button">اختيار من المعرض</string>
+    <string name="scan_gallery_button">مسح من المعرض</string>
+    <string name="camera_error">خطأ</string>
+    <string name="camera_close">إغلاق</string>
+    <string name="camera_detection_result">نتيجة الاكتشاف</string>
+    
+    <!-- العلامة التجارية -->
+    <string name="brand_detail_title">تفاصيل العلامة التجارية</string>
+    <string name="brand_boycott">مقاطعة</string>
+    <string name="brand_support">دعم</string>
+    <string name="brand_neutral">محايد</string>
+    <string name="brand_search_query">البحث: %1$s</string>
+    <string name="brand_not_found">لم يتم العثور على علامات تجارية</string>
+    <string name="brand_search_results">نتائج البحث</string>
+</resources>

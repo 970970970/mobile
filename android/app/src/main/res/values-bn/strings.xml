@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- নেভিগেশন -->
+    <string name="nav_home">হোম</string>
+    <string name="nav_brands">ব্র্যান্ড</string>
+    <string name="nav_scan">স্ক্যান</string>
+    <string name="nav_articles">নিবন্ধ</string>
+    <string name="nav_settings">সেটিংস</string>
+    
+    <!-- সেটিংস পৃষ্ঠা -->
+    <string name="settings_language">ভাষা</string>
+    <string name="settings_dark_mode">ডার্ক মোড</string>
+    <string name="settings_cache">ক্যাশে পরিষ্কার করুন</string>
+    <string name="settings_feedback_support">প্রতিক্রিয়া ও সহায়তা</string>
+    <string name="settings_submit_feedback">প্রতিক্রিয়া জমা দিন</string>
+    <string name="settings_community">কমিউনিটি</string>
+    <string name="settings_donate">আমাদের সমর্থন করুন</string>
+    <string name="settings_about">সম্পর্কে</string>
+    <string name="settings_version">সংস্করণ</string>
+    <string name="settings_privacy">গোপনীয়তা নীতি</string>
+    <string name="settings_agreement">ব্যবহারকারী চুক্তি</string>
+    
+    <!-- সেটিংস বিভাগ -->
+    <string name="settings_basic">মৌলিক সেটিংস</string>
+    <string name="settings_legal">আইনি</string>
+    <string name="settings_privacy_policy">গোপনীয়তা নীতি</string>
+    <string name="settings_user_agreement">ব্যবহারকারী চুক্তি</string>
+    <string name="settings_unknown_version">অজানা সংস্করণ</string>
+    <string name="settings_select_language">ভাষা নির্বাচন করুন</string>
+    <string name="settings_close">বন্ধ করুন</string>
+    <string name="settings_loading">লোড হচ্ছে...</string>
+    <string name="settings_error">লোড করতে ব্যর্থ</string>
+    
+    <!-- প্রতিক্রিয়া ডায়ালগ -->
+    <string name="feedback_title">প্রতিক্রিয়া জমা দিন</string>
+    <string name="feedback_type">প্রতিক্রিয়ার ধরন</string>
+    <string name="feedback_content">বিষয়বস্তু</string>
+    <string name="feedback_contact">যোগাযোগ (ঐচ্ছিক)</string>
+    <string name="feedback_submit">জমা দিন</string>
+    <string name="feedback_cancel">বাতিল করুন</string>
+    
+    <!-- প্রতিক্রিয়ার ধরন -->
+    <string name="feedback_type_issue">সমস্যা রিপোর্ট করুন</string>
+    <string name="feedback_type_feature">ফিচার অনুরোধ</string>
+    <string name="feedback_type_data">ডেটা সংশোধন</string>
+    <string name="feedback_type_other">অন্যান্য</string>
+    
+    <!-- অনুসন্ধান -->
+    <string name="search_title">অনুসন্ধান</string>
+    <string name="search_hint">ব্র্যান্ড অনুসন্ধান করুন</string>
+    <string name="search_scan">কোড স্ক্যান করুন</string>
+    <string name="search_camera">ক্যামেরা</string>
+    <string name="search_button">অনুসন্ধান</string>
+    <string name="search_history">অনুসন্ধান ইতিহাস</string>
+    <string name="search_results">অনুসন্ধান ফলাফল</string>
+    <string name="clear_history">ইতিহাস মুছুন</string>
+    
+    <!-- স্ট্যাটাস -->
+    <string name="status_avoid">বয়কট</string>
+    <string name="status_support">সমর্থন</string>
+    <string name="status_neutral">নিরপেক্ষ</string>
+    
+    <!-- ক্রিয়া -->
+    <string name="action_back">পিছনে</string>
+    <string name="action_feedback">প্রতিক্রিয়া</string>
+    <string name="action_share">শেয়ার করুন</string>
+    <string name="action_share_article">নিবন্ধ শেয়ার করুন</string>
+    <string name="action_clear">পরিষ্কার করুন</string>
+    <string name="action_delete">মুছুন</string>
+    
+    <!-- নিবন্ধ -->
+    <string name="article_detail_title">নিবন্ধের বিস্তারিত</string>
+    <string name="article_publish_time">প্রকাশিত: </string>
+    <string name="article_summary">সারাংশ</string>
+    <string name="article_image_desc">নিবন্ধের ছবি: %1$s</string>
+    <string name="article_loading">লোড হচ্ছে...</string>
+    <string name="article_error">লোড করতে ব্যর্থ</string>
+    
+    <!-- অনুবাদ সতর্কতা -->
+    <string name="translation_warning_zh">এই নিবন্ধটি AI দ্বারা অনুবাদ করা হয়েছে এবং অনির্ভুলতা থাকতে পারে</string>
+    <string name="translation_warning_en">এই নিবন্ধটি AI দ্বারা অনুবাদ করা হয়েছে এবং অনির্ভুলতা থাকতে পারে</string>
+    <string name="translation_warning_hi">এই নিবন্ধটি AI দ্বারা অনুবাদ করা হয়েছে এবং অনির্ভুলতা থাকতে পারে</string>
+    <string name="translation_warning_es">এই নিবন্ধটি AI দ্বারা অনুবাদ করা হয়েছে এবং অনির্ভুলতা থাকতে পারে</string>
+    
+    <!-- বার্তা -->
+    <string name="no_more_results">আর কোন ফলাফল নেই</string>
+    
+    <!-- নোটিফিকেশন -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Boycott নোটিফিকেশন</string>
+    
+    <!-- ভাষা -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- ক্যামেরা -->
+    <string name="back_button">পিছনে</string>
+    <string name="flash_on">ফ্ল্যাশ বন্ধ করুন</string>
+    <string name="flash_off">ফ্ল্যাশ চালু করুন</string>
+    <string name="switch_to_back_camera">পিছনের ক্যামেরায় স্যুইচ করুন</string>
+    <string name="switch_to_front_camera">সামনের ক্যামেরায় স্যুইচ করুন</string>
+    <string name="camera_switch_to_logo">লোগো সনাক্তকরণ মোডে স্যুইচ করুন</string>
+    <string name="camera_switch_to_barcode">বারকোড স্ক্যান মোডে স্যুইচ করুন</string>
+    <string name="camera_scan_result">স্ক্যান ফলাফল</string>
+    <string name="camera_confirm">নিশ্চিত করুন</string>
+    <string name="camera_barcode_result">কোড: %1$s</string>
+    <string name="camera_barcode_error">স্ক্যান ব্যর্থ</string>
+    <string name="camera_back">পিছনে</string>
+    <string name="camera_flash">ফ্ল্যাশ</string>
+    <string name="camera_switch">ক্যামেরা পরিবর্তন</string>
+    <string name="camera_take_photo">ছবি তুলুন</string>
+    <string name="camera_scan">স্ক্যান</string>
+    <string name="camera_pick_gallery">গ্যালারি থেকে নির্বাচন করুন</string>
+    <string name="camera_scan_gallery">গ্যালারি থেকে স্ক্যান করুন</string>
+    <string name="camera_retake">পুনরায় তুলুন</string>
+    <string name="gallery_button">গ্যালারি থেকে নির্বাচন করুন</string>
+    <string name="scan_gallery_button">গ্যালারি থেকে স্ক্যান করুন</string>
+    <string name="camera_error">ত্রুটি</string>
+    <string name="camera_close">বন্ধ করুন</string>
+    <string name="camera_detection_result">সনাক্তকরণ ফলাফল</string>
+    
+    <!-- ব্র্যান্ড -->
+    <string name="brand_detail_title">ব্র্যান্ড বিস্তারিত</string>
+    <string name="brand_boycott">বয়কট</string>
+    <string name="brand_support">সমর্থন</string>
+    <string name="brand_neutral">নিরপেক্ষ</string>
+    <string name="brand_search_query">অনুসন্ধান: %1$s</string>
+    <string name="brand_not_found">কোন ব্র্যান্ড পাওয়া যায়নি</string>
+    <string name="brand_search_results">অনুসন্ধান ফলাফল</string>
+</resources>

@@ -8,46 +8,130 @@
     <string name="nav_scan">Scan</string>
     <string name="nav_articles">Articles</string>
     <string name="nav_settings">Settings</string>
-    
+
     <!-- Settings Page -->
-    <string name="settings_language">Language</string>
+    <string name="settings_language">Language Settings</string>
     <string name="settings_dark_mode">Dark Mode</string>
     <string name="settings_cache">Clear Cache</string>
     <string name="settings_feedback_support">Feedback &amp; Support</string>
     <string name="settings_submit_feedback">Submit Feedback</string>
-    <string name="settings_community">Community</string>
+    <string name="settings_community">Community Discussions</string>
     <string name="settings_donate">Support Us</string>
     <string name="settings_about">About</string>
     <string name="settings_version">Version</string>
     <string name="settings_privacy">Privacy Policy</string>
     <string name="settings_agreement">User Agreement</string>
-    
+
+    <!-- Settings Categories -->
+    <string name="settings_basic">Basic Settings</string>
+    <string name="settings_legal">Legal Terms</string>
+
     <!-- Feedback Dialog -->
     <string name="feedback_title">Submit Feedback</string>
     <string name="feedback_type">Feedback Type</string>
-    <string name="feedback_content">Content</string>
-    <string name="feedback_contact">Contact (Optional)</string>
+    <string name="feedback_content">Feedback Content</string>
+    <string name="feedback_contact">Contact Information (Optional)</string>
     <string name="feedback_submit">Submit</string>
     <string name="feedback_cancel">Cancel</string>
-    
+
     <!-- Search -->
-    <string name="search_hint">Search brands</string>
-    <string name="search_scan">Scan barcode</string>
-    <string name="search_camera">Camera</string>
+    <string name="search_title">Search</string>
+    <string name="search_hint">Search for Brands</string>
+    <string name="search_scan">Scan Barcode</string>
+    <string name="search_camera">Take Photo</string>
     <string name="search_button">Search</string>
-    
+    <string name="search_history">Search History</string>
+    <string name="search_results">Search Results</string>
+    <string name="clear_history">Clear History</string>
+
     <!-- Feedback Types -->
-    <string name="feedback_type_issue">Issue Report</string>
-    <string name="feedback_type_feature">Feature Request</string>
+    <string name="feedback_type_issue">Issue Feedback</string>
+    <string name="feedback_type_feature">Feature Suggestion</string>
     <string name="feedback_type_data">Data Correction</string>
     <string name="feedback_type_other">Other</string>
-    
-    <!-- Settings Categories -->
-    <string name="settings_basic">Basic Settings</string>
-    <string name="settings_legal">Legal</string>
-    
-    <!-- 搜索相关 -->
-    <string name="search_history">Search History</string>
-    <string name="clear_history">Clear History</string>
-    <string name="search_results">Search Results</string>
+
+    <!-- Status Text -->
+    <string name="status_avoid">Avoid</string>
+    <string name="status_support">Support</string>
+    <string name="status_neutral">Neutral</string>
+
+    <!-- Action Text -->
+    <string name="action_back">Back</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_share">Share</string>
+    <string name="action_share_article">Share Article</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_delete">Delete</string>
+
+    <!-- Article Details -->
+    <string name="article_detail_title">Article Details</string>
+    <string name="article_publish_time">Publish Time:</string>
+    <string name="article_summary">Summary</string>
+    <string name="article_image_desc">Article Image: %1$s</string>
+    <string name="article_loading">Loading...</string>
+    <string name="article_error">Load Failed</string>
+
+    <!-- Translation Warnings -->
+    <string name="translation_warning_zh">This article is translated by AI and may contain inaccuracies</string>
+    <string name="translation_warning_en">This article is translated by AI and may contain inaccuracies</string>
+    <string name="translation_warning_hi">यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं</string>
+    <string name="translation_warning_es">Este artículo está traducido por IA y puede contener inexactitudes</string>
+
+    <!-- Prompt Text -->
+    <string name="no_more_results">No more content</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Boycott App Notifications</string>
+
+    <!-- Language Names -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">Chinese</string>
+    <string name="language_japanese">Japanese</string>
+    <string name="language_korean">Korean</string>
+    <string name="language_russian">Russian</string>
+
+    <!-- Camera Related -->
+    <string name="back_button">Back</string>
+    <string name="flash_on">Turn Off Flashlight</string>
+    <string name="flash_off">Turn On Flashlight</string>
+    <string name="switch_to_back_camera">Switch to Rear Camera</string>
+    <string name="switch_to_front_camera">Switch to Front Camera</string>
+    <string name="camera_switch_to_logo">Switch to Logo Detection Mode</string>
+    <string name="camera_switch_to_barcode">Switch to Barcode Scanning Mode</string>
+    <string name="camera_scan_result">Scan Result</string>
+    <string name="camera_confirm">Confirm</string>
+    <string name="camera_barcode_result">Barcode: %1$s</string>
+    <string name="camera_barcode_error">Barcode Scanning Failed</string>
+    <string name="camera_back">Back</string>
+    <string name="camera_flash">Flashlight</string>
+    <string name="camera_switch">Switch Camera</string>
+    <string name="camera_take_photo">Take Photo</string>
+    <string name="camera_scan">Scan</string>
+    <string name="camera_pick_gallery">Select Image from Gallery</string>
+    <string name="camera_scan_gallery">Scan from Gallery</string>
+    <string name="camera_retake">Retake</string>
+    <string name="gallery_button">Select Image from Gallery</string>
+    <string name="scan_gallery_button">Scan from Gallery</string>
+    <string name="camera_error">Error</string>
+    <string name="camera_close">Close</string>
+    <string name="camera_detection_result">Detection Result</string>
+
+    <!-- Brand Related -->
+    <string name="brand_detail_title">Brand Details</string>
+    <string name="brand_boycott">Boycott</string>
+    <string name="brand_support">Support</string>
+    <string name="brand_neutral">Neutral</string>
+    <string name="brand_search_query">Search Term: %1$s</string>
+    <string name="brand_not_found">No Relevant Brands Found</string>
+    <string name="brand_search_results">Search Results</string>
+
+    <!-- Settings Related -->
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_user_agreement">User Agreement</string>
+    <string name="settings_unknown_version">Unknown Version</string>
+    <string name="settings_select_language">Select Language</string>
+    <string name="settings_close">Close</string>
+    <string name="settings_loading">Loading...</string>
+    <string name="settings_error">Load Failed</string>
 </resources> 

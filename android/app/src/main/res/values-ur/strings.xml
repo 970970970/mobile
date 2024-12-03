@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- نیویگیشن -->
+    <string name="nav_home">ہوم</string>
+    <string name="nav_brands">برانڈز</string>
+    <string name="nav_scan">سکین</string>
+    <string name="nav_articles">مضامین</string>
+    <string name="nav_settings">ترتیبات</string>
+    
+    <!-- ترتیبات کا صفحہ -->
+    <string name="settings_language">زبان</string>
+    <string name="settings_dark_mode">ڈارک موڈ</string>
+    <string name="settings_cache">کیشے صاف کریں</string>
+    <string name="settings_feedback_support">رائے اور معاونت</string>
+    <string name="settings_submit_feedback">رائے جمع کریں</string>
+    <string name="settings_community">کمیونٹی</string>
+    <string name="settings_donate">ہماری معاونت کریں</string>
+    <string name="settings_about">متعلق</string>
+    <string name="settings_version">ورژن</string>
+    <string name="settings_privacy">رازداری کی پالیسی</string>
+    <string name="settings_agreement">صارف معاہدہ</string>
+    
+    <!-- ترتیبات کی اقسام -->
+    <string name="settings_basic">بنیادی ترتیبات</string>
+    <string name="settings_legal">قانونی</string>
+    <string name="settings_privacy_policy">رازداری کی پالیسی</string>
+    <string name="settings_user_agreement">صارف معاہدہ</string>
+    <string name="settings_unknown_version">نامعلوم ورژن</string>
+    <string name="settings_select_language">زبان منتخب کریں</string>
+    <string name="settings_close">بند کریں</string>
+    <string name="settings_loading">لوڈ ہو رہا ہے...</string>
+    <string name="settings_error">لوڈ کرنے میں ناکام</string>
+    
+    <!-- رائے کا ڈائیلاگ -->
+    <string name="feedback_title">رائے جمع کریں</string>
+    <string name="feedback_type">رائے کی قسم</string>
+    <string name="feedback_content">مواد</string>
+    <string name="feedback_contact">رابطہ (اختیاری)</string>
+    <string name="feedback_submit">جمع کریں</string>
+    <string name="feedback_cancel">منسوخ کریں</string>
+    
+    <!-- رائے کی اقسام -->
+    <string name="feedback_type_issue">مسئلہ رپورٹ کریں</string>
+    <string name="feedback_type_feature">فیچر کی درخواست</string>
+    <string name="feedback_type_data">ڈیٹا درستگی</string>
+    <string name="feedback_type_other">دیگر</string>
+    
+    <!-- تلاش -->
+    <string name="search_title">تلاش</string>
+    <string name="search_hint">برانڈ تلاش کریں</string>
+    <string name="search_scan">کوڈ سکین کریں</string>
+    <string name="search_camera">کیمرہ</string>
+    <string name="search_button">تلاش</string>
+    <string name="search_history">تلاش کی تاریخ</string>
+    <string name="search_results">تلاش کے نتائج</string>
+    <string name="clear_history">تاریخ صاف کریں</string>
+    
+    <!-- حالت -->
+    <string name="status_avoid">بائیکاٹ</string>
+    <string name="status_support">معاونت</string>
+    <string name="status_neutral">غیر جانبدار</string>
+    
+    <!-- عمل -->
+    <string name="action_back">واپس</string>
+    <string name="action_feedback">رائے</string>
+    <string name="action_share">شیئر کریں</string>
+    <string name="action_share_article">مضمون شیئر کریں</string>
+    <string name="action_clear">صاف کریں</string>
+    <string name="action_delete">حذف کریں</string>
+    
+    <!-- مضمون -->
+    <string name="article_detail_title">مضمون کی تفصیلات</string>
+    <string name="article_publish_time">شائع کردہ: </string>
+    <string name="article_summary">خلاصہ</string>
+    <string name="article_image_desc">مضمون کی تصویر: %1$s</string>
+    <string name="article_loading">لوڈ ہو رہا ہے...</string>
+    <string name="article_error">لوڈ کرنے میں ناکام</string>
+    
+    <!-- ترجمہ کی تنبیہات -->
+    <string name="translation_warning_zh">یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں</string>
+    <string name="translation_warning_en">یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں</string>
+    <string name="translation_warning_hi">یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں</string>
+    <string name="translation_warning_es">یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں</string>
+    
+    <!-- پیغامات -->
+    <string name="no_more_results">مزید نتائج نہیں</string>
+    
+    <!-- نوٹیفکیشنز -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Boycott نوٹیفکیشنز</string>
+    
+    <!-- زبانیں -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- کیمرہ -->
+    <string name="back_button">واپس</string>
+    <string name="flash_on">فلیش بند کریں</string>
+    <string name="flash_off">فلیش چالو کریں</string>
+    <string name="switch_to_back_camera">پچھلے کیمرے پر سوئچ کریں</string>
+    <string name="switch_to_front_camera">سامنے والے کیمرے پر سوئچ کریں</string>
+    <string name="camera_switch_to_logo">لوگو شناخت موڈ پر سوئچ کریں</string>
+    <string name="camera_switch_to_barcode">بارکوڈ سکین موڈ پر سوئچ کریں</string>
+    <string name="camera_scan_result">سکین کا نتیجہ</string>
+    <string name="camera_confirm">تصدیق کریں</string>
+    <string name="camera_barcode_result">کوڈ: %1$s</string>
+    <string name="camera_barcode_error">سکین ناکام</string>
+    <string name="camera_back">واپس</string>
+    <string name="camera_flash">فلیش</string>
+    <string name="camera_switch">کیمرہ تبدیل کریں</string>
+    <string name="camera_take_photo">تصویر لیں</string>
+    <string name="camera_scan">سکین</string>
+    <string name="camera_pick_gallery">گیلری سے منتخب کریں</string>
+    <string name="camera_scan_gallery">گیلری سے سکین کریں</string>
+    <string name="camera_retake">دوبارہ لیں</string>
+    <string name="gallery_button">گیلری سے منتخب کریں</string>
+    <string name="scan_gallery_button">گیلری سے سکین کریں</string>
+    <string name="camera_error">خرابی</string>
+    <string name="camera_close">بند کریں</string>
+    <string name="camera_detection_result">شناخت کا نتیجہ</string>
+    
+    <!-- برانڈ -->
+    <string name="brand_detail_title">برانڈ کی تفصیلات</string>
+    <string name="brand_boycott">بائیکاٹ</string>
+    <string name="brand_support">معاونت</string>
+    <string name="brand_neutral">غیر جانبدار</string>
+    <string name="brand_search_query">تلاش: %1$s</string>
+    <string name="brand_not_found">کوئی برانڈ نہیں ملا</string>
+    <string name="brand_search_results">تلاش کے نتائج</string>
+</resources>

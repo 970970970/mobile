@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Boycott</string>
+    
+    <!-- Navigasi -->
+    <string name="nav_home">Laman Utama</string>
+    <string name="nav_brands">Jenama</string>
+    <string name="nav_scan">Imbas</string>
+    <string name="nav_articles">Artikel</string>
+    <string name="nav_settings">Tetapan</string>
+    
+    <!-- Halaman Tetapan -->
+    <string name="settings_language">Bahasa</string>
+    <string name="settings_dark_mode">Mod Gelap</string>
+    <string name="settings_cache">Kosongkan Cache</string>
+    <string name="settings_feedback_support">Maklum Balas dan Sokongan</string>
+    <string name="settings_submit_feedback">Hantar Maklum Balas</string>
+    <string name="settings_community">Komuniti</string>
+    <string name="settings_donate">Sokong Kami</string>
+    <string name="settings_about">Tentang</string>
+    <string name="settings_version">Versi</string>
+    <string name="settings_privacy">Dasar Privasi</string>
+    <string name="settings_agreement">Perjanjian Pengguna</string>
+    
+    <!-- Kategori Tetapan -->
+    <string name="settings_basic">Tetapan Asas</string>
+    <string name="settings_legal">Perundangan</string>
+    <string name="settings_privacy_policy">Dasar Privasi</string>
+    <string name="settings_user_agreement">Perjanjian Pengguna</string>
+    <string name="settings_unknown_version">Versi Tidak Diketahui</string>
+    <string name="settings_select_language">Pilih Bahasa</string>
+    <string name="settings_close">Tutup</string>
+    <string name="settings_loading">Memuatkan...</string>
+    <string name="settings_error">Gagal Memuatkan</string>
+    
+    <!-- Dialog Maklum Balas -->
+    <string name="feedback_title">Hantar Maklum Balas</string>
+    <string name="feedback_type">Jenis Maklum Balas</string>
+    <string name="feedback_content">Kandungan</string>
+    <string name="feedback_contact">Hubungi (Pilihan)</string>
+    <string name="feedback_submit">Hantar</string>
+    <string name="feedback_cancel">Batal</string>
+    
+    <!-- Jenis Maklum Balas -->
+    <string name="feedback_type_issue">Laporkan Masalah</string>
+    <string name="feedback_type_feature">Permintaan Ciri</string>
+    <string name="feedback_type_data">Pembetulan Data</string>
+    <string name="feedback_type_other">Lain-lain</string>
+    
+    <!-- Carian -->
+    <string name="search_title">Cari</string>
+    <string name="search_hint">Cari jenama</string>
+    <string name="search_scan">Imbas kod</string>
+    <string name="search_camera">Kamera</string>
+    <string name="search_button">Cari</string>
+    <string name="search_history">Sejarah Carian</string>
+    <string name="search_results">Hasil Carian</string>
+    <string name="clear_history">Kosongkan Sejarah</string>
+    
+    <!-- Status -->
+    <string name="status_avoid">Boikot</string>
+    <string name="status_support">Sokong</string>
+    <string name="status_neutral">Neutral</string>
+    
+    <!-- Tindakan -->
+    <string name="action_back">Kembali</string>
+    <string name="action_feedback">Maklum Balas</string>
+    <string name="action_share">Kongsi</string>
+    <string name="action_share_article">Kongsi Artikel</string>
+    <string name="action_clear">Kosongkan</string>
+    <string name="action_delete">Padam</string>
+    
+    <!-- Artikel -->
+    <string name="article_detail_title">Butiran Artikel</string>
+    <string name="article_publish_time">Diterbitkan: </string>
+    <string name="article_summary">Ringkasan</string>
+    <string name="article_image_desc">Imej artikel: %1$s</string>
+    <string name="article_loading">Memuatkan...</string>
+    <string name="article_error">Gagal Memuatkan</string>
+    
+    <!-- Amaran Terjemahan -->
+    <string name="translation_warning_zh">Artikel ini diterjemahkan oleh AI dan mungkin mengandungi ketidaktepatan</string>
+    <string name="translation_warning_en">Artikel ini diterjemahkan oleh AI dan mungkin mengandungi ketidaktepatan</string>
+    <string name="translation_warning_hi">Artikel ini diterjemahkan oleh AI dan mungkin mengandungi ketidaktepatan</string>
+    <string name="translation_warning_es">Artikel ini diterjemahkan oleh AI dan mungkin mengandungi ketidaktepatan</string>
+    
+    <!-- Mesej -->
+    <string name="no_more_results">Tiada hasil lagi</string>
+    
+    <!-- Pemberitahuan -->
+    <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Pemberitahuan Boycott</string>
+    
+    <!-- Bahasa -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- Kamera -->
+    <string name="back_button">Kembali</string>
+    <string name="flash_on">Matikan Denyar</string>
+    <string name="flash_off">Hidupkan Denyar</string>
+    <string name="switch_to_back_camera">Tukar ke Kamera Belakang</string>
+    <string name="switch_to_front_camera">Tukar ke Kamera Hadapan</string>
+    <string name="camera_switch_to_logo">Tukar ke Mod Pengesanan Logo</string>
+    <string name="camera_switch_to_barcode">Tukar ke Mod Imbasan Kod Bar</string>
+    <string name="camera_scan_result">Hasil Imbasan</string>
+    <string name="camera_confirm">Sahkan</string>
+    <string name="camera_barcode_result">Kod: %1$s</string>
+    <string name="camera_barcode_error">Imbasan Gagal</string>
+    <string name="camera_back">Kembali</string>
+    <string name="camera_flash">Denyar</string>
+    <string name="camera_switch">Tukar Kamera</string>
+    <string name="camera_take_photo">Ambil Gambar</string>
+    <string name="camera_scan">Imbas</string>
+    <string name="camera_pick_gallery">Pilih dari Galeri</string>
+    <string name="camera_scan_gallery">Imbas dari Galeri</string>
+    <string name="camera_retake">Ambil Semula</string>
+    <string name="gallery_button">Pilih dari Galeri</string>
+    <string name="scan_gallery_button">Imbas dari Galeri</string>
+    <string name="camera_error">Ralat</string>
+    <string name="camera_close">Tutup</string>
+    <string name="camera_detection_result">Hasil Pengesanan</string>
+    
+    <!-- Jenama -->
+    <string name="brand_detail_title">Butiran Jenama</string>
+    <string name="brand_boycott">Boikot</string>
+    <string name="brand_support">Sokong</string>
+    <string name="brand_neutral">Neutral</string>
+    <string name="brand_search_query">Carian: %1$s</string>
+    <string name="brand_not_found">Tiada jenama dijumpai</string>
+    <string name="brand_search_results">Hasil Carian</string>
+</resources>
