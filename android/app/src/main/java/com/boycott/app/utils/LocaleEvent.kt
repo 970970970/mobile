@@ -4,10 +4,10 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
 object LocaleEvent {
-    private val _localeChanged = MutableSharedFlow<String>()
-    val localeChanged = _localeChanged.asSharedFlow()
+    private val _localeFlow = MutableSharedFlow<String>()
+    val localeFlow = _localeFlow.asSharedFlow()
 
     suspend fun notifyLocaleChanged(languageCode: String) {
-        _localeChanged.emit(languageCode)
+        _localeFlow.emit(languageCode)
     }
-} 
+}

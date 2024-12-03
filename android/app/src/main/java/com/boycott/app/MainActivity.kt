@@ -1,7 +1,9 @@
 package com.boycott.app
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -79,8 +81,57 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    override fun attachBaseContext(newBase: Context) {
+        val languageCode = newBase.getSharedPreferences("settings", Context.MODE_PRIVATE)
+            .getString("language_code", null)
+        
+        if (languageCode != null) {
+            val locale = when {
+                languageCode.contains("-") -> {
+                    val (language, country) = languageCode.split("-")
+                    Locale(language, country)
+                }
+                else -> Locale(languageCode)
+            }
+            
+            val config = Configuration(newBase.resources.configuration)
+            config.setLocale(locale)
+            val context = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                newBase.createConfigurationContext(config)
+            } else {
+                @Suppress("DEPRECATION")
+                newBase.also { 
+                    newBase.resources.updateConfiguration(config, newBase.resources.displayMetrics)
+                }
+            }
+            super.attachBaseContext(context)
+        } else {
+            super.attachBaseContext(newBase)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 监听语言变化
+        lifecycleScope.launch {
+            LocaleEvent.localeFlow.collect { locale ->
+                Log.d("MainActivity", "Language changed to: $locale")
+                Log.d("MainActivity", "Current configuration locale: ${resources.configuration.locales[0]}")
+                
+                // 测试资源加载
+                try {
+                    val navHome = getString(R.string.nav_home)
+                    Log.d("MainActivity", "Current nav_home text: $navHome")
+                } catch (e: Exception) {
+                    Log.e("MainActivity", "Failed to load resource", e)
+                }
+                
+                // 重新创建 Activity
+                recreate()
+            }
+        }
+
         setContent {
             var forceUpdate by remember { mutableStateOf(0) }
             val navController = rememberNavController()
@@ -91,6 +142,18 @@ class MainActivity : ComponentActivity() {
                     getSharedPreferences("settings", Context.MODE_PRIVATE)
                         .getBoolean("dark_mode", false)
                 )
+            }
+
+            // 监听主题变化
+            LaunchedEffect(Unit) {
+                ThemeEvent.themeChanged.collect { isDark ->
+                    isDarkMode = isDark
+                    getSharedPreferences("settings", Context.MODE_PRIVATE)
+                        .edit()
+                        .putBoolean("dark_mode", isDark)
+                        .apply()
+                    forceUpdate++
+                }
             }
             
             MaterialTheme(

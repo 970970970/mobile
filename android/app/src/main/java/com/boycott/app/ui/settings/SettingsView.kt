@@ -1,14 +1,11 @@
 package com.boycott.app.ui.settings
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -19,6 +16,7 @@ import com.boycott.app.ui.settings.components.SettingsItem
 import com.boycott.app.ui.settings.components.SettingsSection
 import com.boycott.app.ui.settings.components.LanguageDialog
 import com.boycott.app.ui.settings.components.FeedbackDialog
+import com.boycott.app.utils.Language
 
 @Composable
 fun SettingsView(
@@ -28,8 +26,6 @@ fun SettingsView(
 ) {
     var showLanguageDialog by remember { mutableStateOf(false) }
     var showFeedbackDialog by remember { mutableStateOf(false) }
-    val languages by viewModel.languages.collectAsState()
-    val currentLanguage by viewModel.currentLanguage.collectAsState()
     val isDarkMode by viewModel.isDarkMode.collectAsState()
     val cacheSize by viewModel.cacheSize.collectAsState()
     val context = LocalContext.current
@@ -47,7 +43,7 @@ fun SettingsView(
                 SettingsItem(
                     icon = Icons.Default.Language,
                     title = stringResource(R.string.settings_language),
-                    subtitle = currentLanguage,
+                    subtitle = viewModel.getCurrentLanguage().name,
                     onClick = { showLanguageDialog = true }
                 )
 
@@ -63,12 +59,12 @@ fun SettingsView(
                     }
                 )
 
-                // 缓存管理
+                // 清除缓存
                 SettingsItem(
-                    icon = Icons.Default.Storage,
+                    icon = Icons.Default.DeleteSweep,
                     title = stringResource(R.string.settings_cache),
-                    subtitle = "${cacheSize}KB",
-                    onClick = { viewModel.clearCache(context) }
+                    subtitle = cacheSize,
+                    onClick = { viewModel.clearCache() }
                 )
             }
         }
@@ -82,7 +78,7 @@ fun SettingsView(
                     onClick = { showFeedbackDialog = true }
                 )
                 SettingsItem(
-                    icon = Icons.Default.Forum,
+                    icon = Icons.Default.Group,
                     title = stringResource(R.string.settings_community),
                     onClick = { viewModel.openCommunity() }
                 )
@@ -100,7 +96,8 @@ fun SettingsView(
                 SettingsItem(
                     icon = Icons.Default.Info,
                     title = stringResource(R.string.settings_version),
-                    subtitle = viewModel.getAppVersion(context)
+                    subtitle = viewModel.getAppVersion(),
+                    onClick = {}
                 )
             }
         }
@@ -130,11 +127,11 @@ fun SettingsView(
     // 语言选择对话框
     if (showLanguageDialog) {
         LanguageDialog(
-            languages = languages,
-            currentLanguage = currentLanguage,
+            languages = viewModel.getSupportedLanguages(),
+            currentLanguage = viewModel.getCurrentLanguage().name,
             onDismiss = { showLanguageDialog = false },
             onLanguageSelected = { language ->
-                viewModel.setLanguage(language.code)
+                viewModel.updateLanguage(language)
                 showLanguageDialog = false
             }
         )
@@ -145,9 +142,9 @@ fun SettingsView(
         FeedbackDialog(
             onDismiss = { showFeedbackDialog = false },
             onSubmit = { type, content, contact, images ->
-                viewModel.submitFeedback(type, content, contact, images)
+                // 暂时只关闭对话框，后续可以实现提交功能
                 showFeedbackDialog = false
             }
         )
     }
-} 
+}

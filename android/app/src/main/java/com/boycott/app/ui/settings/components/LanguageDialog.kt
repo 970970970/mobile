@@ -10,8 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.boycott.app.data.model.Language
 import com.boycott.app.R
+import com.boycott.app.utils.Language
 
 @Composable
 fun LanguageDialog(
@@ -33,6 +33,7 @@ fun LanguageDialog(
                             .padding(vertical = 12.dp, horizontal = 16.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
+                        // 显示国旗
                         Text(
                             text = language.flag,
                             style = MaterialTheme.typography.titleMedium
@@ -66,4 +67,4 @@ fun LanguageDialog(
             }
         }
     )
-} 
+}

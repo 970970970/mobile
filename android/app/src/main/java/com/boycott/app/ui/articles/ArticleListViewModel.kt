@@ -33,26 +33,13 @@ class ArticleListViewModel @Inject constructor(
 
     private var currentPage = 1
 
-    private fun getLanguageName(languageCode: String): String {
-        return when (languageCode) {
-            "zh" -> context.getString(R.string.language_chinese)
-            "ja" -> context.getString(R.string.language_japanese)
-            "ko" -> context.getString(R.string.language_korean)
-            "ru" -> context.getString(R.string.language_russian)
-            // 可以添加更多语言映射
-            else -> context.getString(R.string.language_english)  // 默认使用英语
-        }
-    }
-
     fun loadNextPage() {
         if (_isLoading.value || !_hasMoreData.value) return
 
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                val currentLanguageCode = languageManager.getCurrentLanguageCode()
-                val languageName = getLanguageName(currentLanguageCode)  // 转换语言代码为语言名称
-                val response = articleRepository.getArticles(languageName, currentPage)
+                val response = articleRepository.getArticles(languageManager.getCurrentLanguage().code, currentPage)
                 
                 // 更新文章列表
                 val newArticles = response.data.list

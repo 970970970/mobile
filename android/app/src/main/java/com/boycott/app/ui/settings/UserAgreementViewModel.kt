@@ -25,18 +25,8 @@ class UserAgreementViewModel @Inject constructor(
     private fun loadUserAgreement() {
         viewModelScope.launch {
             try {
-                val language = languageManager.getCurrentLanguageCode()
-                val languageName = when (language) {
-                    "zh-CN" -> "Chinese"
-                    "en-US" -> "English"
-                    "hi-IN" -> "Hindi"
-                    "es-ES" -> "Spanish"
-                    // ... 添加其他语言映射
-                    else -> "English"
-                }
-                
-                val response = apiService.getUserAgreement(languageName)
-                _content.value = Result.Success(response.data.content ?: "")
+                val content = apiService.getUserAgreement(languageManager.getCurrentLanguage().code)
+                _content.value = Result.Success(content.data.content ?: "")
             } catch (e: Exception) {
                 _content.value = Result.Error(e.message ?: "Unknown error")
             }

@@ -67,7 +67,7 @@ class HomeViewModel @Inject constructor(
     private fun loadArticles() {
         viewModelScope.launch {
             try {
-                val currentLanguageCode = languageManager.getCurrentLanguageCode()
+                val currentLanguageCode = languageManager.getCurrentLanguage().code
                 val languageName = getLanguageName(currentLanguageCode)
                 val response = articleRepository.getArticles(languageName, 1)
                 _articles.value = response.data.list
