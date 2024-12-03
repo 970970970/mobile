@@ -143,6 +143,34 @@ class LanguageManager @Inject constructor(
         }
     }
 
+    // 获取用于 API 的语言名称
+    fun getApiLanguageName(): String {
+        return when (getCurrentLanguage().code) {
+            "zh-CN" -> "Chinese"
+            "en-US" -> "English"
+            "hi-IN" -> "Hindi"
+            "es-ES" -> "Spanish"
+            "fr-FR" -> "French"
+            "ar-SA" -> "Arabic"
+            "bn-BD" -> "Bengali"
+            "ru-RU" -> "Russian"
+            "pt-BR" -> "Portuguese"
+            "id-ID" -> "Indonesian"
+            "ur-PK" -> "Urdu"
+            "de-DE" -> "German"
+            "ja-JP" -> "Japanese"
+            "tr-TR" -> "Turkish"
+            "ko-KR" -> "Korean"
+            "vi-VN" -> "Vietnamese"
+            "it-IT" -> "Italian"
+            "th-TH" -> "Thai"
+            "fa-IR" -> "Persian"
+            "nl-NL" -> "Dutch"
+            "ms-MY" -> "Malaysian"
+            else -> "English"  // 默认使用英语
+        }
+    }
+
     companion object {
         // 支持的语言列表
         private val SUPPORTED_LANGUAGES = mapOf(

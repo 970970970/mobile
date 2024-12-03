@@ -12,11 +12,15 @@ import retrofit2.http.Query
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("articles/list/index/{language}")
+    @GET("articles/list/{module}/{language}")
     suspend fun getArticles(
+        @Path("module") module: String,
         @Path("language") language: String,
         @Query("page") page: Int
     ): ApiResponse<ArticleListResponse>
+
+    @GET("articles/total/{language}")
+    suspend fun getArticleTotal(@Path("language") language: String): Int
 
     @GET("brands/list")
     suspend fun getBrands(

@@ -67,12 +67,13 @@ class HomeViewModel @Inject constructor(
     private fun loadArticles() {
         viewModelScope.launch {
             try {
-                val currentLanguageCode = languageManager.getCurrentLanguage().code
-                val languageName = getLanguageName(currentLanguageCode)
-                val response = articleRepository.getArticles(languageName, 1)
+                val response = articleRepository.getArticles(
+                    module = "index",
+                    language = languageManager.getApiLanguageName(),
+                    page = 1
+                )
                 _articles.value = response.data.list
             } catch (e: Exception) {
-                // 处理错误
                 _articles.value = emptyList()
             }
         }

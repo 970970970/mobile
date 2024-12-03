@@ -39,7 +39,11 @@ class ArticleListViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                val response = articleRepository.getArticles(languageManager.getCurrentLanguage().code, currentPage)
+                val response = articleRepository.getArticles(
+                    module = "article_list",
+                    language = languageManager.getApiLanguageName(),
+                    page = currentPage
+                )
                 
                 // 更新文章列表
                 val newArticles = response.data.list
