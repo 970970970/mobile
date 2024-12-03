@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.boycott.app.R
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
@@ -34,18 +36,26 @@ fun ArticleDetailView(
     val article by viewModel.article.collectAsState()
     val context = LocalContext.current
 
+    // 预先获取所有需要的字符串资源
+    val backText = stringResource(R.string.action_back)
+    val feedbackText = stringResource(R.string.action_feedback)
+    val shareText = stringResource(R.string.action_share)
+    val shareArticleText = stringResource(R.string.action_share_article)
+    val publishTimeText = stringResource(R.string.article_publish_time)
+    val summaryText = stringResource(R.string.article_summary)
+
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("") },
+                title = { Text(stringResource(R.string.article_detail_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = backText)
                     }
                 },
                 actions = {
                     IconButton(onClick = { showFeedbackDialog = true }) {
-                        Icon(Icons.Default.Feedback, contentDescription = "反馈")
+                        Icon(Icons.Default.Feedback, contentDescription = feedbackText)
                     }
                     IconButton(
                         onClick = {
@@ -57,13 +67,14 @@ fun ArticleDetailView(
                                         putExtra(Intent.EXTRA_TITLE, (article as Result.Success<Article>).data.title)
                                         putExtra(Intent.EXTRA_TEXT, (article as Result.Success<Article>).data.summary)
                                     }
-                                    context.startActivity(Intent.createChooser(shareIntent, "分享文章"))
+                                    val title = shareArticleText
+                                    context.startActivity(Intent.createChooser(shareIntent, title))
                                 }
                                 else -> {}
                             }
                         }
                     ) {
-                        Icon(Icons.Default.Share, contentDescription = "分享")
+                        Icon(Icons.Default.Share, contentDescription = shareText)
                     }
                 }
             )
@@ -79,10 +90,15 @@ fun ArticleDetailView(
                     CircularProgressIndicator(
                         modifier = Modifier.align(Alignment.Center)
                     )
+                    Text(
+                        text = stringResource(R.string.article_loading),
+                        modifier = Modifier.align(Alignment.Center)
+                            .padding(top = 64.dp)
+                    )
                 }
                 is Result.Error -> {
                     Text(
-                        text = (article as Result.Error).message,
+                        text = stringResource(R.string.article_error),
                         modifier = Modifier.padding(16.dp),
                         color = MaterialTheme.colorScheme.error
                     )
@@ -107,7 +123,7 @@ fun ArticleDetailView(
                         item {
                             articleData.publishedAt?.let { publishedAt ->
                                 Text(
-                                    text = "发布时间：$publishedAt",
+                                    text = publishTimeText + publishedAt,
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     modifier = Modifier.padding(bottom = 16.dp)
@@ -128,7 +144,7 @@ fun ArticleDetailView(
                                 ) {
                                     Column(modifier = Modifier.padding(16.dp)) {
                                         Text(
-                                            text = "摘要",
+                                            text = summaryText,
                                             style = MaterialTheme.typography.titleMedium,
                                             modifier = Modifier.padding(bottom = 8.dp)
                                         )
@@ -144,8 +160,7 @@ fun ArticleDetailView(
                         // 翻译提示（非中文内容）
                         item {
                             if (articleData.language != "Chinese") {
-                                val warningMessage = TranslationMessages.aiTranslationWarning[articleData.language] 
-                                    ?: TranslationMessages.aiTranslationWarning["English"]!! // 默认使用英文
+                                val warningMessage = TranslationMessages.getTranslationWarning(context, articleData.language)
                                 
                                 Card(
                                     modifier = Modifier
@@ -180,12 +195,14 @@ fun ArticleDetailView(
                             articleData.image?.let { imageUrl ->
                                 AsyncImage(
                                     model = imageUrl,
-                                    contentDescription = articleData.title,
+                                    contentDescription = context.getString(
+                                        R.string.article_image_desc,
+                                        articleData.title
+                                    ),
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .height(200.dp)
-                                        .clip(MaterialTheme.shapes.medium)
-                                        .padding(bottom = 16.dp),
+                                        .clip(MaterialTheme.shapes.medium),
                                     contentScale = ContentScale.Crop
                                 )
                             }

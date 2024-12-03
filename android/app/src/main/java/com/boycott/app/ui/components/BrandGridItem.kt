@@ -24,6 +24,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.boycott.app.R
 
 @Composable
@@ -73,7 +74,7 @@ fun BrandGridItem(
                         if (brand.status == "avoid") {
                             Image(
                                 painter = painterResource(id = R.drawable.ic_boycott),
-                                contentDescription = "抵制",
+                                contentDescription = stringResource(R.string.status_avoid),
                                 modifier = Modifier
                                     .size(48.dp)
                                     .align(Alignment.TopEnd)

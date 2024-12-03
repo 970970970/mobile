@@ -40,7 +40,7 @@ fun BrandDetailView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(brand?.name ?: "") },
+                title = { Text(brand?.name ?: stringResource(R.string.brand_detail_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.action_back))

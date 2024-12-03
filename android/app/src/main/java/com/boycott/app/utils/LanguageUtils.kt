@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build
 import java.util.Locale
 import com.boycott.app.model.LocaleInfo
+import com.boycott.app.R
 
 object LanguageUtils {
     fun getSystemLanguage(): String {
@@ -28,16 +29,16 @@ object LanguageUtils {
         context.createConfigurationContext(config)
     }
 
-    fun getSupportedLocales(): List<LocaleInfo> = listOf(
-        LocaleInfo("en", "English", "English"),
-        LocaleInfo("zh", "Chinese", "中文"),
-        LocaleInfo("ja", "Japanese", "日本語"),
-        LocaleInfo("ko", "Korean", "한국어"),
-        LocaleInfo("ru", "Russian", "Русский")
+    fun getSupportedLocales(context: Context): List<LocaleInfo> = listOf(
+        LocaleInfo("en", "English", context.getString(R.string.language_english)),
+        LocaleInfo("zh", "Chinese", context.getString(R.string.language_chinese)),
+        LocaleInfo("ja", "Japanese", context.getString(R.string.language_japanese)),
+        LocaleInfo("ko", "Korean", context.getString(R.string.language_korean)),
+        LocaleInfo("ru", "Russian", context.getString(R.string.language_russian))
     )
 
-    fun getLocaleByCode(code: String): LocaleInfo {
-        return getSupportedLocales().find { it.code == code }
-            ?: LocaleInfo("en", "English", "English")
+    fun getLocaleByCode(code: String, context: Context): LocaleInfo {
+        return getSupportedLocales(context).find { it.code == code }
+            ?: LocaleInfo("en", "English", context.getString(R.string.language_english))
     }
 } 

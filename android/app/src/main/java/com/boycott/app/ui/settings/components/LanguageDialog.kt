@@ -8,8 +8,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.boycott.app.data.model.Language
+import com.boycott.app.R
 
 @Composable
 fun LanguageDialog(
@@ -20,7 +22,7 @@ fun LanguageDialog(
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("选择语言") },
+        title = { Text(stringResource(R.string.settings_select_language)) },
         text = {
             LazyColumn {
                 items(languages) { language ->
@@ -60,7 +62,7 @@ fun LanguageDialog(
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
-                Text("关闭")
+                Text(stringResource(R.string.settings_close))
             }
         }
     )

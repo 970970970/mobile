@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
@@ -60,10 +61,10 @@ fun SearchResultsView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("搜索结果") },
+                title = { Text(stringResource(R.string.brand_search_results)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.camera_back))
                     }
                 }
             )
@@ -82,13 +83,13 @@ fun SearchResultsView(
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = "未找到相关品牌",
+                        text = stringResource(R.string.brand_not_found),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "搜索词：$query",
+                        text = stringResource(R.string.brand_search_query, query),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -109,9 +110,9 @@ fun SearchResultsView(
                         supportingContent = { 
                             Text(
                                 text = when(brand.status) {
-                                    "avoid" -> "抵制"
-                                    "support" -> "支持"
-                                    "neutral" -> "中立"
+                                    "avoid" -> stringResource(R.string.brand_boycott)
+                                    "support" -> stringResource(R.string.brand_support)
+                                    "neutral" -> stringResource(R.string.brand_neutral)
                                     else -> brand.status ?: ""
                                 },
                                 color = when(brand.status) {
@@ -146,7 +147,8 @@ fun SearchResultsView(
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = "没有更多内容",
+                                text = stringResource(R.string.no_more_results),
+                                textAlign = TextAlign.Center,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }

@@ -12,45 +12,30 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.isGranted
-import com.google.accompanist.permissions.rememberPermissionState
-import com.google.accompanist.permissions.shouldShowRationale
-import com.boycott.app.ml.YoloDetector
-import androidx.compose.foundation.background
-import androidx.compose.foundation.shape.CircleShape
-import android.graphics.ImageDecoder
-import android.os.Build
-import android.provider.MediaStore
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
-import kotlinx.coroutines.launch
-import androidx.compose.runtime.rememberCoroutineScope
-import kotlinx.coroutines.CoroutineScope
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Paint
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import android.graphics.Color as AndroidColor
-import androidx.compose.foundation.Image
-import androidx.compose.material.icons.filled.Close
-import android.content.Context
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.runtime.DisposableEffect
+import androidx.core.content.ContextCompat
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
-import androidx.compose.ui.viewinterop.AndroidView
-import androidx.compose.runtime.DisposableEffect
-import androidx.core.content.ContextCompat
-import android.graphics.BitmapFactory
-import androidx.camera.core.ImageCaptureException
+import androidx.compose.foundation.Image
+import androidx.compose.material.icons.filled.Close
+import android.content.Context
 import androidx.camera.core.ImageProxy
 import java.util.concurrent.Executor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
 import android.graphics.Matrix
+import android.graphics.Paint
+import android.graphics.Color as AndroidColor
+import androidx.camera.core.ImageCaptureException
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
@@ -59,6 +44,30 @@ import com.google.mlkit.vision.common.InputImage
 import androidx.compose.ui.draw.alpha
 import kotlinx.coroutines.delay
 import androidx.compose.ui.zIndex
+import com.boycott.app.R
+import com.boycott.app.ml.YoloDetector
+import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.CircleShape
+import android.os.Build
+import android.provider.MediaStore
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import kotlinx.coroutines.launch
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.CoroutineScope
+import androidx.compose.material.icons.filled.QrCodeScanner
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Camera
+import androidx.compose.material.icons.filled.Cameraswitch
+import androidx.compose.material.icons.filled.FlashOff
+import androidx.compose.material.icons.filled.FlashOn
+import androidx.compose.material.icons.filled.PhotoLibrary
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
+import com.google.accompanist.permissions.shouldShowRationale
+import android.graphics.ImageDecoder
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -117,18 +126,21 @@ fun CameraView(
                 shape = MaterialTheme.shapes.medium
             ) {
                 Text(
-                    text = if (cameraMode == CameraMode.PHOTO) "切换到LOGO检测模式" else "切换到条码扫描模式",
+                    text = if (cameraMode == CameraMode.PHOTO) 
+                        stringResource(R.string.camera_switch_to_logo) 
+                    else 
+                        stringResource(R.string.camera_switch_to_barcode),
                     modifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp),
                     color = Color.White,
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
-        }
         
-        // 3秒后自动关闭提示
-        LaunchedEffect(lastChangeTime) {
-            delay(2000)
-            showModeHint = false
+            // 3秒后自动关闭提示
+            LaunchedEffect(lastChangeTime) {
+                delay(2000)
+                showModeHint = false
+            }
         }
     }
     
@@ -136,11 +148,11 @@ fun CameraView(
     if (barcodeResult != null) {
         AlertDialog(
             onDismissRequest = { barcodeResult = null },
-            title = { Text("扫描结果") },
-            text = { Text(barcodeResult!!) },
+            title = { Text(stringResource(R.string.camera_scan_result)) },
+            text = { Text(stringResource(R.string.camera_barcode_result, barcodeResult!!)) },
             confirmButton = {
                 TextButton(onClick = { barcodeResult = null }) {
-                    Text("确定")
+                    Text(stringResource(R.string.camera_confirm))
                 }
             }
         )
@@ -248,8 +260,8 @@ fun CameraView(
                         Log.d("CameraView", "Created ImageDecoder source")
                         
                         ImageDecoder.decodeBitmap(source) { decoder, _, _ ->
-                            decoder.allocator = ImageDecoder.ALLOCATOR_SOFTWARE
                             decoder.isMutableRequired = true
+                            decoder.allocator = ImageDecoder.ALLOCATOR_SOFTWARE
                         }
                     } else {
                         MediaStore.Images.Media.getBitmap(context.contentResolver, selectedUri)
@@ -280,11 +292,11 @@ fun CameraView(
     if (showError) {
         AlertDialog(
             onDismissRequest = { showError = false },
-            title = { Text("Error") },
+            title = { Text(stringResource(R.string.camera_error)) },
             text = { Text(errorMessage) },
             confirmButton = {
                 TextButton(onClick = { showError = false }) {
-                    Text("OK")
+                    Text(stringResource(R.string.camera_confirm))
                 }
             }
         )
@@ -437,8 +449,8 @@ private fun TopControls(
         ) {
             IconButton(onClick = onBackClick) {
                 Icon(
-                    Icons.Default.ArrowBack,
-                    contentDescription = "返回",
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = stringResource(R.string.back_button),
                     tint = Color.White
                 )
             }
@@ -447,8 +459,8 @@ private fun TopControls(
                 if (!isFrontCamera) {
                     IconButton(onClick = onFlashToggle) {
                         Icon(
-                            if (flashEnabled) Icons.Default.FlashOn else Icons.Default.FlashOff,
-                            contentDescription = "闪光灯",
+                            imageVector = if (flashEnabled) Icons.Default.FlashOn else Icons.Default.FlashOff,
+                            contentDescription = if (flashEnabled) stringResource(R.string.flash_on) else stringResource(R.string.flash_off),
                             tint = Color.White
                         )
                     }
@@ -456,8 +468,8 @@ private fun TopControls(
                 
                 IconButton(onClick = onCameraToggle) {
                     Icon(
-                        Icons.Default.Cameraswitch,
-                        contentDescription = "切换相机",
+                        imageVector = Icons.Default.Cameraswitch,
+                        contentDescription = if (isFrontCamera) stringResource(R.string.switch_to_back_camera) else stringResource(R.string.switch_to_front_camera),
                         tint = Color.White
                     )
                 }
@@ -492,8 +504,8 @@ private fun BottomControls(
                     .background(Color.White.copy(alpha = 0.2f), CircleShape)
             ) {
                 Icon(
-                    if (cameraMode == CameraMode.PHOTO) Icons.Default.Camera else Icons.Default.QrCodeScanner,
-                    contentDescription = if (cameraMode == CameraMode.PHOTO) "拍照" else "扫描",
+                    imageVector = if (cameraMode == CameraMode.PHOTO) Icons.Default.Camera else Icons.Default.QrCodeScanner,
+                    contentDescription = if (cameraMode == CameraMode.PHOTO) stringResource(R.string.camera_take_photo) else stringResource(R.string.camera_scan),
                     tint = Color.White,
                     modifier = Modifier.size(48.dp)
                 )
@@ -514,8 +526,8 @@ private fun BottomControls(
                     modifier = Modifier.size(48.dp)
                 ) {
                     Icon(
-                        Icons.Default.PhotoLibrary,
-                        contentDescription = if (cameraMode == CameraMode.PHOTO) "从相册选择图片" else "从相册扫描",
+                        imageVector = Icons.Default.PhotoLibrary,
+                        contentDescription = if (cameraMode == CameraMode.PHOTO) stringResource(R.string.gallery_button) else stringResource(R.string.scan_gallery_button),
                         tint = Color.White,
                         modifier = Modifier.size(32.dp)
                     )
@@ -555,7 +567,7 @@ fun DetectionResultView(
         // 显示结果图片
         Image(
             bitmap = bitmap.asImageBitmap(),
-            contentDescription = "Detection Result",
+            contentDescription = stringResource(R.string.camera_detection_result),
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Fit
         )
@@ -569,7 +581,7 @@ fun DetectionResultView(
         ) {
             Icon(
                 imageVector = Icons.Default.Close,
-                contentDescription = "Close",
+                contentDescription = null,
                 tint = Color.White
             )
         }
@@ -579,7 +591,7 @@ fun DetectionResultView(
             onClick = onRetake,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 80.dp),  // 增加底部间距
+                .padding(bottom = 80.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color.White.copy(alpha = 0.8f),
                 contentColor = Color.Black
@@ -591,9 +603,10 @@ fun DetectionResultView(
             ) {
                 Icon(
                     imageVector = Icons.Default.Camera,
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = Color.Black
                 )
-                Text("再拍一张")
+                Text(text = stringResource(R.string.camera_retake))
             }
         }
     }

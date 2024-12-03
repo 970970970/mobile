@@ -13,21 +13,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
+import com.boycott.app.R
 import com.boycott.app.utils.AppConfig
 import com.boycott.app.ui.components.SearchBar
 import com.boycott.app.data.model.Brand
-import kotlinx.coroutines.flow.distinctUntilChanged
-import com.boycott.app.ui.home.HomeViewModel
+import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.boycott.app.ui.camera.CameraMode
-import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.Image
-import com.boycott.app.R
-import androidx.compose.ui.res.stringResource
+import androidx.compose.foundation.Image as FoundationImage
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 
 @Composable
 fun BrandsView(
@@ -52,7 +55,7 @@ fun BrandsView(
             val lastVisibleItemIndex = (layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0) + 1
             
             lastVisibleItemIndex > (totalItemsNumber - 4)
-        }.distinctUntilChanged().collect { shouldLoad ->
+        }.map { it }.distinctUntilChanged().collect { shouldLoad ->
             if (shouldLoad) {
                 viewModel.loadNextPage()
             }
@@ -100,17 +103,14 @@ fun BrandsView(
                         CircularProgressIndicator()
                     }
                 } else if (!hasMoreData) {
-                    Box(
+                    Text(
+                        text = stringResource(R.string.no_more_results),
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(16.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "没有更多内容",
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
+                        textAlign = TextAlign.Center,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 }
             }
         }
@@ -151,9 +151,9 @@ private fun BrandItem(
                         
                         // 抵制图标
                         if (brand.status == "avoid") {
-                            Image(
+                            FoundationImage(
                                 painter = painterResource(id = R.drawable.ic_boycott),
-                                contentDescription = "抵制",
+                                contentDescription = stringResource(R.string.status_avoid),
                                 modifier = Modifier
                                     .size(24.dp)  // 这里用小一点的尺寸，因为列表项整体比较小
                                     .align(Alignment.TopEnd)

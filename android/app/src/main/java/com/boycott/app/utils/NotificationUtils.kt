@@ -22,7 +22,7 @@ object NotificationUtils {
                 getChannelName(context),
                 NotificationManager.IMPORTANCE_DEFAULT
             ).apply {
-                description = "Boycott app notifications"
+                description = context.getString(R.string.notification_channel_description)
             }
             
             val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

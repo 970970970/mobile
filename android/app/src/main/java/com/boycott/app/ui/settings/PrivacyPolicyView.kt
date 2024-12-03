@@ -6,8 +6,10 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.boycott.app.R
 import dev.jeziellago.compose.markdowntext.MarkdownText
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -43,10 +45,10 @@ fun PrivacyPolicyView(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("隐私政策") },
+                title = { Text(stringResource(R.string.settings_privacy_policy)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.action_back))
                     }
                 }
             )
@@ -58,8 +60,18 @@ fun PrivacyPolicyView(
                 .padding(paddingValues)
         ) {
             when {
-                isLoading -> CircularProgressIndicator()
-                error != null -> Text(error!!)
+                isLoading -> {
+                    CircularProgressIndicator()
+                    Text(
+                        text = stringResource(R.string.settings_loading),
+                        modifier = Modifier.padding(16.dp)
+                    )
+                }
+                error != null -> Text(
+                    text = stringResource(R.string.settings_error),
+                    modifier = Modifier.padding(16.dp),
+                    color = MaterialTheme.colorScheme.error
+                )
                 else -> MarkdownText(
                     markdown = content,
                     modifier = Modifier.padding(16.dp)

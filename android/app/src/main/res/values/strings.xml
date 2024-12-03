@@ -35,6 +35,7 @@
     <string name="feedback_cancel">取消</string>
     
     <!-- 搜索 -->
+    <string name="search_title">搜索</string>
     <string name="search_hint">搜索品牌</string>
     <string name="search_scan">扫条码</string>
     <string name="search_camera">拍照</string>
@@ -56,10 +57,82 @@
     
     <!-- 操作文本 -->
     <string name="action_back">返回</string>
+    <string name="action_feedback">反馈</string>
+    <string name="action_share">分享</string>
+    <string name="action_share_article">分享文章</string>
+    <string name="action_clear">清除</string>
+    <string name="action_delete">删除</string>
+    
+    <!-- 文章详情 -->
+    <string name="article_detail_title">文章详情</string>
+    <string name="article_publish_time">发布时间：</string>
+    <string name="article_summary">摘要</string>
+    <string name="article_image_desc">文章图片：%1$s</string>
+    <string name="article_loading">加载中...</string>
+    <string name="article_error">加载失败</string>
+    
+    <!-- 翻译提示 -->
+    <string name="translation_warning_zh">本文由AI翻译，内容可能存在不准确之处</string>
+    <string name="translation_warning_en">This article is translated by AI and may contain inaccuracies</string>
+    <string name="translation_warning_hi">यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं</string>
+    <string name="translation_warning_es">Este artículo está traducido por IA y puede contener inexactitudes</string>
     
     <!-- 提示文本 -->
     <string name="no_more_results">没有更多内容</string>
     
     <!-- 通知 -->
     <string name="notification_channel_name">Boycott</string>
+    <string name="notification_channel_description">Boycott 应用通知</string>
+    
+    <!-- 语言名称 -->
+    <string name="language_english">English</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_korean">한국어</string>
+    <string name="language_russian">Русский</string>
+    
+    <!-- 相机相关 -->
+    <string name="back_button">返回</string>
+    <string name="flash_on">关闭闪光灯</string>
+    <string name="flash_off">打开闪光灯</string>
+    <string name="switch_to_back_camera">切换到后置相机</string>
+    <string name="switch_to_front_camera">切换到前置相机</string>
+    <string name="camera_switch_to_logo">切换到LOGO检测模式</string>
+    <string name="camera_switch_to_barcode">切换到条码扫描模式</string>
+    <string name="camera_scan_result">扫描结果</string>
+    <string name="camera_confirm">确定</string>
+    <string name="camera_barcode_result">条码: %1$s</string>
+    <string name="camera_barcode_error">条码扫描失败</string>
+    <string name="camera_back">返回</string>
+    <string name="camera_flash">闪光灯</string>
+    <string name="camera_switch">切换相机</string>
+    <string name="camera_take_photo">拍照</string>
+    <string name="camera_scan">扫描</string>
+    <string name="camera_pick_gallery">从相册选择图片</string>
+    <string name="camera_scan_gallery">从相册扫描</string>
+    <string name="camera_retake">再拍一张</string>
+    <string name="gallery_button">从相册选择图片</string>
+    <string name="scan_gallery_button">从相册扫描</string>
+    <string name="camera_error">错误</string>
+    <string name="camera_close">关闭</string>
+    <string name="camera_detection_result">检测结果</string>
+    
+    <!-- 品牌相关 -->
+    <string name="brand_detail_title">品牌详情</string>
+    <string name="brand_boycott">抵制</string>
+    <string name="brand_support">支持</string>
+    <string name="brand_neutral">中立</string>
+    <string name="brand_search_query">搜索词：%1$s</string>
+    <string name="brand_not_found">未找到相关品牌</string>
+    <string name="brand_search_results">搜索结果</string>
+    
+    <!-- 设置相关 -->
+    <string name="settings_privacy_policy">隐私政策</string>
+    <string name="settings_user_agreement">用户协议</string>
+    <string name="settings_unknown_version">未知版本</string>
+    <string name="settings_select_language">选择语言</string>
+    <string name="settings_close">关闭</string>
+    <string name="settings_loading">加载中...</string>
+    <string name="settings_error">加载失败</string>
+
 </resources>

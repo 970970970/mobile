@@ -5,17 +5,21 @@ import androidx.lifecycle.viewModelScope
 import com.boycott.app.data.model.Article
 import com.boycott.app.data.repository.ArticleRepository
 import com.boycott.app.utils.LanguageManager
+import com.boycott.app.R
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import android.content.Context
 
 @HiltViewModel
 class ArticleListViewModel @Inject constructor(
     private val articleRepository: ArticleRepository,
-    private val languageManager: LanguageManager
+    private val languageManager: LanguageManager,
+    @ApplicationContext private val context: Context
 ) : ViewModel() {
 
     private val _articles = MutableStateFlow<List<Article>>(emptyList())
@@ -29,12 +33,14 @@ class ArticleListViewModel @Inject constructor(
 
     private var currentPage = 1
 
-    private fun getLanguageName(code: String): String {
-        return when (code) {
-            "zh-CN" -> "Chinese"
-            "en-US" -> "English"
+    private fun getLanguageName(languageCode: String): String {
+        return when (languageCode) {
+            "zh" -> context.getString(R.string.language_chinese)
+            "ja" -> context.getString(R.string.language_japanese)
+            "ko" -> context.getString(R.string.language_korean)
+            "ru" -> context.getString(R.string.language_russian)
             // 可以添加更多语言映射
-            else -> "English"  // 默认使用英语
+            else -> context.getString(R.string.language_english)  // 默认使用英语
         }
     }
 

@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.boycott.app.R
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -13,7 +15,7 @@ fun ArticlesView(
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         TopAppBar(
-            title = { Text("文章") }
+            title = { Text(stringResource(R.string.nav_articles)) }
         )
         // TODO: 实现文章列表
     }
