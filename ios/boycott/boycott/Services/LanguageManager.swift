@@ -50,31 +50,7 @@ class LanguageManager: ObservableObject {
     }
     
     private func normalizeLanguageCode(_ code: String) -> String {
-        let components = code.split(separator: "-")
-        let baseCode = String(components[0])
-        
-        switch baseCode {
-        case "zh": return "zh-Hans"  // 简体中文
-        case "ar", "fa", "ur": return baseCode  // 从右到左的语言
-        case "en": return "en"
-        case "hi": return "hi"
-        case "es": return "es"
-        case "fr": return "fr"
-        case "bn": return "bn"
-        case "ru": return "ru"
-        case "pt": return "pt"
-        case "id": return "id"
-        case "de": return "de"
-        case "ja": return "ja"
-        case "tr": return "tr"
-        case "ko": return "ko"
-        case "vi": return "vi"
-        case "it": return "it"
-        case "th": return "th"
-        case "nl": return "nl"
-        case "ms": return "ms"
-        default: return "en"
-        }
+        return LanguageConfig.normalizeLanguageCode(code)
     }
     
     var locale: Locale {
@@ -83,9 +59,6 @@ class LanguageManager: ObservableObject {
     }
     
     var isRTL: Bool {
-        // 阿拉伯语、波斯语、乌尔都语是从右到左的语言
-        let rtlLanguages = ["ar", "fa", "ur"]
-        let baseCode = currentLanguage.split(separator: "-").first.map(String.init) ?? ""
-        return rtlLanguages.contains(baseCode)
+        return LanguageConfig.isRTL(currentLanguage)
     }
 } 

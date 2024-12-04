@@ -35,3 +35,134 @@
 "torch_control_failed" = "फ्लैश नियंत्रण विफल";
 "image_recognition_failed" = "छवि पहचान विफल: %@";
 "barcode_processing_failed" = "बारकोड प्रसंस्करण विफल: %@";
+
+/* नेविगेशन */
+"nav_home" = "होम";
+"nav_brands" = "ब्रांड्स";
+"nav_scan" = "स्कैन";
+"nav_articles" = "लेख";
+"nav_settings" = "सेटिंग्स";
+
+/* सेटिंग्स */
+"settings_language" = "भाषा";
+"settings_dark_mode" = "डार्क मोड";
+"settings_cache" = "कैश साफ़ करें";
+"settings_feedback_support" = "फीडबैक और सहायता";
+"settings_submit_feedback" = "फीडबैक भेजें";
+"settings_community" = "समुदाय";
+"settings_donate" = "हमारा समर्थन करें";
+"settings_about" = "हमारे बारे में";
+"settings_version" = "संस्करण";
+"settings_privacy" = "गोपनीयता नीति";
+"settings_agreement" = "उपयोगकर्ता समझौता";
+
+/* सेटिंग्स अनुभाग */
+"settings_basic" = "बुनियादी सेटिंग्स";
+"settings_legal" = "कानूनी";
+"settings_privacy_policy" = "गोपनीयता नीति";
+"settings_user_agreement" = "उपयोगकर्ता समझौता";
+"settings_unknown_version" = "अज्ञात संस्करण";
+"settings_select_language" = "भाषा चुनें";
+"settings_close" = "बंद करें";
+"settings_loading" = "लोड हो रहा है...";
+"settings_error" = "लोड करने में विफल";
+
+/* फीडबैक फॉर्म */
+"feedback_title" = "फीडबैक भेजें";
+"feedback_type" = "फीडबैक का प्रकार";
+"feedback_content" = "सामग्री";
+"feedback_contact" = "संपर्क जानकारी (वैकल्पिक)";
+"feedback_submit" = "भेजें";
+"feedback_cancel" = "रद्द करें";
+
+/* फीडबैक प्रकार */
+"feedback_type_issue" = "समस्या की रिपोर्ट करें";
+"feedback_type_feature" = "सुविधा का अनुरोध";
+"feedback_type_data" = "डेटा सुधार";
+"feedback_type_other" = "अन्य";
+
+/* खोज */
+"search_title" = "खोज";
+"search_hint" = "ब्रांड खोजें";
+"search_scan" = "कोड स्कैन करें";
+"search_camera" = "कैमरा";
+"search_button" = "खोजें";
+"search_history" = "खोज इतिहास";
+"search_results" = "खोज परिणाम";
+"clear_history" = "इतिहास साफ़ करें";
+
+/* स्थिति */
+"status_avoid" = "बहिष्कार";
+"status_support" = "समर्थन";
+"status_neutral" = "तटस्थ";
+
+/* क्रियाएं */
+"action_back" = "वापस";
+"action_feedback" = "फीडबैक";
+"action_share" = "साझा करें";
+"action_share_article" = "लेख साझा करें";
+"action_clear" = "साफ़ करें";
+"action_delete" = "हटाएं";
+
+/* लेख */
+"article_detail_title" = "लेख विवरण";
+"article_publish_time" = "प्रकाशित: ";
+"article_summary" = "सारांश";
+"article_image_desc" = "लेख छवि: %@";
+"article_loading" = "लोड हो रहा है...";
+"article_error" = "लोड करने में विफल";
+
+/* अनुवाद चेतावनियां */
+"translation_warning_zh" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+"translation_warning_en" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+"translation_warning_hi" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+"translation_warning_es" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+
+/* संदेश */
+"no_more_results" = "और कोई परिणाम नहीं";
+
+/* सूचनाएं */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Boycott सूचनाएं";
+
+/* भाषाएं */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* कैमरा */
+"back_button" = "वापस";
+"flash_on" = "फ्लैश बंद करें";
+"flash_off" = "फ्लैश चालू करें";
+"switch_to_back_camera" = "पिछले कैमरे पर स्विच करें";
+"switch_to_front_camera" = "सामने के कैमरे पर स्विच करें";
+"camera_switch_to_logo" = "लोगो पहचान मोड पर स्विच करें";
+"camera_switch_to_barcode" = "बारकोड स्कैन मोड पर स्विच करें";
+"camera_scan_result" = "स्कैन परिणाम";
+"camera_confirm" = "पुष्टि करें";
+"camera_barcode_result" = "कोड: %@";
+"camera_barcode_error" = "स्कैन विफल";
+"camera_back" = "वापस";
+"camera_flash" = "फ्लैश";
+"camera_switch" = "कैमरा बदलें";
+"camera_take_photo" = "फोटो लें";
+"camera_scan" = "स्कैन";
+"camera_pick_gallery" = "गैलरी से चुनें";
+"camera_scan_gallery" = "गैलरी से स्कैन करें";
+"camera_retake" = "पुनः लें";
+"gallery_button" = "गैलरी से चुनें";
+"scan_gallery_button" = "गैलरी से स्कैन करें";
+"camera_error" = "त्रुटि";
+"camera_close" = "बंद करें";
+"camera_detection_result" = "पहचान परिणाम";
+
+/* ब्रांड्स */
+"brand_detail_title" = "ब्रांड विवरण";
+"brand_boycott" = "बहिष्कार";
+"brand_support" = "समर्थन";
+"brand_neutral" = "तटस्थ";
+"brand_search_query" = "खोज: %@";
+"brand_not_found" = "कोई ब्रांड नहीं मिला";
+"brand_search_results" = "खोज परिणाम";

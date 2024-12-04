@@ -9,6 +9,11 @@
 "version" = "版本";
 
 /* 标签栏 */
+"nav_home" = "首页";
+"nav_brands" = "品牌";
+"nav_scan" = "扫描";
+"nav_articles" = "文章";
+"nav_settings" = "设置";
 "home" = "首页";
 "scan" = "扫描";
 "settings" = "设置";
@@ -21,21 +26,58 @@
 "about" = "关于";
 "privacy_policy" = "隐私政策";
 "terms_of_service" = "用户协议";
+"settings_language" = "语言设置";
+"settings_dark_mode" = "深色模式";
+"settings_cache" = "清除缓存";
+"settings_feedback_support" = "反馈与支持";
+"settings_submit_feedback" = "提交反馈";
+"settings_community" = "社区讨论";
+"settings_donate" = "支持我们";
+"settings_about" = "关于";
+"settings_version" = "版本";
+"settings_privacy" = "隐私政策";
+"settings_agreement" = "用户协议";
+"settings_basic" = "基本设置";
+"settings_legal" = "法律条款";
+"settings_privacy_policy" = "隐私政策";
+"settings_user_agreement" = "用户协议";
+"settings_unknown_version" = "未知版本";
+"settings_select_language" = "选择语言";
+"settings_close" = "关闭";
+"settings_loading" = "加载中...";
+"settings_error" = "加载失败";
+"settings_title" = "设置";
 
 /* 操作 */
 "cancel" = "取消";
 "confirm" = "确定";
 "done" = "完成";
+"action_back" = "返回";
+"action_feedback" = "反馈";
+"action_share" = "分享";
+"action_share_article" = "分享文章";
+"action_clear" = "清除";
+"action_delete" = "删除";
 
 /* 提示 */
 "clear_cache_confirm" = "确定要清除所有缓存吗？";
+"loading" = "加载中…";
+"error" = "错误";
+"retry" = "重试";
+"submit" = "提交";
 
 /* 选择语言 */
 "select_language" = "选择语言";
 "search_placeholder" = "搜索公司名称";
+"language_english" = "英语";
+"language_chinese" = "中文";
+"language_japanese" = "日语";
+"language_korean" = "韩语";
+"language_russian" = "俄语";
 
 /* 首页 */
 "no_articles" = "暂无文章";
+"no_more_results" = "没有更多内容";
 
 /* 相机 */
 "camera_not_enabled" = "相机未启用";
@@ -46,12 +88,88 @@
 "ok" = "确定";
 "camera_not_available" = "相机不可用";
 "camera_init_failed" = "相机初始化失败：%@";
+"back_button" = "返回";
+"flash_on" = "关闭闪光灯";
+"flash_off" = "打开闪光灯";
+"switch_to_back_camera" = "切换到后置相机";
+"switch_to_front_camera" = "切换到前置相机";
+"camera_switch_to_logo" = "切换到LOGO检测模式";
+"camera_switch_to_barcode" = "切换到条码扫描模式";
+"camera_scan_result" = "扫描结果";
+"camera_confirm" = "确定";
+"camera_barcode_result" = "条码：%1$s";
+"camera_barcode_error" = "条码扫描失败";
+"camera_back" = "返回";
+"camera_flash" = "闪光灯";
+"camera_switch" = "切换相机";
+"camera_take_photo" = "拍照";
+"camera_scan" = "扫描";
+"camera_pick_gallery" = "从相册选择图片";
+"camera_scan_gallery" = "从相册扫描";
+"camera_retake" = "重拍";
+"gallery_button" = "从相册选择图片";
+"scan_gallery_button" = "从相册扫描";
+"camera_error" = "错误";
+"camera_close" = "关闭";
+"camera_detection_result" = "检测结果";
 
 /* 扫描相关 */
 "torch_not_supported" = "设备不支持闪光灯";
 "torch_control_failed" = "闪光灯控制失败";
-"image_recognition_failed" = "图像识别失败: %@";
-"barcode_processing_failed" = "条码处理失败: %@";
+"image_recognition_failed" = "图像识别失败：%@";
+"barcode_processing_failed" = "条码处理失败：%@";
 
 /* 品牌 */
 "brands" = "品牌";
+"brand_detail_title" = "品牌详情";
+"brand_boycott" = "抵制";
+"brand_support" = "支持";
+"brand_neutral" = "中立";
+"brand_search_query" = "搜索词：%1$s";
+"brand_not_found" = "未找到相关品牌";
+"brand_search_results" = "搜索结果";
+
+/* 搜索 */
+"search_title" = "搜索";
+"search_hint" = "搜索品牌";
+"search_scan" = "扫条码";
+"search_camera" = "拍照";
+"search_button" = "搜索";
+"search_history" = "搜索历史";
+"search_results" = "搜索结果";
+"clear_history" = "清除历史";
+
+/* 反馈 */
+"feedback_title" = "提交反馈";
+"feedback_type" = "反馈类型";
+"feedback_content" = "反馈内容";
+"feedback_contact" = "联系方式（选填）";
+"feedback_submit" = "提交";
+"feedback_cancel" = "取消";
+"feedback_type_issue" = "问题反馈";
+"feedback_type_feature" = "功能建议";
+"feedback_type_data" = "数据纠错";
+"feedback_type_other" = "其他";
+
+/* 文章 */
+"article_detail_title" = "文章详情";
+"article_publish_time" = "发布时间：";
+"article_summary" = "摘要";
+"article_image_desc" = "文章图片：%1$s";
+"article_loading" = "加载中...";
+"article_error" = "加载失败";
+
+/* 翻译提示 */
+"translation_warning_zh" = "本文由AI翻译，内容可能存在不准确之处";
+"translation_warning_en" = "This article is translated by AI and may contain inaccuracies";
+"translation_warning_hi" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+"translation_warning_es" = "Este artículo está traducido por IA y puede contener inexactitudes";
+
+/* 状态 */
+"status_avoid" = "抵制";
+"status_support" = "支持";
+"status_neutral" = "中立";
+
+/* 通知 */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Boycott 应用通知";

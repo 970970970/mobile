@@ -25,6 +25,137 @@
 "search_placeholder" = "Rechercher une entreprise";
 "no_articles" = "Aucun article";
 
+/* Navigation */
+"nav_home" = "Accueil";
+"nav_brands" = "Marques";
+"nav_scan" = "Scanner";
+"nav_articles" = "Articles";
+"nav_settings" = "Paramètres";
+
+/* Page Paramètres */
+"settings_language" = "Langue";
+"settings_dark_mode" = "Mode Sombre";
+"settings_cache" = "Vider le Cache";
+"settings_feedback_support" = "Retour et Support";
+"settings_submit_feedback" = "Envoyer un Retour";
+"settings_community" = "Communauté";
+"settings_donate" = "Nous Soutenir";
+"settings_about" = "À Propos";
+"settings_version" = "Version";
+"settings_privacy" = "Politique de Confidentialité";
+"settings_agreement" = "Accord Utilisateur";
+
+/* Catégories Paramètres */
+"settings_basic" = "Paramètres de Base";
+"settings_legal" = "Mentions Légales";
+"settings_privacy_policy" = "Politique de Confidentialité";
+"settings_user_agreement" = "Accord Utilisateur";
+"settings_unknown_version" = "Version Inconnue";
+"settings_select_language" = "Sélectionner la Langue";
+"settings_close" = "Fermer";
+"settings_loading" = "Chargement...";
+"settings_error" = "Erreur de Chargement";
+
+/* Dialogue Retour */
+"feedback_title" = "Envoyer un Retour";
+"feedback_type" = "Type de Retour";
+"feedback_content" = "Contenu";
+"feedback_contact" = "Contact (Optionnel)";
+"feedback_submit" = "Envoyer";
+"feedback_cancel" = "Annuler";
+
+/* Types de Retour */
+"feedback_type_issue" = "Signalement de Problème";
+"feedback_type_feature" = "Demande de Fonctionnalité";
+"feedback_type_data" = "Correction de Données";
+"feedback_type_other" = "Autre";
+
+/* Recherche */
+"search_title" = "Rechercher";
+"search_hint" = "Rechercher des marques";
+"search_scan" = "Scanner le code";
+"search_camera" = "Appareil Photo";
+"search_button" = "Rechercher";
+"search_history" = "Historique de Recherche";
+"search_results" = "Résultats de Recherche";
+"clear_history" = "Effacer l'Histoire";
+
+/* Statut */
+"status_avoid" = "Boycotter";
+"status_support" = "Soutenir";
+"status_neutral" = "Neutre";
+
+/* Actions */
+"action_back" = "Retour";
+"action_feedback" = "Retour";
+"action_share" = "Partager";
+"action_share_article" = "Partager l'Article";
+"action_clear" = "Effacer";
+"action_delete" = "Supprimer";
+
+/* Article */
+"article_detail_title" = "Détails de l'Article";
+"article_publish_time" = "Publié le : ";
+"article_summary" = "Résumé";
+"article_image_desc" = "Image de l'article : %@";
+"article_loading" = "Chargement...";
+"article_error" = "Erreur de Chargement";
+
+/* Avertissements de Traduction */
+"translation_warning_zh" = "Cet article est traduit par IA et peut contenir des inexactitudes";
+"translation_warning_en" = "Cet article est traduit par IA et peut contenir des inexactitudes";
+"translation_warning_hi" = "Cet article est traduit par IA et peut contenir des inexactitudes";
+"translation_warning_es" = "Cet article est traduit par IA et peut contenir des inexactitudes";
+
+/* Messages */
+"no_more_results" = "Plus de Résultats";
+
+/* Notifications */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Notifications Boycott";
+
+/* Langues */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* Appareil Photo */
+"back_button" = "Retour";
+"flash_on" = "Désactiver le Flash";
+"flash_off" = "Activer le Flash";
+"switch_to_back_camera" = "Passer à la Caméra Arrière";
+"switch_to_front_camera" = "Passer à la Caméra Avant";
+"camera_switch_to_logo" = "Passer au Mode Détection de Logo";
+"camera_switch_to_barcode" = "Passer au Mode Scanner";
+"camera_scan_result" = "Résultat du Scan";
+"camera_confirm" = "Confirmer";
+"camera_barcode_result" = "Code : %@";
+"camera_barcode_error" = "Échec du Scan";
+"camera_back" = "Retour";
+"camera_flash" = "Flash";
+"camera_switch" = "Changer de Caméra";
+"camera_take_photo" = "Prendre une Photo";
+"camera_scan" = "Scanner";
+"camera_pick_gallery" = "Choisir dans la Galerie";
+"camera_scan_gallery" = "Scanner depuis la Galerie";
+"camera_retake" = "Reprendre";
+"gallery_button" = "Choisir dans la Galerie";
+"scan_gallery_button" = "Scanner depuis la Galerie";
+"camera_error" = "Erreur";
+"camera_close" = "Fermer";
+"camera_detection_result" = "Résultat de Détection";
+
+/* Marque */
+"brand_detail_title" = "Détails de la Marque";
+"brand_boycott" = "Boycotter";
+"brand_support" = "Soutenir";
+"brand_neutral" = "Neutre";
+"brand_search_query" = "Recherche : %@";
+"brand_not_found" = "Aucune marque trouvée";
+"brand_search_results" = "Résultats de Recherche";
+
 /* Camera */
 "camera_not_enabled" = "Caméra non activée";
 "photo_library_permission_required" = "Veuillez autoriser l'accès à la photothèque dans les paramètres";

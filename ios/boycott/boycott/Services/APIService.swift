@@ -13,35 +13,15 @@ class APIService {
     private init() {}
     
     // 语言代码到API参数的映射
-    private let languageMapping: [String: String] = [
-        "en": "English",
-        "zh-Hans": "Chinese",
-        "hi": "Hindi",
-        "es": "Spanish",
-        "fr": "French",
-        "ar": "Arabic",
-        "bn": "Bengali",
-        "ru": "Russian",
-        "pt": "Portuguese",
-        "id": "Indonesian",
-        "ur": "Urdu",
-        "de": "German",
-        "ja": "Japanese",
-        "tr": "Turkish",
-        "ko": "Korean",
-        "vi": "Vietnamese",
-        "it": "Italian",
-        "th": "Thai",
-        "fa": "Persian",
-        "nl": "Dutch",
-        "ms": "Malaysian"
-    ]
+    private var languageMapping: [String: String] {
+        return LanguageConfig.apiMapping
+    }
     
     func fetchArticles(module: String = "index", page: Int = 1, completion: @escaping (Result<[ArticleListItem], Error>) -> Void) {
         // 获取当前语言代码
         let languageCode = LanguageManager.shared.currentLanguage
         // 将语言代码转换为API需要的参数
-        let languageParam = languageMapping[languageCode] ?? "English"
+        let languageParam = LanguageConfig.getAPILanguageName(languageCode)
         
         print("🌐 [API] Fetching articles for language: \(languageParam) (code: \(languageCode))")
         
@@ -222,7 +202,7 @@ class APIService {
         // 获取当前语言代码
         let languageCode = LanguageManager.shared.currentLanguage
         // 将语言代码转换为API需要的参数
-        let languageParam = languageMapping[languageCode] ?? "English"
+        let languageParam = LanguageConfig.getAPILanguageName(languageCode)
         
         let url = URL(string: "\(baseURL)/articles/mod/\(type)/\(languageParam)")!
         

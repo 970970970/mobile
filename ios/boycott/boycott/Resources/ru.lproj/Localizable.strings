@@ -20,12 +20,108 @@
 "cancel" = "Отмена";
 "confirm" = "Подтвердить";
 "done" = "Готово";
-"clear_cache_confirm" = "Вы уверены, что хотите ��чистить весь кэш?";
+"clear_cache_confirm" = "Вы уверены, что хотите очистить весь кэш?";
 "select_language" = "Выбрать язык";
 "search_placeholder" = "Поиск компании";
 "no_articles" = "Нет статей";
 
-/* Camera */
+/* Навигация */
+"nav_home" = "Главная";
+"nav_brands" = "Бренды";
+"nav_scan" = "Сканировать";
+"nav_articles" = "Статьи";
+"nav_settings" = "Настройки";
+
+/* Страница настроек */
+"settings_language" = "Язык";
+"settings_dark_mode" = "Тёмная тема";
+"settings_cache" = "Очистить кэш";
+"settings_feedback_support" = "Обратная связь и поддержка";
+"settings_submit_feedback" = "Отправить отзыв";
+"settings_community" = "Сообщество";
+"settings_donate" = "Поддержать нас";
+"settings_about" = "О приложении";
+"settings_version" = "Версия";
+"settings_privacy" = "Политика конфиденциальности";
+"settings_agreement" = "Пользовательское соглашение";
+
+/* Категории настроек */
+"settings_basic" = "Основные настройки";
+"settings_legal" = "Правовая информация";
+"settings_privacy_policy" = "Политика конфиденциальности";
+"settings_user_agreement" = "Пользовательское соглашение";
+"settings_unknown_version" = "Неизвестная версия";
+"settings_select_language" = "Выбрать язык";
+"settings_close" = "Закрыть";
+"settings_loading" = "Загрузка...";
+"settings_error" = "Ошибка загрузки";
+
+/* Диалог обратной связи */
+"feedback_title" = "Отправить отзыв";
+"feedback_type" = "Тип отзыва";
+"feedback_content" = "Содержание";
+"feedback_contact" = "Контакт (необязательно)";
+"feedback_submit" = "Отправить";
+"feedback_cancel" = "Отмена";
+
+/* Типы отзывов */
+"feedback_type_issue" = "Сообщение о проблеме";
+"feedback_type_feature" = "Запрос функции";
+"feedback_type_data" = "Исправление данных";
+"feedback_type_other" = "Другое";
+
+/* Поиск */
+"search_title" = "Поиск";
+"search_hint" = "Поиск брендов";
+"search_scan" = "Сканировать код";
+"search_camera" = "Камера";
+"search_button" = "Поиск";
+"search_history" = "История поиска";
+"search_results" = "Результаты поиска";
+"clear_history" = "Очистить историю";
+
+/* Статус */
+"status_avoid" = "Бойкот";
+"status_support" = "Поддержка";
+"status_neutral" = "Нейтрально";
+
+/* Действия */
+"action_back" = "Назад";
+"action_feedback" = "Отзыв";
+"action_share" = "Поделиться";
+"action_share_article" = "Поделиться статьёй";
+"action_clear" = "Очистить";
+"action_delete" = "Удалить";
+
+/* Статья */
+"article_detail_title" = "Детали статьи";
+"article_publish_time" = "Опубликовано: ";
+"article_summary" = "Краткое содержание";
+"article_image_desc" = "Изображение статьи: %@";
+"article_loading" = "Загрузка...";
+"article_error" = "Ошибка загрузки";
+
+/* Предупреждения о переводе */
+"translation_warning_zh" = "Эта статья переведена ИИ и может содержать неточности";
+"translation_warning_en" = "Эта статья переведена ИИ и может содержать неточности";
+"translation_warning_hi" = "Эта статья переведена ИИ и может содержать неточности";
+"translation_warning_es" = "Эта статья переведена ИИ и может содержать неточности";
+
+/* Сообщения */
+"no_more_results" = "Больше результатов нет";
+
+/* Уведомления */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Уведомления Boycott";
+
+/* Языки */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* Камера */
 "camera_not_enabled" = "Камера не включена";
 "photo_library_permission_required" = "Пожалуйста, разрешите доступ к фотогалерее в настройках";
 "camera_permission_required" = "Пожалуйста, разрешите доступ к камере в настройках";
@@ -35,4 +131,36 @@
 "torch_control_failed" = "Ошибка управления вспышкой";
 "image_recognition_failed" = "Ошибка распознавания изображения: %@";
 "barcode_processing_failed" = "Ошибка обработки штрих-кода: %@";
-  
+"back_button" = "Назад";
+"flash_on" = "Выключить вспышку";
+"flash_off" = "Включить вспышку";
+"switch_to_back_camera" = "Переключить на заднюю камеру";
+"switch_to_front_camera" = "Переключить на переднюю камеру";
+"camera_switch_to_logo" = "Переключить на режим обнаружения логотипа";
+"camera_switch_to_barcode" = "Переключить на режим сканирования штрих-кода";
+"camera_scan_result" = "Результат сканирования";
+"camera_confirm" = "Подтвердить";
+"camera_barcode_result" = "Код: %@";
+"camera_barcode_error" = "Ошибка сканирования";
+"camera_back" = "Назад";
+"camera_flash" = "Вспышка";
+"camera_switch" = "Переключить камеру";
+"camera_take_photo" = "Сделать фото";
+"camera_scan" = "Сканировать";
+"camera_pick_gallery" = "Выбрать из галереи";
+"camera_scan_gallery" = "Сканировать из галереи";
+"camera_retake" = "Переснять";
+"gallery_button" = "Выбрать из галереи";
+"scan_gallery_button" = "Сканировать из галереи";
+"camera_error" = "Ошибка";
+"camera_close" = "Закрыть";
+"camera_detection_result" = "Результат обнаружения";
+
+/* Бренд */
+"brand_detail_title" = "Детали бренда";
+"brand_boycott" = "Бойкот";
+"brand_support" = "Поддержка";
+"brand_neutral" = "Нейтрально";
+"brand_search_query" = "Поиск: %@";
+"brand_not_found" = "Бренды не найдены";
+"brand_search_results" = "Результаты поиска";

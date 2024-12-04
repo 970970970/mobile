@@ -25,6 +25,102 @@
 "search_placeholder" = "Tìm kiếm công ty";
 "no_articles" = "Không có bài viết";
 
+/* Điều hướng */
+"nav_home" = "Trang chủ";
+"nav_brands" = "Thương hiệu";
+"nav_scan" = "Quét";
+"nav_articles" = "Bài viết";
+"nav_settings" = "Cài đặt";
+
+/* Cài đặt */
+"settings_language" = "Ngôn ngữ";
+"settings_dark_mode" = "Chế độ tối";
+"settings_cache" = "Xóa bộ nhớ đệm";
+"settings_feedback_support" = "Phản hồi & Hỗ trợ";
+"settings_submit_feedback" = "Gửi phản hồi";
+"settings_community" = "Cộng đồng";
+"settings_donate" = "Hỗ trợ chúng tôi";
+"settings_about" = "Giới thiệu";
+"settings_version" = "Phiên bản";
+"settings_privacy" = "Chính sách bảo mật";
+"settings_agreement" = "Thỏa thuận người dùng";
+
+/* Phần cài đặt */
+"settings_basic" = "Cài đặt cơ bản";
+"settings_legal" = "Pháp lý";
+"settings_privacy_policy" = "Chính sách bảo mật";
+"settings_user_agreement" = "Thỏa thuận người dùng";
+"settings_unknown_version" = "Phiên bản không xác định";
+"settings_select_language" = "Chọn ngôn ngữ";
+"settings_close" = "Đóng";
+"settings_loading" = "Đang tải...";
+"settings_error" = "Tải thất bại";
+
+/* Biểu mẫu phản hồi */
+"feedback_title" = "Gửi phản hồi";
+"feedback_type" = "Loại phản hồi";
+"feedback_content" = "Nội dung";
+"feedback_contact" = "Thông tin liên hệ (Tùy chọn)";
+"feedback_submit" = "Gửi";
+"feedback_cancel" = "Hủy";
+
+/* Loại phản hồi */
+"feedback_type_issue" = "Báo cáo vấn đề";
+"feedback_type_feature" = "Yêu cầu tính năng";
+"feedback_type_data" = "Sửa dữ liệu";
+"feedback_type_other" = "Khác";
+
+/* Tìm kiếm */
+"search_title" = "Tìm kiếm";
+"search_hint" = "Tìm thương hiệu";
+"search_scan" = "Quét mã";
+"search_camera" = "Camera";
+"search_button" = "Tìm kiếm";
+"search_history" = "Lịch sử tìm kiếm";
+"search_results" = "Kết quả tìm kiếm";
+"clear_history" = "Xóa lịch sử";
+
+/* Trạng thái */
+"status_avoid" = "Tẩy chay";
+"status_support" = "Ủng hộ";
+"status_neutral" = "Trung lập";
+
+/* Hành động */
+"action_back" = "Quay lại";
+"action_feedback" = "Phản hồi";
+"action_share" = "Chia sẻ";
+"action_share_article" = "Chia sẻ bài viết";
+"action_clear" = "Xóa";
+"action_delete" = "Xóa";
+
+/* Bài viết */
+"article_detail_title" = "Chi tiết bài viết";
+"article_publish_time" = "Đăng: ";
+"article_summary" = "Tóm tắt";
+"article_image_desc" = "Hình ảnh bài viết: %@";
+"article_loading" = "Đang tải...";
+"article_error" = "Tải thất bại";
+
+/* Cảnh báo dịch */
+"translation_warning_zh" = "Bài viết này được dịch bởi AI và có thể có sai sót";
+"translation_warning_en" = "Bài viết này được dịch bởi AI và có thể có sai sót";
+"translation_warning_hi" = "Bài viết này được dịch bởi AI và có thể có sai sót";
+"translation_warning_es" = "Bài viết này được dịch bởi AI và có thể có sai sót";
+
+/* Tin nhắn */
+"no_more_results" = "Không còn kết quả";
+
+/* Thông báo */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Thông báo Boycott";
+
+/* Ngôn ngữ */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
 /* Camera */
 "camera_not_enabled" = "Camera chưa được kích hoạt";
 "photo_library_permission_required" = "Vui lòng cho phép truy cập thư viện ảnh trong cài đặt";
@@ -35,3 +131,36 @@
 "torch_control_failed" = "Điều khiển đèn flash thất bại";
 "image_recognition_failed" = "Nhận dạng hình ảnh thất bại: %@";
 "barcode_processing_failed" = "Xử lý mã vạch thất bại: %@";
+"back_button" = "Quay lại";
+"flash_on" = "Tắt đèn flash";
+"flash_off" = "Bật đèn flash";
+"switch_to_back_camera" = "Chuyển sang camera sau";
+"switch_to_front_camera" = "Chuyển sang camera trước";
+"camera_switch_to_logo" = "Chuyển sang chế độ nhận dạng logo";
+"camera_switch_to_barcode" = "Chuyển sang chế độ quét mã vạch";
+"camera_scan_result" = "Kết quả quét";
+"camera_confirm" = "Xác nhận";
+"camera_barcode_result" = "Mã: %@";
+"camera_barcode_error" = "Quét thất bại";
+"camera_back" = "Quay lại";
+"camera_flash" = "Đèn flash";
+"camera_switch" = "Đổi camera";
+"camera_take_photo" = "Chụp ảnh";
+"camera_scan" = "Quét";
+"camera_pick_gallery" = "Chọn từ thư viện";
+"camera_scan_gallery" = "Quét từ thư viện";
+"camera_retake" = "Chụp lại";
+"gallery_button" = "Chọn từ thư viện";
+"scan_gallery_button" = "Quét từ thư viện";
+"camera_error" = "Lỗi";
+"camera_close" = "Đóng";
+"camera_detection_result" = "Kết quả nhận dạng";
+
+/* Thương hiệu */
+"brand_detail_title" = "Chi tiết thương hiệu";
+"brand_boycott" = "Tẩy chay";
+"brand_support" = "Ủng hộ";
+"brand_neutral" = "Trung lập";
+"brand_search_query" = "Tìm kiếm: %@";
+"brand_not_found" = "Không tìm thấy thương hiệu";
+"brand_search_results" = "Kết quả tìm kiếm";

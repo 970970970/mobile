@@ -35,3 +35,134 @@
 "torch_control_failed" = "فلیش کنٹرول ناکام";
 "image_recognition_failed" = "تصویر کی شناخت ناکام: %@";
 "barcode_processing_failed" = "بارکوڈ پروسیسنگ ناکام: %@";
+
+/* نیویگیشن */
+"nav_home" = "ہوم";
+"nav_brands" = "برانڈز";
+"nav_scan" = "اسکین";
+"nav_articles" = "مضامین";
+"nav_settings" = "ترتیبات";
+
+/* ترتیبات */
+"settings_language" = "زبان";
+"settings_dark_mode" = "ڈارک موڈ";
+"settings_cache" = "کیشے صاف کریں";
+"settings_feedback_support" = "رائے اور مدد";
+"settings_submit_feedback" = "رائے جمع کریں";
+"settings_community" = "کمیونٹی";
+"settings_donate" = "ہماری مدد کریں";
+"settings_about" = "ہمارے بارے میں";
+"settings_version" = "ورژن";
+"settings_privacy" = "رازداری کی پالیسی";
+"settings_agreement" = "صارف معاہدہ";
+
+/* ترتیبات سیکشنز */
+"settings_basic" = "بنیادی ترتیبات";
+"settings_legal" = "قانونی";
+"settings_privacy_policy" = "رازداری کی پالیسی";
+"settings_user_agreement" = "صارف معاہدہ";
+"settings_unknown_version" = "نامعلوم ورژن";
+"settings_select_language" = "زبان منتخب کریں";
+"settings_close" = "بند کریں";
+"settings_loading" = "لوڈ ہو رہا ہے...";
+"settings_error" = "لوڈ کرنے میں ناکام";
+
+/* رائے فارم */
+"feedback_title" = "رائے جمع کریں";
+"feedback_type" = "رائے کی قسم";
+"feedback_content" = "مواد";
+"feedback_contact" = "رابطے کی معلومات (اختیاری)";
+"feedback_submit" = "جمع کریں";
+"feedback_cancel" = "منسوخ کریں";
+
+/* رائے کی اقسام */
+"feedback_type_issue" = "مسئلہ رپورٹ کریں";
+"feedback_type_feature" = "فیچر کی درخواست";
+"feedback_type_data" = "ڈیٹا درستگی";
+"feedback_type_other" = "دیگر";
+
+/* تلاش */
+"search_title" = "تلاش";
+"search_hint" = "برانڈ تلاش کریں";
+"search_scan" = "کوڈ اسکین کریں";
+"search_camera" = "کیمرہ";
+"search_button" = "تلاش کریں";
+"search_history" = "تلاش کی تاریخ";
+"search_results" = "تلاش کے نتائج";
+"clear_history" = "تاریخ صاف کریں";
+
+/* حالت */
+"status_avoid" = "بائیکاٹ";
+"status_support" = "حمایت";
+"status_neutral" = "غیر جانبدار";
+
+/* عمل */
+"action_back" = "واپس";
+"action_feedback" = "رائے";
+"action_share" = "شیئر کریں";
+"action_share_article" = "مضمون شیئر کریں";
+"action_clear" = "صاف کریں";
+"action_delete" = "حذف کریں";
+
+/* مضامین */
+"article_detail_title" = "مضمون کی تفصیلات";
+"article_publish_time" = "شائع شدہ: ";
+"article_summary" = "خلاصہ";
+"article_image_desc" = "مضمون کی تصویر: %@";
+"article_loading" = "لوڈ ہو رہا ہے...";
+"article_error" = "لوڈ کرنے میں ناکام";
+
+/* ترجمہ کی تنبیہات */
+"translation_warning_zh" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
+"translation_warning_en" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
+"translation_warning_hi" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
+"translation_warning_es" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
+
+/* پیغامات */
+"no_more_results" = "مزید نتائج نہیں";
+
+/* نوٹیفیکیشنز */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Boycott نوٹیفیکیشنز";
+
+/* زبانیں */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* کیمرہ */
+"back_button" = "واپس";
+"flash_on" = "فلیش بند کریں";
+"flash_off" = "فلیش آن کریں";
+"switch_to_back_camera" = "پچھلے کیمرے پر سوئچ کریں";
+"switch_to_front_camera" = "سامنے والے کیمرے پر سوئچ کریں";
+"camera_switch_to_logo" = "لوگو شناخت موڈ پر سوئچ کریں";
+"camera_switch_to_barcode" = "بارکوڈ اسکین موڈ پر سوئچ کریں";
+"camera_scan_result" = "اسکین کا نتیجہ";
+"camera_confirm" = "تصدیق کریں";
+"camera_barcode_result" = "کوڈ: %@";
+"camera_barcode_error" = "اسکین ناکام";
+"camera_back" = "واپس";
+"camera_flash" = "فلیش";
+"camera_switch" = "کیمرہ تبدیل کریں";
+"camera_take_photo" = "تصویر لیں";
+"camera_scan" = "اسکین";
+"camera_pick_gallery" = "گیلری سے منتخب کریں";
+"camera_scan_gallery" = "گیلری سے اسکین کریں";
+"camera_retake" = "دوبارہ لیں";
+"gallery_button" = "گیلری سے منتخب کریں";
+"scan_gallery_button" = "گیلری سے اسکین کریں";
+"camera_error" = "خرابی";
+"camera_close" = "بند کریں";
+"camera_detection_result" = "شناخت کا نتیجہ";
+
+/* برانڈز */
+"brand_detail_title" = "برانڈ کی تفصیلات";
+"brand_boycott" = "بائیکاٹ";
+"brand_support" = "حمایت";
+"brand_neutral" = "غیر جانبدار";
+"brand_search_query" = "تلاش: %@";
+"brand_not_found" = "کوئی برانڈ نہیں ملا";
+"brand_search_results" = "تلاش کے نتائج";

@@ -25,6 +25,137 @@
 "search_placeholder" = "Buscar empresa";
 "no_articles" = "No hay artículos";
 
+/* Navegación */
+"nav_home" = "Inicio";
+"nav_brands" = "Marcas";
+"nav_scan" = "Escanear";
+"nav_articles" = "Artículos";
+"nav_settings" = "Ajustes";
+
+/* Página de Ajustes */
+"settings_language" = "Idioma";
+"settings_dark_mode" = "Modo Oscuro";
+"settings_cache" = "Limpiar Caché";
+"settings_feedback_support" = "Comentarios y Soporte";
+"settings_submit_feedback" = "Enviar Comentarios";
+"settings_community" = "Comunidad";
+"settings_donate" = "Apóyanos";
+"settings_about" = "Acerca de";
+"settings_version" = "Versión";
+"settings_privacy" = "Política de Privacidad";
+"settings_agreement" = "Acuerdo de Usuario";
+
+/* Categorías de Ajustes */
+"settings_basic" = "Ajustes Básicos";
+"settings_legal" = "Legal";
+"settings_privacy_policy" = "Política de Privacidad";
+"settings_user_agreement" = "Acuerdo de Usuario";
+"settings_unknown_version" = "Versión Desconocida";
+"settings_select_language" = "Seleccionar Idioma";
+"settings_close" = "Cerrar";
+"settings_loading" = "Cargando...";
+"settings_error" = "Error al Cargar";
+
+/* Diálogo de Comentarios */
+"feedback_title" = "Enviar Comentarios";
+"feedback_type" = "Tipo de Comentario";
+"feedback_content" = "Contenido";
+"feedback_contact" = "Contacto (Opcional)";
+"feedback_submit" = "Enviar";
+"feedback_cancel" = "Cancelar";
+
+/* Tipos de Comentarios */
+"feedback_type_issue" = "Reporte de Problema";
+"feedback_type_feature" = "Solicitud de Función";
+"feedback_type_data" = "Corrección de Datos";
+"feedback_type_other" = "Otro";
+
+/* Búsqueda */
+"search_title" = "Buscar";
+"search_hint" = "Buscar marcas";
+"search_scan" = "Escanear código";
+"search_camera" = "Cámara";
+"search_button" = "Buscar";
+"search_history" = "Historial de Búsqueda";
+"search_results" = "Resultados de Búsqueda";
+"clear_history" = "Limpiar Historial";
+
+/* Estado */
+"status_avoid" = "Boicotear";
+"status_support" = "Apoyar";
+"status_neutral" = "Neutral";
+
+/* Acciones */
+"action_back" = "Atrás";
+"action_feedback" = "Comentarios";
+"action_share" = "Compartir";
+"action_share_article" = "Compartir Artículo";
+"action_clear" = "Limpiar";
+"action_delete" = "Eliminar";
+
+/* Artículo */
+"article_detail_title" = "Detalles del Artículo";
+"article_publish_time" = "Publicado: ";
+"article_summary" = "Resumen";
+"article_image_desc" = "Imagen del artículo: %@";
+"article_loading" = "Cargando...";
+"article_error" = "Error al Cargar";
+
+/* Avisos de Traducción */
+"translation_warning_zh" = "Este artículo está traducido por IA y puede contener inexactitudes";
+"translation_warning_en" = "Este artículo está traducido por IA y puede contener inexactitudes";
+"translation_warning_hi" = "Este artículo está traducido por IA y puede contener inexactitudes";
+"translation_warning_es" = "Este artículo está traducido por IA y puede contener inexactitudes";
+
+/* Mensajes */
+"no_more_results" = "No Hay Más Resultados";
+
+/* Notificaciones */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Notificaciones de Boycott";
+
+/* Idiomas */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* Cámara */
+"back_button" = "Atrás";
+"flash_on" = "Apagar Flash";
+"flash_off" = "Encender Flash";
+"switch_to_back_camera" = "Cambiar a Cámara Trasera";
+"switch_to_front_camera" = "Cambiar a Cámara Frontal";
+"camera_switch_to_logo" = "Cambiar a Modo Detección de Logo";
+"camera_switch_to_barcode" = "Cambiar a Modo Escaneo de Código";
+"camera_scan_result" = "Resultado del Escaneo";
+"camera_confirm" = "Confirmar";
+"camera_barcode_result" = "Código: %@";
+"camera_barcode_error" = "Error al Escanear Código";
+"camera_back" = "Atrás";
+"camera_flash" = "Flash";
+"camera_switch" = "Cambiar Cámara";
+"camera_take_photo" = "Tomar Foto";
+"camera_scan" = "Escanear";
+"camera_pick_gallery" = "Elegir de Galería";
+"camera_scan_gallery" = "Escanear desde Galería";
+"camera_retake" = "Volver a Tomar";
+"gallery_button" = "Elegir de Galería";
+"scan_gallery_button" = "Escanear desde Galería";
+"camera_error" = "Error";
+"camera_close" = "Cerrar";
+"camera_detection_result" = "Resultado de Detección";
+
+/* Marca */
+"brand_detail_title" = "Detalles de la Marca";
+"brand_boycott" = "Boicotear";
+"brand_support" = "Apoyar";
+"brand_neutral" = "Neutral";
+"brand_search_query" = "Búsqueda: %@";
+"brand_not_found" = "No se encontraron marcas";
+"brand_search_results" = "Resultados de Búsqueda";
+
 /* Camera */
 "camera_not_enabled" = "Cámara no habilitada";
 "photo_library_permission_required" = "Por favor, permita el acceso a la biblioteca de fotos en Configuración";

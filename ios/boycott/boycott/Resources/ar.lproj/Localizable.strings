@@ -1,3 +1,134 @@
+// التنقل
+"nav_home" = "الرئيسية";
+"nav_brands" = "العلامات التجارية";
+"nav_scan" = "مسح";
+"nav_articles" = "المقالات";
+"nav_settings" = "الإعدادات";
+
+// صفحة الإعدادات
+"settings_language" = "اللغة";
+"settings_dark_mode" = "الوضع الداكن";
+"settings_cache" = "مسح ذاكرة التخزين المؤقت";
+"settings_feedback_support" = "التعليقات والدعم";
+"settings_submit_feedback" = "إرسال تعليق";
+"settings_community" = "المجتمع";
+"settings_donate" = "ادعمنا";
+"settings_about" = "حول";
+"settings_version" = "الإصدار";
+"settings_privacy" = "سياسة الخصوصية";
+"settings_agreement" = "اتفاقية المستخدم";
+
+// فئات الإعدادات
+"settings_basic" = "الإعدادات الأساسية";
+"settings_legal" = "القانونية";
+"settings_privacy_policy" = "سياسة الخصوصية";
+"settings_user_agreement" = "اتفاقية المستخدم";
+"settings_unknown_version" = "إصدار غير معروف";
+"settings_select_language" = "اختيار اللغة";
+"settings_close" = "إغلاق";
+"settings_loading" = "جارٍ التحميل...";
+"settings_error" = "خطأ في التحميل";
+
+// مربع حوار التعليقات
+"feedback_title" = "إرسال تعليق";
+"feedback_type" = "نوع التعليق";
+"feedback_content" = "المحتوى";
+"feedback_contact" = "الاتصال (اختياري)";
+"feedback_submit" = "إرسال";
+"feedback_cancel" = "إلغاء";
+
+// أنواع التعليقات
+"feedback_type_issue" = "الإبلاغ عن مشكلة";
+"feedback_type_feature" = "طلب ميزة";
+"feedback_type_data" = "تصحيح البيانات";
+"feedback_type_other" = "أخرى";
+
+// البحث
+"search_title" = "بحث";
+"search_hint" = "البحث عن العلامات التجارية";
+"search_scan" = "مسح الرمز";
+"search_camera" = "الكاميرا";
+"search_button" = "بحث";
+"search_history" = "سجل البحث";
+"search_results" = "نتائج البحث";
+"clear_history" = "مسح السجل";
+
+// الحالة
+"status_avoid" = "مقاطعة";
+"status_support" = "دعم";
+"status_neutral" = "محايد";
+
+// الإجراءات
+"action_back" = "رجوع";
+"action_feedback" = "تعليق";
+"action_share" = "مشاركة";
+"action_share_article" = "مشاركة المقال";
+"action_clear" = "مسح";
+"action_delete" = "حذف";
+
+// المقال
+"article_detail_title" = "تفاصيل المقال";
+"article_publish_time" = "نُشر في: ";
+"article_summary" = "ملخص";
+"article_image_desc" = "صورة المقال: %@";
+"article_loading" = "جارٍ التحميل...";
+"article_error" = "خطأ في التحميل";
+
+// تحذيرات الترجمة
+"translation_warning_zh" = "تمت ترجمة هذا المقال بواسطة الذكاء الاصطناعي وقد يحتوي على عدم دقة";
+"translation_warning_en" = "تمت ترجمة هذا المقال بواسطة الذكاء الاصطناعي وقد يحتوي على عدم دقة";
+"translation_warning_hi" = "تمت ترجمة هذا المقال بواسطة الذكاء الاصطناعي وقد يحتوي على عدم دقة";
+"translation_warning_es" = "تمت ترجمة هذا المقال بواسطة الذكاء الاصطناعي وقد يحتوي على عدم دقة";
+
+// الرسائل
+"no_more_results" = "لا توجد نتائج أخرى";
+
+// الإشعارات
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "إشعارات Boycott";
+
+// اللغات
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+// الكاميرا
+"back_button" = "رجوع";
+"flash_on" = "إيقاف الفلاش";
+"flash_off" = "تشغيل الفلاش";
+"switch_to_back_camera" = "التبديل إلى الكاميرا الخلفية";
+"switch_to_front_camera" = "التبديل إلى الكاميرا الأمامية";
+"camera_switch_to_logo" = "التبديل إلى وضع اكتشاف الشعار";
+"camera_switch_to_barcode" = "التبديل إلى وضع مسح الرمز";
+"camera_scan_result" = "نتيجة المسح";
+"camera_confirm" = "تأكيد";
+"camera_barcode_result" = "الرمز: %@";
+"camera_barcode_error" = "فشل المسح";
+"camera_back" = "رجوع";
+"camera_flash" = "فلاش";
+"camera_switch" = "تبديل الكاميرا";
+"camera_take_photo" = "التقاط صورة";
+"camera_scan" = "مسح";
+"camera_pick_gallery" = "اختيار من المعرض";
+"camera_scan_gallery" = "مسح من المعرض";
+"camera_retake" = "إعادة التقاط";
+"gallery_button" = "اختيار من المعرض";
+"scan_gallery_button" = "مسح من المعرض";
+"camera_error" = "خطأ";
+"camera_close" = "إغلاق";
+"camera_detection_result" = "نتيجة الاكتشاف";
+
+// العلامة التجارية
+"brand_detail_title" = "تفاصيل العلامة التجارية";
+"brand_boycott" = "مقاطعة";
+"brand_support" = "دعم";
+"brand_neutral" = "محايد";
+"brand_search_query" = "البحث: %@";
+"brand_not_found" = "لم يتم العثور على علامات تجارية";
+"brand_search_results" = "نتائج البحث";
+
 // 通用
 "language_settings" = "إعدادات اللغة";
 "current_language" = "اللغة الحالية";

@@ -25,7 +25,103 @@
 "search_placeholder" = "Cari syarikat";
 "no_articles" = "Tiada artikel";
 
-/* Camera */
+/* Navigasi */
+"nav_home" = "Laman Utama";
+"nav_brands" = "Jenama";
+"nav_scan" = "Imbas";
+"nav_articles" = "Artikel";
+"nav_settings" = "Tetapan";
+
+/* Tetapan */
+"settings_language" = "Bahasa";
+"settings_dark_mode" = "Mod Gelap";
+"settings_cache" = "Kosongkan Cache";
+"settings_feedback_support" = "Maklum Balas & Sokongan";
+"settings_submit_feedback" = "Hantar Maklum Balas";
+"settings_community" = "Komuniti";
+"settings_donate" = "Sokong Kami";
+"settings_about" = "Tentang";
+"settings_version" = "Versi";
+"settings_privacy" = "Dasar Privasi";
+"settings_agreement" = "Perjanjian Pengguna";
+
+/* Bahagian Tetapan */
+"settings_basic" = "Tetapan Asas";
+"settings_legal" = "Perundangan";
+"settings_privacy_policy" = "Dasar Privasi";
+"settings_user_agreement" = "Perjanjian Pengguna";
+"settings_unknown_version" = "Versi Tidak Diketahui";
+"settings_select_language" = "Pilih Bahasa";
+"settings_close" = "Tutup";
+"settings_loading" = "Memuatkan...";
+"settings_error" = "Gagal Memuatkan";
+
+/* Borang Maklum Balas */
+"feedback_title" = "Hantar Maklum Balas";
+"feedback_type" = "Jenis Maklum Balas";
+"feedback_content" = "Kandungan";
+"feedback_contact" = "Maklumat Hubungan (Pilihan)";
+"feedback_submit" = "Hantar";
+"feedback_cancel" = "Batal";
+
+/* Jenis Maklum Balas */
+"feedback_type_issue" = "Laporkan Masalah";
+"feedback_type_feature" = "Permintaan Ciri";
+"feedback_type_data" = "Pembetoran Data";
+"feedback_type_other" = "Lain-lain";
+
+/* Carian */
+"search_title" = "Carian";
+"search_hint" = "Cari Jenama";
+"search_scan" = "Imbas Kod";
+"search_camera" = "Kamera";
+"search_button" = "Cari";
+"search_history" = "Sejarah Carian";
+"search_results" = "Hasil Carian";
+"clear_history" = "Kosongkan Sejarah";
+
+/* Status */
+"status_avoid" = "Boikot";
+"status_support" = "Sokong";
+"status_neutral" = "Neutral";
+
+/* Tindakan */
+"action_back" = "Kembali";
+"action_feedback" = "Maklum Balas";
+"action_share" = "Kongsi";
+"action_share_article" = "Kongsi Artikel";
+"action_clear" = "Kosongkan";
+"action_delete" = "Padam";
+
+/* Artikel */
+"article_detail_title" = "Butiran Artikel";
+"article_publish_time" = "Diterbitkan: ";
+"article_summary" = "Ringkasan";
+"article_image_desc" = "Imej artikel: %@";
+"article_loading" = "Memuatkan...";
+"article_error" = "Gagal Memuatkan";
+
+/* Amaran Terjemahan */
+"translation_warning_zh" = "Artikel ini diterjemahkan oleh AI dan mungkin mengandungi ketidaktepatan";
+"translation_warning_en" = "Artikel ini diterjemahkan oleh AI dan mungkin mengandungi ketidaktepatan";
+"translation_warning_hi" = "Artikel ini diterjemahkan oleh AI dan mungkin mengandungi ketidaktepatan";
+"translation_warning_es" = "Artikel ini diterjemahkan oleh AI dan mungkin mengandungi ketidaktepatan";
+
+/* Mesej */
+"no_more_results" = "Tiada hasil lagi";
+
+/* Pemberitahuan */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Pemberitahuan Boycott";
+
+/* Bahasa */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* Kamera */
 "camera_not_enabled" = "Kamera tidak diaktifkan";
 "photo_library_permission_required" = "Sila benarkan akses ke Pustaka Foto dalam tetapan";
 "camera_permission_required" = "Sila benarkan akses ke Kamera dalam tetapan";
@@ -35,3 +131,36 @@
 "torch_control_failed" = "Kawalan denyar gagal";
 "image_recognition_failed" = "Pengenalan imej gagal: %@";
 "barcode_processing_failed" = "Pemprosesan kod bar gagal: %@";
+"back_button" = "Kembali";
+"flash_on" = "Matikan Denyar";
+"flash_off" = "Hidupkan Denyar";
+"switch_to_back_camera" = "Tukar ke Kamera Belakang";
+"switch_to_front_camera" = "Tukar ke Kamera Hadapan";
+"camera_switch_to_logo" = "Tukar ke Mod Pengenalan Logo";
+"camera_switch_to_barcode" = "Tukar ke Mod Imbasan Kod Bar";
+"camera_scan_result" = "Hasil Imbasan";
+"camera_confirm" = "Sahkan";
+"camera_barcode_result" = "Kod: %@";
+"camera_barcode_error" = "Imbasan Gagal";
+"camera_back" = "Kembali";
+"camera_flash" = "Denyar";
+"camera_switch" = "Tukar Kamera";
+"camera_take_photo" = "Ambil Gambar";
+"camera_scan" = "Imbas";
+"camera_pick_gallery" = "Pilih dari Galeri";
+"camera_scan_gallery" = "Imbas dari Galeri";
+"camera_retake" = "Ambil Semula";
+"gallery_button" = "Pilih dari Galeri";
+"scan_gallery_button" = "Imbas dari Galeri";
+"camera_error" = "Ralat";
+"camera_close" = "Tutup";
+"camera_detection_result" = "Hasil Pengesanan";
+
+/* Jenama */
+"brand_detail_title" = "Butiran Jenama";
+"brand_boycott" = "Boikot";
+"brand_support" = "Sokong";
+"brand_neutral" = "Neutral";
+"brand_search_query" = "Carian: %@";
+"brand_not_found" = "Tiada jenama dijumpai";
+"brand_search_results" = "Hasil Carian";

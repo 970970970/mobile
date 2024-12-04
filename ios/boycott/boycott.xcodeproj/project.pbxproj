@@ -239,6 +239,9 @@
 				bn,
 				it,
 				fa,
+				el,
+				he,
+				in,
 			);
 			mainGroup = 57FCF0B42CD22E710005FB43;
 			minimizedProjectReferenceProxies = 1;

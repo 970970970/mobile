@@ -3,6 +3,8 @@ import SwiftUI
 struct MainTabView: View {
     @State private var selectedTab = 0
     @State private var selectedBrand: Brand?
+    @State private var refreshID = UUID()
+    @ObservedObject private var languageManager = LanguageManager.shared
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -10,14 +12,14 @@ struct MainTabView: View {
                 HomeView()
                     .tabItem {
                         Image(systemName: "house.fill")
-                        Text("首页")
+                        Text("nav_home".localized)
                     }
                     .tag(0)
                 
                 BrandListView()
                     .tabItem {
                         Image(systemName: "tag.fill")
-                        Text("品牌")
+                        Text("nav_brands".localized)
                     }
                     .tag(1)
                 
@@ -30,14 +32,14 @@ struct MainTabView: View {
                 ArticleListView()
                     .tabItem {
                         Image(systemName: "newspaper.fill")
-                        Text("文章")
+                        Text("nav_articles".localized)
                     }
                     .tag(3)
                 
                 SettingsView()
                     .tabItem {
                         Image(systemName: "gearshape.fill")
-                        Text("设置")
+                        Text("nav_settings".localized)
                     }
                     .tag(4)
             }
@@ -53,7 +55,7 @@ struct MainTabView: View {
                     VStack(spacing: 2) {
                         Image(systemName: "camera.viewfinder")
                             .font(.system(size: 24))
-                        Text("扫描")
+                        Text("nav_scan".localized)
                             .font(.caption2)
                     }
                     .foregroundColor(.white)
@@ -62,6 +64,7 @@ struct MainTabView: View {
             .offset(y: -10)
             .padding(.bottom, 2)
         }
+        .id(refreshID)
         .sheet(item: $selectedBrand) { brand in
             BrandDetailView(brand: brand, isPresented: $selectedBrand)
         }
@@ -74,6 +77,9 @@ struct MainTabView: View {
             if let brand = notification.object as? Brand {
                 selectedBrand = brand
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: LanguageManager.languageChangedNotification)) { _ in
+            refreshID = UUID()
         }
     }
 }

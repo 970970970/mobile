@@ -25,6 +25,137 @@
 "search_placeholder" = "ค้นหาบริษัท";
 "no_articles" = "ไม่มีบทความ";
 
+/* การนำทาง */
+"nav_home" = "หน้าแรก";
+"nav_brands" = "แบรนด์";
+"nav_scan" = "สแกน";
+"nav_articles" = "บทความ";
+"nav_settings" = "ตั้งค่า";
+
+/* การตั้งค่า */
+"settings_language" = "ภาษา";
+"settings_dark_mode" = "โหมดมืด";
+"settings_cache" = "ล้างแคช";
+"settings_feedback_support" = "ข้อเสนอแนะและการสนับสนุน";
+"settings_submit_feedback" = "ส่งข้อเสนอแนะ";
+"settings_community" = "ชุมชน";
+"settings_donate" = "สนับสนุนเรา";
+"settings_about" = "เกี่ยวกับ";
+"settings_version" = "เวอร์ชัน";
+"settings_privacy" = "นโยบายความเป็นส่วนตัว";
+"settings_agreement" = "ข้อตกลงผู้ใช้";
+
+/* ส่วนการตั้งค่า */
+"settings_basic" = "การตั้งค่าพื้นฐาน";
+"settings_legal" = "กฎหมาย";
+"settings_privacy_policy" = "นโยบายความเป็นส่วนตัว";
+"settings_user_agreement" = "ข้อตกลงผู้ใช้";
+"settings_unknown_version" = "เวอร์ชันที่ไม่รู้จัก";
+"settings_select_language" = "เลือกภาษา";
+"settings_close" = "ปิด";
+"settings_loading" = "กำลังโหลด...";
+"settings_error" = "การโหลดล้มเหลว";
+
+/* แบบฟอร์มข้อเสนอแนะ */
+"feedback_title" = "ส่งข้อเสนอแนะ";
+"feedback_type" = "ประเภทข้อเสนอแนะ";
+"feedback_content" = "เนื้อหา";
+"feedback_contact" = "ข้อมูลการติดต่อ (ไม่บังคับ)";
+"feedback_submit" = "ส่ง";
+"feedback_cancel" = "ยกเลิก";
+
+/* ประเภทข้อเสนอแนะ */
+"feedback_type_issue" = "รายงานปัญหา";
+"feedback_type_feature" = "ขอฟีเจอร์";
+"feedback_type_data" = "แก้ไขข้อมูล";
+"feedback_type_other" = "อื่นๆ";
+
+/* การค้นหา */
+"search_title" = "ค้นหา";
+"search_hint" = "ค้นหาแบรนด์";
+"search_scan" = "สแกนรหัส";
+"search_camera" = "กล้อง";
+"search_button" = "ค้นหา";
+"search_history" = "ประวัติการค้นหา";
+"search_results" = "ผลการค้นหา";
+"clear_history" = "ล้างประวัติ";
+
+/* สถานะ */
+"status_avoid" = "คว่ำบาตร";
+"status_support" = "สนับสนุน";
+"status_neutral" = "เป็นกลาง";
+
+/* การกระทำ */
+"action_back" = "กลับ";
+"action_feedback" = "ข้อเสนอแนะ";
+"action_share" = "แชร์";
+"action_share_article" = "แชร์บทความ";
+"action_clear" = "ล้าง";
+"action_delete" = "ลบ";
+
+/* บทความ */
+"article_detail_title" = "รายละเอียดบทความ";
+"article_publish_time" = "เผยแพร่: ";
+"article_summary" = "สรุป";
+"article_image_desc" = "ภาพบทความ: %@";
+"article_loading" = "กำลังโหลด...";
+"article_error" = "การโหลดล้มเหลว";
+
+/* คำเตือนการแปล */
+"translation_warning_zh" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
+"translation_warning_en" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
+"translation_warning_hi" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
+"translation_warning_es" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
+
+/* ข้อความ */
+"no_more_results" = "ไม่มีผลลัพธ์เพิ่มเติม";
+
+/* การแจ้งเตือน */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "การแจ้งเตือน Boycott";
+
+/* ภาษา */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* กล้อง */
+"back_button" = "กลับ";
+"flash_on" = "ปิดแฟลช";
+"flash_off" = "เปิดแฟลช";
+"switch_to_back_camera" = "สลับไปกล้องหลัง";
+"switch_to_front_camera" = "สลับไปกล้องหน้า";
+"camera_switch_to_logo" = "สลับไปโหมดจดจำโลโก้";
+"camera_switch_to_barcode" = "สลับไปโหมดสแกนบาร์โค้ด";
+"camera_scan_result" = "ผลการสแกน";
+"camera_confirm" = "ยืนยัน";
+"camera_barcode_result" = "รหัส: %@";
+"camera_barcode_error" = "การสแกนล้มเหลว";
+"camera_back" = "กลับ";
+"camera_flash" = "แฟลช";
+"camera_switch" = "สลับกล้อง";
+"camera_take_photo" = "ถ่ายภาพ";
+"camera_scan" = "สแกน";
+"camera_pick_gallery" = "เลือกจากแกลเลอรี";
+"camera_scan_gallery" = "สแกนจากแกลเลอรี";
+"camera_retake" = "ถ่ายใหม่";
+"gallery_button" = "เลือกจากแกลเลอรี";
+"scan_gallery_button" = "สแกนจากแกลเลอรี";
+"camera_error" = "ข้อผิดพลาด";
+"camera_close" = "ปิด";
+"camera_detection_result" = "ผลการตรวจจับ";
+
+/* แบรนด์ */
+"brand_detail_title" = "รายละเอียดแบรนด์";
+"brand_boycott" = "คว่ำบาตร";
+"brand_support" = "สนับสนุน";
+"brand_neutral" = "เป็นกลาง";
+"brand_search_query" = "ค้นหา: %@";
+"brand_not_found" = "ไม่พบแบรนด์";
+"brand_search_results" = "ผลการค้นหา";
+
 /* Camera */
 "camera_not_enabled" = "กล้องไม่ได้เปิดใช้งาน";
 "photo_library_permission_required" = "โปรดอนุญาตการเข้าถึงคลังรูปภาพในการตั้งค่า";

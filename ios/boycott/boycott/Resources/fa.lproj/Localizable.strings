@@ -35,3 +35,134 @@
 "torch_control_failed" = "کنترل فلش ناموفق بود";
 "image_recognition_failed" = "تشخیص تصویر ناموفق بود: %@";
 "barcode_processing_failed" = "پردازش بارکد ناموفق بود: %@";
+
+/* پیمایش */
+"nav_home" = "خانه";
+"nav_brands" = "برندها";
+"nav_scan" = "اسکن";
+"nav_articles" = "مقالات";
+"nav_settings" = "تنظیمات";
+
+/* تنظیمات */
+"settings_language" = "زبان";
+"settings_dark_mode" = "حالت تاریک";
+"settings_cache" = "پاک کردن حافظه پنهان";
+"settings_feedback_support" = "بازخورد و پشتیبانی";
+"settings_submit_feedback" = "ارسال بازخورد";
+"settings_community" = "انجمن";
+"settings_donate" = "حمایت از ما";
+"settings_about" = "درباره";
+"settings_version" = "نسخه";
+"settings_privacy" = "سیاست حفظ حریم خصوصی";
+"settings_agreement" = "شرایط خدمات";
+
+/* بخش تنظیمات */
+"settings_basic" = "تنظیمات پایه";
+"settings_legal" = "قانونی";
+"settings_privacy_policy" = "سیاست حفظ حریم خصوصی";
+"settings_user_agreement" = "توافقنامه کاربر";
+"settings_unknown_version" = "نسخه نامشخص";
+"settings_select_language" = "انتخاب زبان";
+"settings_close" = "بستن";
+"settings_loading" = "در حال بارگذاری...";
+"settings_error" = "خطا در بارگذاری";
+
+/* فرم بازخورد */
+"feedback_title" = "ارسال بازخورد";
+"feedback_type" = "نوع بازخورد";
+"feedback_content" = "محتوا";
+"feedback_contact" = "اطلاعات تماس (اختیاری)";
+"feedback_submit" = "ارسال";
+"feedback_cancel" = "لغو";
+
+/* انواع بازخورد */
+"feedback_type_issue" = "گزارش مشکل";
+"feedback_type_feature" = "درخواست ویژگی";
+"feedback_type_data" = "اصلاح داده";
+"feedback_type_other" = "سایر";
+
+/* جستجو */
+"search_title" = "جستجو";
+"search_hint" = "جستجوی برند";
+"search_scan" = "اسکن کد";
+"search_camera" = "دوربین";
+"search_button" = "جستجو";
+"search_history" = "تاریخچه جستجو";
+"search_results" = "نتایج جستجو";
+"clear_history" = "پاک کردن تاریخچه";
+
+/* وضعیت */
+"status_avoid" = "تحریم";
+"status_support" = "حمایت";
+"status_neutral" = "خنثی";
+
+/* عملیات */
+"action_back" = "بازگشت";
+"action_feedback" = "بازخورد";
+"action_share" = "اشتراک‌گذاری";
+"action_share_article" = "اشتراک‌گذاری مقاله";
+"action_clear" = "پاک کردن";
+"action_delete" = "حذف";
+
+/* مقالات */
+"article_detail_title" = "جزئیات مقاله";
+"article_publish_time" = "تاریخ انتشار: ";
+"article_summary" = "خلاصه";
+"article_image_desc" = "تصویر مقاله: %@";
+"article_loading" = "در حال بارگذاری...";
+"article_error" = "خطا در بارگذاری";
+
+/* هشدارهای ترجمه */
+"translation_warning_zh" = "این مقاله توسط هوش مصنوعی ترجمه شده و ممکن است دقیق نباشد";
+"translation_warning_en" = "این مقاله توسط هوش مصنوعی ترجمه شده و ممکن است دقیق نباشد";
+"translation_warning_hi" = "این مقاله توسط هوش مصنوعی ترجمه شده و ممکن است دقیق نباشد";
+"translation_warning_es" = "این مقاله توسط هوش مصنوعی ترجمه شده و ممکن است دقیق نباشد";
+
+/* پیام‌ها */
+"no_more_results" = "نتایج بیشتری وجود ندارد";
+
+/* اعلان‌ها */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "اعلان‌های Boycott";
+
+/* زبان‌ها */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* دوربین */
+"back_button" = "بازگشت";
+"flash_on" = "خاموش کردن فلش";
+"flash_off" = "روشن کردن فلش";
+"switch_to_back_camera" = "تغییر به دوربین پشت";
+"switch_to_front_camera" = "تغییر به دوربین جلو";
+"camera_switch_to_logo" = "تغییر به حالت تشخیص لوگو";
+"camera_switch_to_barcode" = "تغییر به حالت اسکن بارکد";
+"camera_scan_result" = "نتیجه اسکن";
+"camera_confirm" = "تایید";
+"camera_barcode_result" = "کد: %@";
+"camera_barcode_error" = "خطا در اسکن";
+"camera_back" = "بازگشت";
+"camera_flash" = "فلش";
+"camera_switch" = "تغییر دوربین";
+"camera_take_photo" = "عکس گرفتن";
+"camera_scan" = "اسکن";
+"camera_pick_gallery" = "انتخاب از گالری";
+"camera_scan_gallery" = "اسکن از گالری";
+"camera_retake" = "عکس مجدد";
+"gallery_button" = "انتخاب از گالری";
+"scan_gallery_button" = "اسکن از گالری";
+"camera_error" = "خطا";
+"camera_close" = "بستن";
+"camera_detection_result" = "نتیجه تشخیص";
+
+/* برندها */
+"brand_detail_title" = "جزئیات برند";
+"brand_boycott" = "تحریم";
+"brand_support" = "حمایت";
+"brand_neutral" = "خنثی";
+"brand_search_query" = "جستجو: %@";
+"brand_not_found" = "برندی یافت نشد";
+"brand_search_results" = "نتایج جستجو";

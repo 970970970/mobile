@@ -1,5 +1,5 @@
-/* 日本語 */
-"language_settings" = "言語設定";
+/* 通用 */
+"language_settings" = "言語";
 "current_language" = "現在の言語";
 "theme_settings" = "テーマ設定";
 "dark_mode" = "ダークモード";
@@ -7,31 +7,166 @@
 "clear_cache" = "キャッシュを削除";
 "calculating" = "計算中...";
 "version" = "バージョン";
-"home" = "ホーム";
-"scan" = "スキャン";
-"settings" = "設定";
+
+/* タブバー */
+"nav_home" = "ホーム";
+"nav_brands" = "ブランド";
+"nav_scan" = "スキャン";
+"nav_articles" = "記事";
+"nav_settings" = "設定";
+
+/* 設定ページ */
 "feedback_support" = "フィードバックとサポート";
 "submit_feedback" = "フィードバックを送信";
-"community_discussion" = "コミュニティディスカッション";
-"support_us" = "サポートする";
+"community_discussion" = "コミュニティ";
+"support_us" = "支援する";
 "about" = "アプリについて";
 "privacy_policy" = "プライバシーポリシー";
 "terms_of_service" = "利用規約";
+"settings_language" = "言語";
+"settings_dark_mode" = "ダークモード";
+"settings_cache" = "キャッシュを削除";
+"settings_feedback_support" = "フィードバックとサポート";
+"settings_submit_feedback" = "フィードバックを送信";
+"settings_community" = "コミュニティ";
+"settings_donate" = "支援する";
+"settings_about" = "アプリについて";
+"settings_version" = "バージョン";
+"settings_privacy" = "プライバシーポリシー";
+"settings_agreement" = "利用規約";
+"settings_basic" = "基本設定";
+"settings_legal" = "法的情報";
+"settings_privacy_policy" = "プライバシーポリシー";
+"settings_user_agreement" = "利用規約";
+"settings_unknown_version" = "不明なバージョン";
+"settings_select_language" = "言語を選択";
+"settings_close" = "閉じる";
+"settings_loading" = "読み込み中...";
+"settings_error" = "読み込みエラー";
+"settings_title" = "設定";
+
+/* アクション */
 "cancel" = "キャンセル";
 "confirm" = "確認";
 "done" = "完了";
-"clear_cache_confirm" = "本当にすべてのキャッシュを削除しますか？";
-"select_language" = "言語を選択";
-"search_placeholder" = "企業名を検索";
-"no_articles" = "記事がありません";
+"action_back" = "戻る";
+"action_feedback" = "フィードバック";
+"action_share" = "共有";
+"action_share_article" = "記事を共有";
+"action_clear" = "クリア";
+"action_delete" = "削除";
 
-/* Camera */
-"camera_not_enabled" = "カメラが有効になっていません";
-"photo_library_permission_required" = "設定でフォトライブラリへのアクセスを許可してください";
-"camera_permission_required" = "設定でカメラへのアクセスを許可してください";
+/* メッセージ */
+"clear_cache_confirm" = "キャッシュを削除してもよろしいですか？";
+"loading" = "読み込み中…";
+"error" = "エラー";
+"retry" = "再試行";
+"submit" = "送信";
+
+/* 言語選択 */
+"select_language" = "言語を選択";
+"search_placeholder" = "ブランドを検索";
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* ホーム */
+"no_articles" = "記事がありません";
+"no_more_results" = "これ以上の結果はありません";
+
+/* カメラ */
+"camera_not_enabled" = "カメラが無効です";
+"photo_library_permission_required" = "写真へのアクセスを許可してください";
+"camera_permission_required" = "カメラへのアクセスを許可してください";
+"scan" = "スキャン";
+"alert" = "警告";
+"ok" = "OK";
 "camera_not_available" = "カメラが利用できません";
-"camera_init_failed" = "カメラの初期化に失敗しました: %@";
-"torch_not_supported" = "デバイスがフラッシュに対応していません";
-"torch_control_failed" = "フラッシュ制御に失敗しました";
-"image_recognition_failed" = "画像認識に失敗しました: %@";
-"barcode_processing_failed" = "バーコード処理に失敗しました: %@";
+"camera_init_failed" = "カメラの初期化に失敗しました：%@";
+"back_button" = "戻る";
+"flash_on" = "フラッシュをオフ";
+"flash_off" = "フラッシュをオン";
+"switch_to_back_camera" = "背面カメラに切り替え";
+"switch_to_front_camera" = "前面カメラに切り替え";
+"camera_switch_to_logo" = "ロゴ検出モードに切り替え";
+"camera_switch_to_barcode" = "バーコードスキャンモードに切り替え";
+"camera_scan_result" = "スキャン結果";
+"camera_confirm" = "確認";
+"camera_barcode_result" = "コード：%1$s";
+"camera_barcode_error" = "スキャン失敗";
+"camera_back" = "戻る";
+"camera_flash" = "フラッシュ";
+"camera_switch" = "カメラ切り替え";
+"camera_take_photo" = "写真を撮影";
+"camera_scan" = "スキャン";
+"camera_pick_gallery" = "ギャラリーから選択";
+"camera_scan_gallery" = "ギャラリーからスキャン";
+"camera_retake" = "再撮影";
+"gallery_button" = "ギャラリーから選択";
+"scan_gallery_button" = "ギャラリーからスキャン";
+"camera_error" = "エラー";
+"camera_close" = "閉じる";
+"camera_detection_result" = "検出結果";
+
+/* スキャン */
+"torch_not_supported" = "フラッシュがサポートされていません";
+"torch_control_failed" = "フラッシュの制御に失敗しました";
+"image_recognition_failed" = "画像認識に失敗しました：%@";
+"barcode_processing_failed" = "バーコードの処理に失敗しました：%@";
+
+/* ブランド */
+"brands" = "ブランド";
+"brand_detail_title" = "ブランドの詳細";
+"brand_boycott" = "ボイコット";
+"brand_support" = "サポート";
+"brand_neutral" = "中立";
+"brand_search_query" = "検索：%1$s";
+"brand_not_found" = "ブランドが見つかりません";
+"brand_search_results" = "検索結果";
+
+/* 検索 */
+"search_title" = "検索";
+"search_hint" = "ブランドを検索";
+"search_scan" = "コードをスキャン";
+"search_camera" = "カメラ";
+"search_button" = "検索";
+"search_history" = "検索履歴";
+"search_results" = "検索結果";
+"clear_history" = "履歴を削除";
+
+/* フィードバック */
+"feedback_title" = "フィードバックを送信";
+"feedback_type" = "フィードバックの種類";
+"feedback_content" = "内容";
+"feedback_contact" = "連絡先（任意）";
+"feedback_submit" = "送信";
+"feedback_cancel" = "キャンセル";
+"feedback_type_issue" = "問題を報告";
+"feedback_type_feature" = "機能リクエスト";
+"feedback_type_data" = "データの修正";
+"feedback_type_other" = "その他";
+
+/* 記事 */
+"article_detail_title" = "記事の詳細";
+"article_publish_time" = "公開日時：";
+"article_summary" = "要約";
+"article_image_desc" = "記事の画像：%1$s";
+"article_loading" = "読み込み中...";
+"article_error" = "読み込みエラー";
+
+/* 翻訳の警告 */
+"translation_warning_zh" = "この記事はAIによって翻訳されており、不正確な部分がある可能性があります";
+"translation_warning_en" = "この記事はAIによって翻訳されており、不正確な部分がある可能性があります";
+"translation_warning_hi" = "この記事はAIによって翻訳されており、不正確な部分がある可能性があります";
+"translation_warning_es" = "この記事はAIによって翻訳されており、不正確な部分がある可能性があります";
+
+/* ステータス */
+"status_avoid" = "ボイコット";
+"status_support" = "サポート";
+"status_neutral" = "中立";
+
+/* 通知 */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Boycottアプリの通知";

@@ -25,7 +25,103 @@
 "search_placeholder" = "Şirket ara";
 "no_articles" = "Makale yok";
 
-/* Camera */
+/* Navigasyon */
+"nav_home" = "Ana Sayfa";
+"nav_brands" = "Markalar";
+"nav_scan" = "Tara";
+"nav_articles" = "Makaleler";
+"nav_settings" = "Ayarlar";
+
+/* Ayarlar */
+"settings_language" = "Dil";
+"settings_dark_mode" = "Karanlık Mod";
+"settings_cache" = "Önbelleği Temizle";
+"settings_feedback_support" = "Geri Bildirim ve Destek";
+"settings_submit_feedback" = "Geri Bildirim Gönder";
+"settings_community" = "Topluluk";
+"settings_donate" = "Bizi Destekle";
+"settings_about" = "Hakkında";
+"settings_version" = "Sürüm";
+"settings_privacy" = "Gizlilik Politikası";
+"settings_agreement" = "Kullanıcı Sözleşmesi";
+
+/* Ayarlar Bölümleri */
+"settings_basic" = "Temel Ayarlar";
+"settings_legal" = "Yasal";
+"settings_privacy_policy" = "Gizlilik Politikası";
+"settings_user_agreement" = "Kullanıcı Sözleşmesi";
+"settings_unknown_version" = "Bilinmeyen Sürüm";
+"settings_select_language" = "Dil Seç";
+"settings_close" = "Kapat";
+"settings_loading" = "Yükleniyor...";
+"settings_error" = "Yükleme başarısız";
+
+/* Geri Bildirim Formu */
+"feedback_title" = "Geri Bildirim Gönder";
+"feedback_type" = "Geri Bildirim Türü";
+"feedback_content" = "İçerik";
+"feedback_contact" = "İletişim Bilgileri (İsteğe bağlı)";
+"feedback_submit" = "Gönder";
+"feedback_cancel" = "İptal";
+
+/* Geri Bildirim Türleri */
+"feedback_type_issue" = "Sorun Bildir";
+"feedback_type_feature" = "Özellik İste";
+"feedback_type_data" = "Veri Düzeltme";
+"feedback_type_other" = "Diğer";
+
+/* Arama */
+"search_title" = "Arama";
+"search_hint" = "Marka ara";
+"search_scan" = "Kod Tara";
+"search_camera" = "Kamera";
+"search_button" = "Ara";
+"search_history" = "Arama Geçmişi";
+"search_results" = "Arama Sonuçları";
+"clear_history" = "Geçmişi Temizle";
+
+/* Durum */
+"status_avoid" = "Boykot";
+"status_support" = "Destekle";
+"status_neutral" = "Tarafsız";
+
+/* Eylemler */
+"action_back" = "Geri";
+"action_feedback" = "Geri Bildirim";
+"action_share" = "Paylaş";
+"action_share_article" = "Makaleyi Paylaş";
+"action_clear" = "Temizle";
+"action_delete" = "Sil";
+
+/* Makaleler */
+"article_detail_title" = "Makale Detayları";
+"article_publish_time" = "Yayınlanma: ";
+"article_summary" = "Özet";
+"article_image_desc" = "Makale görseli: %@";
+"article_loading" = "Yükleniyor...";
+"article_error" = "Yükleme başarısız";
+
+/* Çeviri Uyarıları */
+"translation_warning_zh" = "Bu makale AI tarafından çevrildi ve hatalar içerebilir";
+"translation_warning_en" = "Bu makale AI tarafından çevrildi ve hatalar içerebilir";
+"translation_warning_hi" = "Bu makale AI tarafından çevrildi ve hatalar içerebilir";
+"translation_warning_es" = "Bu makale AI tarafından çevrildi ve hatalar içerebilir";
+
+/* Mesajlar */
+"no_more_results" = "Başka sonuç yok";
+
+/* Bildirimler */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Boycott Bildirimleri";
+
+/* Diller */
+"language_english" = "English";
+"language_chinese" = "中文";
+"language_japanese" = "日本語";
+"language_korean" = "한국어";
+"language_russian" = "Русский";
+
+/* Kamera */
 "camera_not_enabled" = "Kamera etkin değil";
 "photo_library_permission_required" = "Lütfen ayarlardan fotoğraf kitaplığına erişime izin verin";
 "camera_permission_required" = "Lütfen ayarlardan kameraya erişime izin verin";
@@ -35,3 +131,36 @@
 "torch_control_failed" = "Flaş kontrolü başarısız";
 "image_recognition_failed" = "Görüntü tanıma başarısız: %@";
 "barcode_processing_failed" = "Barkod işleme başarısız: %@";
+"back_button" = "Geri";
+"flash_on" = "Flaşı Kapat";
+"flash_off" = "Flaşı Aç";
+"switch_to_back_camera" = "Arka Kameraya Geç";
+"switch_to_front_camera" = "Ön Kameraya Geç";
+"camera_switch_to_logo" = "Logo Tanıma Moduna Geç";
+"camera_switch_to_barcode" = "Barkod Tarama Moduna Geç";
+"camera_scan_result" = "Tarama Sonucu";
+"camera_confirm" = "Onayla";
+"camera_barcode_result" = "Kod: %@";
+"camera_barcode_error" = "Tarama başarısız";
+"camera_back" = "Geri";
+"camera_flash" = "Flaş";
+"camera_switch" = "Kamera Değiştir";
+"camera_take_photo" = "Fotoğraf Çek";
+"camera_scan" = "Tara";
+"camera_pick_gallery" = "Galeriden Seç";
+"camera_scan_gallery" = "Galeriden Tara";
+"camera_retake" = "Yeniden Çek";
+"gallery_button" = "Galeriden Seç";
+"scan_gallery_button" = "Galeriden Tara";
+"camera_error" = "Hata";
+"camera_close" = "Kapat";
+"camera_detection_result" = "Algılama Sonucu";
+
+/* Markalar */
+"brand_detail_title" = "Marka Detayları";
+"brand_boycott" = "Boykot";
+"brand_support" = "Destekle";
+"brand_neutral" = "Tarafsız";
+"brand_search_query" = "Arama: %@";
+"brand_not_found" = "Marka bulunamadı";
+"brand_search_results" = "Arama Sonuçları";
