@@ -80,6 +80,13 @@
 "search_results" = "Результаты поиска";
 "clear_history" = "Очистить историю";
 
+/* Кнопки */
+"button_search" = "Поиск";
+"button_cancel" = "Отмена";
+"button_confirm" = "Подтвердить";
+"button_close" = "Закрыть";
+"button_done" = "Готово";
+
 /* Статус */
 "status_avoid" = "Бойкот";
 "status_support" = "Поддержка";
@@ -164,3 +171,24 @@
 "brand_search_query" = "Поиск: %@";
 "brand_not_found" = "Бренды не найдены";
 "brand_search_results" = "Результаты поиска";
+
+/* Главная */
+"home_popular_brands" = "Популярные бренды";
+"home_view_more" = "Показать больше";
+"home_end_of_list" = "Конец списка";
+"home_search_placeholder" = "Поиск брендов или сканирование штрих-кода";
+"home_no_results" = "Результаты не найдены";
+"home_loading" = "Загрузка...";
+
+/* Бренды */
+"brand_filter_all" = "Все";
+"brand_no_data" = "Нет данных";
+"brand_about" = "О бренде";
+
+/* Поиск */
+"search_brand" = "Поиск брендов";
+"search_no_history" = "Нет истории поиска";
+"search_recent" = "Недавние поиски";
+"search_clear_history" = "Очистить историю поиска";
+"search_no_results" = "Результаты не найдены";
+"search_error" = "Ошибка поиска";

@@ -18,12 +18,12 @@ struct SearchHistoryView: View {
                 
                 List {
                     if viewModel.recentSearches.isEmpty {
-                        Text("暂无搜索历史")
+                        Text("search_no_history".localized)
                             .foregroundColor(.gray)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .listRowSeparator(.hidden)
                     } else {
-                        Section(header: Text("最近搜索")) {
+                        Section(header: Text("search_recent".localized)) {
                             ForEach(viewModel.recentSearches, id: \.self) { search in
                                 Button(action: { performSearch(search) }) {
                                     HStack {
@@ -39,18 +39,18 @@ struct SearchHistoryView: View {
                         
                         if !viewModel.recentSearches.isEmpty {
                             Button(action: viewModel.clearHistory) {
-                                Text("清除搜索历史")
+                                Text("search_clear_history".localized)
                                     .foregroundColor(.red)
                             }
                         }
                     }
                 }
             }
-            .navigationTitle("搜索")
+            .navigationTitle("nav_search".localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("取消") {
+                    Button("button_cancel".localized) {
                         dismiss()
                     }
                 }
@@ -103,7 +103,7 @@ struct SearchBar: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
-                TextField("搜索品牌", text: $text)
+                TextField("search_brand".localized, text: $text)
                     .submitLabel(.search)
                     .onSubmit(onSearch)
                     .autocapitalization(.none)
@@ -120,7 +120,7 @@ struct SearchBar: View {
             .cornerRadius(10)
             
             if !text.isEmpty {
-                Button("搜索", action: onSearch)
+                Button("search".localized, action: onSearch)
                     .foregroundColor(.blue)
             }
         }
@@ -133,4 +133,4 @@ struct SearchHistoryView_Previews: PreviewProvider {
         SearchHistoryView()
     }
 }
-#endif 
+#endif

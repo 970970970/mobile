@@ -8,7 +8,7 @@ struct CustomTabBar: View {
             // 首页
             TabBarButton(
                 image: "house.fill",
-                text: "首页",
+                text: "nav_home".localized,
                 isSelected: selectedTab == 0
             ) {
                 selectedTab = 0
@@ -18,7 +18,7 @@ struct CustomTabBar: View {
             // 品牌
             TabBarButton(
                 image: "tag.fill",
-                text: "品牌",
+                text: "nav_brands".localized,
                 isSelected: selectedTab == 1
             ) {
                 selectedTab = 1
@@ -32,7 +32,7 @@ struct CustomTabBar: View {
             // 文章
             TabBarButton(
                 image: "newspaper.fill",
-                text: "文章",
+                text: "nav_articles".localized,
                 isSelected: selectedTab == 3
             ) {
                 selectedTab = 3
@@ -42,7 +42,7 @@ struct CustomTabBar: View {
             // 设置
             TabBarButton(
                 image: "gearshape.fill",
-                text: "设置",
+                text: "nav_settings".localized,
                 isSelected: selectedTab == 4
             ) {
                 selectedTab = 4
@@ -101,11 +101,11 @@ struct ScanButton: View {
                 VStack(spacing: 2) {
                     Image(systemName: "camera.viewfinder")
                         .font(.system(size: 28))
-                    Text("扫描")
+                    Text("nav_scan".localized)
                         .font(.caption)
                 }
                 .foregroundColor(.white)
             }
         }
     }
-} 
+}

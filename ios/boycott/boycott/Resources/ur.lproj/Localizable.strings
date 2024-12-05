@@ -44,19 +44,17 @@
 "nav_settings" = "ترتیبات";
 
 /* ترتیبات */
-"settings_language" = "زبان";
+"settings_language" = "زبان کی ترتیبات";
 "settings_dark_mode" = "ڈارک موڈ";
 "settings_cache" = "کیشے صاف کریں";
 "settings_feedback_support" = "رائے اور مدد";
 "settings_submit_feedback" = "رائے جمع کریں";
-"settings_community" = "کمیونٹی";
+"settings_community" = "کمیونٹی ڈسکشن";
 "settings_donate" = "ہماری مدد کریں";
 "settings_about" = "ہمارے بارے میں";
 "settings_version" = "ورژن";
 "settings_privacy" = "رازداری کی پالیسی";
 "settings_agreement" = "صارف معاہدہ";
-
-/* ترتیبات سیکشنز */
 "settings_basic" = "بنیادی ترتیبات";
 "settings_legal" = "قانونی";
 "settings_privacy_policy" = "رازداری کی پالیسی";
@@ -66,37 +64,9 @@
 "settings_close" = "بند کریں";
 "settings_loading" = "لوڈ ہو رہا ہے...";
 "settings_error" = "لوڈ کرنے میں ناکام";
+"settings_title" = "ترتیبات";
 
-/* رائے فارم */
-"feedback_title" = "رائے جمع کریں";
-"feedback_type" = "رائے کی قسم";
-"feedback_content" = "مواد";
-"feedback_contact" = "رابطے کی معلومات (اختیاری)";
-"feedback_submit" = "جمع کریں";
-"feedback_cancel" = "منسوخ کریں";
-
-/* رائے کی اقسام */
-"feedback_type_issue" = "مسئلہ رپورٹ کریں";
-"feedback_type_feature" = "فیچر کی درخواست";
-"feedback_type_data" = "ڈیٹا درستگی";
-"feedback_type_other" = "دیگر";
-
-/* تلاش */
-"search_title" = "تلاش";
-"search_hint" = "برانڈ تلاش کریں";
-"search_scan" = "کوڈ اسکین کریں";
-"search_camera" = "کیمرہ";
-"search_button" = "تلاش کریں";
-"search_history" = "تلاش کی تاریخ";
-"search_results" = "تلاش کے نتائج";
-"clear_history" = "تاریخ صاف کریں";
-
-/* حالت */
-"status_avoid" = "بائیکاٹ";
-"status_support" = "حمایت";
-"status_neutral" = "غیر جانبدار";
-
-/* عمل */
+/* ایکشنز */
 "action_back" = "واپس";
 "action_feedback" = "رائے";
 "action_share" = "شیئر کریں";
@@ -104,33 +74,25 @@
 "action_clear" = "صاف کریں";
 "action_delete" = "حذف کریں";
 
-/* مضامین */
-"article_detail_title" = "مضمون کی تفصیلات";
-"article_publish_time" = "شائع شدہ: ";
-"article_summary" = "خلاصہ";
-"article_image_desc" = "مضمون کی تصویر: %@";
-"article_loading" = "لوڈ ہو رہا ہے...";
-"article_error" = "لوڈ کرنے میں ناکام";
-
-/* ترجمہ کی تنبیہات */
-"translation_warning_zh" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
-"translation_warning_en" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
-"translation_warning_hi" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
-"translation_warning_es" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
-
-/* پیغامات */
-"no_more_results" = "مزید نتائج نہیں";
-
-/* نوٹیفیکیشنز */
+/* نوٹیفکیشنز */
 "notification_channel_name" = "Boycott";
 "notification_channel_description" = "Boycott نوٹیفیکیشنز";
 
-/* زبانیں */
-"language_english" = "English";
-"language_chinese" = "中文";
-"language_japanese" = "日本語";
-"language_korean" = "한국어";
-"language_russian" = "Русский";
+/* زبان کا انتخاب */
+"language_english" = "انگریزی";
+"language_chinese" = "چینی";
+"language_japanese" = "جاپانی";
+"language_korean" = "کوریائی";
+"language_russian" = "روسی";
+"language_urdu" = "اردو";
+
+/* ہوم */
+"home_popular_brands" = "مقبول برانڈز";
+"home_view_more" = "مزید دیکھیں";
+"home_end_of_list" = "فہرست کا اختتام";
+"home_search_placeholder" = "برانڈ تلاش کریں یا بارکوڈ اسکین کریں";
+"home_no_results" = "کوئی نتیجہ نہیں ملا";
+"home_loading" = "لوڈ ہو رہا ہے...";
 
 /* کیمرہ */
 "back_button" = "واپس";
@@ -142,7 +104,7 @@
 "camera_switch_to_barcode" = "بارکوڈ اسکین موڈ پر سوئچ کریں";
 "camera_scan_result" = "اسکین کا نتیجہ";
 "camera_confirm" = "تصدیق کریں";
-"camera_barcode_result" = "کوڈ: %@";
+"camera_barcode_result" = "بارکوڈ: %@";
 "camera_barcode_error" = "اسکین ناکام";
 "camera_back" = "واپس";
 "camera_flash" = "فلیش";
@@ -166,3 +128,57 @@
 "brand_search_query" = "تلاش: %@";
 "brand_not_found" = "کوئی برانڈ نہیں ملا";
 "brand_search_results" = "تلاش کے نتائج";
+"brand_filter_all" = "تمام";
+"brand_no_data" = "کوئی ڈیٹا نہیں";
+"brand_about" = "برانڈ کے بارے میں";
+
+/* تلاش */
+"search_title" = "تلاش";
+"search_hint" = "برانڈ تلاش کریں";
+"search_scan" = "بارکوڈ اسکین کریں";
+"search_camera" = "تصویر لیں";
+"search_button" = "تلاش کریں";
+"search_history" = "تلاش کی ہسٹری";
+"search_results" = "تلاش کے نتائج";
+"clear_history" = "ہسٹری صاف کریں";
+"search_brand" = "برانڈ تلاش کریں";
+"search_no_history" = "کوئی تلاش کی ہسٹری نہیں";
+"search_recent" = "حالیہ تلاش";
+"search_clear_history" = "تلاش کی ہسٹری صاف کریں";
+"search_no_results" = "کوئی نتیجہ نہیں ملا";
+"search_error" = "تلاش میں ناکام";
+
+/* رائے */
+"feedback_title" = "رائے جمع کریں";
+"feedback_type" = "رائے کی قسم";
+"feedback_content" = "مواد";
+"feedback_contact" = "رابطہ (اختیاری)";
+"feedback_submit" = "جمع کریں";
+"feedback_cancel" = "منسوخ کریں";
+"feedback_type_issue" = "مسئلہ رپورٹ کریں";
+"feedback_type_feature" = "فیچر کی درخواست";
+"feedback_type_data" = "ڈیٹا کی درستگی";
+"feedback_type_other" = "دیگر";
+
+/* مضامین */
+"article_detail_title" = "مضمون کی تفصیلات";
+"article_publish_time" = "اشاعت کا وقت:";
+"article_summary" = "خلاصہ";
+"article_image_desc" = "مضمون کی تصویر: %1$s";
+"article_loading" = "لوڈ ہو رہا ہے...";
+"article_error" = "لوڈ کرنے میں ناکام";
+
+/* ترجمہ کی تنبیہ */
+"translation_warning_zh" = "یہ مضمون AI کے ذریعے ترجمہ کیا گیا ہے اور اس میں غلطیاں ہو سکتی ہیں";
+"translation_warning_en" = "This article is translated by AI and may contain inaccuracies";
+"translation_warning_hi" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+"translation_warning_es" = "Este artículo está traducido por IA y puede contener inexactitudes";
+
+/* حیثیت */
+"status_avoid" = "بائیکاٹ";
+"status_support" = "حمایت";
+"status_neutral" = "غیر جانبدار";
+
+/* نوٹیفکیشنز */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "بائیکاٹ ایپ نوٹیفکیشنز";

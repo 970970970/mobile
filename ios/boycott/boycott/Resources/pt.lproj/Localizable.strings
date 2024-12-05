@@ -1,28 +1,28 @@
 /* Português */
-"language_settings" = "Configurações de idioma";
-"current_language" = "Idioma atual";
-"theme_settings" = "Configurações de tema";
-"dark_mode" = "Modo escuro";
-"cache_management" = "Gerenciamento de cache";
-"clear_cache" = "Limpar cache";
+"language_settings" = "Configurações de Idioma";
+"current_language" = "Idioma Atual";
+"theme_settings" = "Configurações de Tema";
+"dark_mode" = "Modo Escuro";
+"cache_management" = "Gerenciamento de Cache";
+"clear_cache" = "Limpar Cache";
 "calculating" = "Calculando...";
 "version" = "Versão";
 "home" = "Início";
 "scan" = "Escanear";
 "settings" = "Configurações";
-"feedback_support" = "Feedback e suporte";
-"submit_feedback" = "Enviar feedback";
-"community_discussion" = "Discussão da comunidade";
-"support_us" = "Apoie-nos";
+"feedback_support" = "Feedback e Suporte";
+"submit_feedback" = "Enviar Feedback";
+"community_discussion" = "Discussão da Comunidade";
+"support_us" = "Nos Apoie";
 "about" = "Sobre";
-"privacy_policy" = "Política de privacidade";
-"terms_of_service" = "Termos de serviço";
+"privacy_policy" = "Política de Privacidade";
+"terms_of_service" = "Termos de Serviço";
 "cancel" = "Cancelar";
 "confirm" = "Confirmar";
 "done" = "Concluído";
 "clear_cache_confirm" = "Tem certeza que deseja limpar todo o cache?";
-"select_language" = "Selecionar idioma";
-"search_placeholder" = "Buscar empresa";
+"select_language" = "Selecionar Idioma";
+"search_placeholder" = "Buscar nome da empresa";
 "no_articles" = "Nenhum artigo";
 
 /* Navegação */
@@ -33,19 +33,17 @@
 "nav_settings" = "Configurações";
 
 /* Página de Configurações */
-"settings_language" = "Idioma";
+"settings_language" = "Configurações de Idioma";
 "settings_dark_mode" = "Modo Escuro";
 "settings_cache" = "Limpar Cache";
 "settings_feedback_support" = "Feedback e Suporte";
 "settings_submit_feedback" = "Enviar Feedback";
-"settings_community" = "Comunidade";
-"settings_donate" = "Apoie-nos";
+"settings_community" = "Discussão da Comunidade";
+"settings_donate" = "Nos Apoie";
 "settings_about" = "Sobre";
 "settings_version" = "Versão";
 "settings_privacy" = "Política de Privacidade";
-"settings_agreement" = "Acordo do Usuário";
-
-/* Categorias de Configurações */
+"settings_agreement" = "Termos de Serviço";
 "settings_basic" = "Configurações Básicas";
 "settings_legal" = "Legal";
 "settings_privacy_policy" = "Política de Privacidade";
@@ -54,36 +52,8 @@
 "settings_select_language" = "Selecionar Idioma";
 "settings_close" = "Fechar";
 "settings_loading" = "Carregando...";
-"settings_error" = "Erro ao Carregar";
-
-/* Diálogo de Feedback */
-"feedback_title" = "Enviar Feedback";
-"feedback_type" = "Tipo de Feedback";
-"feedback_content" = "Conteúdo";
-"feedback_contact" = "Contato (Opcional)";
-"feedback_submit" = "Enviar";
-"feedback_cancel" = "Cancelar";
-
-/* Tipos de Feedback */
-"feedback_type_issue" = "Relatar Problema";
-"feedback_type_feature" = "Solicitar Recurso";
-"feedback_type_data" = "Correção de Dados";
-"feedback_type_other" = "Outro";
-
-/* Pesquisa */
-"search_title" = "Pesquisar";
-"search_hint" = "Pesquisar marcas";
-"search_scan" = "Escanear código";
-"search_camera" = "Câmera";
-"search_button" = "Pesquisar";
-"search_history" = "Histórico de Pesquisa";
-"search_results" = "Resultados da Pesquisa";
-"clear_history" = "Limpar Histórico";
-
-/* Status */
-"status_avoid" = "Boicote";
-"status_support" = "Apoiar";
-"status_neutral" = "Neutro";
+"settings_error" = "Falha ao carregar";
+"settings_title" = "Configurações";
 
 /* Ações */
 "action_back" = "Voltar";
@@ -93,49 +63,47 @@
 "action_clear" = "Limpar";
 "action_delete" = "Excluir";
 
-/* Artigo */
-"article_detail_title" = "Detalhes do Artigo";
-"article_publish_time" = "Publicado: ";
-"article_summary" = "Resumo";
-"article_image_desc" = "Imagem do artigo: %@";
-"article_loading" = "Carregando...";
-"article_error" = "Erro ao Carregar";
-
-/* Avisos de Tradução */
-"translation_warning_zh" = "Este artigo foi traduzido por IA e pode conter imprecisões";
-"translation_warning_en" = "Este artigo foi traduzido por IA e pode conter imprecisões";
-"translation_warning_hi" = "Este artigo foi traduzido por IA e pode conter imprecisões";
-"translation_warning_es" = "Este artigo foi traduzido por IA e pode conter imprecisões";
-
-/* Mensagens */
-"no_more_results" = "Não há mais resultados";
-
 /* Notificações */
-"notification_channel_name" = "Boycott";
-"notification_channel_description" = "Notificações do Boycott";
+"loading" = "Carregando...";
+"error" = "Erro";
+"retry" = "Tentar Novamente";
+"submit" = "Enviar";
 
-/* Idiomas */
-"language_english" = "English";
-"language_chinese" = "中文";
-"language_japanese" = "日本語";
-"language_korean" = "한국어";
-"language_russian" = "Русский";
+/* Seleção de Idioma */
+"language_english" = "Inglês";
+"language_chinese" = "Chinês";
+"language_japanese" = "Japonês";
+"language_korean" = "Coreano";
+"language_russian" = "Russo";
+
+/* Início */
+"home_popular_brands" = "Marcas Populares";
+"home_view_more" = "Ver Mais";
+"home_end_of_list" = "Fim da lista";
+"home_search_placeholder" = "Buscar marca ou escanear código de barras";
+"home_no_results" = "Nenhum resultado encontrado";
+"home_loading" = "Carregando...";
 
 /* Câmera */
+"camera_not_enabled" = "Câmera não ativada";
+"photo_library_permission_required" = "Por favor, permita o acesso à galeria de fotos nas configurações";
+"camera_permission_required" = "Por favor, permita o acesso à câmera nas configurações";
+"camera_not_available" = "Câmera não disponível";
+"camera_init_failed" = "Falha ao inicializar a câmera: %@";
 "back_button" = "Voltar";
 "flash_on" = "Desligar Flash";
 "flash_off" = "Ligar Flash";
-"switch_to_back_camera" = "Mudar para Câmera Traseira";
-"switch_to_front_camera" = "Mudar para Câmera Frontal";
-"camera_switch_to_logo" = "Mudar para Modo de Detecção de Logo";
-"camera_switch_to_barcode" = "Mudar para Modo de Escaneamento de Código";
-"camera_scan_result" = "Resultado do Escaneamento";
+"switch_to_back_camera" = "Alternar para câmera traseira";
+"switch_to_front_camera" = "Alternar para câmera frontal";
+"camera_switch_to_logo" = "Alternar para modo de detecção de logo";
+"camera_switch_to_barcode" = "Alternar para modo de leitura de código de barras";
+"camera_scan_result" = "Resultado da Leitura";
 "camera_confirm" = "Confirmar";
-"camera_barcode_result" = "Código: %@";
-"camera_barcode_error" = "Falha ao Escanear";
+"camera_barcode_result" = "Código de barras: %1$s";
+"camera_barcode_error" = "Falha ao ler código de barras";
 "camera_back" = "Voltar";
 "camera_flash" = "Flash";
-"camera_switch" = "Trocar Câmera";
+"camera_switch" = "Alternar Câmera";
 "camera_take_photo" = "Tirar Foto";
 "camera_scan" = "Escanear";
 "camera_pick_gallery" = "Escolher da Galeria";
@@ -147,22 +115,79 @@
 "camera_close" = "Fechar";
 "camera_detection_result" = "Resultado da Detecção";
 
-/* Marca */
-"brand_detail_title" = "Detalhes da Marca";
-"brand_boycott" = "Boicote";
-"brand_support" = "Apoiar";
-"brand_neutral" = "Neutro";
-"brand_search_query" = "Pesquisa: %@";
-"brand_not_found" = "Nenhuma marca encontrada";
-"brand_search_results" = "Resultados da Pesquisa";
+/* Botões */
+"button_search" = "Buscar";
+"button_cancel" = "Cancelar";
+"button_confirm" = "Confirmar";
+"button_close" = "Fechar";
+"button_done" = "Concluído";
 
-/* Camera */
-"camera_not_enabled" = "Câmera não habilitada";
-"photo_library_permission_required" = "Por favor, permita o acesso à biblioteca de fotos nas configurações";
-"camera_permission_required" = "Por favor, permita o acesso à câmera nas configurações";
-"camera_not_available" = "Câmera não disponível";
-"camera_init_failed" = "Falha na inicialização da câmera: %@";
+/* Escaneamento */
 "torch_not_supported" = "Dispositivo não suporta flash";
 "torch_control_failed" = "Falha no controle do flash";
 "image_recognition_failed" = "Falha no reconhecimento de imagem: %@";
 "barcode_processing_failed" = "Falha no processamento do código de barras: %@";
+
+/* Marcas */
+"brands" = "Marcas";
+"brand_detail_title" = "Detalhes da Marca";
+"brand_boycott" = "Boicote";
+"brand_support" = "Apoiar";
+"brand_neutral" = "Neutro";
+"brand_search_query" = "Busca: %1$s";
+"brand_not_found" = "Marca não encontrada";
+"brand_search_results" = "Resultados da Busca";
+"brand_filter_all" = "Todos";
+"brand_no_data" = "Sem dados";
+"brand_about" = "Sobre a Marca";
+
+/* Busca */
+"search_title" = "Buscar";
+"search_hint" = "Buscar marca";
+"search_scan" = "Escanear Código de Barras";
+"search_camera" = "Tirar Foto";
+"search_button" = "Buscar";
+"search_history" = "Histórico de Busca";
+"search_results" = "Resultados da Busca";
+"clear_history" = "Limpar Histórico";
+"search_brand" = "Buscar Marca";
+"search_no_history" = "Nenhum histórico de busca";
+"search_recent" = "Buscas Recentes";
+"search_clear_history" = "Limpar Histórico de Busca";
+"search_no_results" = "Nenhum resultado encontrado";
+"search_error" = "Falha na busca";
+
+/* Feedback */
+"feedback_title" = "Enviar Feedback";
+"feedback_type" = "Tipo de Feedback";
+"feedback_content" = "Conteúdo";
+"feedback_contact" = "Contato (Opcional)";
+"feedback_submit" = "Enviar";
+"feedback_cancel" = "Cancelar";
+"feedback_type_issue" = "Reportar Problema";
+"feedback_type_feature" = "Solicitar Recurso";
+"feedback_type_data" = "Correção de Dados";
+"feedback_type_other" = "Outros";
+
+/* Artigos */
+"article_detail_title" = "Detalhes do Artigo";
+"article_publish_time" = "Data de Publicação:";
+"article_summary" = "Resumo";
+"article_image_desc" = "Imagem do Artigo: %1$s";
+"article_loading" = "Carregando...";
+"article_error" = "Falha ao carregar";
+
+/* Avisos de Tradução */
+"translation_warning_zh" = "Este artigo foi traduzido por IA e pode conter imprecisões";
+"translation_warning_en" = "This article is translated by AI and may contain inaccuracies";
+"translation_warning_hi" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+"translation_warning_es" = "Este artículo está traducido por IA y puede contener inexactitudes";
+
+/* Status */
+"status_avoid" = "Boicote";
+"status_support" = "Apoiar";
+"status_neutral" = "Neutro";
+
+/* Notificações */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "Notificações do App Boycott";

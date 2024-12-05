@@ -164,3 +164,31 @@
 "brand_search_query" = "Arama: %@";
 "brand_not_found" = "Marka bulunamadı";
 "brand_search_results" = "Arama Sonuçları";
+
+/* Düğmeler */
+"button_search" = "Ara";
+"button_cancel" = "İptal";
+"button_confirm" = "Onayla";
+"button_close" = "Kapat";
+"button_done" = "Tamam";
+
+/* Ana Sayfa */
+"home_popular_brands" = "Popüler Markalar";
+"home_view_more" = "Daha Fazla";
+"home_end_of_list" = "Liste Sonu";
+"home_search_placeholder" = "Marka ara veya barkod tara";
+"home_no_results" = "Sonuç Bulunamadı";
+"home_loading" = "Yükleniyor...";
+
+/* Markalar */
+"brand_filter_all" = "Tümü";
+"brand_no_data" = "Veri Yok";
+"brand_about" = "Marka Hakkında";
+
+/* Arama */
+"search_brand" = "Marka Ara";
+"search_no_history" = "Arama Geçmişi Yok";
+"search_recent" = "Son Aramalar";
+"search_clear_history" = "Arama Geçmişini Temizle";
+"search_no_results" = "Sonuç Bulunamadı";
+"search_error" = "Arama Başarısız";

@@ -21,7 +21,7 @@ struct BrandListView: View {
                     selectedFilter: selectedFilter
                 )
             }
-            .navigationTitle("品牌列表")
+            .navigationTitle("nav_brands".localized)
             .sheet(item: $selectedBrand) { brand in
                 BrandDetailView(brand: brand, isPresented: $selectedBrand)
             }
@@ -92,7 +92,7 @@ struct BrandListContent: View {
     var body: some View {
         List {
             if filteredBrands.isEmpty && !viewModel.isLoading {
-                Text("暂无数据")
+                Text("brand_no_data".localized)
                     .foregroundColor(.gray)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .listRowSeparator(.hidden)
@@ -145,7 +145,7 @@ struct BrandDetailView: View {
                     // 品牌状态
                     if let status = brand.status {
                         HStack {
-                            Text(status)
+                            Text(localizedStatus(status))
                                 .font(.headline)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 8)
@@ -158,7 +158,7 @@ struct BrandDetailView: View {
                     
                     // 品牌描述
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("关于品牌")
+                        Text("brand_about".localized)
                             .font(.headline)
                         
                         if let description = brand.description {
@@ -187,6 +187,17 @@ struct BrandDetailView: View {
         }
     }
     
+    private func localizedStatus(_ status: String) -> String {
+        switch status.lowercased() {
+        case "support":
+            return "status_support".localized
+        case "avoid":
+            return "status_avoid".localized
+        default:
+            return "status_neutral".localized
+        }
+    }
+    
     private func statusColor(_ status: String) -> Color {
         switch status.lowercased() {
         case "support":
@@ -209,10 +220,10 @@ enum BrandStatus: String, CaseIterable, Identifiable {
     
     var displayName: String {
         switch self {
-        case .all: return "全部"
-        case .support: return "支持"
-        case .avoid: return "抵制"
-        case .neutral: return "中立"
+        case .all: return "brand_filter_all".localized
+        case .support: return "status_support".localized
+        case .avoid: return "status_avoid".localized
+        case .neutral: return "status_neutral".localized
         }
     }
     
@@ -349,13 +360,24 @@ struct BrandStatusBadge: View {
     let status: String
     
     var body: some View {
-        Text(status)
+        Text(localizedStatus)
             .font(.caption)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .background(statusColor)
             .foregroundColor(.white)
             .cornerRadius(12)
+    }
+    
+    private var localizedStatus: String {
+        switch status.lowercased() {
+        case "support":
+            return "status_support".localized
+        case "avoid":
+            return "status_avoid".localized
+        default:
+            return "status_neutral".localized
+        }
     }
     
     private var statusColor: Color {

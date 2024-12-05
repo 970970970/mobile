@@ -78,6 +78,12 @@
 /* 首页 */
 "no_articles" = "暂无文章";
 "no_more_results" = "没有更多内容";
+"home_popular_brands" = "热门品牌";
+"home_view_more" = "查看更多";
+"home_end_of_list" = "已经到底啦";
+"home_search_placeholder" = "搜索品牌或扫描条码";
+"home_no_results" = "未找到结果";
+"home_loading" = "加载中...";
 
 /* 相机 */
 "camera_not_enabled" = "相机未启用";
@@ -113,6 +119,13 @@
 "camera_close" = "关闭";
 "camera_detection_result" = "检测结果";
 
+/* 按钮 */
+"button_search" = "搜索";
+"button_cancel" = "取消";
+"button_confirm" = "确定";
+"button_close" = "关闭";
+"button_done" = "完成";
+
 /* 扫描相关 */
 "torch_not_supported" = "设备不支持闪光灯";
 "torch_control_failed" = "闪光灯控制失败";
@@ -128,6 +141,9 @@
 "brand_search_query" = "搜索词：%1$s";
 "brand_not_found" = "未找到相关品牌";
 "brand_search_results" = "搜索结果";
+"brand_filter_all" = "全部";
+"brand_no_data" = "暂无数据";
+"brand_about" = "关于品牌";
 
 /* 搜索 */
 "search_title" = "搜索";
@@ -138,6 +154,12 @@
 "search_history" = "搜索历史";
 "search_results" = "搜索结果";
 "clear_history" = "清除历史";
+"search_brand" = "搜索品牌";
+"search_no_history" = "暂无搜索历史";
+"search_recent" = "最近搜索";
+"search_clear_history" = "清除搜索历史";
+"search_no_results" = "未找到结果";
+"search_error" = "搜索失败";
 
 /* 反馈 */
 "feedback_title" = "提交反馈";

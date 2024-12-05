@@ -75,6 +75,12 @@
 /* ホーム */
 "no_articles" = "記事がありません";
 "no_more_results" = "これ以上の結果はありません";
+"home_popular_brands" = "人気ブランド";
+"home_view_more" = "もっと見る";
+"home_end_of_list" = "リストの終わり";
+"home_search_placeholder" = "ブランドを検索またはバーコードをスキャン";
+"home_no_results" = "結果が見つかりません";
+"home_loading" = "読み込み中...";
 
 /* カメラ */
 "camera_not_enabled" = "カメラが無効です";
@@ -125,6 +131,9 @@
 "brand_search_query" = "検索：%1$s";
 "brand_not_found" = "ブランドが見つかりません";
 "brand_search_results" = "検索結果";
+"brand_filter_all" = "すべて";
+"brand_no_data" = "データなし";
+"brand_about" = "ブランドについて";
 
 /* 検索 */
 "search_title" = "検索";
@@ -135,6 +144,19 @@
 "search_history" = "検索履歴";
 "search_results" = "検索結果";
 "clear_history" = "履歴を削除";
+"search_brand" = "ブランドを検索";
+"search_no_history" = "検索履歴なし";
+"search_recent" = "最近の検索";
+"search_clear_history" = "検索履歴を削除";
+"search_no_results" = "結果が見つかりません";
+"search_error" = "検索に失敗しました";
+
+/* ボタン */
+"button_search" = "検索";
+"button_cancel" = "キャンセル";
+"button_confirm" = "確認";
+"button_close" = "閉じる";
+"button_done" = "完了";
 
 /* フィードバック */
 "feedback_title" = "フィードバックを送信";

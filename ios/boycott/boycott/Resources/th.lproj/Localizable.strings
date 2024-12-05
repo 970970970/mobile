@@ -1,7 +1,7 @@
 /* ไทย */
-"language_settings" = "ตั้งค่าภาษา";
+"language_settings" = "การตั้งค่าภาษา";
 "current_language" = "ภาษาปัจจุบัน";
-"theme_settings" = "ตั้งค่าธีม";
+"theme_settings" = "การตั้งค่าธีม";
 "dark_mode" = "โหมดมืด";
 "cache_management" = "จัดการแคช";
 "clear_cache" = "ล้างแคช";
@@ -9,20 +9,20 @@
 "version" = "เวอร์ชัน";
 "home" = "หน้าแรก";
 "scan" = "สแกน";
-"settings" = "ตั้งค่า";
+"settings" = "การตั้งค่า";
 "feedback_support" = "ข้อเสนอแนะและการสนับสนุน";
 "submit_feedback" = "ส่งข้อเสนอแนะ";
-"community_discussion" = "การสนทนาชุมชน";
+"community_discussion" = "การสนทนาในชุมชน";
 "support_us" = "สนับสนุนเรา";
 "about" = "เกี่ยวกับ";
 "privacy_policy" = "นโยบายความเป็นส่วนตัว";
-"terms_of_service" = "ข้อกำหนดการใช้งาน";
+"terms_of_service" = "ข้อกำหนดการให้บริการ";
 "cancel" = "ยกเลิก";
 "confirm" = "ยืนยัน";
 "done" = "เสร็จสิ้น";
 "clear_cache_confirm" = "คุณแน่ใจหรือไม่ที่จะล้างแคชทั้งหมด?";
 "select_language" = "เลือกภาษา";
-"search_placeholder" = "ค้นหาบริษัท";
+"search_placeholder" = "ค้นหาชื่อบริษัท";
 "no_articles" = "ไม่มีบทความ";
 
 /* การนำทาง */
@@ -30,22 +30,20 @@
 "nav_brands" = "แบรนด์";
 "nav_scan" = "สแกน";
 "nav_articles" = "บทความ";
-"nav_settings" = "ตั้งค่า";
+"nav_settings" = "การตั้งค่า";
 
 /* การตั้งค่า */
-"settings_language" = "ภาษา";
+"settings_language" = "การตั้งค่าภาษา";
 "settings_dark_mode" = "โหมดมืด";
 "settings_cache" = "ล้างแคช";
 "settings_feedback_support" = "ข้อเสนอแนะและการสนับสนุน";
 "settings_submit_feedback" = "ส่งข้อเสนอแนะ";
-"settings_community" = "ชุมชน";
+"settings_community" = "การสนทนาในชุมชน";
 "settings_donate" = "สนับสนุนเรา";
 "settings_about" = "เกี่ยวกับ";
 "settings_version" = "เวอร์ชัน";
 "settings_privacy" = "นโยบายความเป็นส่วนตัว";
-"settings_agreement" = "ข้อตกลงผู้ใช้";
-
-/* ส่วนการตั้งค่า */
+"settings_agreement" = "ข้อกำหนดการให้บริการ";
 "settings_basic" = "การตั้งค่าพื้นฐาน";
 "settings_legal" = "กฎหมาย";
 "settings_privacy_policy" = "นโยบายความเป็นส่วนตัว";
@@ -54,38 +52,10 @@
 "settings_select_language" = "เลือกภาษา";
 "settings_close" = "ปิด";
 "settings_loading" = "กำลังโหลด...";
-"settings_error" = "การโหลดล้มเหลว";
+"settings_error" = "โหลดไม่สำเร็จ";
+"settings_title" = "การตั้งค่า";
 
-/* แบบฟอร์มข้อเสนอแนะ */
-"feedback_title" = "ส่งข้อเสนอแนะ";
-"feedback_type" = "ประเภทข้อเสนอแนะ";
-"feedback_content" = "เนื้อหา";
-"feedback_contact" = "ข้อมูลการติดต่อ (ไม่บังคับ)";
-"feedback_submit" = "ส่ง";
-"feedback_cancel" = "ยกเลิก";
-
-/* ประเภทข้อเสนอแนะ */
-"feedback_type_issue" = "รายงานปัญหา";
-"feedback_type_feature" = "ขอฟีเจอร์";
-"feedback_type_data" = "แก้ไขข้อมูล";
-"feedback_type_other" = "อื่นๆ";
-
-/* การค้นหา */
-"search_title" = "ค้นหา";
-"search_hint" = "ค้นหาแบรนด์";
-"search_scan" = "สแกนรหัส";
-"search_camera" = "กล้อง";
-"search_button" = "ค้นหา";
-"search_history" = "ประวัติการค้นหา";
-"search_results" = "ผลการค้นหา";
-"clear_history" = "ล้างประวัติ";
-
-/* สถานะ */
-"status_avoid" = "คว่ำบาตร";
-"status_support" = "สนับสนุน";
-"status_neutral" = "เป็นกลาง";
-
-/* การกระทำ */
+/* การดำเนินการ */
 "action_back" = "กลับ";
 "action_feedback" = "ข้อเสนอแนะ";
 "action_share" = "แชร์";
@@ -93,76 +63,134 @@
 "action_clear" = "ล้าง";
 "action_delete" = "ลบ";
 
-/* บทความ */
-"article_detail_title" = "รายละเอียดบทความ";
-"article_publish_time" = "เผยแพร่: ";
-"article_summary" = "สรุป";
-"article_image_desc" = "ภาพบทความ: %@";
-"article_loading" = "กำลังโหลด...";
-"article_error" = "การโหลดล้มเหลว";
-
-/* คำเตือนการแปล */
-"translation_warning_zh" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
-"translation_warning_en" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
-"translation_warning_hi" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
-"translation_warning_es" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
-
-/* ข้อความ */
-"no_more_results" = "ไม่มีผลลัพธ์เพิ่มเติม";
-
 /* การแจ้งเตือน */
-"notification_channel_name" = "Boycott";
-"notification_channel_description" = "การแจ้งเตือน Boycott";
+"loading" = "กำลังโหลด...";
+"error" = "ข้อผิดพลาด";
+"retry" = "ลองใหม่";
+"submit" = "ส่ง";
 
-/* ภาษา */
-"language_english" = "English";
-"language_chinese" = "中文";
-"language_japanese" = "日本語";
-"language_korean" = "한국어";
-"language_russian" = "Русский";
+/* เลือกภาษา */
+"language_english" = "ภาษาอังกฤษ";
+"language_chinese" = "ภาษาจีน";
+"language_japanese" = "ภาษาญี่ปุ่น";
+"language_korean" = "ภาษาเกาหลี";
+"language_russian" = "ภาษารัสเซีย";
+
+/* หน้าแรก */
+"home_popular_brands" = "แบรนด์ยอดนิยม";
+"home_view_more" = "ดูเพิ่มเติม";
+"home_end_of_list" = "สิ้นสุดรายการ";
+"home_search_placeholder" = "ค้นหาแบรนด์หรือสแกนบาร์โค้ด";
+"home_no_results" = "ไม่พบผลลัพธ์";
+"home_loading" = "กำลังโหลด...";
 
 /* กล้อง */
+"camera_not_enabled" = "กล้องไม่ได้เปิดใช้งาน";
+"photo_library_permission_required" = "โปรดอนุญาตการเข้าถึงคลังรูปภาพในการตั้งค่า";
+"camera_permission_required" = "โปรดอนุญาตการเข้าถึงกล้องในการตั้งค่า";
+"scan" = "สแกน";
+"alert" = "แจ้งเตือน";
+"ok" = "ตกลง";
+"camera_not_available" = "ไม่มีกล้อง";
+"camera_init_failed" = "การเริ่มต้นกล้องล้มเหลว: %@";
 "back_button" = "กลับ";
 "flash_on" = "ปิดแฟลช";
 "flash_off" = "เปิดแฟลช";
 "switch_to_back_camera" = "สลับไปกล้องหลัง";
 "switch_to_front_camera" = "สลับไปกล้องหน้า";
-"camera_switch_to_logo" = "สลับไปโหมดจดจำโลโก้";
+"camera_switch_to_logo" = "สลับไปโหมดตรวจจับโลโก้";
 "camera_switch_to_barcode" = "สลับไปโหมดสแกนบาร์โค้ด";
 "camera_scan_result" = "ผลการสแกน";
 "camera_confirm" = "ยืนยัน";
-"camera_barcode_result" = "รหัส: %@";
-"camera_barcode_error" = "การสแกนล้มเหลว";
+"camera_barcode_result" = "บาร์โค้ด: %1$s";
+"camera_barcode_error" = "สแกนบาร์โค้ดไม่สำเร็จ";
 "camera_back" = "กลับ";
 "camera_flash" = "แฟลช";
 "camera_switch" = "สลับกล้อง";
 "camera_take_photo" = "ถ่ายภาพ";
 "camera_scan" = "สแกน";
-"camera_pick_gallery" = "เลือกจากแกลเลอรี";
-"camera_scan_gallery" = "สแกนจากแกลเลอรี";
+"camera_pick_gallery" = "เลือกจากคลังภาพ";
+"camera_scan_gallery" = "สแกนจากคลังภาพ";
 "camera_retake" = "ถ่ายใหม่";
-"gallery_button" = "เลือกจากแกลเลอรี";
-"scan_gallery_button" = "สแกนจากแกลเลอรี";
+"gallery_button" = "เลือกจากคลังภาพ";
+"scan_gallery_button" = "สแกนจากคลังภาพ";
 "camera_error" = "ข้อผิดพลาด";
 "camera_close" = "ปิด";
 "camera_detection_result" = "ผลการตรวจจับ";
 
+/* ปุ่ม */
+"button_search" = "ค้นหา";
+"button_cancel" = "ยกเลิก";
+"button_confirm" = "ยืนยัน";
+"button_close" = "ปิด";
+"button_done" = "เสร็จสิ้น";
+
+/* สแกน */
+"torch_not_supported" = "อุปกรณ์ไม่รองรับแฟลช";
+"torch_control_failed" = "ควบคุมแฟลชไม่สำเร็จ";
+"image_recognition_failed" = "การจดจำภาพล้มเหลว: %@";
+"barcode_processing_failed" = "การประมวลผลบาร์โค้ดล้มเหลว: %@";
+
 /* แบรนด์ */
+"brands" = "แบรนด์";
 "brand_detail_title" = "รายละเอียดแบรนด์";
 "brand_boycott" = "คว่ำบาตร";
 "brand_support" = "สนับสนุน";
 "brand_neutral" = "เป็นกลาง";
-"brand_search_query" = "ค้นหา: %@";
+"brand_search_query" = "ค้นหา: %1$s";
 "brand_not_found" = "ไม่พบแบรนด์";
 "brand_search_results" = "ผลการค้นหา";
+"brand_filter_all" = "ทั้งหมด";
+"brand_no_data" = "ไม่มีข้อมูล";
+"brand_about" = "เกี่ยวกับแบรนด์";
 
-/* Camera */
-"camera_not_enabled" = "กล้องไม่ได้เปิดใช้งาน";
-"photo_library_permission_required" = "โปรดอนุญาตการเข้าถึงคลังรูปภาพในการตั้งค่า";
-"camera_permission_required" = "โปรดอนุญาตการเข้าถึงกล้องในการตั้งค่า";
-"camera_not_available" = "ไม่มีกล้อง";
-"camera_init_failed" = "การเริ่มต้นกล้องล้มเหลว: %@";
-"torch_not_supported" = "อุปกรณ์ไม่รองรับแฟลช";
-"torch_control_failed" = "การควบคุมแฟลชล้มเหลว";
-"image_recognition_failed" = "การจดจำภาพล้มเหลว: %@";
-"barcode_processing_failed" = "การประมวลผลบาร์โค้ดล้มเหลว: %@";
+/* การค้นหา */
+"search_title" = "ค้นหา";
+"search_hint" = "ค้นหาแบรนด์";
+"search_scan" = "สแกนบาร์โค้ด";
+"search_camera" = "ถ่ายภาพ";
+"search_button" = "ค้นหา";
+"search_history" = "ประวัติการค้นหา";
+"search_results" = "ผลการค้นหา";
+"clear_history" = "ล้างประวัติ";
+"search_brand" = "ค้นหาแบรนด์";
+"search_no_history" = "ไม่มีประวัติการค้นหา";
+"search_recent" = "การค้นหาล่าสุด";
+"search_clear_history" = "ล้างประวัติการค้นหา";
+"search_no_results" = "ไม่พบผลลัพธ์";
+"search_error" = "การค้นหาล้มเหลว";
+
+/* ข้อเสนอแนะ */
+"feedback_title" = "ส่งข้อเสนอแนะ";
+"feedback_type" = "ประเภทข้อเสนอแนะ";
+"feedback_content" = "เนื้อหา";
+"feedback_contact" = "ติดต่อ (ไม่บังคับ)";
+"feedback_submit" = "ส่ง";
+"feedback_cancel" = "ยกเลิก";
+"feedback_type_issue" = "รายงานปัญหา";
+"feedback_type_feature" = "ขอฟีเจอร์ใหม่";
+"feedback_type_data" = "แก้ไขข้อมูล";
+"feedback_type_other" = "อื่นๆ";
+
+/* บทความ */
+"article_detail_title" = "รายละเอียดบทความ";
+"article_publish_time" = "เวลาเผยแพร่:";
+"article_summary" = "สรุป";
+"article_image_desc" = "ภาพบทความ: %1$s";
+"article_loading" = "กำลังโหลด...";
+"article_error" = "โหลดไม่สำเร็จ";
+
+/* คำเตือนการแปล */
+"translation_warning_zh" = "บทความนี้แปลโดย AI และอาจมีความไม่ถูกต้อง";
+"translation_warning_en" = "This article is translated by AI and may contain inaccuracies";
+"translation_warning_hi" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+"translation_warning_es" = "Este artículo está traducido por IA y puede contener inexactitudes";
+
+/* สถานะ */
+"status_avoid" = "คว่ำบาตร";
+"status_support" = "สนับสนุน";
+"status_neutral" = "เป็นกลาง";
+
+/* การแจ้งเตือน */
+"notification_channel_name" = "Boycott";
+"notification_channel_description" = "การแจ้งเตือนแอป Boycott";

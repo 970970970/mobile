@@ -31,7 +31,7 @@ struct ArticleListView: View {
             .refreshable {
                 await viewModel.refresh()
             }
-            .navigationTitle("文章")
+            .navigationTitle("nav_articles".localized)
         }
         .onAppear {
             viewModel.loadArticles()

@@ -166,3 +166,31 @@
 "torch_control_failed" = "Controllo flash fallito";
 "image_recognition_failed" = "Riconoscimento immagine fallito: %@";
 "barcode_processing_failed" = "Elaborazione codice a barre fallita: %@";
+
+/* Pulsanti */
+"button_search" = "Cerca";
+"button_cancel" = "Annulla";
+"button_confirm" = "Conferma";
+"button_close" = "Chiudi";
+"button_done" = "Fatto";
+
+/* Home */
+"home_popular_brands" = "Marchi Popolari";
+"home_view_more" = "Vedi Altro";
+"home_end_of_list" = "Fine della Lista";
+"home_search_placeholder" = "Cerca marchi o scansiona codice a barre";
+"home_no_results" = "Nessun Risultato Trovato";
+"home_loading" = "Caricamento...";
+
+/* Marchi */
+"brand_filter_all" = "Tutti";
+"brand_no_data" = "Nessun Dato";
+"brand_about" = "Info sul Marchio";
+
+/* Ricerca */
+"search_brand" = "Cerca marchi";
+"search_no_history" = "Nessuna Cronologia di Ricerca";
+"search_recent" = "Ricerche Recenti";
+"search_clear_history" = "Cancella Cronologia Ricerche";
+"search_no_results" = "Nessun Risultato Trovato";
+"search_error" = "Ricerca Fallita";

@@ -129,6 +129,34 @@
 "brand_not_found" = "لم يتم العثور على علامات تجارية";
 "brand_search_results" = "نتائج البحث";
 
+// الأزرار
+"button_search" = "بحث";
+"button_cancel" = "إلغاء";
+"button_confirm" = "تأكيد";
+"button_close" = "إغلاق";
+"button_done" = "تم";
+
+// الرئيسية
+"home_popular_brands" = "العلامات التجارية الشائعة";
+"home_view_more" = "عرض المزيد";
+"home_end_of_list" = "نهاية القائمة";
+"home_search_placeholder" = "البحث عن العلامات التجارية أو مسح الباركود";
+"home_no_results" = "لم يتم العثور على نتائج";
+"home_loading" = "جاري التحميل...";
+
+// العلامات التجارية
+"brand_filter_all" = "الكل";
+"brand_no_data" = "لا توجد بيانات";
+"brand_about" = "حول العلامة التجارية";
+
+// البحث
+"search_brand" = "البحث عن العلامات التجارية";
+"search_no_history" = "لا يوجد سجل بحث";
+"search_recent" = "عمليات البحث الأخيرة";
+"search_clear_history" = "مسح سجل البحث";
+"search_no_results" = "لم يتم العثور على نتائج";
+"search_error" = "فشل البحث";
+
 // 通用
 "language_settings" = "إعدادات اللغة";
 "current_language" = "اللغة الحالية";

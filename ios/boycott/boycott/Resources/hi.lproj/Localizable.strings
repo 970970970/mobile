@@ -166,3 +166,31 @@
 "brand_search_query" = "खोज: %@";
 "brand_not_found" = "कोई ब्रांड नहीं मिला";
 "brand_search_results" = "खोज परिणाम";
+
+/* बटन */
+"button_search" = "खोजें";
+"button_cancel" = "रद्द करें";
+"button_confirm" = "पुष्टि करें";
+"button_close" = "बंद करें";
+"button_done" = "पूर्ण";
+
+/* होम */
+"home_popular_brands" = "लोकप्रिय ब्रांड";
+"home_view_more" = "और देखें";
+"home_end_of_list" = "सूची का अंत";
+"home_search_placeholder" = "ब्रांड खोजें या बारकोड स्कैन करें";
+"home_no_results" = "कोई परिणाम नहीं मिला";
+"home_loading" = "लोड हो रहा है...";
+
+/* ब्रांड */
+"brand_filter_all" = "सभी";
+"brand_no_data" = "कोई डेटा नहीं";
+"brand_about" = "ब्रांड के बारे में";
+
+/* खोज */
+"search_brand" = "ब्रांड खोजें";
+"search_no_history" = "कोई खोज इतिहास नहीं";
+"search_recent" = "हाल की खोजें";
+"search_clear_history" = "खोज इतिहास साफ़ करें";
+"search_no_results" = "कोई परिणाम नहीं मिला";
+"search_error" = "खोज विफल";

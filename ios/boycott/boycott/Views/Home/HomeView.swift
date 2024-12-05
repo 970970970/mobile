@@ -31,13 +31,13 @@ struct HomeView: View {
                         // 品牌列表标题
                         if !viewModel.brands.isEmpty {
                             HStack {
-                                Text("热门品牌")
+                                Text("home_popular_brands".localized)
                                     .font(.headline)
                                 Spacer()
                                 Button(action: {
                                     NotificationCenter.default.post(name: .switchToTab, object: 1)
                                 }) {
-                                    Text("查看更多")
+                                    Text("home_view_more".localized)
                                         .foregroundColor(.blue)
                                 }
                             }
@@ -57,7 +57,7 @@ struct HomeView: View {
                                 Spacer()
                             }
                         } else if viewModel.hasReachedEnd {
-                            Text("已经到底啦")
+                            Text("home_end_of_list".localized)
                                 .foregroundColor(.gray)
                                 .padding()
                         }
@@ -165,7 +165,7 @@ struct SearchBarView: View {
                     Button(action: {
                         performSearch(viewModel.currentSuggestion)
                     }) {
-                        Text("搜索")
+                        Text("button_search".localized)
                             .foregroundColor(.blue)
                     }
                     .padding(.horizontal, 12)

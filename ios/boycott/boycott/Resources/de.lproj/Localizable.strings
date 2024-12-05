@@ -166,3 +166,31 @@
 "torch_control_failed" = "Blitzsteuerung fehlgeschlagen";
 "image_recognition_failed" = "Bilderkennung fehlgeschlagen: %@";
 "barcode_processing_failed" = "Barcode-Verarbeitung fehlgeschlagen: %@";
+
+/* Schaltflächen */
+"button_search" = "Suchen";
+"button_cancel" = "Abbrechen";
+"button_confirm" = "Bestätigen";
+"button_close" = "Schließen";
+"button_done" = "Fertig";
+
+/* Startseite */
+"home_popular_brands" = "Beliebte Marken";
+"home_view_more" = "Mehr Anzeigen";
+"home_end_of_list" = "Ende der Liste";
+"home_search_placeholder" = "Marken suchen oder Barcode scannen";
+"home_no_results" = "Keine Ergebnisse Gefunden";
+"home_loading" = "Wird Geladen...";
+
+/* Marken */
+"brand_filter_all" = "Alle";
+"brand_no_data" = "Keine Daten";
+"brand_about" = "Über die Marke";
+
+/* Suche */
+"search_brand" = "Marken suchen";
+"search_no_history" = "Keine Suchhistorie";
+"search_recent" = "Letzte Suchen";
+"search_clear_history" = "Suchverlauf Löschen";
+"search_no_results" = "Keine Ergebnisse Gefunden";
+"search_error" = "Suche Fehlgeschlagen";

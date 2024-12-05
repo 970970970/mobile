@@ -164,3 +164,31 @@
 "brand_search_query" = "Tìm kiếm: %@";
 "brand_not_found" = "Không tìm thấy thương hiệu";
 "brand_search_results" = "Kết quả tìm kiếm";
+
+/* Nút */
+"button_search" = "Tìm kiếm";
+"button_cancel" = "Hủy";
+"button_confirm" = "Xác nhận";
+"button_close" = "Đóng";
+"button_done" = "Xong";
+
+/* Trang chủ */
+"home_popular_brands" = "Thương hiệu phổ biến";
+"home_view_more" = "Xem thêm";
+"home_end_of_list" = "Hết danh sách";
+"home_search_placeholder" = "Tìm thương hiệu hoặc quét mã vạch";
+"home_no_results" = "Không tìm thấy kết quả";
+"home_loading" = "Đang tải...";
+
+/* Thương hiệu */
+"brand_filter_all" = "Tất cả";
+"brand_no_data" = "Không có dữ liệu";
+"brand_about" = "Về thương hiệu";
+
+/* Tìm kiếm */
+"search_brand" = "Tìm thương hiệu";
+"search_no_history" = "Không có lịch sử tìm kiếm";
+"search_recent" = "Tìm kiếm gần đây";
+"search_clear_history" = "Xóa lịch sử tìm kiếm";
+"search_no_results" = "Không tìm thấy kết quả";
+"search_error" = "Tìm kiếm thất bại";

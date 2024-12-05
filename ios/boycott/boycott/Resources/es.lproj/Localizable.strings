@@ -146,6 +146,15 @@
 "camera_error" = "Error";
 "camera_close" = "Cerrar";
 "camera_detection_result" = "Resultado de Detección";
+"camera_not_enabled" = "Cámara no habilitada";
+"photo_library_permission_required" = "Por favor, permita el acceso a la biblioteca de fotos en Configuración";
+"camera_permission_required" = "Por favor, permita el acceso a la cámara en Configuración";
+"camera_not_available" = "Cámara no disponible";
+"camera_init_failed" = "Error al inicializar la cámara: %@";
+"torch_not_supported" = "El dispositivo no admite flash";
+"torch_control_failed" = "Error en el control del flash";
+"image_recognition_failed" = "Error en el reconocimiento de imagen: %@";
+"barcode_processing_failed" = "Error en el procesamiento del código de barras: %@";
 
 /* Marca */
 "brand_detail_title" = "Detalles de la Marca";
@@ -156,13 +165,30 @@
 "brand_not_found" = "No se encontraron marcas";
 "brand_search_results" = "Resultados de Búsqueda";
 
-/* Camera */
-"camera_not_enabled" = "Cámara no habilitada";
-"photo_library_permission_required" = "Por favor, permita el acceso a la biblioteca de fotos en Configuración";
-"camera_permission_required" = "Por favor, permita el acceso a la cámara en Configuración";
-"camera_not_available" = "Cámara no disponible";
-"camera_init_failed" = "Error al inicializar la cámara: %@";
-"torch_not_supported" = "El dispositivo no admite flash";
-"torch_control_failed" = "Error en el control del flash";
-"image_recognition_failed" = "Error en el reconocimiento de imagen: %@";
-"barcode_processing_failed" = "Error en el procesamiento del código de barras: %@";
+/* Botones */
+"button_search" = "Buscar";
+"button_cancel" = "Cancelar";
+"button_confirm" = "Confirmar";
+"button_close" = "Cerrar";
+"button_done" = "Hecho";
+
+/* Inicio */
+"home_popular_brands" = "Marcas Populares";
+"home_view_more" = "Ver Más";
+"home_end_of_list" = "Fin de la Lista";
+"home_search_placeholder" = "Buscar marcas o escanear código de barras";
+"home_no_results" = "No se encontraron resultados";
+"home_loading" = "Cargando...";
+
+/* Marcas */
+"brand_filter_all" = "Todos";
+"brand_no_data" = "Sin Datos";
+"brand_about" = "Acerca de la Marca";
+
+/* Búsqueda */
+"search_brand" = "Buscar marcas";
+"search_no_history" = "Sin Historial de Búsqueda";
+"search_recent" = "Búsquedas Recientes";
+"search_clear_history" = "Borrar Historial de Búsqueda";
+"search_no_results" = "No se encontraron resultados";
+"search_error" = "Error en la búsqueda";

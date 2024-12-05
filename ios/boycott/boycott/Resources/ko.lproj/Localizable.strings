@@ -80,6 +80,22 @@
 "search_results" = "검색 결과";
 "clear_history" = "기록 지우기";
 
+/* 버튼 */
+"button_search" = "검색";
+"button_cancel" = "취소";
+"button_confirm" = "확인";
+"button_close" = "닫기";
+"button_done" = "완료";
+
+/* 홈 */
+"home_popular_brands" = "인기 브랜드";
+"home_view_more" = "더 보기";
+"home_end_of_list" = "목록 끝";
+"home_search_placeholder" = "브랜드 검색 또는 바코드 스캔";
+"home_no_results" = "검색 결과 없음";
+"home_loading" = "로딩 중...";
+"home_search_result" = "검색 결과";
+
 /* 상태 */
 "status_avoid" = "불매";
 "status_support" = "지지";
@@ -115,11 +131,11 @@
 "notification_channel_description" = "Boycott 앱 알림";
 
 /* 언어 */
-"language_english" = "English";
-"language_chinese" = "中文";
-"language_japanese" = "日本語";
+"language_english" = "영어";
+"language_chinese" = "중국어";
+"language_japanese" = "일본어";
 "language_korean" = "한국어";
-"language_russian" = "Русский";
+"language_russian" = "러시아어";
 
 /* 카메라 */
 "back_button" = "뒤로";
@@ -155,6 +171,19 @@
 "brand_search_query" = "검색: %@";
 "brand_not_found" = "브랜드를 찾을 수 없습니다";
 "brand_search_results" = "검색 결과";
+"brand_filter_all" = "전체";
+"brand_no_data" = "데이터 없음";
+"brand_about" = "브랜드 정보";
+"brand_description" = "브랜드 설명";
+
+/* 검색 */
+"search_brand" = "브랜드 검색";
+"search_no_history" = "검색 기록 없음";
+"search_recent" = "최근 검색";
+"search_clear_history" = "검색 기록 삭제";
+"search_no_results" = "검색 결과 없음";
+"search_error" = "검색 실패";
+"search_result" = "검색 결과";
 
 /* Camera */
 "camera_not_enabled" = "카메라가 활성화되지 않음";

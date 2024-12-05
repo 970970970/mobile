@@ -126,11 +126,11 @@
 "notification_channel_description" = "اعلان‌های Boycott";
 
 /* زبان‌ها */
-"language_english" = "English";
-"language_chinese" = "中文";
-"language_japanese" = "日本語";
-"language_korean" = "한국어";
-"language_russian" = "Русский";
+"language_english" = "انگلیسی";
+"language_chinese" = "چینی";
+"language_japanese" = "ژاپنی";
+"language_korean" = "کره‌ای";
+"language_russian" = "روسی";
 
 /* دوربین */
 "back_button" = "بازگشت";

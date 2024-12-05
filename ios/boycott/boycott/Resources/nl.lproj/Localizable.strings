@@ -10,17 +10,17 @@
 "home" = "Home";
 "scan" = "Scannen";
 "settings" = "Instellingen";
-"feedback_support" = "Feedback & ondersteuning";
-"submit_feedback" = "Feedback versturen";
+"feedback_support" = "Feedback en ondersteuning";
+"submit_feedback" = "Feedback verzenden";
 "community_discussion" = "Community discussie";
 "support_us" = "Steun ons";
-"about" = "Over";
+"about" = "Over ons";
 "privacy_policy" = "Privacybeleid";
 "terms_of_service" = "Servicevoorwaarden";
 "cancel" = "Annuleren";
 "confirm" = "Bevestigen";
 "done" = "Klaar";
-"clear_cache_confirm" = "Weet u zeker dat u de hele cache wilt wissen?";
+"clear_cache_confirm" = "Weet u zeker dat u de cache wilt wissen?";
 "select_language" = "Taal selecteren";
 "search_placeholder" = "Bedrijf zoeken";
 "no_articles" = "Geen artikelen";
@@ -33,19 +33,17 @@
 "nav_settings" = "Instellingen";
 
 /* Instellingen */
-"settings_language" = "Taal";
+"settings_language" = "Taalinstellingen";
 "settings_dark_mode" = "Donkere modus";
 "settings_cache" = "Cache wissen";
-"settings_feedback_support" = "Feedback & ondersteuning";
-"settings_submit_feedback" = "Feedback versturen";
-"settings_community" = "Community";
+"settings_feedback_support" = "Feedback en ondersteuning";
+"settings_submit_feedback" = "Feedback verzenden";
+"settings_community" = "Community discussie";
 "settings_donate" = "Steun ons";
-"settings_about" = "Over";
+"settings_about" = "Over ons";
 "settings_version" = "Versie";
 "settings_privacy" = "Privacybeleid";
-"settings_agreement" = "Gebruikersovereenkomst";
-
-/* Instellingen secties */
+"settings_agreement" = "Servicevoorwaarden";
 "settings_basic" = "Basisinstellingen";
 "settings_legal" = "Juridisch";
 "settings_privacy_policy" = "Privacybeleid";
@@ -54,36 +52,8 @@
 "settings_select_language" = "Taal selecteren";
 "settings_close" = "Sluiten";
 "settings_loading" = "Laden...";
-"settings_error" = "Laden mislukt";
-
-/* Feedback formulier */
-"feedback_title" = "Feedback versturen";
-"feedback_type" = "Feedback type";
-"feedback_content" = "Inhoud";
-"feedback_contact" = "Contactinformatie (Optioneel)";
-"feedback_submit" = "Versturen";
-"feedback_cancel" = "Annuleren";
-
-/* Feedback types */
-"feedback_type_issue" = "Probleem melden";
-"feedback_type_feature" = "Functie aanvragen";
-"feedback_type_data" = "Datacorrectie";
-"feedback_type_other" = "Overig";
-
-/* Zoeken */
-"search_title" = "Zoeken";
-"search_hint" = "Merk zoeken";
-"search_scan" = "Code scannen";
-"search_camera" = "Camera";
-"search_button" = "Zoeken";
-"search_history" = "Zoekgeschiedenis";
-"search_results" = "Zoekresultaten";
-"clear_history" = "Geschiedenis wissen";
-
-/* Status */
-"status_avoid" = "Boycot";
-"status_support" = "Steun";
-"status_neutral" = "Neutraal";
+"settings_error" = "Fout bij laden";
+"settings_title" = "Instellingen";
 
 /* Acties */
 "action_back" = "Terug";
@@ -93,74 +63,120 @@
 "action_clear" = "Wissen";
 "action_delete" = "Verwijderen";
 
-/* Artikelen */
-"article_detail_title" = "Artikel details";
-"article_publish_time" = "Gepubliceerd: ";
-"article_summary" = "Samenvatting";
-"article_image_desc" = "Artikel afbeelding: %@";
-"article_loading" = "Laden...";
-"article_error" = "Laden mislukt";
-
-/* Vertaling waarschuwingen */
-"translation_warning_zh" = "Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten";
-"translation_warning_en" = "Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten";
-"translation_warning_hi" = "Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten";
-"translation_warning_es" = "Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten";
-
-/* Berichten */
-"no_more_results" = "Geen resultaten meer";
-
 /* Meldingen */
 "notification_channel_name" = "Boycott";
 "notification_channel_description" = "Boycott meldingen";
 
 /* Talen */
-"language_english" = "English";
-"language_chinese" = "中文";
-"language_japanese" = "日本語";
-"language_korean" = "한국어";
-"language_russian" = "Русский";
+"language_english" = "Engels";
+"language_chinese" = "Chinees";
+"language_japanese" = "Japans";
+"language_korean" = "Koreaans";
+"language_russian" = "Russisch";
 
 /* Camera */
 "camera_not_enabled" = "Camera niet ingeschakeld";
-"photo_library_permission_required" = "Geef toegang tot de fotobibliotheek in instellingen";
-"camera_permission_required" = "Geef toegang tot de camera in instellingen";
+"photo_library_permission_required" = "Schakel toegang tot fotobibliotheek in via instellingen";
+"camera_permission_required" = "Schakel cameratoegang in via instellingen";
 "camera_not_available" = "Camera niet beschikbaar";
 "camera_init_failed" = "Camera initialisatie mislukt: %@";
-"torch_not_supported" = "Apparaat ondersteunt geen flitser";
-"torch_control_failed" = "Flitserbesturing mislukt";
+"torch_not_supported" = "Zaklamp niet ondersteund op dit apparaat";
+"torch_control_failed" = "Zaklampbediening mislukt";
 "image_recognition_failed" = "Beeldherkenning mislukt: %@";
 "barcode_processing_failed" = "Barcodeverwerking mislukt: %@";
 "back_button" = "Terug";
-"flash_on" = "Flitser uit";
-"flash_off" = "Flitser aan";
+"flash_on" = "Flits uit";
+"flash_off" = "Flits aan";
 "switch_to_back_camera" = "Naar achtercamera";
 "switch_to_front_camera" = "Naar frontcamera";
 "camera_switch_to_logo" = "Naar logoherkenning";
 "camera_switch_to_barcode" = "Naar barcodescanner";
 "camera_scan_result" = "Scanresultaat";
 "camera_confirm" = "Bevestigen";
-"camera_barcode_result" = "Code: %@";
-"camera_barcode_error" = "Scannen mislukt";
+"camera_barcode_result" = "Barcode: %1$s";
+"camera_barcode_error" = "Barcode scanfout";
 "camera_back" = "Terug";
-"camera_flash" = "Flitser";
+"camera_flash" = "Flits";
 "camera_switch" = "Camera wisselen";
 "camera_take_photo" = "Foto maken";
 "camera_scan" = "Scannen";
 "camera_pick_gallery" = "Uit galerij kiezen";
 "camera_scan_gallery" = "Uit galerij scannen";
-"camera_retake" = "Opnieuw";
+"camera_retake" = "Opnieuw maken";
 "gallery_button" = "Uit galerij kiezen";
 "scan_gallery_button" = "Uit galerij scannen";
 "camera_error" = "Fout";
 "camera_close" = "Sluiten";
 "camera_detection_result" = "Detectieresultaat";
 
+/* Knoppen */
+"button_search" = "Zoeken";
+"button_cancel" = "Annuleren";
+"button_confirm" = "Bevestigen";
+"button_close" = "Sluiten";
+"button_done" = "Klaar";
+
+/* Scannen */
+"scan" = "Scannen";
+"alert" = "Waarschuwing";
+"ok" = "OK";
+
 /* Merken */
-"brand_detail_title" = "Merk details";
+"brands" = "Merken";
+"brand_detail_title" = "Merkdetails";
 "brand_boycott" = "Boycot";
 "brand_support" = "Steun";
 "brand_neutral" = "Neutraal";
-"brand_search_query" = "Zoekopdracht: %@";
-"brand_not_found" = "Geen merken gevonden";
+"brand_search_query" = "Zoekopdracht: %1$s";
+"brand_not_found" = "Merk niet gevonden";
 "brand_search_results" = "Zoekresultaten";
+"brand_filter_all" = "Alles";
+"brand_no_data" = "Geen gegevens";
+"brand_about" = "Over het merk";
+
+/* Zoeken */
+"search_title" = "Zoeken";
+"search_hint" = "Zoek merk";
+"search_scan" = "Barcode scannen";
+"search_camera" = "Foto maken";
+"search_button" = "Zoeken";
+"search_history" = "Zoekgeschiedenis";
+"search_results" = "Zoekresultaten";
+"clear_history" = "Geschiedenis wissen";
+"search_brand" = "Merk zoeken";
+"search_no_history" = "Geen zoekgeschiedenis";
+"search_recent" = "Recent gezocht";
+"search_clear_history" = "Zoekgeschiedenis wissen";
+"search_no_results" = "Geen resultaten gevonden";
+"search_error" = "Zoekfout";
+
+/* Feedback */
+"feedback_title" = "Feedback verzenden";
+"feedback_type" = "Type feedback";
+"feedback_content" = "Inhoud";
+"feedback_contact" = "Contactinformatie (optioneel)";
+"feedback_submit" = "Verzenden";
+"feedback_cancel" = "Annuleren";
+"feedback_type_issue" = "Probleem melden";
+"feedback_type_feature" = "Functie aanvragen";
+"feedback_type_data" = "Gegevenscorrectie";
+"feedback_type_other" = "Overig";
+
+/* Artikelen */
+"article_detail_title" = "Artikeldetails";
+"article_publish_time" = "Publicatietijd:";
+"article_summary" = "Samenvatting";
+"article_image_desc" = "Artikelafbeelding: %1$s";
+"article_loading" = "Laden...";
+"article_error" = "Fout bij laden";
+
+/* Vertaalwaarschuwing */
+"translation_warning_zh" = "Dit artikel is vertaald door AI en kan onnauwkeurigheden bevatten";
+"translation_warning_en" = "This article is translated by AI and may contain inaccuracies";
+"translation_warning_hi" = "यह लेख AI द्वारा अनुवादित है और इसमें अशुद्धियां हो सकती हैं";
+"translation_warning_es" = "Este artículo está traducido por IA y puede contener inexactitudes";
+
+/* Status */
+"status_avoid" = "Boycot";
+"status_support" = "Steun";
+"status_neutral" = "Neutraal";

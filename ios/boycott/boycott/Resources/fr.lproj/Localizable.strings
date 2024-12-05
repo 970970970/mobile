@@ -80,6 +80,21 @@
 "search_results" = "Résultats de Recherche";
 "clear_history" = "Effacer l'Histoire";
 
+/* Boutons */
+"button_search" = "Rechercher";
+"button_cancel" = "Annuler";
+"button_confirm" = "Confirmer";
+"button_close" = "Fermer";
+"button_done" = "Terminé";
+
+/* Accueil */
+"home_popular_brands" = "Marques Populaires";
+"home_view_more" = "Voir Plus";
+"home_end_of_list" = "Fin de la Liste";
+"home_search_placeholder" = "Rechercher des marques ou scanner un code-barres";
+"home_no_results" = "Aucun Résultat Trouvé";
+"home_loading" = "Chargement...";
+
 /* Statut */
 "status_avoid" = "Boycotter";
 "status_support" = "Soutenir";
@@ -155,6 +170,17 @@
 "brand_search_query" = "Recherche : %@";
 "brand_not_found" = "Aucune marque trouvée";
 "brand_search_results" = "Résultats de Recherche";
+"brand_filter_all" = "Tout";
+"brand_no_data" = "Aucune Donnée";
+"brand_about" = "À Propos de la Marque";
+
+/* Marques */
+"search_brand" = "Rechercher des marques";
+"search_no_history" = "Aucun Historique de Recherche";
+"search_recent" = "Recherches Récentes";
+"search_clear_history" = "Effacer l'Historique de Recherche";
+"search_no_results" = "Aucun Résultat Trouvé";
+"search_error" = "Échec de la Recherche";
 
 /* Camera */
 "camera_not_enabled" = "Caméra non activée";
