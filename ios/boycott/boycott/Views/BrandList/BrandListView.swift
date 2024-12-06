@@ -102,21 +102,32 @@ struct BrandListContent: View {
                         .onTapGesture {
                             selectedBrand = brand
                         }
-                        .listRowInsets(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
+                        .onAppear {
+                            viewModel.loadMoreIfNeeded(currentItem: brand)
+                        }
                 }
                 
                 if viewModel.isLoading {
-                    ProgressView()
-                        .frame(maxWidth: .infinity)
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                    .listRowSeparator(.hidden)
+                }
+                
+                if !viewModel.hasMorePages && !filteredBrands.isEmpty {
+                    Text("home_end_of_list".localized)
+                        .foregroundColor(.gray)
+                        .frame(maxWidth: .infinity, alignment: .center)
                         .listRowSeparator(.hidden)
                 }
             }
         }
         .listStyle(.plain)
         .refreshable {
-            viewModel.refresh()
+            await viewModel.refresh()
         }
-        .searchable(text: $searchText, prompt: "搜索品牌")
     }
 }
 

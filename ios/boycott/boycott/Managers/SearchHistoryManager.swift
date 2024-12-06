@@ -52,19 +52,27 @@ class SearchHistoryManager {
         let fetchRequest: NSFetchRequest<SearchHistoryItem> = SearchHistoryItem.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
         
-        guard let items = try? context.fetch(fetchRequest) else { return [] }
-        return items.compactMap { $0.query }
+        if let items = try? context.fetch(fetchRequest) {
+            return items.map { $0.query ?? "" }
+        }
+        return []
+    }
+    
+    func removeSearch(_ query: String) {
+        let fetchRequest: NSFetchRequest<SearchHistoryItem> = SearchHistoryItem.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "query == %@", query)
+        
+        if let items = try? context.fetch(fetchRequest) {
+            items.forEach { context.delete($0) }
+            try? context.save()
+        }
     }
     
     func clearHistory() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = SearchHistoryItem.fetchRequest()
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
-        do {
-            try context.execute(batchDeleteRequest)
-            try context.save()
-        } catch {
-            print("Error clearing history:", error)
-        }
+        try? context.execute(deleteRequest)
+        try? context.save()
     }
-} 
+}

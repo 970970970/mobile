@@ -2,7 +2,8 @@ import SwiftUI
 
 struct SearchHistoryView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var searchText = ""
+    @Binding var searchText: String
+    @Binding var isPresented: Bool
     @StateObject private var viewModel = SearchHistoryViewModel()
     
     var body: some View {
@@ -23,73 +24,55 @@ struct SearchHistoryView: View {
                             .frame(maxWidth: .infinity, alignment: .center)
                             .listRowSeparator(.hidden)
                     } else {
-                        Section(header: Text("search_recent".localized)) {
-                            ForEach(viewModel.recentSearches, id: \.self) { search in
-                                Button(action: { performSearch(search) }) {
-                                    HStack {
-                                        Image(systemName: "clock")
-                                            .foregroundColor(.gray)
-                                        Text(search)
-                                            .foregroundColor(.primary)
-                                        Spacer()
-                                    }
+                        ForEach(viewModel.recentSearches, id: \.self) { search in
+                            Button(action: {
+                                searchText = search
+                                performSearch(search)
+                            }) {
+                                HStack {
+                                    Image(systemName: "clock")
+                                        .foregroundColor(.gray)
+                                    Text(search)
+                                        .foregroundColor(.primary)
+                                    Spacer()
                                 }
                             }
                         }
-                        
-                        if !viewModel.recentSearches.isEmpty {
-                            Button(action: viewModel.clearHistory) {
-                                Text("search_clear_history".localized)
-                                    .foregroundColor(.red)
-                            }
-                        }
+                        .onDelete(perform: viewModel.deleteSearchHistory)
                     }
                 }
+                .listStyle(.plain)
             }
             .navigationTitle("nav_search".localized)
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("button_cancel".localized) {
-                        dismiss()
+                        isPresented = false
+                    }
+                }
+                
+                if !viewModel.recentSearches.isEmpty {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("search_clear_history".localized) {
+                            viewModel.clearSearchHistory()
+                        }
                     }
                 }
             }
         }
+        .onAppear {
+            viewModel.loadSearchHistory()
+        }
     }
     
     private func performSearch(_ query: String) {
-        guard !query.isEmpty else { return }
-        
-        // 保存搜索历史
-        SearchHistoryManager.shared.addSearch(query)
-        
-        // 调用搜索接口
-        APIService.shared.searchBrands(keyword: query) { result in
-            switch result {
-            case .success(let response):
-                if response.total == 1, let brand = response.items.first {
-                    // 如果只有一个结果，显示品牌详情
-                    NotificationCenter.default.post(
-                        name: .showBrandDetail,
-                        object: brand
-                    )
-                } else if response.total > 1 {
-                    // 如果有多个结果，切换到列表页并显示搜索结果
-                    NotificationCenter.default.post(name: .switchToTab, object: 1)
-                    // 稍微延迟一下发送搜索通知，确保标签切换完成
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        NotificationCenter.default.post(
-                            name: .performSearch,
-                            object: query
-                        )
-                    }
-                }
-                dismiss()
-            case .failure(let error):
-                print("Search error:", error)
-                // TODO: 显示错误提示
-            }
+        if !query.isEmpty {
+            viewModel.addSearch(query)
+            searchText = query
+            isPresented = false
+            
+            // 发送搜索通知
+            NotificationCenter.default.post(name: .performSearch, object: query)
         }
     }
 }
@@ -130,7 +113,7 @@ struct SearchBar: View {
 #if DEBUG
 struct SearchHistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchHistoryView()
+        SearchHistoryView(searchText: .constant(""), isPresented: .constant(true))
     }
 }
 #endif

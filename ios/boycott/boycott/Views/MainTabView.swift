@@ -4,6 +4,7 @@ struct MainTabView: View {
     @State private var selectedTab = 0
     @State private var selectedBrand: Brand?
     @State private var refreshID = UUID()
+    @State private var showingScanner = false
     @ObservedObject private var languageManager = LanguageManager.shared
     
     var body: some View {
@@ -23,7 +24,8 @@ struct MainTabView: View {
                     }
                     .tag(1)
                 
-                ScanView()
+                // 扫描标签页只是一个占位符
+                Color.clear
                     .tabItem {
                         Text("")
                     }
@@ -45,32 +47,26 @@ struct MainTabView: View {
             }
             
             // 凸起的扫描按钮
-            Button(action: { selectedTab = 2 }) {
+            Button(action: { showingScanner = true }) {
                 ZStack {
                     Circle()
                         .fill(Color.blue)
                         .frame(width: 56, height: 56)
-                        .shadow(radius: 3, x: 0, y: 2)
+                        .shadow(radius: 4)
                     
-                    VStack(spacing: 2) {
-                        Image(systemName: "camera.viewfinder")
-                            .font(.system(size: 24))
-                        Text("nav_scan".localized)
-                            .font(.caption2)
-                    }
-                    .foregroundColor(.white)
+                    Image(systemName: "barcode.viewfinder")
+                        .font(.system(size: 24))
+                        .foregroundColor(.white)
                 }
             }
-            .offset(y: -10)
-            .padding(.bottom, 2)
+            .offset(y: -8) // 稍微向上偏移
         }
-        .id(refreshID)
-        .sheet(item: $selectedBrand) { brand in
-            BrandDetailView(brand: brand, isPresented: $selectedBrand)
+        .sheet(isPresented: $showingScanner) {
+            ScanView(isPresented: $showingScanner)
         }
         .onReceive(NotificationCenter.default.publisher(for: .switchToTab)) { notification in
-            if let tab = notification.object as? Int {
-                selectedTab = tab
+            if let tabIndex = notification.object as? Int {
+                selectedTab = tabIndex
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: .showBrandDetail)) { notification in
@@ -80,6 +76,10 @@ struct MainTabView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: LanguageManager.languageChangedNotification)) { _ in
             refreshID = UUID()
+        }
+        .id(refreshID)
+        .sheet(item: $selectedBrand) { brand in
+            BrandDetailView(brand: brand, isPresented: $selectedBrand)
         }
     }
 }

@@ -5,6 +5,7 @@ struct HomeView: View {
     @State private var showingSearchHistory = false
     @State private var showingScanner = false
     @StateObject private var viewModel = HomeViewModel()
+    @StateObject private var brandListViewModel = HomeBrandListViewModel()
     
     var body: some View {
         NavigationView {
@@ -29,7 +30,7 @@ struct HomeView: View {
                         }
                         
                         // 品牌列表标题
-                        if !viewModel.brands.isEmpty {
+                        if !brandListViewModel.brands.isEmpty {
                             HStack {
                                 Text("home_popular_brands".localized)
                                     .font(.headline)
@@ -44,58 +45,44 @@ struct HomeView: View {
                             .padding(.horizontal)
                             
                             // 品牌网格
-                            BrandGridView(brands: viewModel.brands)
-                                .padding(.horizontal)
+                            BrandGridView(viewModel: brandListViewModel)
                         }
                         
-                        // 加载更多指示器
-                        if viewModel.isLoadingMore {
+                        // 加载状态和结束提示
+                        if brandListViewModel.isLoading {
                             HStack {
                                 Spacer()
                                 ProgressView()
-                                    .padding()
                                 Spacer()
                             }
-                        } else if viewModel.hasReachedEnd {
+                            .padding()
+                        } else if !brandListViewModel.hasMorePages {
                             Text("home_end_of_list".localized)
                                 .foregroundColor(.gray)
+                                .frame(maxWidth: .infinity)
                                 .padding()
                         }
                     }
                 }
-                .coordinateSpace(name: "scroll")
-                .background(
-                    GeometryReader { proxy in
-                        Color.clear.preference(
-                            key: ScrollOffsetPreferenceKey.self,
-                            value: ScrollData(
-                                contentHeight: proxy.frame(in: .named("scroll")).height,
-                                scrollOffset: proxy.frame(in: .named("scroll")).minY
-                            )
-                        )
-                    }
-                )
-                .onPreferenceChange(ScrollOffsetPreferenceKey.self) { data in
-                    let threshold: CGFloat = 100
-                    let position = data.contentHeight + data.scrollOffset
-                    let target = data.contentHeight - threshold
-                    
-                    if position < target && !viewModel.isLoadingMore && !viewModel.hasReachedEnd {
-                        print("🔄 Triggering load more...")
-                        Task {
-                            await viewModel.loadMoreBrands()
-                        }
-                    }
+                .refreshable {
+                    await viewModel.loadData()
+                    await brandListViewModel.refresh()
                 }
             }
+            .navigationBarHidden(true)
             .sheet(isPresented: $showingSearchHistory) {
-                SearchHistoryView()
+                SearchHistoryView(searchText: $searchText, isPresented: $showingSearchHistory)
             }
             .sheet(isPresented: $showingScanner) {
-                ScanView()
+                ScanView(isPresented: $showingScanner)
             }
             .onAppear {
-                viewModel.loadInitialData()
+                if viewModel.articles.isEmpty {
+                    viewModel.loadData()
+                }
+                if brandListViewModel.brands.isEmpty {
+                    brandListViewModel.loadBrands()
+                }
             }
         }
     }
@@ -213,4 +200,4 @@ struct SearchBarView: View {
             }
         }
     }
-} 
+}
